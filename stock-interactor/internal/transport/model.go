@@ -1,0 +1,7 @@
+package transport
+
+const (
+	MAX_CANDLES_PER_REQUEST = 1500
+
+	IMMEDIATELY_TRIGGER_CODE = -2021
+)

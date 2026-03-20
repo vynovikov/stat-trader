@@ -1,0 +1,178 @@
+from datetime import datetime
+from typing import List
+from unittest.mock import ANY, call
+
+import numpy as np
+import pandas as pd
+import pytest
+import pytest_mock
+from sklearn.neighbors import NearestNeighbors
+from umap import UMAP
+
+from config.config import QdrantConfig, qdrant_config
+from domain.models.candle import Candle
+from domain.models.order import Order
+from domain.models.point import Point
+from domain.models.segment import Segment
+from domain.types.action import Action
+from domain.types.direction import Direction
+from marker.marker import Marker
+from services.repository import QdrantRepository
+from services.repository.interface import Repository
+from services.scatter import Scatter
+from services.trade_engine import TradeEngineReversalV2
+from services.vectorizer.vectorizer import Vectorizer
+from utils.read_data import read_data
+
+
+def get_segments(df: pd.DataFrame) -> List[Segment]:
+    marker = Marker(a_len=8)
+    segments = marker.mark(df)
+    return segments
+
+
+handle_test_cases = [
+    {
+        "name": "1. Not_ready -> off_market",
+        "initial_candles": [
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.3, low=100.2, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.7, low=100.6, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(
+                high=100.8,
+                low=100.7,
+                open=100.55,
+                close=100.58,
+                volume=1000,
+                close_time=datetime.now(),
+            ),
+        ],
+        "candle": Candle(high=100.7, low=100.6, open=100.45, close=100.48, volume=1000),
+        "avg_candle_len": 1.5,
+        "expected_state": "off_market",
+        "expected_pre": [],
+        "expected_order": Order(Action.NONE, 0, 0, 0),
+        "expected_is_sl_triggered": False,
+        "expected_cooldown_counter": 0,
+        "expected_point_sl": 0,
+        "expected_point_tp": 0,
+    },
+    {
+        "name": "2. Not_ready -> on_market",
+        "initial_grouping_len": 6,
+        "initial_candles": [
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.3, low=100.2, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.7, low=100.6, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+        ],
+        "candle": Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+        "avg_candle_len": 1.5,
+        "expected_state": "on_market",
+        "expected_pre": [
+            Candle(high=100.3, low=100.2, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.7, low=100.6, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+        ],
+        "expected_order": Order(Action.SELL, 100.48, 102.48, 92.48),
+        "expected_is_sl_triggered": False,
+        "expected_cooldown_counter": 0,
+        "expected_point_sl": 0,
+        "expected_point_tp": 0,
+    },
+    {
+        "name": "3. Not_ready -> off_market_uptrend",
+        "initial_grouping_len": 6,
+        "initial_candles": [
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.3, low=100.2, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.6, low=100.4, open=100.58, close=100.48, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.48, close=100.45, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+        ],
+        "candle": Candle(high=100.6, low=100.4, open=100.48, close=100.58, volume=1000),
+        "avg_candle_len": 1.5,
+        "expected_state": "off_market_uptrend",
+        "expected_pre": [
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.3, low=100.2, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.5, low=100.4, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.4, low=100.3, open=100.55, close=100.58, volume=1000),
+            Candle(high=100.7, low=100.6, open=100.45, close=100.48, volume=1000),
+            Candle(high=100.6, low=100.5, open=100.55, close=100.58, volume=1000),
+        ],
+        "expected_order": Order(Action.SELL, 100.48, 102.48, 92.48),
+        "expected_is_sl_triggered": False,
+        "expected_cooldown_counter": 0,
+        "expected_point_sl": 0,
+        "expected_point_tp": 0,
+    },
+]
+
+
+@pytest.mark.parametrize(
+    "case",
+    handle_test_cases,
+    ids=[c["name"] for c in handle_test_cases],
+)
+def test_trade_engine_FSM(case):
+    """
+    Тестирование TradeEngine с различными сценариями
+    """
+    config = qdrant_config
+    repo = QdrantRepository(symbol="test", config=config)
+
+    base_df = read_data(
+        input_file="data/candles/BTCUSDT/ma_added/BTCUSDT_5m_ma.csv",
+        offset_hours=0,
+        limit_hours=100,
+    )
+
+    segments = get_segments(base_df)
+
+    for idx, segment in enumerate(segments[:8]):
+        segment.update_pattern_characteristics(
+            base_df["ma_50"].tolist(), base_df["ma_200"].tolist()
+        )
+        # segment.Params.direction = Direction.UP
+
+        repo.upsert(id=idx, segment=segment)
+
+    trade_engine_FSM = TradeEngineReversalV2(
+        repository=repo,
+        avg_candle_len=case["avg_candle_len"],
+        last_id=7,
+        expire_in=365,
+        neighbor_limit=5,
+    )
+    # Prepare the initial state
+    for candle in case["initial_candles"]:
+        trade_engine_FSM.handle_first(candle)
+
+    # Handle the current candle
+    trade_engine_FSM.handle_first(case["candle"])
+
+    # Assertions
+    assert trade_engine_FSM.current_state.id == case["expected_state"]

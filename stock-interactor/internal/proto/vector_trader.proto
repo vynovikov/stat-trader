@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package vectortrader;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/vector-trader/stock-interactor/internal/pb;pb";
+
+service Stock {
+    rpc LastNCandles(LastNRequest) returns (LastNResponse);
+    //rpc GetHistory(HistoryRequest) returns (stream HistoryResponse); deprecated use IntervalCandles
+    rpc IntervalCandles(IntervalCandlesRequest) returns (IntervalCandlesResponse);
+    rpc OpenOrder(OpenOrderRequest) returns (OpenOrderResponse);
+    rpc CloseOrder(CloseOrderRequest) returns (CloseOrderResponse);
+}
+
+service Engine {
+    rpc Decide(DecideRequest) returns (DecideResponse);
+}
+
+message LastNRequest {
+    string symbol = 1;
+    string interval = 2;
+    int32 limit = 3;
+}
+
+message LastNResponse {
+    repeated Candle candles = 1;
+}
+
+message IntervalCandlesRequest {
+    string symbol = 1;
+    string interval = 2;
+    int64 from_timestamp = 3;
+    int64 to_timestamp = 4;
+}
+message IntervalCandlesResponse {
+    repeated Candle candles = 1;
+}
+
+message DecideRequest {
+    Candle candle = 1;
+    double spread =2;
+    double balance =3;
+}
+
+message DecideResponse {
+    MarketAction market_action = 1;
+    Order order = 2;
+    double profit = 3;
+}
+message OpenOrderRequest {
+    string symbol = 1;
+    Order order = 2;
+}
+message OpenOrderResponse {
+    string order_id = 1;
+}
+message CloseOrderRequest {
+    string symbol = 1;
+}
+message CloseOrderResponse {
+    double profit = 1;
+}
+
+message Candle {
+  double open = 1;
+  double high = 2;
+  double low = 3;
+  double close = 4;
+  double volume = 5;
+  google.protobuf.Timestamp open_time = 6;
+  google.protobuf.Timestamp close_time = 7;
+}
+
+enum CandleAction {
+    NONE = 0;
+    BUY = 1;
+    SELL = 2;
+}
+
+enum MarketAction {
+    HOLD = 0;
+    OPEN = 1;
+    CLOSE = 2;
+    CLOSE_THEN_OPEN = 3;
+}
+
+message Order{
+    double entry = 1;
+    double sl = 2;
+    double tp = 3;
+    CandleAction candle_action = 4;
+    double volume = 5;
+}

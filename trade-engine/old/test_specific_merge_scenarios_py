@@ -1,0 +1,304 @@
+"""
+Тесты конкретных сценариев, которые могли привести к слиянию групп 4 и 6
+"""
+import pytest
+from services.scatter.scatter import Scatter
+from domain.models.point import Point
+from domain.types.direction import Direction
+
+
+def test_merge_after_20_points():
+    """
+    Тест: что происходит после добавления 20+ точек (полный k-NN пересчет)
+    """
+    print("=== Тест слияния после 20+ точек ===")
+    
+    scatter = Scatter(
+        min_group_size=3,
+        scan_radius=0.1,  # Маленький начальный радиус
+        sector_size=6.0,
+    )
+    
+    # Добавляем группу 4 (левая сторона)
+    group_4_points = [
+        Point(x=-1.0, y=0.0, direction=Direction.UP),
+        Point(x=-0.95, y=0.05, direction=Direction.UP),
+        Point(x=-1.05, y=-0.05, direction=Direction.UP),
+    ]
+    
+    # Добавляем группу 6 (правая сторона)
+    group_6_points = [
+        Point(x=1.0, y=0.0, direction=Direction.UP),
+        Point(x=0.95, y=0.05, direction=Direction.UP),
+        Point(x=1.05, y=-0.05, direction=Direction.UP),
+    ]
+    
+    # Добавляем основные точки групп
+    for point in group_4_points + group_6_points:
+        scatter.add_point(point)
+    
+    print(f"После добавления основных групп: scan_radius = {scatter.scan_radius:.3f}")
+    
+    # Группируем
+    scatter.scan_all_points()
+    scatter.group()
+    
+    print(f"Группы после первичной группировки:")
+    for i, group in enumerate(scatter.groups):
+        if group:
+            point_ids = [p.id for p in group.points]
+            print(f"  Группа {i} (id={group.id}): точки {point_ids}")
+    
+    # Добавляем еще 15 промежуточных точек, чтобы достичь 20+ и вызвать k-NN пересчет
+    intermediate_points = []
+    for i in range(15):
+        # Добавляем точки в разных местах плоскости
+        x = -0.5 + (i % 5) * 0.25  # От -0.5 до 0.5
+        y = -0.3 + (i // 5) * 0.2   # От -0.3 до 0.3
+        point = Point(x=x, y=y, direction=Direction.UP)
+        intermediate_points.append(point)
+        scatter.add_point(point)
+        
+        if scatter.points_since_last_full_recalc == 0:  # Произошел k-NN пересчет
+            print(f"🔄 k-NN пересчет после точки {point.id}: новый scan_radius = {scatter.scan_radius:.3f}")
+    
+    print(f"Финальный scan_radius после 20+ точек: {scatter.scan_radius:.3f}")
+    
+    # Проверяем расстояния
+    min_distance = float('inf')
+    for p1 in group_4_points:
+        for p2 in group_6_points:
+            dist = p1.distance(p2)
+            min_distance = min(min_distance, dist)
+    
+    print(f"Минимальное расстояние между группами 4 и 6: {min_distance:.3f}")
+    
+    if scatter.scan_radius >= min_distance:
+        print("🚨 ПОТЕНЦИАЛЬНАЯ ПРОБЛЕМА: scan_radius >= расстояния между группами!")
+        
+        # Добавляем промежуточную точку между группами
+        bridge_point = Point(x=0.0, y=0.0, direction=Direction.UP)
+        scatter.add_point(bridge_point)
+        scatter.regroup(bridge_point)
+        
+        # Проверяем результат
+        left_groups = set(p.group_id for p in group_4_points if p.group_id >= 0)
+        right_groups = set(p.group_id for p in group_6_points if p.group_id >= 0)
+        
+        print(f"Левая группа в группах: {left_groups}")
+        print(f"Правая группа в группах: {right_groups}")
+        
+        merged = left_groups & right_groups
+        if merged:
+            print(f"🔥 СЛИЯНИЕ ОБНАРУЖЕНО: группы слились в {merged}!")
+            return True
+    
+    return False
+
+
+def test_merge_with_prepare_neighbor_scanning():
+    """
+    Тест: что происходит при использовании prepare_neighbor_scanning()
+    (например, при загрузке существующих данных)
+    """
+    print("=== Тест слияния через prepare_neighbor_scanning() ===")
+    
+    scatter = Scatter(
+        min_group_size=3,
+        scan_radius=0.1,
+        sector_size=6.0,
+    )
+    
+    # Создаем точки без использования add_point() (имитируем загрузку данных)
+    points = [
+        # Группа 4 (левая)
+        Point(x=-1.0, y=0.0, direction=Direction.UP, id=0),
+        Point(x=-0.95, y=0.05, direction=Direction.UP, id=1),
+        Point(x=-1.05, y=-0.05, direction=Direction.UP, id=2),
+        # Группа 6 (правая)
+        Point(x=1.0, y=0.0, direction=Direction.UP, id=3),
+        Point(x=0.95, y=0.05, direction=Direction.UP, id=4),
+        Point(x=1.05, y=-0.05, direction=Direction.UP, id=5),
+        # Промежуточная точка
+        Point(x=0.0, y=0.0, direction=Direction.UP, id=6),
+    ]
+    
+    # Добавляем точки напрямую (как при загрузке)
+    scatter.points = points
+    
+    print(f"До prepare_neighbor_scanning: scan_radius = {scatter.scan_radius:.3f}")
+    
+    # Вызываем prepare_neighbor_scanning (это вызывает k-NN пересчет!)
+    scatter.prepare_neighbor_scanning()
+    
+    print(f"После prepare_neighbor_scanning: scan_radius = {scatter.scan_radius:.3f}")
+    
+    # Сканируем соседей
+    scatter.scan_all_points()
+    
+    # Проверяем соседей промежуточной точки
+    bridge_point = points[6]
+    neighbors = [n.id for n in bridge_point.neighbors.values()]
+    print(f"Соседи промежуточной точки {bridge_point.id}: {neighbors}")
+    
+    # Группируем
+    scatter.group()
+    
+    print(f"Группы после группировки:")
+    for i, group in enumerate(scatter.groups):
+        if group:
+            point_ids = [p.id for p in group.points]
+            print(f"  Группа {i} (id={group.id}): точки {point_ids}")
+    
+    # Проверяем слияние
+    left_points = points[:3]
+    right_points = points[3:6]
+    
+    left_groups = set(p.group_id for p in left_points if p.group_id >= 0)
+    right_groups = set(p.group_id for p in right_points if p.group_id >= 0)
+    
+    print(f"Левые точки в группах: {left_groups}")
+    print(f"Правые точки в группах: {right_groups}")
+    
+    merged = left_groups & right_groups
+    if merged:
+        print(f"🔥 СЛИЯНИЕ ЧЕРЕЗ prepare_neighbor_scanning: группы слились в {merged}!")
+        
+        # Визуализируем проблему
+        scatter.visualize("/home/v-novikov/go/src/github.com/trading-bot/main/trading-bot/ml-agent/data/scatter/test/prepare_scanning_merge/problem.png", debug=True)
+        return True
+    
+    return False
+
+
+def test_regroup_specific_scenario():
+    """
+    Тест конкретного сценария перегруппировки, который мог привести к слиянию
+    """
+    print("=== Тест конкретного сценария regroup ===")
+    
+    scatter = Scatter(min_group_size=3, scan_radius=0.8, sector_size=6.0)  # Средний радиус
+    
+    # Создаем существующие группы
+    from domain.models.group import Group
+    
+    group_4 = Group(id=4, direction=Direction.UP, min_size=3)
+    group_6 = Group(id=6, direction=Direction.UP, min_size=3)
+    
+    # Точки групп
+    group_4_points = [
+        Point(x=-0.7, y=0.0, direction=Direction.UP, id=0, group_id=4),
+        Point(x=-0.65, y=0.05, direction=Direction.UP, id=1, group_id=4),
+        Point(x=-0.75, y=-0.05, direction=Direction.UP, id=2, group_id=4),
+    ]
+    
+    group_6_points = [
+        Point(x=0.7, y=0.0, direction=Direction.UP, id=3, group_id=6),
+        Point(x=0.65, y=0.05, direction=Direction.UP, id=4, group_id=6),
+        Point(x=0.75, y=-0.05, direction=Direction.UP, id=5, group_id=6),
+    ]
+    
+    # Добавляем точки в группы
+    for point in group_4_points:
+        group_4.add_point(point)
+        scatter.points.append(point)
+    
+    for point in group_6_points:
+        group_6.add_point(point)
+        scatter.points.append(point)
+    
+    # Заполняем список групп (имитируем реальную ситуацию с индексами)
+    scatter.groups = [None] * 7  # Создаем слоты для групп 0-6
+    scatter.groups[4] = group_4
+    scatter.groups[6] = group_6
+    scatter.next_group_id = 7
+    
+    # Подготавливаем сканирование
+    scatter.prepare_neighbor_scanning()
+    scatter.scan_all_points()
+    
+    print(f"scan_radius: {scatter.scan_radius:.3f}")
+    
+    # Добавляем новую точку между группами
+    new_point = Point(x=0.0, y=0.0, direction=Direction.UP, id=6)
+    scatter.points.append(new_point)
+    
+    # Вызываем regroup для новой точки
+    print(f"До regroup:")
+    print(f"  Группа 4: {len(scatter.groups[4].points)} точек")
+    print(f"  Группа 6: {len(scatter.groups[6].points)} точек")
+    
+    scatter.regroup(new_point)
+    
+    print(f"После regroup:")
+    print(f"  Всего групп: {len([g for g in scatter.groups if g is not None])}")
+    for i, group in enumerate(scatter.groups):
+        if group:
+            point_ids = [p.id for p in group.points]
+            print(f"  Группа {i} (id={group.id}): точки {point_ids}")
+    
+    # Проверяем, произошло ли слияние
+    original_4_points = {0, 1, 2}
+    original_6_points = {3, 4, 5}
+    
+    # Находим, где сейчас находятся точки
+    points_4_now = set()
+    points_6_now = set()
+    
+    for point in scatter.points:
+        if point.id in original_4_points:
+            points_4_now.add(point.group_id)
+        elif point.id in original_6_points:
+            points_6_now.add(point.group_id)
+    
+    print(f"Оригинальные точки группы 4 теперь в группах: {points_4_now}")
+    print(f"Оригинальные точки группы 6 теперь в группах: {points_6_now}")
+    
+    merged = points_4_now & points_6_now
+    if merged:
+        print(f"🔥 СЛИЯНИЕ В REGROUP: группы 4 и 6 слились в {merged}!")
+        
+        # Анализируем причину
+        neighbor_groups = scatter.groups_of_neighbors(new_point)
+        print(f"Новая точка видит группы: {neighbor_groups}")
+        print(f"Соседи новой точки: {[n.id for n in new_point.neighbors.values()]}")
+        
+        return True
+    
+    return False
+
+
+if __name__ == "__main__":
+    scenarios = [
+        ("20+ точек", test_merge_after_20_points),
+        ("prepare_neighbor_scanning", test_merge_with_prepare_neighbor_scanning),
+        ("regroup сценарий", test_regroup_specific_scenario),
+    ]
+    
+    problems_found = []
+    
+    for name, test_func in scenarios:
+        print(f"\n{'='*50}")
+        print(f"Тестируем сценарий: {name}")
+        print('='*50)
+        
+        try:
+            problem = test_func()
+            if problem:
+                problems_found.append(name)
+                print(f"🚨 ПРОБЛЕМА НАЙДЕНА в сценарии: {name}")
+            else:
+                print(f"✅ Сценарий {name} работает корректно")
+        except Exception as e:
+            print(f"❌ Ошибка в сценарии {name}: {e}")
+            problems_found.append(f"{name} (ошибка)")
+    
+    print(f"\n{'='*50}")
+    print("ИТОГОВЫЙ ОТЧЕТ")
+    print('='*50)
+    
+    if problems_found:
+        print(f"🚨 Найдены проблемы в сценариях: {', '.join(problems_found)}")
+    else:
+        print("✅ Все сценарии работают корректно")
+        print("💡 Возможно, проблема слияния групп 4 и 6 была вызвана другими условиями")

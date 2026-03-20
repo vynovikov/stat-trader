@@ -1,0 +1,393 @@
+from collections import deque
+from dataclasses import dataclass, field
+from typing import List, Tuple
+
+from domain.models.candle import Candle
+from domain.models.order import Order
+from domain.models.point import Point
+from domain.models.report import Report
+from domain.types.action import Action
+from domain.types.direction import Direction
+from domain.types.payload import Payload
+
+
+@dataclass
+class Internal:
+    """
+    Внутреннее состояние торгового движка FSM.
+    Содержит все изменяемые свойства и данные движка.
+    """
+
+    window_size: int = 10
+    avg_candle_len: float = 0.0
+    expire_in: int = 0  # days for vector to live in repository
+    neighbor_limit: int = 2  # number of neighbors to fetch from repository
+
+    # Mutable объекты через field()
+    window: deque = field(default_factory=deque)
+    pre: List[Candle] = field(default_factory=list)
+    trend: List[Candle] = field(default_factory=list)
+    point: Point = field(default_factory=lambda: Point(-10, -10, Direction.UNKNOWN))
+    payload: Payload = field(default_factory=Payload)  # price action details
+    closest_neighbor_payload: Payload = field(
+        default_factory=Payload
+    )  # nearest neighbor's price action details
+    order: Order = field(
+        default_factory=lambda: Order(Action.NONE, 0, 0, 0)
+    )  # current order details
+    report: Report = field(
+        default_factory=lambda: Report([], Candle(), Order(Action.NONE, 0, 0, 0), "")
+    )  # last report
+
+    # Простые значения
+    last_id: int = 0
+    total: float = 0.0
+    is_sl_triggered: bool = False
+    cooldown_counter: int = 0
+
+    def __post_init__(self):
+        """
+        Инициализация после создания объекта.
+        """
+        self.window = deque(maxlen=self.window_size)
+
+    def is_uptrend_started(self, candles: List[Candle]) -> bool:
+        """
+        Check if an uptrend has started based on the last three candles.
+        """
+        if len(candles) < 2:
+            return False
+
+        return (
+            candles[-2].close > candles[-2].open
+            and candles[-1].close > candles[-1].open
+            and candles[-1].high > candles[-2].high
+        )
+
+    def is_downtrend_started(self, candles: List[Candle]) -> bool:
+        """
+        Check if a downtrend has started based on the last three candles.
+        """
+        if len(candles) < 2:
+            return False
+
+        return (
+            candles[-2].close < candles[-2].open
+            and candles[-1].close < candles[-1].open
+            and candles[-1].low < candles[-2].low
+        )
+
+    def candles_to_direction(self, candles: List[Candle]) -> Direction:
+        """
+        Get the direction based on the candles.
+        """
+        if len(candles) < 2:
+            return Direction.UNKNOWN
+
+        if self.is_uptrend_started(candles[-2:]):
+            return Direction.UP
+        elif self.is_downtrend_started(candles[-2:]):
+            return Direction.DOWN
+        else:
+            return Direction.UNKNOWN
+
+    def direction_to_action(self, direction: Direction) -> Action:
+        """
+        Get the action based on the direction.
+        """
+        match direction:
+            case Direction.UP:
+                return Action.BUY
+            case Direction.DOWN:
+                return Action.SELL
+            case Direction.UNKNOWN:
+                return Action.WAIT
+            case _:
+                return Action.WAIT
+
+    def action_to_direction(self, action: Action) -> Direction:
+        """
+        Get the direction based on the action.
+        """
+        match action:
+            case Action.BUY:
+                return Direction.UP
+            case Action.SELL:
+                return Direction.DOWN
+            case _:
+                return Direction.UNKNOWN
+
+    def check_entrypoint(self, candles: List[Candle]) -> Tuple[bool, bool]:
+        """
+        Check for trend patterns in candles.
+        """
+        is_sl_triggered = any(candle.is_sl_triggered for candle in candles)
+        if is_sl_triggered:
+            return False, False
+
+        is_uptrend_started = self.is_uptrend_started(candles)
+        is_downtrend_started = self.is_downtrend_started(candles)
+        return is_uptrend_started, is_downtrend_started
+
+    def calc_sl_rel(self, candles: List[Candle]) -> float:
+        """
+        Calculate Stop Loss based on candles and direction.
+        """
+        max_val = 0
+        min_val = float("inf")
+        direction = self.get_direction(candles)
+
+        for candle in candles:
+            match direction:
+                case Direction.UP if candle.low < min_val:
+                    min_val = candle.low
+                case Direction.DOWN if candle.high > max_val:
+                    max_val = candle.high
+
+        match direction:
+            case Direction.UP:
+                return candles[0].open - min_val
+            case Direction.DOWN:
+                return max_val - candles[0].open
+            case _:
+                return 0
+
+    def get_direction(self, candles: List[Candle]) -> Direction:
+        """
+        Determine the direction based on payloads and candles.
+        """
+        direction = Direction.UNKNOWN
+
+        match True:
+            case _ if self.payload.direction != Direction.UNKNOWN:
+                direction = self.payload.direction
+            case _ if self.closest_neighbor_payload.direction != Direction.UNKNOWN:
+                direction = self.closest_neighbor_payload.direction
+
+        if direction == Direction.UNKNOWN:
+            direction_from_candles = self.candles_to_direction(candles)
+            direction = direction_from_candles
+
+        return direction
+
+    def calc_tp_rel(self, candles: List[Candle]) -> float:
+        """
+        Calculate Take Profit based on candles and direction.
+        """
+        direction = self.get_direction(candles)
+        match direction:
+            case Direction.UP:
+                return candles[-1].high - candles[0].open
+            case Direction.DOWN:
+                return candles[0].open - candles[-1].low
+            case _:
+                return 0
+
+    def tp_from_candles(self, candles: List[Candle]) -> float:
+        """
+        Calculate the take profit (TP) level based on the given candles and direction.
+        """
+        tp = 0
+
+        if self.payload.direction == Direction.UP:
+            tp = candles[-1].high
+        elif self.payload.direction == Direction.DOWN:
+            tp = candles[-1].low
+
+        return tp
+
+    # Methods working with internal state
+
+    def is_significant(self) -> bool:
+        """
+        Check if the trend is significant based on movement vs average candle length.
+        """
+        if len(self.trend) < 3:
+            return False
+
+        first_candle = self.trend[2]
+        last_candle = self.trend[-1]
+        value = 0.0
+
+        match self.payload.direction:
+            case Direction.UP:
+                value = last_candle.close - first_candle.open
+            case Direction.DOWN:
+                value = first_candle.open - last_candle.close
+
+        return value > self.avg_candle_len * 2.5
+
+    def reset(self) -> None:
+        """
+        Reset the internal state.
+        """
+        self.payload = Payload()
+        self.closest_neighbor_payload = Payload()
+        self.pre.clear()
+        self.is_sl_triggered = False
+
+    def check_on_market_sl(self, candle: Candle) -> None:
+        """
+        Check if the stop loss is triggered.
+        """
+        if (
+            self.payload.direction == Direction.UNKNOWN
+            and (
+                (
+                    self.closest_neighbor_payload.direction == Direction.UP
+                    and candle.low <= self.order.sl
+                )
+                or (
+                    self.closest_neighbor_payload.direction == Direction.DOWN
+                    and candle.high >= self.order.sl
+                )
+            )
+            or (
+                self.payload.direction != Direction.UNKNOWN
+                and (
+                    (
+                        self.payload.direction == Direction.UP
+                        and candle.low <= self.order.sl
+                    )
+                    or (
+                        self.payload.direction == Direction.DOWN
+                        and candle.high >= self.order.sl
+                    )
+                )
+            )
+        ):
+            self.is_sl_triggered = True
+
+    def nearest_grouped_neighbor(self) -> Point:
+        """
+        Find the nearest grouped neighbor to the point.
+        """
+        nearest_grouped_neighbor_distance = float("inf")
+        nearest_grouped_neighbor = Point(-10, -10, Direction.UNKNOWN)
+
+        for _, neighbor in self.point.neighbors.items():
+            if neighbor.group_id >= 0:
+                distance = self.point.distance(neighbor)
+                if distance < nearest_grouped_neighbor_distance:
+                    nearest_grouped_neighbor_distance = distance
+                    nearest_grouped_neighbor = neighbor
+
+        return nearest_grouped_neighbor
+
+    def check_off_market_tp(self, candle: Candle):
+        """
+        Update TP if candle exceeds current TP level during off-market period.
+        """
+        exceeded = 0
+        entry = self.trend[0].open
+        match self.payload.direction:
+            case Direction.UP if candle.high - entry > self.payload.tp:
+                exceeded = candle.high - entry - self.payload.tp
+            case Direction.DOWN if entry - candle.low > self.payload.tp:
+                exceeded = entry - candle.low - self.payload.tp
+            case _:
+                return
+
+        self.payload.tp += exceeded
+
+    def check_on_market_tp(self, candle: Candle):
+        """
+        Update TP if candle exceeds current TP level during off-market period.
+        """
+        exceeded = 0
+        entry = self.order.entry
+        match self.payload.direction:
+            case Direction.UP if candle.high - entry > self.payload.tp:
+                exceeded = candle.high - entry - self.payload.tp
+            case Direction.UP if candle.high - entry < 0:
+                exceeded = candle.high - entry
+            case Direction.DOWN if entry - candle.low > self.payload.tp:
+                exceeded = entry - candle.low - self.payload.tp
+            case Direction.DOWN if entry - candle.low < 0:
+                exceeded = entry - candle.low
+            case _:
+                return
+
+        self.payload.tp += exceeded
+
+    def calc_trend_end_tp(self, direction: Direction) -> float:
+        """
+        Calculate the take profit (TP) level based on the current order and payload.
+        """
+        if len(self.trend) < 3:
+            return 0
+
+        match direction:
+            case Direction.UP:
+                return self.trend[-1].close - self.trend[2].open
+            case Direction.DOWN:
+                return self.trend[2].open - self.trend[-1].close
+            case _:
+                return 0
+
+    def check_off_market_sl(self, candle: Candle):
+        """
+        Update SL if candle exceeds current SL level during off-market period.
+        """
+        exceeded = 0
+        entry = self.trend[0].open
+        match self.payload.direction:
+            case Direction.UP if entry - candle.low > self.payload.sl:
+                exceeded = entry - candle.low - self.payload.sl
+            case Direction.DOWN if candle.high - entry > self.payload.sl:
+                exceeded = candle.high - entry - self.payload.sl
+            case _:
+                return
+
+        self.order = Order(
+            action=self.order.action,
+            entry=entry,
+            sl=(
+                self.order.sl + exceeded
+                if self.payload.direction == Direction.DOWN
+                else self.order.sl - exceeded
+            ),
+            tp=self.order.tp,
+        )
+        self.payload.sl += exceeded
+
+    def payload_from_order(self) -> Payload:
+        """
+        Create a Payload from the current order.
+        """
+        return Payload(
+            direction=self.action_to_direction(self.order.action),
+            tp=(
+                self.order.tp - self.order.entry
+                if self.order.action == Action.BUY
+                else self.order.entry - self.order.tp
+            ),
+            sl=(
+                self.order.entry - self.order.sl
+                if self.order.action == Action.BUY
+                else self.order.sl - self.order.entry
+            ),
+        )
+
+    def is_trend_started(self, trend_start: Tuple[bool, bool]) -> bool:
+        return trend_start[0] or trend_start[1]
+
+    def get_report(self) -> Report:
+        return self.report
+
+    def set_no_loss(self) -> None:
+        """
+        Set order SL to entry price to ensure no loss.
+        """
+        match self.order.action:
+            case _ if (
+                self.order.action == Action.BUY and self.order.entry > self.order.sl
+            ) or (
+                self.order.action == Action.SELL and self.order.entry < self.order.sl
+            ):
+                self.order = Order(
+                    action=self.order.action,
+                    entry=self.order.entry,
+                    sl=self.order.entry,
+                    tp=self.order.tp,
+                )

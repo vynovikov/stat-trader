@@ -1,0 +1,99 @@
+from abc import ABC, abstractmethod
+
+from domain.models.order import Order
+from domain.models.report import Report
+from domain.types.background import Background
+from domain.types.entrypoint import Entrypoint
+from domain.types.power import Power
+
+
+class ParametersStore(ABC):
+    @abstractmethod
+    def set_order(self, order: Order) -> None: ...
+
+    @abstractmethod
+    def order(self) -> Order: ...
+
+    @abstractmethod
+    def order_reset(self) -> None: ...
+
+    @abstractmethod
+    def set_report(self, report: Report) -> None: ...
+
+    @abstractmethod
+    def report(self) -> Report: ...
+
+    @abstractmethod
+    def clear_report(self) -> None: ...
+
+    @abstractmethod
+    def pre_len(self) -> int: ...
+
+    @abstractmethod
+    def window_maxlen(self) -> int: ...
+
+    @abstractmethod
+    def deposit(self) -> float: ...
+
+    @abstractmethod
+    def set_deposit(self, deposit: float) -> None: ...
+
+    @abstractmethod
+    def spread(self) -> float: ...
+
+    @abstractmethod
+    def set_spread(self, spread: float) -> None: ...
+
+    @abstractmethod
+    def risk_per_trade(self) -> float: ...
+
+    @abstractmethod
+    def min_volume(self) -> float: ...
+
+    @abstractmethod
+    def engine_service_name(self) -> str: ...
+
+    @abstractmethod
+    def strategy_operator_service_name(self) -> str: ...
+
+    @abstractmethod
+    def report_reset(self) -> None: ...
+
+    @abstractmethod
+    def background(self) -> Background: ...
+
+    @abstractmethod
+    def set_background(self, background: Background) -> None: ...
+
+    @abstractmethod
+    def power(self) -> Power:...
+
+    @abstractmethod
+    def set_power(self, power: Power) -> None:...
+
+    @abstractmethod
+    def safe_factor(self) -> float: ...
+
+    @abstractmethod
+    def set_safe_factor(self, safe_factor: float) -> None: ...
+
+    @abstractmethod
+    def min_price_delta(self) -> float: ...
+
+    @abstractmethod
+    def body_ratio(self) -> float: ...
+
+    @abstractmethod
+    def shadow_ratio(self) -> float: ...
+
+    @abstractmethod
+    def entrypoint(self) -> Entrypoint: ...
+
+    @abstractmethod
+    def set_entrypoint(self, entrypoint: Entrypoint) -> None: ...
+
+    @abstractmethod
+    def trade_id(self) -> int: ...
+
+    @abstractmethod
+    def set_trade_id(self, trade_id: int) -> None: ...

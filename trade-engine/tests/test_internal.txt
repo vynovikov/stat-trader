@@ -1,0 +1,188 @@
+from typing import Any, Callable, Dict, List, cast
+
+import pytest
+
+from domain.models.candle import Candle
+from domain.models.internal import Internal
+from domain.models.order import Order
+from domain.types.action import Action
+from domain.types.direction import Direction
+from domain.types.payload import Payload
+
+check_off_market_tp_test_cases: List[Dict[str, Any]] = [
+    {
+        "name": "0. Direction.UP. TP is exceeded",
+        "initial_trend": [
+            Candle(high=100.7, low=100.4, open=100.45, close=100.55, volume=1008),
+            Candle(high=100.8, low=100.6, open=100.55, close=100.58, volume=1009),
+        ],
+        "initial_payload": Payload(direction=Direction.UP, sl=0.05, tp=0.25),
+        "candle": Candle(high=101.6, low=100.4, open=100.58, close=100.68, volume=1010),
+        "expected_payload": Payload(direction=Direction.UP, sl=0.05, tp=1.15),
+    },
+    {
+        "name": "1. Direction.UP. TP is not exceeded",
+        "initial_trend": [
+            Candle(high=100.7, low=100.4, open=100.45, close=100.55, volume=1008),
+            Candle(high=100.8, low=100.6, open=100.55, close=100.58, volume=1009),
+            Candle(high=101.6, low=100.4, open=100.58, close=100.68, volume=1010),
+        ],
+        "initial_payload": Payload(direction=Direction.UP, sl=0.05, tp=1.15),
+        "candle": Candle(high=101.5, low=100.6, open=100.68, close=100.78, volume=1011),
+        "expected_payload": Payload(direction=Direction.UP, sl=0.05, tp=1.15),
+    },
+    {
+        "name": "2. Direction.DOWN. TP is exceeded",
+        "initial_trend": [
+            Candle(high=100.5, low=100.3, open=100.45, close=100.35, volume=1008),
+            Candle(high=100.4, low=100.2, open=100.35, close=100.25, volume=1009),
+            Candle(high=100.3, low=99.9, open=100.25, close=100, volume=1010),
+        ],
+        "initial_payload": Payload(direction=Direction.DOWN, sl=0.05, tp=0.55),
+        "candle": Candle(high=100.1, low=99.5, open=100, close=99.7, volume=1011),
+        "expected_payload": Payload(direction=Direction.DOWN, sl=0.05, tp=0.95),
+    },
+    {
+        "name": "4. Direction.DOWN. TP is notexceeded",
+        "initial_trend": [
+            Candle(high=100.5, low=100.3, open=100.45, close=100.35, volume=1008),
+            Candle(high=100.4, low=100.2, open=100.35, close=100.25, volume=1009),
+            Candle(high=100.3, low=99.9, open=100.25, close=100, volume=1010),
+        ],
+        "initial_payload": Payload(direction=Direction.DOWN, sl=0.05, tp=0.55),
+        "candle": Candle(high=100.1, low=99.92, open=100, close=99.95, volume=1011),
+        "expected_payload": Payload(direction=Direction.DOWN, sl=0.05, tp=0.55),
+    },
+]
+
+
+@pytest.mark.parametrize(
+    "case",
+    check_off_market_tp_test_cases,
+    ids=[c["name"] for c in check_off_market_tp_test_cases],
+)
+def test_check_off_market_tp(case):
+    # Initialization
+    internal = Internal(trend=case["initial_trend"], payload=case["initial_payload"])
+
+    # Check TP
+    internal.check_off_market_tp(candle=case["candle"])
+
+    # Assertions
+    assert internal.payload.direction == case["expected_payload"].direction
+    assert round(internal.payload.sl, 2) == round(case["expected_payload"].sl, 2)
+    assert round(internal.payload.tp, 2) == round(case["expected_payload"].tp, 2)
+
+
+check_off_market_sl_test_cases: List[Dict[str, Any]] = [
+    {
+        "name": "0. Direction.UP. SL is exceeded",
+        "initial_trend": [
+            Candle(high=100.7, low=100.4, open=100.45, close=100.55, volume=1008),
+            Candle(high=100.8, low=100.6, open=100.55, close=100.58, volume=1009),
+        ],
+        "initial_payload": Payload(direction=Direction.UP, sl=0.05, tp=0.3),
+        "candle": Candle(high=100.89, low=100.3, open=100.58, close=100.8, volume=1010),
+        "expected_payload": Payload(direction=Direction.UP, sl=0.15, tp=0.3),
+    },
+    {
+        "name": "1. Direction.UP. SL is not exceeded",
+        "initial_trend": [
+            Candle(high=100.7, low=100.4, open=100.45, close=100.55, volume=1008),
+            Candle(high=100.8, low=100.6, open=100.55, close=100.58, volume=1009),
+            Candle(high=100.89, low=100.3, open=100.58, close=100.8, volume=1010),
+        ],
+        "initial_payload": Payload(direction=Direction.UP, sl=0.15, tp=0.3),
+        "candle": Candle(high=100.89, low=100.35, open=100.8, close=100.9, volume=1011),
+        "expected_payload": Payload(direction=Direction.UP, sl=0.15, tp=0.3),
+    },
+    {
+        "name": "2. Direction.DOWN. SL is exceeded",
+        "initial_trend": [
+            Candle(high=100.6, low=100.3, open=100.45, close=100.35, volume=1008),
+            Candle(high=100.4, low=100.1, open=100.35, close=100.2, volume=1009),
+        ],
+        "initial_payload": Payload(direction=Direction.DOWN, sl=0.15, tp=0.3),
+        "candle": Candle(high=100.7, low=100, open=100.2, close=100.1, volume=1011),
+        "expected_payload": Payload(direction=Direction.DOWN, sl=0.25, tp=0.3),
+    },
+    {
+        "name": "3. Direction.DOWN. SL is not exceeded",
+        "initial_trend": [
+            Candle(high=100.6, low=100.3, open=100.45, close=100.35, volume=1008),
+            Candle(high=100.4, low=100.1, open=100.35, close=100.2, volume=1009),
+            Candle(high=100.7, low=100, open=100.2, close=100.1, volume=1011),
+        ],
+        "initial_payload": Payload(direction=Direction.DOWN, sl=0.25, tp=0.3),
+        "candle": Candle(high=100.65, low=99.9, open=100.1, close=100, volume=1011),
+        "expected_payload": Payload(direction=Direction.DOWN, sl=0.25, tp=0.3),
+    },
+]
+
+
+@pytest.mark.parametrize(
+    "case",
+    check_off_market_sl_test_cases,
+    ids=[c["name"] for c in check_off_market_sl_test_cases],
+)
+def test_check_off_market_sl(case):
+    # Initialization
+    internal = Internal(trend=case["initial_trend"], payload=case["initial_payload"])
+
+    # Check SL
+    internal.check_off_market_sl(candle=case["candle"])
+
+    # Assertions
+    assert internal.payload.direction == case["expected_payload"].direction
+    assert round(internal.payload.sl, 2) == round(case["expected_payload"].sl, 2)
+    assert round(internal.payload.tp, 2) == round(case["expected_payload"].tp, 2)
+
+
+check_on_market_sl_test_cases: List[Dict[str, Any]] = [
+    {
+        "name": "0. Direction.UP. SL is triggered",
+        "initial_order": Order(action=Action.MONITOR, entry=100.6, tp=100.9, sl=100.5),
+        "initial_payload": Payload(direction=Direction.UP, tp=0.3, sl=0.1),
+        "candle": Candle(high=100.89, low=100.4, open=100.6, close=100.48, volume=1000),
+        "expected_is_sl_triggered": True,
+    },
+    {
+        "name": "1. Direction.UP. SL is not triggered",
+        "initial_order": Order(action=Action.MONITOR, entry=100.6, tp=100.9, sl=100.5),
+        "initial_payload": Payload(direction=Direction.UP, tp=0.3, sl=0.1),
+        "candle": Candle(
+            high=100.89, low=100.55, open=100.6, close=100.58, volume=1000
+        ),
+        "expected_is_sl_triggered": False,
+    },
+    {
+        "name": "2. Direction.DOWN. SL is triggered",
+        "initial_order": Order(action=Action.MONITOR, entry=100.6, tp=100.2, sl=100.7),
+        "initial_payload": Payload(direction=Direction.DOWN, tp=0.4, sl=0.1),
+        "candle": Candle(high=100.8, low=100.2, open=100.6, close=100.28, volume=1000),
+        "expected_is_sl_triggered": True,
+    },
+    {
+        "name": "3. Direction.DOWN. SL is not triggered",
+        "initial_order": Order(action=Action.MONITOR, entry=100.6, sl=100.7, tp=100.2),
+        "initial_payload": Payload(direction=Direction.DOWN, tp=0.4, sl=0.1),
+        "candle": Candle(high=100.65, low=100.2, open=100.6, close=100.28, volume=1000),
+        "expected_is_sl_triggered": False,
+    },
+]
+
+
+@pytest.mark.parametrize(
+    "case",
+    check_on_market_sl_test_cases,
+    ids=[c["name"] for c in check_on_market_sl_test_cases],
+)
+def test_check_on_market_sl(case):
+    # Initialization
+    internal = Internal(order=case["initial_order"], payload=case["initial_payload"])
+
+    # Check SL
+    internal.check_on_market_sl(candle=case["candle"])
+
+    # Assertions
+    assert internal.is_sl_triggered == case["expected_is_sl_triggered"]

@@ -1,0 +1,36 @@
+from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, List
+
+if TYPE_CHECKING:
+    from .point import Direction, Point
+
+
+@dataclass
+class Group:
+    """
+    Группа точек с одинаковым направлением.
+    """
+
+    id: int
+    direction: "Direction"
+    min_size: int = 3
+    points: List["Point"] = field(default_factory=list)
+
+    def add_point(self, point: "Point") -> None:
+        """
+        Добавляет точку в группу.
+
+        Args:
+            point: Точка для добавления
+        """
+        self.points.append(point)
+
+    def is_valid(self) -> bool:
+        """
+        Проверяет, является ли группа валидной.
+        Группа считается валидной, если в ней достаточно точек.
+
+        Returns:
+            True если группа валидна, False в противном случае
+        """
+        return len(self.points) >= self.min_size

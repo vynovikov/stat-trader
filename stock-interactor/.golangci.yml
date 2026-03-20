@@ -1,0 +1,34 @@
+run:
+  timeout: 5m
+  skip-files:
+    - ".*_test\\.go"
+
+linters:
+  enable:
+    - govet
+    - revive
+    - staticcheck
+    - errcheck
+    - unused
+    - gosimple
+    - ineffassign
+    - gocritic
+    - bodyclose
+    - gosec
+    - gofmt
+    - misspell
+    - dupl
+    - nakedret
+    - prealloc
+    - unconvert
+  disable:
+    - lll
+    - exportloopref
+    - containedctx
+    - cyclop
+    - exhaustruct
+    - nolintlint
+    - funlen
+    - nonamedreturns
+    - gochecknoglobals
+    - depguard

@@ -1,0 +1,1900 @@
+[Con V2] 1. Reason: Buy deal closed with loss. Profit: -0.72. Time: 2025-12-01T00:34:59
+[Con V3] 1. Reason: Buy deal closed with profit. Profit: 3.61. Time: 2025-12-01T00:59:59
+[Rev V4] 1. Reason: Sell deal closed by stop loss. Profit: -0.50. Time: 2025-12-01T01:04:59
+[Con V2] 2. Reason: Buy deal closed with loss. Profit: -0.63. Time: 2025-12-01T01:09:59
+[Con V2] 3. Reason: Buy deal closed with profit. Profit: 3.77. Time: 2025-12-01T01:49:59
+[Con V3] 2. Reason: Buy deal closed with profit. Profit: 1.38. Time: 2025-12-01T01:54:59
+[Rev V4] 2. Reason: Sell deal closed with profit. Profit: 7.02. Time: 2025-12-01T01:59:59
+[Con V2] 4. Reason: Sell deal closed with profit. Profit: 3.05. Time: 2025-12-01T02:34:59
+[Con V3] 3. Reason: Sell deal closed by stop loss. Profit: -4.92. Time: 2025-12-01T02:39:59
+[Rev V4] 3. Reason: Buy deal closed by stop loss. Profit: -23.93. Time: 2025-12-01T03:04:59
+[Con V2] 5. Reason: Sell deal closed with profit. Profit: 8.53. Time: 2025-12-01T03:09:59
+[Con V3] 4. Reason: Sell deal closed with profit. Profit: 8.57. Time: 2025-12-01T03:14:59
+[Rev V4] 4. Reason: Buy deal closed with loss. Profit: -4.69. Time: 2025-12-01T03:39:59
+[Con V2] 6. Reason: Sell deal closed with profit. Profit: 12.28. Time: 2025-12-01T03:44:59
+[Con V3] 5. Reason: Sell deal closed with profit. Profit: 11.60. Time: 2025-12-01T03:49:59
+[Con V2] 7. Reason: Buy deal closed by stop loss. Profit: -5.59. Time: 2025-12-01T04:19:59
+[Con V3] 6. Reason: Buy deal closed with loss. Profit: -3.20. Time: 2025-12-01T04:44:59
+[Con V2] 8. Reason: Sell deal closed with profit. Profit: 1.13. Time: 2025-12-01T04:54:59
+[Con V2] 9. Reason: Sell deal closed with loss. Profit: -0.58. Time: 2025-12-01T05:29:59
+[Con V3] 7. Reason: Sell deal closed with loss. Profit: -0.58. Time: 2025-12-01T05:29:59
+[Con V2] 10. Reason: Sell deal closed by stop loss. Profit: -5.38. Time: 2025-12-01T06:14:59
+[Con V3] 8. Reason: Sell deal closed by stop loss. Profit: -5.73. Time: 2025-12-01T06:39:59
+[Con V2] 11. Reason: Buy deal closed by stop loss. Profit: -2.77. Time: 2025-12-01T06:59:59
+[Con V3] 9. Reason: Sell deal closed with profit. Profit: 0.61. Time: 2025-12-01T07:14:59
+[Rev V4] 5. Reason: Buy deal closed by stop loss. Profit: -5.54. Time: 2025-12-01T07:19:59
+[Con V2] 12. Reason: Buy deal closed with loss. Profit: -1.50. Time: 2025-12-01T07:39:59
+[Con V3] 10. Reason: Sell deal closed with loss. Profit: -1.91. Time: 2025-12-01T07:54:59
+[Con V2] 13. Reason: Buy deal closed with loss. Profit: -5.25. Time: 2025-12-01T08:29:59
+[Con V2] 14. Reason: Buy deal closed with loss. Profit: -1.46. Time: 2025-12-01T09:04:59
+[Con V2] 15. Reason: Buy deal closed with loss. Profit: -0.11. Time: 2025-12-01T09:44:59
+[Con V2] 16. Reason: Buy deal closed by stop loss. Profit: -3.94. Time: 2025-12-01T10:29:59
+[Con V3] 11. Reason: Buy deal closed with profit. Profit: 3.20. Time: 2025-12-01T10:34:59
+[Rev V4] 6. Reason: Sell deal closed by stop loss. Profit: -3.87. Time: 2025-12-01T10:39:59
+[Con V2] 17. Reason: Buy deal closed with profit. Profit: 0.37. Time: 2025-12-01T11:44:59
+[Con V3] 12. Reason: Buy deal closed with loss. Profit: -0.62. Time: 2025-12-01T11:49:59
+[Con V2] 18. Reason: Sell deal closed with loss. Profit: -2.61. Time: 2025-12-01T12:29:59
+[Con V3] 13. Reason: Buy deal closed with loss. Profit: -5.57. Time: 2025-12-01T12:44:59
+[Con V2] 19. Reason: Buy deal closed by stop loss. Profit: -2.04. Time: 2025-12-01T13:09:59
+[Con V2] 20. Reason: Buy deal closed with profit. Profit: 0.78. Time: 2025-12-01T13:44:59
+[Con V3] 14. Reason: Buy deal closed with profit. Profit: 0.78. Time: 2025-12-01T13:44:59
+[Rev V4] 7. Reason: Sell deal closed with profit. Profit: 0.05. Time: 2025-12-01T13:49:59
+[Con V2] 21. Reason: Sell deal closed with profit. Profit: 0.02. Time: 2025-12-01T14:19:59
+[Con V3] 15. Reason: Sell deal closed with profit. Profit: 0.02. Time: 2025-12-01T14:19:59
+[Rev V4] 8. Reason: Buy deal closed with profit. Profit: 0.40. Time: 2025-12-01T14:24:59
+[Con V2] 22. Reason: Buy deal closed by stop loss. Profit: -0.60. Time: 2025-12-01T14:54:59
+[Con V3] 16. Reason: Sell deal closed with profit. Profit: 4.74. Time: 2025-12-01T15:09:59
+[Rev V4] 9. Reason: Buy deal closed with profit. Profit: 1.01. Time: 2025-12-01T15:14:59
+[Con V2] 23. Reason: Sell deal closed by stop loss. Profit: -6.07. Time: 2025-12-01T15:34:59
+[Con V3] 17. Reason: Buy deal closed with profit. Profit: 5.58. Time: 2025-12-01T16:04:59
+[Rev V4] 10. Reason: Sell deal closed with loss. Profit: -0.68. Time: 2025-12-01T16:09:59
+[Con V2] 24. Reason: Buy deal closed with profit. Profit: 0.68. Time: 2025-12-01T16:09:59
+[Con V2] 25. Reason: Buy deal closed by stop loss. Profit: -1.94. Time: 2025-12-01T16:49:59
+[Con V3] 18. Reason: Buy deal closed with loss. Profit: -1.45. Time: 2025-12-01T16:54:59
+[Rev V4] 11. Reason: Buy deal closed by stop loss. Profit: -1.71. Time: 2025-12-01T17:24:59
+[Con V2] 26. Reason: Sell deal closed by stop loss. Profit: -3.57. Time: 2025-12-01T17:24:59
+[Con V3] 19. Reason: Buy deal closed by stop loss. Profit: -2.60. Time: 2025-12-01T17:39:59
+[Con V2] 27. Reason: Buy deal closed by stop loss. Profit: -1.86. Time: 2025-12-01T17:59:59
+[Con V3] 20. Reason: Sell deal closed with profit. Profit: 14.42. Time: 2025-12-01T18:24:59
+[Rev V4] 12. Reason: Buy deal closed by stop loss. Profit: -2.00. Time: 2025-12-01T18:29:59
+[Con V2] 28. Reason: Sell deal closed with profit. Profit: 1.26. Time: 2025-12-01T18:34:59
+[Con V2] 29. Reason: Sell deal closed with profit. Profit: 2.10. Time: 2025-12-01T19:09:59
+[Con V3] 21. Reason: Sell deal closed with profit. Profit: 2.10. Time: 2025-12-01T19:09:59
+[Rev V4] 13. Reason: Buy deal closed by stop loss. Profit: -1.55. Time: 2025-12-01T19:14:59
+[Con V2] 30. Reason: Sell deal closed with profit. Profit: 11.56. Time: 2025-12-01T19:49:59
+[Con V3] 22. Reason: Sell deal closed with loss. Profit: -1.08. Time: 2025-12-01T19:54:59
+[Con V2] 31. Reason: Buy deal closed with profit. Profit: 3.37. Time: 2025-12-01T20:24:59
+[Con V3] 23. Reason: Buy deal closed by stop loss. Profit: -5.21. Time: 2025-12-01T20:29:59
+[Con V2] 32. Reason: Buy deal closed by stop loss. Profit: -6.63. Time: 2025-12-01T21:19:59
+[Con V3] 24. Reason: Sell deal closed with profit. Profit: 9.65. Time: 2025-12-01T21:34:59
+[Rev V4] 14. Reason: Buy deal closed by stop loss. Profit: -1.08. Time: 2025-12-01T21:39:59
+[Con V2] 33. Reason: Buy deal closed with profit. Profit: 9.35. Time: 2025-12-01T21:54:59
+[Con V2] 34. Reason: Buy deal closed with loss. Profit: -5.94. Time: 2025-12-01T22:39:59
+[Con V2] 35. Reason: Sell deal closed with profit. Profit: 0.77. Time: 2025-12-01T23:29:59
+[Con V3] 25. Reason: Sell deal closed by stop loss. Profit: -5.00. Time: 2025-12-01T23:34:59
+[Con V2] 36. Reason: Buy deal closed with profit. Profit: 8.84. Time: 2025-12-02T00:04:59
+[Con V3] 26. Reason: Buy deal closed with loss. Profit: -9.14. Time: 2025-12-02T00:09:59
+[Con V2] 37. Reason: Buy deal closed with profit. Profit: 8.41. Time: 2025-12-02T00:59:59
+[Con V3] 27. Reason: Buy deal closed with profit. Profit: 6.00. Time: 2025-12-02T01:04:59
+[Rev V4] 15. Reason: Sell deal closed by stop loss. Profit: -1.17. Time: 2025-12-02T01:09:59
+[Con V2] 38. Reason: Sell deal closed by stop loss. Profit: -9.24. Time: 2025-12-02T01:34:59
+[Con V3] 28. Reason: Buy deal closed with loss. Profit: -6.60. Time: 2025-12-02T01:49:59
+[Con V2] 39. Reason: Sell deal closed by stop loss. Profit: -4.83. Time: 2025-12-02T02:14:59
+[Con V3] 29. Reason: Buy deal closed by stop loss. Profit: -3.30. Time: 2025-12-02T02:29:59
+[Rev V4] 16. Reason: Buy deal closed by stop loss. Profit: -1.35. Time: 2025-12-02T02:49:59
+[Con V2] 40. Reason: Sell deal closed with profit. Profit: 5.99. Time: 2025-12-02T02:49:59
+[Con V3] 30. Reason: Buy deal closed with loss. Profit: -6.44. Time: 2025-12-02T03:09:59
+[Con V2] 41. Reason: Buy deal closed with profit. Profit: 0.08. Time: 2025-12-02T03:34:59
+[Con V2] 42. Reason: Buy deal closed by stop loss. Profit: -11.23. Time: 2025-12-02T04:09:59
+[Con V3] 31. Reason: Buy deal closed by stop loss. Profit: -11.23. Time: 2025-12-02T04:09:59
+[Con V2] 43. Reason: Sell deal closed with profit. Profit: 1.77. Time: 2025-12-02T04:49:59
+[Con V3] 32. Reason: Sell deal closed with profit. Profit: 0.67. Time: 2025-12-02T04:54:59
+[Rev V4] 17. Reason: Buy deal closed by stop loss. Profit: -2.62. Time: 2025-12-02T04:59:59
+[Con V2] 44. Reason: Sell deal closed with loss. Profit: -2.37. Time: 2025-12-02T05:29:59
+[Con V3] 33. Reason: Buy deal closed by stop loss. Profit: -0.53. Time: 2025-12-02T05:44:59
+[Rev V4] 18. Reason: Buy deal closed by stop loss. Profit: -0.29. Time: 2025-12-02T06:04:59
+[Con V2] 45. Reason: Sell deal closed with profit. Profit: 0.24. Time: 2025-12-02T06:04:59
+[Con V3] 34. Reason: Sell deal closed with profit. Profit: 4.48. Time: 2025-12-02T06:29:59
+[Con V2] 46. Reason: Buy deal closed with loss. Profit: -6.71. Time: 2025-12-02T06:44:59
+[Con V3] 35. Reason: Buy deal closed with profit. Profit: 1.74. Time: 2025-12-02T07:04:59
+[Rev V4] 19. Reason: Sell deal closed by stop loss. Profit: -2.75. Time: 2025-12-02T07:09:59
+[Con V2] 47. Reason: Buy deal closed with loss. Profit: -5.30. Time: 2025-12-02T07:19:59
+[Con V2] 48. Reason: Sell deal closed with profit. Profit: 1.83. Time: 2025-12-02T08:04:59
+[Con V3] 36. Reason: Sell deal closed by stop loss. Profit: -1.83. Time: 2025-12-02T08:09:59
+[Con V2] 49. Reason: Buy deal closed with profit. Profit: 1.51. Time: 2025-12-02T08:49:59
+[Con V3] 37. Reason: Buy deal closed by stop loss. Profit: -3.54. Time: 2025-12-02T08:54:59
+[Con V2] 50. Reason: Sell deal closed with loss. Profit: -1.13. Time: 2025-12-02T09:24:59
+[Con V3] 38. Reason: Buy deal closed with profit. Profit: 1.86. Time: 2025-12-02T09:39:59
+[Rev V4] 20. Reason: Sell deal closed with profit. Profit: 1.70. Time: 2025-12-02T09:44:59
+[Con V2] 51. Reason: Sell deal closed with profit. Profit: 4.81. Time: 2025-12-02T10:04:59
+[Con V2] 52. Reason: Buy deal closed with profit. Profit: 0.96. Time: 2025-12-02T10:39:59
+[Con V3] 39. Reason: Buy deal closed with profit. Profit: 0.14. Time: 2025-12-02T10:44:59
+[Rev V4] 21. Reason: Sell deal closed by stop loss. Profit: -0.73. Time: 2025-12-02T10:49:59
+[Con V2] 53. Reason: Sell deal closed with profit. Profit: 8.10. Time: 2025-12-02T11:14:59
+[Con V3] 40. Reason: Sell deal closed with loss. Profit: -3.16. Time: 2025-12-02T11:19:59
+[Con V2] 54. Reason: Buy deal closed with profit. Profit: 3.02. Time: 2025-12-02T12:04:59
+[Con V3] 41. Reason: Buy deal closed with loss. Profit: -2.01. Time: 2025-12-02T12:09:59
+[Con V2] 55. Reason: Sell deal closed with profit. Profit: 2.05. Time: 2025-12-02T12:39:59
+[Rev V4] 22. Reason: Buy deal closed by stop loss. Profit: -0.64. Time: 2025-12-02T12:44:59
+[Con V3] 42. Reason: Sell deal closed by stop loss. Profit: -2.61. Time: 2025-12-02T12:44:59
+[Con V2] 56. Reason: Sell deal closed with profit. Profit: 3.92. Time: 2025-12-02T13:19:59
+[Con V3] 43. Reason: Sell deal closed with profit. Profit: 0.30. Time: 2025-12-02T13:24:59
+[Rev V4] 23. Reason: Buy deal closed with profit. Profit: 1.73. Time: 2025-12-02T13:29:59
+[Con V2] 57. Reason: Buy deal closed with loss. Profit: -0.24. Time: 2025-12-02T13:54:59
+[Con V2] 58. Reason: Buy deal closed with loss. Profit: -0.19. Time: 2025-12-02T14:29:59
+[Con V3] 44. Reason: Buy deal closed with loss. Profit: -0.19. Time: 2025-12-02T14:29:59
+[Con V2] 59. Reason: Buy deal closed with loss. Profit: -0.49. Time: 2025-12-02T15:09:59
+[Con V2] 60. Reason: Sell deal closed with profit. Profit: 0.89. Time: 2025-12-02T15:49:59
+[Con V3] 45. Reason: Sell deal closed with loss. Profit: -0.37. Time: 2025-12-02T15:54:59
+[Con V2] 61. Reason: Buy deal closed with loss. Profit: -1.88. Time: 2025-12-02T16:24:59
+[Con V2] 62. Reason: Buy deal closed by stop loss. Profit: -2.17. Time: 2025-12-02T16:59:59
+[Con V3] 46. Reason: Buy deal closed by stop loss. Profit: -2.17. Time: 2025-12-02T16:59:59
+[Rev V4] 24. Reason: Sell deal closed by stop loss. Profit: -0.18. Time: 2025-12-02T17:04:59
+[Con V2] 63. Reason: Buy deal closed with loss. Profit: -5.34. Time: 2025-12-02T17:34:59
+[Con V3] 47. Reason: Buy deal closed with loss. Profit: -5.34. Time: 2025-12-02T17:34:59
+[Con V2] 64. Reason: Buy deal closed with profit. Profit: 23.61. Time: 2025-12-02T18:09:59
+[Con V3] 48. Reason: Buy deal closed with profit. Profit: 23.61. Time: 2025-12-02T18:09:59
+[Rev V4] 25. Reason: Sell deal closed with profit. Profit: 2.23. Time: 2025-12-02T18:14:59
+[Con V2] 65. Reason: Buy deal closed with profit. Profit: 9.79. Time: 2025-12-02T18:44:59
+[Con V3] 49. Reason: Buy deal closed with profit. Profit: 8.59. Time: 2025-12-02T18:49:59
+[Rev V4] 26. Reason: Sell deal closed with profit. Profit: 6.02. Time: 2025-12-02T18:54:59
+[Con V2] 66. Reason: Sell deal closed with profit. Profit: 12.35. Time: 2025-12-02T19:19:59
+[Con V3] 50. Reason: Sell deal closed with profit. Profit: 0.44. Time: 2025-12-02T19:24:59
+[Rev V4] 27. Reason: Buy deal closed with profit. Profit: 11.77. Time: 2025-12-02T19:29:59
+[Con V2] 67. Reason: Buy deal closed with loss. Profit: -9.75. Time: 2025-12-02T19:54:59
+[Con V3] 51. Reason: Buy deal closed with profit. Profit: 3.02. Time: 2025-12-02T20:24:59
+[Rev V4] 28. Reason: Sell deal closed with loss. Profit: -5.69. Time: 2025-12-02T20:29:59
+[Con V2] 68. Reason: Buy deal closed with profit. Profit: 5.69. Time: 2025-12-02T20:29:59
+[Con V2] 69. Reason: Buy deal closed with profit. Profit: 4.87. Time: 2025-12-02T21:09:59
+[Con V3] 52. Reason: Buy deal closed with profit. Profit: 6.22. Time: 2025-12-02T21:14:59
+[Rev V4] 29. Reason: Sell deal closed by stop loss. Profit: -2.54. Time: 2025-12-02T21:19:59
+[Con V2] 70. Reason: Buy deal closed by stop loss. Profit: -4.44. Time: 2025-12-02T21:49:59
+[Con V3] 53. Reason: Sell deal closed with profit. Profit: 2.60. Time: 2025-12-02T22:19:59
+[Rev V4] 30. Reason: Buy deal closed with profit. Profit: 2.66. Time: 2025-12-02T22:24:59
+[Con V2] 71. Reason: Sell deal closed by stop loss. Profit: -3.42. Time: 2025-12-02T22:24:59
+[Con V3] 54. Reason: Sell deal closed with profit. Profit: 1.24. Time: 2025-12-02T22:54:59
+[Rev V4] 31. Reason: Buy deal closed by stop loss. Profit: -2.48. Time: 2025-12-02T22:59:59
+[Con V2] 72. Reason: Sell deal closed with profit. Profit: 8.53. Time: 2025-12-02T22:59:59
+[Con V2] 73. Reason: Buy deal closed with profit. Profit: 4.08. Time: 2025-12-02T23:59:59
+[Con V3] 55. Reason: Buy deal closed with profit. Profit: 4.86. Time: 2025-12-03T00:04:59
+[Rev V4] 32. Reason: Sell deal closed with profit. Profit: 1.02. Time: 2025-12-03T00:09:59
+[Con V2] 74. Reason: Buy deal closed with loss. Profit: -0.98. Time: 2025-12-03T00:44:59
+[Con V2] 75. Reason: Sell deal closed with profit. Profit: 3.82. Time: 2025-12-03T01:24:59
+[Con V3] 56. Reason: Sell deal closed with loss. Profit: -1.50. Time: 2025-12-03T01:29:59
+[Rev V4] 33. Reason: Sell deal closed by stop loss. Profit: -0.41. Time: 2025-12-03T01:49:59
+[Con V2] 76. Reason: Buy deal closed by stop loss. Profit: -1.68. Time: 2025-12-03T01:59:59
+[Con V2] 77. Reason: Sell deal closed with profit. Profit: 2.16. Time: 2025-12-03T02:34:59
+[Con V3] 57. Reason: Sell deal closed with profit. Profit: 2.16. Time: 2025-12-03T02:34:59
+[Rev V4] 34. Reason: Buy deal closed with profit. Profit: 0.28. Time: 2025-12-03T02:39:59
+[Con V2] 78. Reason: Sell deal closed with profit. Profit: 5.02. Time: 2025-12-03T03:29:59
+[Con V3] 58. Reason: Sell deal closed by stop loss. Profit: -5.06. Time: 2025-12-03T03:34:59
+[Con V2] 79. Reason: Buy deal closed with profit. Profit: 5.78. Time: 2025-12-03T04:14:59
+[Con V3] 59. Reason: Buy deal closed with profit. Profit: 1.15. Time: 2025-12-03T04:19:59
+[Rev V4] 35. Reason: Sell deal closed by stop loss. Profit: -2.07. Time: 2025-12-03T04:24:59
+[Con V2] 80. Reason: Buy deal closed with profit. Profit: 3.11. Time: 2025-12-03T04:49:59
+[Con V3] 60. Reason: Buy deal closed by stop loss. Profit: -4.12. Time: 2025-12-03T04:54:59
+[Con V2] 81. Reason: Sell deal closed with loss. Profit: -0.68. Time: 2025-12-03T05:34:59
+[Con V2] 82. Reason: Sell deal closed by stop loss. Profit: -0.43. Time: 2025-12-03T06:09:59
+[Con V3] 61. Reason: Sell deal closed by stop loss. Profit: -2.16. Time: 2025-12-03T06:14:59
+[Con V2] 83. Reason: Sell deal closed with loss. Profit: -3.42. Time: 2025-12-03T06:59:59
+[Con V3] 62. Reason: Buy deal closed by stop loss. Profit: -1.36. Time: 2025-12-03T07:14:59
+[Rev V4] 36. Reason: Sell deal closed by stop loss. Profit: -1.78. Time: 2025-12-03T07:19:59
+[Con V2] 84. Reason: Sell deal closed by stop loss. Profit: -5.01. Time: 2025-12-03T07:44:59
+[Con V3] 63. Reason: Buy deal closed with loss. Profit: -0.73. Time: 2025-12-03T07:59:59
+[Con V2] 85. Reason: Sell deal closed with loss. Profit: -3.28. Time: 2025-12-03T08:19:59
+[Con V3] 64. Reason: Buy deal closed with profit. Profit: 7.72. Time: 2025-12-03T08:34:59
+[Rev V4] 37. Reason: Sell deal closed with profit. Profit: 8.16. Time: 2025-12-03T08:39:59
+[Con V2] 86. Reason: Buy deal closed with profit. Profit: 0.65. Time: 2025-12-03T09:04:59
+[Con V3] 65. Reason: Buy deal closed by stop loss. Profit: -4.57. Time: 2025-12-03T09:09:59
+[Con V2] 87. Reason: Sell deal closed with profit. Profit: 17.42. Time: 2025-12-03T09:39:59
+[Rev V4] 38. Reason: Buy deal closed by stop loss. Profit: -4.45. Time: 2025-12-03T09:44:59
+[Con V3] 66. Reason: Sell deal closed with profit. Profit: 3.42. Time: 2025-12-03T09:44:59
+[Con V2] 88. Reason: Sell deal closed with profit. Profit: 13.10. Time: 2025-12-03T10:14:59
+[Rev V4] 39. Reason: Buy deal closed with profit. Profit: 10.38. Time: 2025-12-03T10:19:59
+[Con V3] 67. Reason: Sell deal closed with loss. Profit: -10.38. Time: 2025-12-03T10:19:59
+[Con V2] 89. Reason: Sell deal closed with profit. Profit: 0.51. Time: 2025-12-03T10:54:59
+[Con V3] 68. Reason: Sell deal closed by stop loss. Profit: -1.10. Time: 2025-12-03T10:59:59
+[Con V2] 90. Reason: Buy deal closed by stop loss. Profit: -3.10. Time: 2025-12-03T11:29:59
+[Con V3] 69. Reason: Sell deal closed with loss. Profit: -2.28. Time: 2025-12-03T11:54:59
+[Con V2] 91. Reason: Buy deal closed by stop loss. Profit: -6.89. Time: 2025-12-03T12:04:59
+[Con V2] 92. Reason: Buy deal closed with profit. Profit: 0.87. Time: 2025-12-03T12:54:59
+[Con V3] 70. Reason: Buy deal closed by stop loss. Profit: -2.16. Time: 2025-12-03T12:59:59
+[Con V2] 93. Reason: Sell deal closed with profit. Profit: 5.17. Time: 2025-12-03T13:34:59
+[Con V3] 71. Reason: Sell deal closed with profit. Profit: 1.39. Time: 2025-12-03T13:39:59
+[Rev V4] 40. Reason: Buy deal closed with profit. Profit: 2.95. Time: 2025-12-03T13:44:59
+[Con V2] 94. Reason: Buy deal closed with loss. Profit: -0.08. Time: 2025-12-03T14:24:59
+[Con V3] 72. Reason: Sell deal closed with profit. Profit: 2.77. Time: 2025-12-03T14:39:59
+[Rev V4] 41. Reason: Buy deal closed with profit. Profit: 3.14. Time: 2025-12-03T14:44:59
+[Con V2] 95. Reason: Buy deal closed by stop loss. Profit: -6.08. Time: 2025-12-03T15:04:59
+[Con V3] 73. Reason: Sell deal closed by stop loss. Profit: -2.30. Time: 2025-12-03T15:19:59
+[Con V2] 96. Reason: Buy deal closed by stop loss. Profit: -2.71. Time: 2025-12-03T15:39:59
+[Rev V4] 42. Reason: Sell deal closed by stop loss. Profit: -0.48. Time: 2025-12-03T15:49:59
+[Con V2] 97. Reason: Sell deal closed by stop loss. Profit: -3.74. Time: 2025-12-03T16:14:59
+[Con V2] 98. Reason: Buy deal closed with loss. Profit: -2.20. Time: 2025-12-03T16:49:59
+[Con V3] 74. Reason: Sell deal closed with loss. Profit: -12.56. Time: 2025-12-03T17:04:59
+[Con V2] 99. Reason: Buy deal closed with loss. Profit: -21.78. Time: 2025-12-03T17:44:59
+[Con V3] 75. Reason: Sell deal closed by stop loss. Profit: -14.67. Time: 2025-12-03T17:59:59
+[Con V2] 100. Reason: Sell deal closed with loss. Profit: -4.56. Time: 2025-12-03T18:19:59
+[Con V3] 76. Reason: Buy deal closed with loss. Profit: -11.34. Time: 2025-12-03T18:34:59
+[Con V2] 101. Reason: Sell deal closed with profit. Profit: 4.16. Time: 2025-12-03T18:59:59
+[Rev V4] 43. Reason: Buy deal closed by stop loss. Profit: -2.56. Time: 2025-12-03T19:09:59
+[Con V3] 77. Reason: Sell deal closed with loss. Profit: -5.56. Time: 2025-12-03T19:09:59
+[Con V2] 102. Reason: Buy deal closed with profit. Profit: 4.07. Time: 2025-12-03T19:34:59
+[Rev V4] 44. Reason: Sell deal closed with profit. Profit: 10.54. Time: 2025-12-03T19:44:59
+[Con V3] 78. Reason: Buy deal closed by stop loss. Profit: -9.76. Time: 2025-12-03T19:44:59
+[Con V2] 103. Reason: Buy deal closed with loss. Profit: -1.78. Time: 2025-12-03T20:39:59
+[Con V2] 104. Reason: Buy deal closed by stop loss. Profit: -4.22. Time: 2025-12-03T21:29:59
+[Con V2] 105. Reason: Buy deal closed with profit. Profit: 4.64. Time: 2025-12-03T22:04:59
+[Con V3] 79. Reason: Buy deal closed with loss. Profit: -5.23. Time: 2025-12-03T22:09:59
+[Con V2] 106. Reason: Buy deal closed with profit. Profit: 1.00. Time: 2025-12-03T22:49:59
+[Con V3] 80. Reason: Buy deal closed by stop loss. Profit: -1.15. Time: 2025-12-03T22:54:59
+[Rev V4] 45. Reason: Sell deal closed by stop loss. Profit: -0.33. Time: 2025-12-03T22:59:59
+[Con V2] 107. Reason: Buy deal closed with profit. Profit: 1.05. Time: 2025-12-03T23:34:59
+[Con V3] 81. Reason: Buy deal closed by stop loss. Profit: -3.07. Time: 2025-12-03T23:39:59
+[Rev V4] 46. Reason: Sell deal closed with loss. Profit: -0.06. Time: 2025-12-03T23:44:59
+[Con V2] 108. Reason: Buy deal closed with profit. Profit: 5.00. Time: 2025-12-04T00:14:59
+[Con V3] 82. Reason: Buy deal closed with profit. Profit: 1.31. Time: 2025-12-04T00:19:59
+[Rev V4] 47. Reason: Sell deal closed with loss. Profit: -2.74. Time: 2025-12-04T00:24:59
+[Con V2] 109. Reason: Buy deal closed by stop loss. Profit: -9.80. Time: 2025-12-04T00:59:59
+[Con V3] 83. Reason: Sell deal closed with profit. Profit: 3.18. Time: 2025-12-04T01:29:59
+[Rev V4] 48. Reason: Buy deal closed with profit. Profit: 10.84. Time: 2025-12-04T01:34:59
+[Con V2] 110. Reason: Sell deal closed by stop loss. Profit: -4.98. Time: 2025-12-04T01:34:59
+[Con V2] 111. Reason: Buy deal closed by stop loss. Profit: -8.26. Time: 2025-12-04T02:09:59
+[Con V3] 84. Reason: Buy deal closed by stop loss. Profit: -8.26. Time: 2025-12-04T02:09:59
+[Con V2] 112. Reason: Buy deal closed by stop loss. Profit: -4.00. Time: 2025-12-04T02:54:59
+[Con V3] 85. Reason: Sell deal closed with profit. Profit: 14.28. Time: 2025-12-04T03:09:59
+[Rev V4] 49. Reason: Buy deal closed with profit. Profit: 6.06. Time: 2025-12-04T03:14:59
+[Con V2] 113. Reason: Sell deal closed with profit. Profit: 6.18. Time: 2025-12-04T03:29:59
+[Con V2] 114. Reason: Buy deal closed with loss. Profit: -0.28. Time: 2025-12-04T04:04:59
+[Con V3] 86. Reason: Buy deal closed with profit. Profit: 2.02. Time: 2025-12-04T04:34:59
+[Rev V4] 50. Reason: Sell deal closed with profit. Profit: 2.30. Time: 2025-12-04T04:39:59
+[Con V2] 115. Reason: Buy deal closed with loss. Profit: -2.30. Time: 2025-12-04T04:39:59
+[Con V3] 87. Reason: Buy deal closed with profit. Profit: 10.81. Time: 2025-12-04T05:09:59
+[Rev V4] 51. Reason: Sell deal closed by stop loss. Profit: -2.53. Time: 2025-12-04T05:14:59
+[Con V2] 116. Reason: Buy deal closed with profit. Profit: 9.10. Time: 2025-12-04T05:14:59
+[Con V2] 117. Reason: Sell deal closed with profit. Profit: 0.59. Time: 2025-12-04T05:49:59
+[Con V3] 88. Reason: Sell deal closed by stop loss. Profit: -1.66. Time: 2025-12-04T05:54:59
+[Con V2] 118. Reason: Sell deal closed with profit. Profit: 2.05. Time: 2025-12-04T06:34:59
+[Con V3] 89. Reason: Sell deal closed with profit. Profit: 0.69. Time: 2025-12-04T06:39:59
+[Rev V4] 52. Reason: Buy deal closed with profit. Profit: 5.24. Time: 2025-12-04T06:44:59
+[Con V2] 119. Reason: Buy deal closed by stop loss. Profit: -0.56. Time: 2025-12-04T07:14:59
+[Con V2] 120. Reason: Sell deal closed with loss. Profit: -1.56. Time: 2025-12-04T07:49:59
+[Con V3] 90. Reason: Sell deal closed with loss. Profit: -1.56. Time: 2025-12-04T07:49:59
+[Con V2] 121. Reason: Buy deal closed by stop loss. Profit: -3.12. Time: 2025-12-04T08:29:59
+[Con V3] 91. Reason: Sell deal closed with profit. Profit: 0.66. Time: 2025-12-04T08:44:59
+[Rev V4] 53. Reason: Buy deal closed by stop loss. Profit: -1.53. Time: 2025-12-04T08:49:59
+[Con V2] 122. Reason: Buy deal closed with profit. Profit: 0.74. Time: 2025-12-04T09:14:59
+[Con V3] 92. Reason: Buy deal closed with loss. Profit: -1.00. Time: 2025-12-04T09:19:59
+[Con V2] 123. Reason: Sell deal closed by stop loss. Profit: -1.24. Time: 2025-12-04T09:49:59
+[Con V2] 124. Reason: Buy deal closed with profit. Profit: 0.78. Time: 2025-12-04T10:34:59
+[Con V3] 93. Reason: Buy deal closed with profit. Profit: 2.62. Time: 2025-12-04T10:39:59
+[Rev V4] 54. Reason: Sell deal closed with profit. Profit: 0.87. Time: 2025-12-04T10:44:59
+[Con V2] 125. Reason: Sell deal closed with loss. Profit: -1.70. Time: 2025-12-04T11:14:59
+[Con V3] 94. Reason: Buy deal closed with profit. Profit: 1.38. Time: 2025-12-04T11:44:59
+[Rev V4] 55. Reason: Sell deal closed with profit. Profit: 8.94. Time: 2025-12-04T11:49:59
+[Con V2] 126. Reason: Buy deal closed by stop loss. Profit: -3.38. Time: 2025-12-04T11:49:59
+[Con V2] 127. Reason: Buy deal closed with profit. Profit: 3.16. Time: 2025-12-04T12:29:59
+[Con V3] 95. Reason: Buy deal closed with loss. Profit: -1.06. Time: 2025-12-04T12:34:59
+[Con V2] 128. Reason: Sell deal closed with profit. Profit: 5.68. Time: 2025-12-04T13:14:59
+[Con V3] 96. Reason: Sell deal closed with loss. Profit: -1.10. Time: 2025-12-04T13:19:59
+[Rev V4] 56. Reason: Sell deal closed with profit. Profit: 1.11. Time: 2025-12-04T13:39:59
+[Con V2] 129. Reason: Sell deal closed with loss. Profit: -0.50. Time: 2025-12-04T13:49:59
+[Con V3] 97. Reason: Buy deal closed by stop loss. Profit: -3.31. Time: 2025-12-04T14:04:59
+[Con V2] 130. Reason: Sell deal closed with profit. Profit: 9.44. Time: 2025-12-04T14:29:59
+[Con V2] 131. Reason: Sell deal closed with loss. Profit: -1.88. Time: 2025-12-04T15:24:59
+[Con V3] 98. Reason: Buy deal closed with profit. Profit: 3.52. Time: 2025-12-04T15:39:59
+[Rev V4] 57. Reason: Sell deal closed by stop loss. Profit: -4.31. Time: 2025-12-04T15:44:59
+[Con V2] 132. Reason: Sell deal closed with loss. Profit: -0.70. Time: 2025-12-04T16:04:59
+[Con V2] 133. Reason: Sell deal closed with profit. Profit: 11.00. Time: 2025-12-04T16:44:59
+[Con V3] 99. Reason: Sell deal closed with loss. Profit: -5.27. Time: 2025-12-04T16:49:59
+[Con V2] 134. Reason: Sell deal closed by stop loss. Profit: -3.68. Time: 2025-12-04T17:24:59
+[Con V2] 135. Reason: Sell deal closed by stop loss. Profit: -9.94. Time: 2025-12-04T17:59:59
+[Con V3] 100. Reason: Sell deal closed by stop loss. Profit: -9.94. Time: 2025-12-04T17:59:59
+[Rev V4] 58. Reason: Sell deal closed by stop loss. Profit: -1.64. Time: 2025-12-04T18:19:59
+[Con V2] 136. Reason: Sell deal closed by stop loss. Profit: -3.69. Time: 2025-12-04T18:34:59
+[Con V3] 101. Reason: Sell deal closed by stop loss. Profit: -3.69. Time: 2025-12-04T18:34:59
+[Con V2] 137. Reason: Buy deal closed with profit. Profit: 13.07. Time: 2025-12-04T19:14:59
+[Con V3] 102. Reason: Buy deal closed with profit. Profit: 0.20. Time: 2025-12-04T19:19:59
+[Rev V4] 59. Reason: Sell deal closed with profit. Profit: 9.24. Time: 2025-12-04T19:24:59
+[Con V2] 138. Reason: Sell deal closed with profit. Profit: 6.77. Time: 2025-12-04T19:49:59
+[Con V3] 103. Reason: Sell deal closed with loss. Profit: -3.63. Time: 2025-12-04T19:54:59
+[Con V2] 139. Reason: Sell deal closed by stop loss. Profit: -0.71. Time: 2025-12-04T20:34:59
+[Con V3] 104. Reason: Sell deal closed with loss. Profit: -2.78. Time: 2025-12-04T20:39:59
+[Rev V4] 60. Reason: Sell deal closed with profit. Profit: 4.71. Time: 2025-12-04T20:59:59
+[Con V2] 140. Reason: Sell deal closed by stop loss. Profit: -2.17. Time: 2025-12-04T21:09:59
+[Con V2] 141. Reason: Sell deal closed with loss. Profit: -3.46. Time: 2025-12-04T21:44:59
+[Con V3] 105. Reason: Sell deal closed with profit. Profit: 3.60. Time: 2025-12-04T22:14:59
+[Rev V4] 61. Reason: Buy deal closed by stop loss. Profit: -0.62. Time: 2025-12-04T22:19:59
+[Con V2] 142. Reason: Sell deal closed with profit. Profit: 10.07. Time: 2025-12-04T22:19:59
+[Con V3] 106. Reason: Buy deal closed with loss. Profit: -1.94. Time: 2025-12-04T22:49:59
+[Con V2] 143. Reason: Sell deal closed by stop loss. Profit: -3.62. Time: 2025-12-04T22:59:59
+[Rev V4] 62. Reason: Sell deal closed by stop loss. Profit: -0.34. Time: 2025-12-04T23:19:59
+[Con V2] 144. Reason: Buy deal closed with profit. Profit: 4.76. Time: 2025-12-04T23:39:59
+[Con V3] 107. Reason: Buy deal closed with profit. Profit: 2.02. Time: 2025-12-04T23:44:59
+[Rev V4] 63. Reason: Sell deal closed with loss. Profit: -1.31. Time: 2025-12-04T23:54:59
+[Con V2] 145. Reason: Sell deal closed with profit. Profit: 0.69. Time: 2025-12-05T00:29:59
+[Con V3] 108. Reason: Sell deal closed by stop loss. Profit: -1.66. Time: 2025-12-05T00:34:59
+[Con V2] 146. Reason: Buy deal closed with loss. Profit: -0.09. Time: 2025-12-05T01:09:59
+[Con V2] 147. Reason: Sell deal closed by stop loss. Profit: -1.61. Time: 2025-12-05T02:14:59
+[Con V3] 109. Reason: Sell deal closed with profit. Profit: 1.48. Time: 2025-12-05T02:19:59
+[Rev V4] 64. Reason: Buy deal closed by stop loss. Profit: -0.15. Time: 2025-12-05T02:24:59
+[Con V2] 148. Reason: Sell deal closed by stop loss. Profit: -3.36. Time: 2025-12-05T02:59:59
+[Con V2] 149. Reason: Sell deal closed with loss. Profit: -1.37. Time: 2025-12-05T03:54:59
+[Con V3] 110. Reason: Buy deal closed by stop loss. Profit: -5.32. Time: 2025-12-05T04:09:59
+[Con V2] 150. Reason: Buy deal closed by stop loss. Profit: -1.00. Time: 2025-12-05T04:29:59
+[Con V2] 151. Reason: Sell deal closed by stop loss. Profit: -2.51. Time: 2025-12-05T05:09:59
+[Con V2] 152. Reason: Sell deal closed with profit. Profit: 2.59. Time: 2025-12-05T05:49:59
+[Con V3] 111. Reason: Sell deal closed with profit. Profit: 0.50. Time: 2025-12-05T05:54:59
+[Rev V4] 65. Reason: Buy deal closed with profit. Profit: 0.92. Time: 2025-12-05T05:59:59
+[Con V2] 153. Reason: Sell deal closed with loss. Profit: -1.26. Time: 2025-12-05T06:24:59
+[Con V3] 112. Reason: Sell deal closed with profit. Profit: 0.56. Time: 2025-12-05T06:44:59
+[Rev V4] 66. Reason: Buy deal closed with profit. Profit: 0.45. Time: 2025-12-05T06:49:59
+[Con V2] 154. Reason: Buy deal closed by stop loss. Profit: -2.56. Time: 2025-12-05T07:19:59
+[Con V3] 113. Reason: Sell deal closed with profit. Profit: 2.85. Time: 2025-12-05T07:34:59
+[Rev V4] 67. Reason: Buy deal closed by stop loss. Profit: -2.64. Time: 2025-12-05T07:39:59
+[Con V2] 155. Reason: Buy deal closed with loss. Profit: -1.55. Time: 2025-12-05T07:54:59
+[Con V2] 156. Reason: Buy deal closed by stop loss. Profit: -3.47. Time: 2025-12-05T08:44:59
+[Con V3] 114. Reason: Buy deal closed with profit. Profit: 0.85. Time: 2025-12-05T09:09:59
+[Rev V4] 68. Reason: Sell deal closed with profit. Profit: 3.25. Time: 2025-12-05T09:14:59
+[Con V2] 157. Reason: Buy deal closed by stop loss. Profit: -0.40. Time: 2025-12-05T09:49:59
+[Con V3] 115. Reason: Buy deal closed with profit. Profit: 2.65. Time: 2025-12-05T09:54:59
+[Rev V4] 69. Reason: Sell deal closed with profit. Profit: 1.73. Time: 2025-12-05T09:59:59
+[Con V2] 158. Reason: Buy deal closed with profit. Profit: 1.31. Time: 2025-12-05T10:24:59
+[Con V3] 116. Reason: Buy deal closed by stop loss. Profit: -1.31. Time: 2025-12-05T10:29:59
+[Con V2] 159. Reason: Sell deal closed by stop loss. Profit: -2.24. Time: 2025-12-05T11:19:59
+[Con V2] 160. Reason: Buy deal closed with profit. Profit: 0.87. Time: 2025-12-05T11:54:59
+[Con V3] 117. Reason: Buy deal closed by stop loss. Profit: -1.59. Time: 2025-12-05T11:59:59
+[Rev V4] 70. Reason: Buy deal closed by stop loss. Profit: -3.79. Time: 2025-12-05T12:19:59
+[Con V2] 161. Reason: Sell deal closed with loss. Profit: -1.98. Time: 2025-12-05T12:34:59
+[Con V2] 162. Reason: Buy deal closed with profit. Profit: 0.05. Time: 2025-12-05T13:09:59
+[Con V3] 118. Reason: Buy deal closed with profit. Profit: 0.05. Time: 2025-12-05T13:09:59
+[Rev V4] 71. Reason: Sell deal closed by stop loss. Profit: -2.96. Time: 2025-12-05T13:14:59
+[Con V2] 163. Reason: Buy deal closed with profit. Profit: 2.67. Time: 2025-12-05T14:09:59
+[Con V3] 119. Reason: Buy deal closed by stop loss. Profit: -2.97. Time: 2025-12-05T14:14:59
+[Con V2] 164. Reason: Sell deal closed with profit. Profit: 2.76. Time: 2025-12-05T14:59:59
+[Con V3] 120. Reason: Sell deal closed by stop loss. Profit: -2.76. Time: 2025-12-05T15:04:59
+[Con V2] 165. Reason: Buy deal closed with profit. Profit: 0.64. Time: 2025-12-05T15:34:59
+[Con V3] 121. Reason: Buy deal closed by stop loss. Profit: -1.98. Time: 2025-12-05T15:39:59
+[Con V2] 166. Reason: Sell deal closed with profit. Profit: 4.04. Time: 2025-12-05T16:19:59
+[Con V3] 122. Reason: Sell deal closed with profit. Profit: 5.96. Time: 2025-12-05T16:24:59
+[Rev V4] 72. Reason: Buy deal closed with profit. Profit: 3.81. Time: 2025-12-05T16:29:59
+[Con V2] 167. Reason: Buy deal closed by stop loss. Profit: -5.53. Time: 2025-12-05T16:54:59
+[Con V3] 123. Reason: Sell deal closed by stop loss. Profit: -1.60. Time: 2025-12-05T17:24:59
+[Con V2] 168. Reason: Buy deal closed by stop loss. Profit: -8.02. Time: 2025-12-05T17:34:59
+[Con V3] 124. Reason: Buy deal closed with loss. Profit: -10.32. Time: 2025-12-05T18:04:59
+[Con V2] 169. Reason: Buy deal closed with profit. Profit: 0.74. Time: 2025-12-05T18:29:59
+[Con V2] 170. Reason: Sell deal closed with profit. Profit: 26.10. Time: 2025-12-05T19:04:59
+[Con V3] 125. Reason: Sell deal closed with profit. Profit: 26.10. Time: 2025-12-05T19:04:59
+[Rev V4] 73. Reason: Buy deal closed by stop loss. Profit: -8.12. Time: 2025-12-05T19:09:59
+[Con V2] 171. Reason: Sell deal closed with profit. Profit: 8.51. Time: 2025-12-05T19:39:59
+[Con V3] 126. Reason: Sell deal closed by stop loss. Profit: -8.99. Time: 2025-12-05T19:44:59
+[Rev V4] 74. Reason: Sell deal closed with profit. Profit: 3.39. Time: 2025-12-05T20:04:59
+[Con V2] 172. Reason: Sell deal closed by stop loss. Profit: -4.74. Time: 2025-12-05T20:14:59
+[Con V2] 173. Reason: Buy deal closed with profit. Profit: 6.84. Time: 2025-12-05T20:49:59
+[Con V3] 127. Reason: Buy deal closed with loss. Profit: -1.33. Time: 2025-12-05T20:54:59
+[Con V2] 174. Reason: Sell deal closed with loss. Profit: -2.21. Time: 2025-12-05T21:24:59
+[Con V3] 128. Reason: Sell deal closed with loss. Profit: -4.25. Time: 2025-12-05T21:44:59
+[Con V2] 175. Reason: Sell deal closed with profit. Profit: 3.66. Time: 2025-12-05T21:59:59
+[Con V3] 129. Reason: Buy deal closed with profit. Profit: 1.74. Time: 2025-12-05T22:19:59
+[Rev V4] 75. Reason: Sell deal closed by stop loss. Profit: -4.19. Time: 2025-12-05T22:24:59
+[Con V2] 176. Reason: Sell deal closed by stop loss. Profit: -1.50. Time: 2025-12-05T22:49:59
+[Con V2] 177. Reason: Sell deal closed with profit. Profit: 2.94. Time: 2025-12-05T23:34:59
+[Con V3] 130. Reason: Sell deal closed with profit. Profit: 3.27. Time: 2025-12-05T23:39:59
+[Rev V4] 76. Reason: Buy deal closed by stop loss. Profit: -2.44. Time: 2025-12-05T23:44:59
+[Con V2] 178. Reason: Buy deal closed with profit. Profit: 1.82. Time: 2025-12-06T00:09:59
+[Con V3] 131. Reason: Buy deal closed with profit. Profit: 0.50. Time: 2025-12-06T00:14:59
+[Rev V4] 77. Reason: Sell deal closed by stop loss. Profit: -1.57. Time: 2025-12-06T00:19:59
+[Con V2] 179. Reason: Sell deal closed with loss. Profit: -3.73. Time: 2025-12-06T01:04:59
+[Con V2] 180. Reason: Buy deal closed with profit. Profit: 1.65. Time: 2025-12-06T01:44:59
+[Con V3] 132. Reason: Buy deal closed by stop loss. Profit: -1.66. Time: 2025-12-06T01:49:59
+[Con V2] 181. Reason: Buy deal closed by stop loss. Profit: -1.76. Time: 2025-12-06T02:19:59
+[Con V3] 133. Reason: Buy deal closed by stop loss. Profit: -2.39. Time: 2025-12-06T02:39:59
+[Con V2] 182. Reason: Sell deal closed with profit. Profit: 2.85. Time: 2025-12-06T03:09:59
+[Con V3] 134. Reason: Sell deal closed with profit. Profit: 0.24. Time: 2025-12-06T03:14:59
+[Rev V4] 78. Reason: Buy deal closed by stop loss. Profit: -1.44. Time: 2025-12-06T03:19:59
+[Con V2] 183. Reason: Sell deal closed by stop loss. Profit: -2.18. Time: 2025-12-06T03:49:59
+[Con V2] 184. Reason: Buy deal closed by stop loss. Profit: -1.88. Time: 2025-12-06T04:24:59
+[Con V3] 135. Reason: Sell deal closed with profit. Profit: 2.50. Time: 2025-12-06T04:39:59
+[Rev V4] 79. Reason: Buy deal closed with profit. Profit: 3.46. Time: 2025-12-06T04:44:59
+[Con V2] 185. Reason: Buy deal closed with loss. Profit: -0.03. Time: 2025-12-06T05:14:59
+[Con V3] 136. Reason: Sell deal closed with profit. Profit: 1.05. Time: 2025-12-06T05:29:59
+[Rev V4] 80. Reason: Buy deal closed by stop loss. Profit: -1.27. Time: 2025-12-06T05:34:59
+[Con V2] 186. Reason: Buy deal closed with profit. Profit: 3.76. Time: 2025-12-06T05:49:59
+[Con V3] 137. Reason: Buy deal closed with profit. Profit: 5.64. Time: 2025-12-06T06:04:59
+[Rev V4] 81. Reason: Sell deal closed by stop loss. Profit: -0.72. Time: 2025-12-06T06:09:59
+[Con V2] 187. Reason: Sell deal closed with profit. Profit: 3.59. Time: 2025-12-06T06:24:59
+[Con V2] 188. Reason: Sell deal closed with profit. Profit: 1.02. Time: 2025-12-06T06:59:59
+[Con V3] 138. Reason: Sell deal closed by stop loss. Profit: -1.44. Time: 2025-12-06T07:04:59
+[Rev V4] 82. Reason: Sell deal closed with profit. Profit: 2.34. Time: 2025-12-06T07:34:59
+[Con V2] 189. Reason: Buy deal closed with loss. Profit: -2.34. Time: 2025-12-06T07:34:59
+[Con V2] 190. Reason: Buy deal closed with loss. Profit: -0.58. Time: 2025-12-06T08:09:59
+[Con V3] 139. Reason: Buy deal closed with loss. Profit: -0.58. Time: 2025-12-06T08:09:59
+[Rev V4] 83. Reason: Buy deal closed by stop loss. Profit: -0.06. Time: 2025-12-06T08:44:59
+[Con V2] 191. Reason: Sell deal closed with loss. Profit: -1.42. Time: 2025-12-06T08:44:59
+[Con V3] 140. Reason: Sell deal closed with loss. Profit: -1.42. Time: 2025-12-06T08:44:59
+[Con V2] 192. Reason: Buy deal closed with loss. Profit: -1.25. Time: 2025-12-06T09:29:59
+[Con V3] 141. Reason: Sell deal closed with loss. Profit: -1.01. Time: 2025-12-06T09:44:59
+[Rev V4] 84. Reason: Sell deal closed by stop loss. Profit: -0.05. Time: 2025-12-06T10:04:59
+[Con V2] 193. Reason: Buy deal closed with profit. Profit: 0.12. Time: 2025-12-06T10:04:59
+[Con V2] 194. Reason: Buy deal closed with profit. Profit: 0.83. Time: 2025-12-06T10:39:59
+[Con V3] 142. Reason: Buy deal closed with profit. Profit: 0.96. Time: 2025-12-06T10:44:59
+[Rev V4] 85. Reason: Sell deal closed with profit. Profit: 3.58. Time: 2025-12-06T10:49:59
+[Con V2] 195. Reason: Sell deal closed with profit. Profit: 0.41. Time: 2025-12-06T11:29:59
+[Con V3] 143. Reason: Sell deal closed by stop loss. Profit: -2.49. Time: 2025-12-06T11:34:59
+[Con V2] 196. Reason: Buy deal closed with profit. Profit: 4.18. Time: 2025-12-06T12:09:59
+[Con V3] 144. Reason: Buy deal closed with profit. Profit: 0.29. Time: 2025-12-06T12:14:59
+[Rev V4] 86. Reason: Sell deal closed by stop loss. Profit: -0.68. Time: 2025-12-06T12:19:59
+[Con V2] 197. Reason: Sell deal closed with profit. Profit: 1.69. Time: 2025-12-06T12:59:59
+[Con V3] 145. Reason: Sell deal closed with loss. Profit: -0.72. Time: 2025-12-06T13:04:59
+[Con V2] 198. Reason: Sell deal closed with loss. Profit: -1.12. Time: 2025-12-06T13:34:59
+[Con V2] 199. Reason: Buy deal closed by stop loss. Profit: -0.37. Time: 2025-12-06T14:24:59
+[Con V3] 146. Reason: Buy deal closed with profit. Profit: 1.32. Time: 2025-12-06T14:29:59
+[Rev V4] 87. Reason: Sell deal closed with loss. Profit: -0.66. Time: 2025-12-06T14:34:59
+[Con V2] 200. Reason: Sell deal closed with profit. Profit: 0.12. Time: 2025-12-06T15:09:59
+[Con V3] 147. Reason: Sell deal closed by stop loss. Profit: -0.49. Time: 2025-12-06T15:14:59
+[Con V2] 201. Reason: Sell deal closed with profit. Profit: 0.68. Time: 2025-12-06T15:49:59
+[Con V3] 148. Reason: Sell deal closed by stop loss. Profit: -0.93. Time: 2025-12-06T15:54:59
+[Con V2] 202. Reason: Buy deal closed with profit. Profit: 0.19. Time: 2025-12-06T16:34:59
+[Con V3] 149. Reason: Buy deal closed by stop loss. Profit: -0.23. Time: 2025-12-06T16:39:59
+[Rev V4] 88. Reason: Sell deal closed with profit. Profit: 2.28. Time: 2025-12-06T16:44:59
+[Con V2] 203. Reason: Buy deal closed by stop loss. Profit: -0.63. Time: 2025-12-06T17:09:59
+[Con V3] 150. Reason: Buy deal closed with profit. Profit: 13.70. Time: 2025-12-06T17:14:59
+[Rev V4] 89. Reason: Sell deal closed with profit. Profit: 5.82. Time: 2025-12-06T17:19:59
+[Con V2] 204. Reason: Sell deal closed with profit. Profit: 1.78. Time: 2025-12-06T17:59:59
+[Con V3] 151. Reason: Sell deal closed with profit. Profit: 4.24. Time: 2025-12-06T18:04:59
+[Rev V4] 90. Reason: Buy deal closed with loss. Profit: -0.52. Time: 2025-12-06T18:09:59
+[Con V2] 205. Reason: Buy deal closed with profit. Profit: 1.30. Time: 2025-12-06T18:44:59
+[Con V3] 152. Reason: Buy deal closed by stop loss. Profit: -1.88. Time: 2025-12-06T18:49:59
+[Con V2] 206. Reason: Sell deal closed with profit. Profit: 0.50. Time: 2025-12-06T19:19:59
+[Con V3] 153. Reason: Sell deal closed by stop loss. Profit: -0.50. Time: 2025-12-06T19:24:59
+[Rev V4] 91. Reason: Buy deal closed by stop loss. Profit: -0.70. Time: 2025-12-06T19:29:59
+[Con V2] 207. Reason: Sell deal closed with loss. Profit: -0.76. Time: 2025-12-06T19:54:59
+[Con V3] 154. Reason: Buy deal closed by stop loss. Profit: -2.77. Time: 2025-12-06T20:09:59
+[Con V2] 208. Reason: Buy deal closed by stop loss. Profit: -5.06. Time: 2025-12-06T20:29:59
+[Con V2] 209. Reason: Sell deal closed by stop loss. Profit: -1.53. Time: 2025-12-06T21:09:59
+[Con V2] 210. Reason: Sell deal closed with profit. Profit: 1.48. Time: 2025-12-06T21:44:59
+[Con V3] 155. Reason: Sell deal closed with profit. Profit: 1.48. Time: 2025-12-06T21:44:59
+[Rev V4] 92. Reason: Buy deal closed by stop loss. Profit: -0.75. Time: 2025-12-06T21:49:59
+[Con V2] 211. Reason: Sell deal closed by stop loss. Profit: -1.68. Time: 2025-12-06T22:39:59
+[Con V2] 212. Reason: Buy deal closed with loss. Profit: -1.39. Time: 2025-12-06T23:19:59
+[Con V3] 156. Reason: Buy deal closed with profit. Profit: 0.54. Time: 2025-12-06T23:39:59
+[Rev V4] 93. Reason: Sell deal closed by stop loss. Profit: -0.50. Time: 2025-12-06T23:44:59
+[Con V2] 213. Reason: Buy deal closed with profit. Profit: 0.07. Time: 2025-12-06T23:54:59
+[Con V2] 214. Reason: Sell deal closed with profit. Profit: 0.64. Time: 2025-12-07T00:29:59
+[Con V3] 157. Reason: Sell deal closed with profit. Profit: 0.64. Time: 2025-12-07T00:29:59
+[Rev V4] 94. Reason: Buy deal closed with profit. Profit: 2.74. Time: 2025-12-07T00:34:59
+[Con V2] 215. Reason: Sell deal closed with profit. Profit: 1.45. Time: 2025-12-07T01:04:59
+[Con V3] 158. Reason: Sell deal closed with profit. Profit: 1.45. Time: 2025-12-07T01:04:59
+[Rev V4] 95. Reason: Buy deal closed by stop loss. Profit: -0.15. Time: 2025-12-07T01:09:59
+[Con V2] 216. Reason: Buy deal closed by stop loss. Profit: -2.45. Time: 2025-12-07T01:39:59
+[Con V2] 217. Reason: Buy deal closed with loss. Profit: -0.68. Time: 2025-12-07T02:14:59
+[Con V3] 159. Reason: Buy deal closed with loss. Profit: -2.28. Time: 2025-12-07T02:39:59
+[Con V2] 218. Reason: Buy deal closed with profit. Profit: 0.50. Time: 2025-12-07T02:54:59
+[Rev V4] 96. Reason: Sell deal closed by stop loss. Profit: -0.35. Time: 2025-12-07T03:04:59
+[Con V2] 219. Reason: Buy deal closed with profit. Profit: 2.80. Time: 2025-12-07T03:29:59
+[Con V3] 160. Reason: Buy deal closed with profit. Profit: 2.80. Time: 2025-12-07T03:29:59
+[Rev V4] 97. Reason: Sell deal closed by stop loss. Profit: -0.94. Time: 2025-12-07T03:39:59
+[Con V2] 220. Reason: Buy deal closed with loss. Profit: -2.20. Time: 2025-12-07T04:19:59
+[Con V3] 161. Reason: Sell deal closed with profit. Profit: 1.31. Time: 2025-12-07T04:34:59
+[Rev V4] 98. Reason: Buy deal closed by stop loss. Profit: -0.42. Time: 2025-12-07T04:39:59
+[Con V2] 221. Reason: Sell deal closed by stop loss. Profit: -3.10. Time: 2025-12-07T04:59:59
+[Con V2] 222. Reason: Sell deal closed by stop loss. Profit: -1.01. Time: 2025-12-07T05:34:59
+[Con V3] 162. Reason: Sell deal closed by stop loss. Profit: -1.01. Time: 2025-12-07T05:34:59
+[Rev V4] 99. Reason: Buy deal closed with profit. Profit: 1.47. Time: 2025-12-07T05:39:59
+[Con V2] 223. Reason: Buy deal closed by stop loss. Profit: -0.94. Time: 2025-12-07T06:14:59
+[Con V3] 163. Reason: Buy deal closed with loss. Profit: -1.29. Time: 2025-12-07T06:19:59
+[Rev V4] 100. Reason: Sell deal closed with loss. Profit: -0.77. Time: 2025-12-07T06:44:59
+[Con V2] 224. Reason: Buy deal closed by stop loss. Profit: -0.88. Time: 2025-12-07T06:49:59
+[Con V3] 164. Reason: Sell deal closed with loss. Profit: -0.91. Time: 2025-12-07T07:19:59
+[Con V2] 225. Reason: Sell deal closed with profit. Profit: 2.00. Time: 2025-12-07T07:34:59
+[Con V3] 165. Reason: Sell deal closed with profit. Profit: 2.27. Time: 2025-12-07T08:04:59
+[Rev V4] 101. Reason: Buy deal closed by stop loss. Profit: -0.23. Time: 2025-12-07T08:09:59
+[Con V2] 226. Reason: Sell deal closed with loss. Profit: -1.20. Time: 2025-12-07T08:09:59
+[Con V3] 166. Reason: Buy deal closed with profit. Profit: 1.12. Time: 2025-12-07T08:39:59
+[Rev V4] 102. Reason: Sell deal closed with profit. Profit: 2.50. Time: 2025-12-07T08:44:59
+[Con V2] 227. Reason: Buy deal closed by stop loss. Profit: -1.12. Time: 2025-12-07T08:44:59
+[Con V3] 167. Reason: Buy deal closed by stop loss. Profit: -0.68. Time: 2025-12-07T09:14:59
+[Rev V4] 103. Reason: Sell deal closed by stop loss. Profit: -0.44. Time: 2025-12-07T09:19:59
+[Con V2] 228. Reason: Buy deal closed with profit. Profit: 1.86. Time: 2025-12-07T09:19:59
+[Con V3] 168. Reason: Sell deal closed with profit. Profit: 2.33. Time: 2025-12-07T09:49:59
+[Rev V4] 104. Reason: Buy deal closed with profit. Profit: 5.10. Time: 2025-12-07T09:54:59
+[Con V2] 229. Reason: Sell deal closed by stop loss. Profit: -2.34. Time: 2025-12-07T09:54:59
+[Con V3] 169. Reason: Sell deal closed with loss. Profit: -0.38. Time: 2025-12-07T10:24:59
+[Con V2] 230. Reason: Sell deal closed with profit. Profit: 1.05. Time: 2025-12-07T10:39:59
+[Con V3] 170. Reason: Buy deal closed by stop loss. Profit: -2.37. Time: 2025-12-07T10:59:59
+[Con V2] 231. Reason: Buy deal closed with profit. Profit: 1.21. Time: 2025-12-07T11:24:59
+[Con V2] 232. Reason: Sell deal closed with loss. Profit: -1.46. Time: 2025-12-07T11:59:59
+[Con V3] 171. Reason: Sell deal closed with loss. Profit: -1.46. Time: 2025-12-07T11:59:59
+[Con V2] 233. Reason: Buy deal closed with loss. Profit: -1.60. Time: 2025-12-07T12:34:59
+[Con V3] 172. Reason: Sell deal closed with loss. Profit: -0.10. Time: 2025-12-07T12:49:59
+[Rev V4] 105. Reason: Sell deal closed by stop loss. Profit: -0.08. Time: 2025-12-07T13:09:59
+[Con V2] 234. Reason: Buy deal closed with profit. Profit: 5.58. Time: 2025-12-07T13:09:59
+[Con V3] 173. Reason: Sell deal closed with profit. Profit: 2.81. Time: 2025-12-07T13:29:59
+[Con V2] 235. Reason: Buy deal closed with profit. Profit: 2.19. Time: 2025-12-07T13:44:59
+[Con V3] 174. Reason: Sell deal closed by stop loss. Profit: -1.61. Time: 2025-12-07T14:04:59
+[Con V2] 236. Reason: Sell deal closed with profit. Profit: 0.53. Time: 2025-12-07T14:19:59
+[Rev V4] 106. Reason: Buy deal closed with profit. Profit: 2.97. Time: 2025-12-07T14:29:59
+[Con V3] 175. Reason: Sell deal closed with loss. Profit: -0.26. Time: 2025-12-07T14:49:59
+[Con V2] 237. Reason: Buy deal closed with profit. Profit: 3.16. Time: 2025-12-07T15:09:59
+[Con V3] 176. Reason: Buy deal closed with profit. Profit: 1.09. Time: 2025-12-07T15:39:59
+[Rev V4] 107. Reason: Sell deal closed by stop loss. Profit: -0.15. Time: 2025-12-07T15:44:59
+[Con V2] 238. Reason: Buy deal closed with profit. Profit: 8.05. Time: 2025-12-07T15:44:59
+[Con V2] 239. Reason: Buy deal closed by stop loss. Profit: -3.52. Time: 2025-12-07T16:34:59
+[Con V3] 177. Reason: Buy deal closed with profit. Profit: 0.51. Time: 2025-12-07T16:54:59
+[Rev V4] 108. Reason: Sell deal closed with profit. Profit: 6.27. Time: 2025-12-07T16:59:59
+[Con V2] 240. Reason: Sell deal closed with profit. Profit: 14.81. Time: 2025-12-07T17:19:59
+[Con V3] 178. Reason: Sell deal closed with profit. Profit: 1.65. Time: 2025-12-07T17:29:59
+[Rev V4] 109. Reason: Buy deal closed with profit. Profit: 17.02. Time: 2025-12-07T17:34:59
+[Con V2] 241. Reason: Sell deal closed with loss. Profit: -4.75. Time: 2025-12-07T18:19:59
+[Con V2] 242. Reason: Buy deal closed with profit. Profit: 14.48. Time: 2025-12-07T18:54:59
+[Con V3] 179. Reason: Buy deal closed with profit. Profit: 14.48. Time: 2025-12-07T18:54:59
+[Rev V4] 110. Reason: Sell deal closed with profit. Profit: 5.88. Time: 2025-12-07T18:59:59
+[Con V2] 243. Reason: Buy deal closed with profit. Profit: 5.43. Time: 2025-12-07T19:34:59
+[Con V3] 180. Reason: Buy deal closed with loss. Profit: -1.22. Time: 2025-12-07T19:39:59
+[Con V2] 244. Reason: Sell deal closed by stop loss. Profit: -7.22. Time: 2025-12-07T20:09:59
+[Con V3] 181. Reason: Buy deal closed with profit. Profit: 4.22. Time: 2025-12-07T20:24:59
+[Rev V4] 111. Reason: Sell deal closed by stop loss. Profit: -2.27. Time: 2025-12-07T20:29:59
+[Con V2] 245. Reason: Buy deal closed with loss. Profit: -7.66. Time: 2025-12-07T20:49:59
+[Con V2] 246. Reason: Buy deal closed with profit. Profit: 1.58. Time: 2025-12-07T21:24:59
+[Con V3] 182. Reason: Buy deal closed with profit. Profit: 1.04. Time: 2025-12-07T21:29:59
+[Rev V4] 112. Reason: Sell deal closed with profit. Profit: 4.63. Time: 2025-12-07T21:34:59
+[Con V2] 247. Reason: Sell deal closed by stop loss. Profit: -1.45. Time: 2025-12-07T21:59:59
+[Con V3] 183. Reason: Buy deal closed by stop loss. Profit: -3.94. Time: 2025-12-07T22:14:59
+[Con V2] 248. Reason: Sell deal closed by stop loss. Profit: -4.08. Time: 2025-12-07T22:54:59
+[Con V3] 184. Reason: Buy deal closed with loss. Profit: -0.92. Time: 2025-12-07T23:24:59
+[Con V2] 249. Reason: Sell deal closed with loss. Profit: -1.62. Time: 2025-12-07T23:34:59
+[Con V2] 250. Reason: Sell deal closed by stop loss. Profit: -1.80. Time: 2025-12-08T00:09:59
+[Con V3] 185. Reason: Sell deal closed by stop loss. Profit: -5.66. Time: 2025-12-08T00:29:59
+[Con V2] 251. Reason: Sell deal closed with profit. Profit: 10.90. Time: 2025-12-08T00:44:59
+[Rev V4] 113. Reason: Buy deal closed by stop loss. Profit: -2.00. Time: 2025-12-08T00:54:59
+[Con V2] 252. Reason: Buy deal closed with profit. Profit: 13.74. Time: 2025-12-08T01:29:59
+[Con V3] 186. Reason: Buy deal closed with profit. Profit: 2.80. Time: 2025-12-08T01:34:59
+[Rev V4] 114. Reason: Sell deal closed with profit. Profit: 0.84. Time: 2025-12-08T01:39:59
+[Con V2] 253. Reason: Buy deal closed with profit. Profit: 7.43. Time: 2025-12-08T02:19:59
+[Con V3] 187. Reason: Buy deal closed with profit. Profit: 2.88. Time: 2025-12-08T02:24:59
+[Rev V4] 115. Reason: Sell deal closed with profit. Profit: 1.87. Time: 2025-12-08T02:29:59
+[Con V2] 254. Reason: Buy deal closed with profit. Profit: 7.59. Time: 2025-12-08T02:54:59
+[Con V3] 188. Reason: Buy deal closed with loss. Profit: -0.80. Time: 2025-12-08T02:59:59
+[Rev V4] 116. Reason: Buy deal closed by stop loss. Profit: -1.45. Time: 2025-12-08T03:19:59
+[Con V2] 255. Reason: Buy deal closed with profit. Profit: 8.28. Time: 2025-12-08T03:29:59
+[Con V3] 189. Reason: Buy deal closed with profit. Profit: 0.15. Time: 2025-12-08T03:34:59
+[Con V2] 256. Reason: Buy deal closed with loss. Profit: -0.04. Time: 2025-12-08T04:09:59
+[Con V3] 190. Reason: Buy deal closed with profit. Profit: 8.74. Time: 2025-12-08T04:29:59
+[Rev V4] 117. Reason: Sell deal closed by stop loss. Profit: -6.93. Time: 2025-12-08T04:34:59
+[Con V2] 257. Reason: Sell deal closed with profit. Profit: 0.45. Time: 2025-12-08T04:49:59
+[Con V3] 191. Reason: Sell deal closed by stop loss. Profit: -4.60. Time: 2025-12-08T05:04:59
+[Rev V4] 118. Reason: Buy deal closed by stop loss. Profit: -1.93. Time: 2025-12-08T05:09:59
+[Con V2] 258. Reason: Buy deal closed with loss. Profit: -1.28. Time: 2025-12-08T05:24:59
+[Con V2] 259. Reason: Buy deal closed by stop loss. Profit: -0.74. Time: 2025-12-08T05:59:59
+[Con V3] 192. Reason: Sell deal closed by stop loss. Profit: -4.53. Time: 2025-12-08T06:14:59
+[Con V2] 260. Reason: Sell deal closed by stop loss. Profit: -1.46. Time: 2025-12-08T06:34:59
+[Rev V4] 119. Reason: Buy deal closed by stop loss. Profit: -0.88. Time: 2025-12-08T06:44:59
+[Con V2] 261. Reason: Buy deal closed by stop loss. Profit: -0.40. Time: 2025-12-08T07:14:59
+[Con V3] 193. Reason: Buy deal closed with profit. Profit: 0.76. Time: 2025-12-08T07:19:59
+[Rev V4] 120. Reason: Sell deal closed by stop loss. Profit: -0.93. Time: 2025-12-08T07:24:59
+[Con V2] 262. Reason: Buy deal closed by stop loss. Profit: -2.92. Time: 2025-12-08T07:59:59
+[Con V3] 194. Reason: Buy deal closed by stop loss. Profit: -1.82. Time: 2025-12-08T08:24:59
+[Con V2] 263. Reason: Buy deal closed by stop loss. Profit: -2.44. Time: 2025-12-08T08:49:59
+[Con V3] 195. Reason: Buy deal closed by stop loss. Profit: -1.22. Time: 2025-12-08T09:19:59
+[Con V2] 264. Reason: Buy deal closed with profit. Profit: 0.94. Time: 2025-12-08T09:34:59
+[Con V2] 265. Reason: Buy deal closed with profit. Profit: 7.04. Time: 2025-12-08T10:19:59
+[Con V3] 196. Reason: Buy deal closed with profit. Profit: 1.87. Time: 2025-12-08T10:24:59
+[Rev V4] 121. Reason: Sell deal closed with profit. Profit: 0.59. Time: 2025-12-08T10:29:59
+[Con V2] 266. Reason: Sell deal closed with loss. Profit: -2.10. Time: 2025-12-08T10:54:59
+[Con V3] 197. Reason: Buy deal closed with loss. Profit: -0.63. Time: 2025-12-08T11:24:59
+[Con V2] 267. Reason: Sell deal closed by stop loss. Profit: -3.36. Time: 2025-12-08T11:34:59
+[Con V3] 198. Reason: Buy deal closed with profit. Profit: 6.42. Time: 2025-12-08T12:04:59
+[Rev V4] 122. Reason: Sell deal closed with profit. Profit: 1.04. Time: 2025-12-08T12:09:59
+[Con V2] 268. Reason: Buy deal closed with loss. Profit: -1.04. Time: 2025-12-08T12:09:59
+[Con V2] 269. Reason: Sell deal closed with profit. Profit: 2.52. Time: 2025-12-08T12:44:59
+[Con V3] 199. Reason: Sell deal closed with profit. Profit: 0.81. Time: 2025-12-08T12:49:59
+[Rev V4] 123. Reason: Buy deal closed with loss. Profit: -0.03. Time: 2025-12-08T12:54:59
+[Con V2] 270. Reason: Buy deal closed by stop loss. Profit: -3.65. Time: 2025-12-08T13:19:59
+[Con V3] 200. Reason: Buy deal closed with profit. Profit: 1.95. Time: 2025-12-08T13:39:59
+[Rev V4] 124. Reason: Sell deal closed by stop loss. Profit: -0.30. Time: 2025-12-08T13:44:59
+[Con V2] 271. Reason: Sell deal closed with loss. Profit: -0.07. Time: 2025-12-08T13:54:59
+[Con V2] 272. Reason: Sell deal closed with profit. Profit: 4.84. Time: 2025-12-08T14:29:59
+[Con V3] 201. Reason: Sell deal closed with profit. Profit: 4.84. Time: 2025-12-08T14:29:59
+[Rev V4] 125. Reason: Buy deal closed with profit. Profit: 1.21. Time: 2025-12-08T14:34:59
+[Con V2] 273. Reason: Sell deal closed with profit. Profit: 1.38. Time: 2025-12-08T15:04:59
+[Con V3] 202. Reason: Sell deal closed with profit. Profit: 0.73. Time: 2025-12-08T15:09:59
+[Rev V4] 126. Reason: Buy deal closed by stop loss. Profit: -0.47. Time: 2025-12-08T15:14:59
+[Con V2] 274. Reason: Sell deal closed by stop loss. Profit: -3.60. Time: 2025-12-08T15:39:59
+[Con V3] 203. Reason: Sell deal closed by stop loss. Profit: -4.11. Time: 2025-12-08T16:04:59
+[Con V2] 275. Reason: Sell deal closed with profit. Profit: 2.23. Time: 2025-12-08T16:19:59
+[Con V2] 276. Reason: Sell deal closed with profit. Profit: 3.38. Time: 2025-12-08T16:54:59
+[Con V3] 204. Reason: Sell deal closed with loss. Profit: -1.28. Time: 2025-12-08T16:59:59
+[Con V2] 277. Reason: Buy deal closed by stop loss. Profit: -16.26. Time: 2025-12-08T17:34:59
+[Con V2] 278. Reason: Sell deal closed with loss. Profit: -6.61. Time: 2025-12-08T18:14:59
+[Con V2] 279. Reason: Buy deal closed with loss. Profit: -6.87. Time: 2025-12-08T18:54:59
+[Con V2] 280. Reason: Sell deal closed by stop loss. Profit: -7.29. Time: 2025-12-08T19:34:59
+[Con V2] 281. Reason: Buy deal closed by stop loss. Profit: -2.99. Time: 2025-12-08T20:14:59
+[Con V2] 282. Reason: Buy deal closed with profit. Profit: 9.04. Time: 2025-12-08T20:54:59
+[Con V3] 205. Reason: Buy deal closed with loss. Profit: -0.49. Time: 2025-12-08T20:59:59
+[Con V2] 283. Reason: Sell deal closed by stop loss. Profit: -1.78. Time: 2025-12-08T21:34:59
+[Con V3] 206. Reason: Sell deal closed with loss. Profit: -4.81. Time: 2025-12-08T21:59:59
+[Con V2] 284. Reason: Buy deal closed by stop loss. Profit: -6.31. Time: 2025-12-08T22:09:59
+[Con V2] 285. Reason: Buy deal closed with profit. Profit: 1.04. Time: 2025-12-08T22:49:59
+[Con V3] 207. Reason: Buy deal closed by stop loss. Profit: -3.53. Time: 2025-12-08T22:54:59
+[Con V2] 286. Reason: Buy deal closed by stop loss. Profit: -6.21. Time: 2025-12-08T23:24:59
+[Con V3] 208. Reason: Buy deal closed with profit. Profit: 7.71. Time: 2025-12-08T23:49:59
+[Rev V4] 127. Reason: Sell deal closed with profit. Profit: 1.74. Time: 2025-12-08T23:54:59
+[Con V2] 287. Reason: Buy deal closed by stop loss. Profit: -2.86. Time: 2025-12-09T00:09:59
+[Con V3] 209. Reason: Buy deal closed with profit. Profit: 6.90. Time: 2025-12-09T00:29:59
+[Rev V4] 128. Reason: Sell deal closed with profit. Profit: 4.64. Time: 2025-12-09T00:34:59
+[Con V2] 288. Reason: Buy deal closed with profit. Profit: 5.58. Time: 2025-12-09T00:49:59
+[Con V3] 210. Reason: Sell deal closed with profit. Profit: 4.35. Time: 2025-12-09T01:09:59
+[Rev V4] 129. Reason: Buy deal closed with profit. Profit: 0.35. Time: 2025-12-09T01:14:59
+[Con V2] 289. Reason: Sell deal closed with profit. Profit: 2.50. Time: 2025-12-09T01:39:59
+[Con V3] 211. Reason: Sell deal closed by stop loss. Profit: -5.92. Time: 2025-12-09T01:44:59
+[Con V2] 290. Reason: Sell deal closed with profit. Profit: 4.96. Time: 2025-12-09T02:19:59
+[Con V3] 212. Reason: Sell deal closed with loss. Profit: -2.36. Time: 2025-12-09T02:24:59
+[Rev V4] 130. Reason: Buy deal closed by stop loss. Profit: -1.78. Time: 2025-12-09T02:49:59
+[Con V2] 291. Reason: Buy deal closed with loss. Profit: -0.34. Time: 2025-12-09T02:59:59
+[Con V3] 213. Reason: Buy deal closed by stop loss. Profit: -1.50. Time: 2025-12-09T03:19:59
+[Con V2] 292. Reason: Sell deal closed with loss. Profit: -3.30. Time: 2025-12-09T03:34:59
+[Con V3] 214. Reason: Sell deal closed with loss. Profit: -1.09. Time: 2025-12-09T03:54:59
+[Con V2] 293. Reason: Buy deal closed with profit. Profit: 1.19. Time: 2025-12-09T04:14:59
+[Con V3] 215. Reason: Sell deal closed with loss. Profit: -1.52. Time: 2025-12-09T04:34:59
+[Con V2] 294. Reason: Sell deal closed with loss. Profit: -1.96. Time: 2025-12-09T04:49:59
+[Con V2] 295. Reason: Sell deal closed with loss. Profit: -1.88. Time: 2025-12-09T05:39:59
+[Con V2] 296. Reason: Sell deal closed by stop loss. Profit: -1.61. Time: 2025-12-09T06:14:59
+[Con V3] 216. Reason: Sell deal closed by stop loss. Profit: -7.64. Time: 2025-12-09T06:19:59
+[Con V2] 297. Reason: Sell deal closed by stop loss. Profit: -2.34. Time: 2025-12-09T06:54:59
+[Con V3] 217. Reason: Buy deal closed with loss. Profit: -0.48. Time: 2025-12-09T07:09:59
+[Con V2] 298. Reason: Sell deal closed with loss. Profit: -2.42. Time: 2025-12-09T07:39:59
+[Con V3] 218. Reason: Sell deal closed with profit. Profit: 0.29. Time: 2025-12-09T08:09:59
+[Rev V4] 131. Reason: Buy deal closed by stop loss. Profit: -3.21. Time: 2025-12-09T08:14:59
+[Con V2] 299. Reason: Sell deal closed with loss. Profit: -2.32. Time: 2025-12-09T08:14:59
+[Con V2] 300. Reason: Sell deal closed with profit. Profit: 3.71. Time: 2025-12-09T08:49:59
+[Con V3] 219. Reason: Sell deal closed with profit. Profit: 3.71. Time: 2025-12-09T08:49:59
+[Rev V4] 132. Reason: Buy deal closed with loss. Profit: -1.70. Time: 2025-12-09T08:54:59
+[Con V2] 301. Reason: Sell deal closed with profit. Profit: 3.47. Time: 2025-12-09T09:29:59
+[Con V3] 220. Reason: Sell deal closed with loss. Profit: -3.59. Time: 2025-12-09T09:34:59
+[Rev V4] 133. Reason: Sell deal closed with profit. Profit: 1.15. Time: 2025-12-09T09:54:59
+[Con V2] 302. Reason: Sell deal closed by stop loss. Profit: -7.50. Time: 2025-12-09T10:04:59
+[Con V2] 303. Reason: Buy deal closed by stop loss. Profit: -3.07. Time: 2025-12-09T10:39:59
+[Con V2] 304. Reason: Sell deal closed with profit. Profit: 3.26. Time: 2025-12-09T11:29:59
+[Con V3] 221. Reason: Sell deal closed with loss. Profit: -1.98. Time: 2025-12-09T11:34:59
+[Rev V4] 134. Reason: Sell deal closed with profit. Profit: 3.18. Time: 2025-12-09T11:54:59
+[Con V2] 305. Reason: Sell deal closed with loss. Profit: -1.20. Time: 2025-12-09T12:04:59
+[Con V2] 306. Reason: Buy deal closed with loss. Profit: -0.49. Time: 2025-12-09T12:49:59
+[Con V2] 307. Reason: Buy deal closed with profit. Profit: 2.61. Time: 2025-12-09T13:49:59
+[Con V3] 222. Reason: Buy deal closed with profit. Profit: 4.82. Time: 2025-12-09T13:54:59
+[Rev V4] 135. Reason: Sell deal closed by stop loss. Profit: -0.55. Time: 2025-12-09T13:59:59
+[Con V2] 308. Reason: Buy deal closed with loss. Profit: -1.46. Time: 2025-12-09T14:29:59
+[Con V3] 223. Reason: Buy deal closed with profit. Profit: 1.71. Time: 2025-12-09T14:54:59
+[Rev V4] 136. Reason: Sell deal closed by stop loss. Profit: -0.45. Time: 2025-12-09T14:59:59
+[Con V2] 309. Reason: Buy deal closed by stop loss. Profit: -4.06. Time: 2025-12-09T15:04:59
+[Con V2] 310. Reason: Buy deal closed with loss. Profit: -0.49. Time: 2025-12-09T15:49:59
+[Con V3] 224. Reason: Sell deal closed with profit. Profit: 0.28. Time: 2025-12-09T16:04:59
+[Rev V4] 137. Reason: Buy deal closed with profit. Profit: 0.21. Time: 2025-12-09T16:09:59
+[Con V2] 311. Reason: Buy deal closed with profit. Profit: 2.05. Time: 2025-12-09T16:24:59
+[Con V3] 225. Reason: Sell deal closed with loss. Profit: -3.51. Time: 2025-12-09T16:44:59
+[Con V2] 312. Reason: Buy deal closed with profit. Profit: 0.67. Time: 2025-12-09T16:59:59
+[Rev V4] 138. Reason: Sell deal closed with profit. Profit: 0.23. Time: 2025-12-09T17:04:59
+[Con V3] 226. Reason: Sell deal closed by stop loss. Profit: -3.75. Time: 2025-12-09T17:19:59
+[Con V2] 313. Reason: Buy deal closed with profit. Profit: 2.88. Time: 2025-12-09T17:34:59
+[Con V3] 227. Reason: Buy deal closed with profit. Profit: 21.02. Time: 2025-12-09T17:59:59
+[Rev V4] 139. Reason: Sell deal closed with profit. Profit: 9.02. Time: 2025-12-09T18:04:59
+[Con V2] 314. Reason: Sell deal closed by stop loss. Profit: -9.53. Time: 2025-12-09T18:14:59
+[Con V2] 315. Reason: Buy deal closed with profit. Profit: 14.62. Time: 2025-12-09T19:09:59
+[Con V3] 228. Reason: Buy deal closed with loss. Profit: -4.18. Time: 2025-12-09T19:14:59
+[Con V2] 316. Reason: Buy deal closed with profit. Profit: 4.97. Time: 2025-12-09T19:44:59
+[Rev V4] 140. Reason: Sell deal closed by stop loss. Profit: -1.78. Time: 2025-12-09T19:49:59
+[Con V3] 229. Reason: Buy deal closed with loss. Profit: -1.52. Time: 2025-12-09T19:49:59
+[Con V2] 317. Reason: Sell deal closed with profit. Profit: 7.53. Time: 2025-12-09T20:19:59
+[Rev V4] 141. Reason: Buy deal closed by stop loss. Profit: -1.63. Time: 2025-12-09T20:24:59
+[Con V3] 230. Reason: Sell deal closed with loss. Profit: -3.80. Time: 2025-12-09T20:24:59
+[Con V2] 318. Reason: Buy deal closed by stop loss. Profit: -6.02. Time: 2025-12-09T20:54:59
+[Con V3] 231. Reason: Sell deal closed by stop loss. Profit: -10.44. Time: 2025-12-09T21:09:59
+[Con V2] 319. Reason: Sell deal closed with profit. Profit: 2.08. Time: 2025-12-09T21:39:59
+[Con V3] 232. Reason: Sell deal closed with profit. Profit: 3.12. Time: 2025-12-09T21:44:59
+[Rev V4] 142. Reason: Buy deal closed by stop loss. Profit: -2.20. Time: 2025-12-09T21:49:59
+[Con V2] 320. Reason: Buy deal closed with profit. Profit: 1.92. Time: 2025-12-09T22:14:59
+[Con V3] 233. Reason: Buy deal closed with loss. Profit: -1.80. Time: 2025-12-09T22:19:59
+[Con V2] 321. Reason: Buy deal closed by stop loss. Profit: -3.24. Time: 2025-12-09T22:54:59
+[Con V2] 322. Reason: Buy deal closed by stop loss. Profit: -4.22. Time: 2025-12-10T00:04:59
+[Con V3] 234. Reason: Sell deal closed by stop loss. Profit: -4.86. Time: 2025-12-10T00:19:59
+[Con V2] 323. Reason: Sell deal closed by stop loss. Profit: -0.70. Time: 2025-12-10T00:39:59
+[Rev V4] 143. Reason: Buy deal closed by stop loss. Profit: -1.36. Time: 2025-12-10T00:44:59
+[Con V3] 235. Reason: Sell deal closed by stop loss. Profit: -12.66. Time: 2025-12-10T00:54:59
+[Con V2] 324. Reason: Sell deal closed by stop loss. Profit: -3.57. Time: 2025-12-10T01:29:59
+[Con V3] 236. Reason: Buy deal closed with profit. Profit: 0.49. Time: 2025-12-10T01:44:59
+[Rev V4] 144. Reason: Sell deal closed with profit. Profit: 6.84. Time: 2025-12-10T01:49:59
+[Con V2] 325. Reason: Sell deal closed by stop loss. Profit: -3.79. Time: 2025-12-10T02:09:59
+[Con V3] 237. Reason: Buy deal closed with profit. Profit: 0.34. Time: 2025-12-10T02:39:59
+[Rev V4] 145. Reason: Sell deal closed with profit. Profit: 4.87. Time: 2025-12-10T02:44:59
+[Con V2] 326. Reason: Buy deal closed by stop loss. Profit: -1.01. Time: 2025-12-10T02:44:59
+[Con V2] 327. Reason: Sell deal closed with loss. Profit: -3.60. Time: 2025-12-10T03:19:59
+[Con V2] 328. Reason: Buy deal closed with loss. Profit: -4.36. Time: 2025-12-10T04:19:59
+[Con V3] 238. Reason: Sell deal closed with loss. Profit: -3.97. Time: 2025-12-10T04:34:59
+[Rev V4] 146. Reason: Sell deal closed by stop loss. Profit: -1.47. Time: 2025-12-10T04:54:59
+[Con V2] 329. Reason: Buy deal closed with loss. Profit: 0.00. Time: 2025-12-10T04:54:59
+[Con V3] 239. Reason: Buy deal closed by stop loss. Profit: -3.63. Time: 2025-12-10T05:24:59
+[Con V2] 330. Reason: Sell deal closed with profit. Profit: 2.49. Time: 2025-12-10T05:34:59
+[Rev V4] 147. Reason: Buy deal closed by stop loss. Profit: -2.41. Time: 2025-12-10T05:44:59
+[Con V2] 331. Reason: Sell deal closed by stop loss. Profit: -1.48. Time: 2025-12-10T06:09:59
+[Con V2] 332. Reason: Buy deal closed with profit. Profit: 0.56. Time: 2025-12-10T07:04:59
+[Con V3] 240. Reason: Buy deal closed with profit. Profit: 1.26. Time: 2025-12-10T07:09:59
+[Rev V4] 148. Reason: Sell deal closed by stop loss. Profit: -1.36. Time: 2025-12-10T07:14:59
+[Con V2] 333. Reason: Buy deal closed with loss. Profit: -3.15. Time: 2025-12-10T07:39:59
+[Con V3] 241. Reason: Buy deal closed with loss. Profit: -1.54. Time: 2025-12-10T08:04:59
+[Con V2] 334. Reason: Buy deal closed by stop loss. Profit: -3.91. Time: 2025-12-10T08:19:59
+[Con V3] 242. Reason: Buy deal closed by stop loss. Profit: -0.74. Time: 2025-12-10T08:49:59
+[Con V2] 335. Reason: Sell deal closed with profit. Profit: 5.10. Time: 2025-12-10T08:59:59
+[Con V2] 336. Reason: Buy deal closed with loss. Profit: -0.14. Time: 2025-12-10T09:34:59
+[Con V2] 337. Reason: Sell deal closed with loss. Profit: -0.37. Time: 2025-12-10T10:09:59
+[Con V3] 243. Reason: Buy deal closed with profit. Profit: 2.29. Time: 2025-12-10T10:34:59
+[Rev V4] 149. Reason: Sell deal closed by stop loss. Profit: -0.43. Time: 2025-12-10T10:39:59
+[Con V2] 338. Reason: Sell deal closed by stop loss. Profit: -0.76. Time: 2025-12-10T11:19:59
+[Con V2] 339. Reason: Sell deal closed with loss. Profit: -0.55. Time: 2025-12-10T11:59:59
+[Con V3] 244. Reason: Sell deal closed with loss. Profit: -0.48. Time: 2025-12-10T12:24:59
+[Con V2] 340. Reason: Buy deal closed with profit. Profit: 1.05. Time: 2025-12-10T12:34:59
+[Rev V4] 150. Reason: Sell deal closed by stop loss. Profit: -0.16. Time: 2025-12-10T12:44:59
+[Con V3] 245. Reason: Buy deal closed by stop loss. Profit: -2.80. Time: 2025-12-10T12:59:59
+[Con V2] 341. Reason: Sell deal closed with profit. Profit: 10.06. Time: 2025-12-10T13:24:59
+[Rev V4] 151. Reason: Buy deal closed by stop loss. Profit: -4.11. Time: 2025-12-10T13:34:59
+[Con V3] 246. Reason: Sell deal closed with loss. Profit: -1.04. Time: 2025-12-10T13:34:59
+[Con V2] 342. Reason: Buy deal closed by stop loss. Profit: -0.63. Time: 2025-12-10T13:59:59
+[Rev V4] 152. Reason: Sell deal closed by stop loss. Profit: -3.57. Time: 2025-12-10T14:09:59
+[Con V3] 247. Reason: Buy deal closed by stop loss. Profit: -0.61. Time: 2025-12-10T14:09:59
+[Con V2] 343. Reason: Sell deal closed with profit. Profit: 5.60. Time: 2025-12-10T14:39:59
+[Con V3] 248. Reason: Sell deal closed with loss. Profit: -0.62. Time: 2025-12-10T14:44:59
+[Con V2] 344. Reason: Sell deal closed with loss. Profit: -1.49. Time: 2025-12-10T15:19:59
+[Con V2] 345. Reason: Sell deal closed by stop loss. Profit: -0.59. Time: 2025-12-10T15:54:59
+[Con V2] 346. Reason: Sell deal closed by stop loss. Profit: -5.08. Time: 2025-12-10T16:34:59
+[Con V3] 249. Reason: Sell deal closed with loss. Profit: -0.36. Time: 2025-12-10T16:39:59
+[Con V2] 347. Reason: Sell deal closed with profit. Profit: 0.89. Time: 2025-12-10T17:09:59
+[Con V3] 250. Reason: Sell deal closed by stop loss. Profit: -2.07. Time: 2025-12-10T17:14:59
+[Con V2] 348. Reason: Sell deal closed with loss. Profit: -0.56. Time: 2025-12-10T17:54:59
+[Con V2] 349. Reason: Sell deal closed by stop loss. Profit: -1.99. Time: 2025-12-10T18:29:59
+[Con V3] 251. Reason: Sell deal closed by stop loss. Profit: -1.99. Time: 2025-12-10T18:29:59
+[Rev V4] 153. Reason: Buy deal closed by stop loss. Profit: -1.70. Time: 2025-12-10T18:34:59
+[Con V2] 350. Reason: Buy deal closed with profit. Profit: 9.47. Time: 2025-12-10T19:14:59
+[Con V3] 252. Reason: Buy deal closed with loss. Profit: -1.30. Time: 2025-12-10T19:19:59
+[Con V2] 351. Reason: Sell deal closed by stop loss. Profit: -6.13. Time: 2025-12-10T19:49:59
+[Con V2] 352. Reason: Buy deal closed by stop loss. Profit: -2.45. Time: 2025-12-10T20:24:59
+[Con V3] 253. Reason: Buy deal closed by stop loss. Profit: -2.45. Time: 2025-12-10T20:24:59
+[Rev V4] 154. Reason: Sell deal closed by stop loss. Profit: -0.26. Time: 2025-12-10T20:49:59
+[Con V2] 353. Reason: Sell deal closed with profit. Profit: 1.76. Time: 2025-12-10T20:59:59
+[Con V3] 254. Reason: Sell deal closed by stop loss. Profit: -1.76. Time: 2025-12-10T21:04:59
+[Con V2] 354. Reason: Buy deal closed with profit. Profit: 17.22. Time: 2025-12-10T21:34:59
+[Con V3] 255. Reason: Buy deal closed by stop loss. Profit: -19.96. Time: 2025-12-10T21:39:59
+[Con V2] 355. Reason: Buy deal closed by stop loss. Profit: -11.95. Time: 2025-12-10T22:14:59
+[Con V3] 256. Reason: Sell deal closed by stop loss. Profit: -9.50. Time: 2025-12-10T22:29:59
+[Con V2] 356. Reason: Buy deal closed with loss. Profit: -0.62. Time: 2025-12-10T22:54:59
+[Con V2] 357. Reason: Buy deal closed with loss. Profit: -5.78. Time: 2025-12-10T23:34:59
+[Con V3] 257. Reason: Sell deal closed with profit. Profit: 8.63. Time: 2025-12-10T23:59:59
+[Rev V4] 155. Reason: Buy deal closed by stop loss. Profit: -1.00. Time: 2025-12-11T00:04:59
+[Con V2] 358. Reason: Sell deal closed by stop loss. Profit: -11.25. Time: 2025-12-11T00:09:59
+[Con V2] 359. Reason: Sell deal closed by stop loss. Profit: -7.84. Time: 2025-12-11T00:59:59
+[Con V2] 360. Reason: Buy deal closed by stop loss. Profit: -4.64. Time: 2025-12-11T01:44:59
+[Con V2] 361. Reason: Sell deal closed with profit. Profit: 3.90. Time: 2025-12-11T02:24:59
+[Con V3] 258. Reason: Sell deal closed with loss. Profit: -0.42. Time: 2025-12-11T02:29:59
+[Con V2] 362. Reason: Buy deal closed by stop loss. Profit: -3.02. Time: 2025-12-11T02:59:59
+[Con V2] 363. Reason: Sell deal closed with profit. Profit: 4.68. Time: 2025-12-11T03:39:59
+[Con V3] 259. Reason: Sell deal closed with profit. Profit: 2.64. Time: 2025-12-11T03:44:59
+[Rev V4] 156. Reason: Buy deal closed with profit. Profit: 8.92. Time: 2025-12-11T03:49:59
+[Con V2] 364. Reason: Sell deal closed with profit. Profit: 7.20. Time: 2025-12-11T04:14:59
+[Con V3] 260. Reason: Sell deal closed with loss. Profit: -5.66. Time: 2025-12-11T04:19:59
+[Rev V4] 157. Reason: Buy deal closed by stop loss. Profit: -0.57. Time: 2025-12-11T04:49:59
+[Con V2] 365. Reason: Sell deal closed with profit. Profit: 5.96. Time: 2025-12-11T04:49:59
+[Con V3] 261. Reason: Sell deal closed with profit. Profit: 1.80. Time: 2025-12-11T04:54:59
+[Con V2] 366. Reason: Sell deal closed with profit. Profit: 4.85. Time: 2025-12-11T05:29:59
+[Con V3] 262. Reason: Sell deal closed by stop loss. Profit: -4.85. Time: 2025-12-11T05:34:59
+[Con V2] 367. Reason: Sell deal closed with profit. Profit: 3.95. Time: 2025-12-11T06:09:59
+[Con V3] 263. Reason: Sell deal closed with loss. Profit: -3.42. Time: 2025-12-11T06:14:59
+[Con V2] 368. Reason: Buy deal closed by stop loss. Profit: -4.22. Time: 2025-12-11T07:14:59
+[Con V3] 264. Reason: Buy deal closed with profit. Profit: 1.52. Time: 2025-12-11T07:34:59
+[Rev V4] 158. Reason: Sell deal closed by stop loss. Profit: -0.56. Time: 2025-12-11T07:39:59
+[Con V2] 369. Reason: Buy deal closed with profit. Profit: 3.46. Time: 2025-12-11T07:54:59
+[Con V3] 265. Reason: Sell deal closed with loss. Profit: -3.42. Time: 2025-12-11T08:14:59
+[Con V2] 370. Reason: Sell deal closed by stop loss. Profit: -2.96. Time: 2025-12-11T08:34:59
+[Con V2] 371. Reason: Sell deal closed by stop loss. Profit: -0.45. Time: 2025-12-11T09:09:59
+[Con V3] 266. Reason: Sell deal closed by stop loss. Profit: -0.45. Time: 2025-12-11T09:09:59
+[Rev V4] 159. Reason: Buy deal closed by stop loss. Profit: -1.01. Time: 2025-12-11T09:14:59
+[Con V2] 372. Reason: Sell deal closed with profit. Profit: 1.41. Time: 2025-12-11T09:49:59
+[Con V3] 267. Reason: Sell deal closed by stop loss. Profit: -1.76. Time: 2025-12-11T09:54:59
+[Con V2] 373. Reason: Sell deal closed by stop loss. Profit: -2.30. Time: 2025-12-11T10:29:59
+[Con V3] 268. Reason: Buy deal closed with profit. Profit: 0.77. Time: 2025-12-11T10:54:59
+[Rev V4] 160. Reason: Sell deal closed with profit. Profit: 2.51. Time: 2025-12-11T10:59:59
+[Con V2] 374. Reason: Sell deal closed with profit. Profit: 1.42. Time: 2025-12-11T11:09:59
+[Con V3] 269. Reason: Sell deal closed by stop loss. Profit: -2.10. Time: 2025-12-11T11:39:59
+[Con V2] 375. Reason: Buy deal closed with loss. Profit: -0.77. Time: 2025-12-11T11:59:59
+[Con V3] 270. Reason: Buy deal closed with loss. Profit: -1.94. Time: 2025-12-11T12:19:59
+[Con V2] 376. Reason: Sell deal closed with profit. Profit: 0.55. Time: 2025-12-11T12:39:59
+[Con V2] 377. Reason: Buy deal closed by stop loss. Profit: -4.40. Time: 2025-12-11T13:14:59
+[Con V3] 271. Reason: Sell deal closed by stop loss. Profit: -1.07. Time: 2025-12-11T13:44:59
+[Con V2] 378. Reason: Buy deal closed with profit. Profit: 0.26. Time: 2025-12-11T13:54:59
+[Rev V4] 161. Reason: Sell deal closed by stop loss. Profit: -0.16. Time: 2025-12-11T14:04:59
+[Con V2] 379. Reason: Sell deal closed with loss. Profit: -0.14. Time: 2025-12-11T14:29:59
+[Con V2] 380. Reason: Buy deal closed with profit. Profit: 5.57. Time: 2025-12-11T15:19:59
+[Con V3] 272. Reason: Buy deal closed with loss. Profit: -0.94. Time: 2025-12-11T15:24:59
+[Rev V4] 162. Reason: Buy deal closed by stop loss. Profit: -0.83. Time: 2025-12-11T15:54:59
+[Con V2] 381. Reason: Sell deal closed with profit. Profit: 3.97. Time: 2025-12-11T15:54:59
+[Con V3] 273. Reason: Sell deal closed with loss. Profit: -1.54. Time: 2025-12-11T15:59:59
+[Con V2] 382. Reason: Buy deal closed by stop loss. Profit: -1.28. Time: 2025-12-11T16:29:59
+[Con V2] 383. Reason: Buy deal closed with profit. Profit: 0.64. Time: 2025-12-11T17:19:59
+[Con V3] 274. Reason: Buy deal closed by stop loss. Profit: -1.31. Time: 2025-12-11T17:24:59
+[Con V2] 384. Reason: Sell deal closed with loss. Profit: -2.92. Time: 2025-12-11T17:54:59
+[Con V3] 275. Reason: Buy deal closed with profit. Profit: 3.04. Time: 2025-12-11T18:09:59
+[Rev V4] 163. Reason: Sell deal closed by stop loss. Profit: -4.38. Time: 2025-12-11T18:14:59
+[Con V2] 385. Reason: Sell deal closed with profit. Profit: 11.88. Time: 2025-12-11T18:34:59
+[Con V2] 386. Reason: Sell deal closed with profit. Profit: 0.88. Time: 2025-12-11T19:09:59
+[Con V3] 276. Reason: Sell deal closed by stop loss. Profit: -4.59. Time: 2025-12-11T19:14:59
+[Con V2] 387. Reason: Buy deal closed with profit. Profit: 4.87. Time: 2025-12-11T19:44:59
+[Rev V4] 164. Reason: Sell deal closed with profit. Profit: 12.50. Time: 2025-12-11T19:49:59
+[Con V3] 277. Reason: Buy deal closed by stop loss. Profit: -4.87. Time: 2025-12-11T19:49:59
+[Con V2] 388. Reason: Buy deal closed with profit. Profit: 7.04. Time: 2025-12-11T20:19:59
+[Rev V4] 165. Reason: Sell deal closed by stop loss. Profit: -2.06. Time: 2025-12-11T20:24:59
+[Con V3] 278. Reason: Buy deal closed with loss. Profit: -1.06. Time: 2025-12-11T20:24:59
+[Con V2] 389. Reason: Sell deal closed by stop loss. Profit: -1.22. Time: 2025-12-11T20:54:59
+[Rev V4] 166. Reason: Buy deal closed by stop loss. Profit: -2.59. Time: 2025-12-11T20:59:59
+[Con V3] 279. Reason: Sell deal closed by stop loss. Profit: -2.32. Time: 2025-12-11T20:59:59
+[Con V2] 390. Reason: Buy deal closed with loss. Profit: -11.32. Time: 2025-12-11T21:44:59
+[Con V3] 280. Reason: Buy deal closed with profit. Profit: 2.70. Time: 2025-12-11T22:09:59
+[Rev V4] 167. Reason: Sell deal closed by stop loss. Profit: -0.27. Time: 2025-12-11T22:14:59
+[Con V2] 391. Reason: Buy deal closed with profit. Profit: 8.79. Time: 2025-12-11T22:19:59
+[Con V2] 392. Reason: Sell deal closed by stop loss. Profit: -8.24. Time: 2025-12-11T22:59:59
+[Con V3] 281. Reason: Buy deal closed by stop loss. Profit: -5.12. Time: 2025-12-11T23:14:59
+[Con V2] 393. Reason: Buy deal closed with profit. Profit: 5.09. Time: 2025-12-11T23:39:59
+[Con V3] 282. Reason: Buy deal closed with profit. Profit: 13.96. Time: 2025-12-12T00:04:59
+[Rev V4] 168. Reason: Sell deal closed by stop loss. Profit: -7.34. Time: 2025-12-12T00:09:59
+[Con V2] 394. Reason: Buy deal closed with profit. Profit: 17.98. Time: 2025-12-12T00:14:59
+[Con V2] 395. Reason: Sell deal closed with profit. Profit: 0.70. Time: 2025-12-12T00:54:59
+[Con V3] 283. Reason: Sell deal closed by stop loss. Profit: -8.22. Time: 2025-12-12T00:59:59
+[Con V2] 396. Reason: Sell deal closed by stop loss. Profit: -6.08. Time: 2025-12-12T01:29:59
+[Con V3] 284. Reason: Sell deal closed with profit. Profit: 0.96. Time: 2025-12-12T01:49:59
+[Rev V4] 169. Reason: Buy deal closed with profit. Profit: 4.76. Time: 2025-12-12T01:54:59
+[Con V2] 397. Reason: Buy deal closed with profit. Profit: 0.90. Time: 2025-12-12T02:04:59
+[Con V2] 398. Reason: Buy deal closed by stop loss. Profit: -1.76. Time: 2025-12-12T02:39:59
+[Con V3] 285. Reason: Sell deal closed with loss. Profit: -2.88. Time: 2025-12-12T02:54:59
+[Con V2] 399. Reason: Sell deal closed with profit. Profit: 2.99. Time: 2025-12-12T03:29:59
+[Con V3] 286. Reason: Sell deal closed with loss. Profit: -1.59. Time: 2025-12-12T03:34:59
+[Rev V4] 170. Reason: Buy deal closed with profit. Profit: 1.00. Time: 2025-12-12T03:59:59
+[Con V2] 400. Reason: Buy deal closed with profit. Profit: 2.68. Time: 2025-12-12T04:09:59
+[Con V3] 287. Reason: Buy deal closed with profit. Profit: 6.76. Time: 2025-12-12T04:14:59
+[Con V2] 401. Reason: Sell deal closed with profit. Profit: 0.91. Time: 2025-12-12T04:44:59
+[Con V3] 288. Reason: Sell deal closed with loss. Profit: -2.14. Time: 2025-12-12T04:49:59
+[Con V2] 402. Reason: Buy deal closed with loss. Profit: -0.33. Time: 2025-12-12T05:29:59
+[Con V3] 289. Reason: Buy deal closed with profit. Profit: 0.66. Time: 2025-12-12T05:49:59
+[Rev V4] 171. Reason: Sell deal closed by stop loss. Profit: -0.81. Time: 2025-12-12T05:54:59
+[Con V2] 403. Reason: Sell deal closed with profit. Profit: 9.43. Time: 2025-12-12T06:14:59
+[Con V3] 290. Reason: Sell deal closed with loss. Profit: -2.78. Time: 2025-12-12T06:24:59
+[Con V2] 404. Reason: Sell deal closed with loss. Profit: -1.68. Time: 2025-12-12T06:59:59
+[Con V3] 291. Reason: Sell deal closed with profit. Profit: 0.31. Time: 2025-12-12T07:19:59
+[Rev V4] 172. Reason: Buy deal closed with profit. Profit: 1.38. Time: 2025-12-12T07:24:59
+[Con V2] 405. Reason: Buy deal closed with loss. Profit: -0.09. Time: 2025-12-12T07:44:59
+[Con V3] 292. Reason: Buy deal closed with loss. Profit: -3.29. Time: 2025-12-12T08:04:59
+[Con V2] 406. Reason: Sell deal closed by stop loss. Profit: -0.92. Time: 2025-12-12T08:29:59
+[Con V3] 293. Reason: Buy deal closed with profit. Profit: 3.45. Time: 2025-12-12T08:44:59
+[Rev V4] 173. Reason: Sell deal closed with profit. Profit: 0.52. Time: 2025-12-12T08:49:59
+[Con V2] 407. Reason: Buy deal closed with profit. Profit: 1.87. Time: 2025-12-12T09:04:59
+[Con V2] 408. Reason: Buy deal closed by stop loss. Profit: -1.91. Time: 2025-12-12T09:44:59
+[Con V2] 409. Reason: Sell deal closed with profit. Profit: 2.05. Time: 2025-12-12T10:24:59
+[Con V3] 294. Reason: Sell deal closed by stop loss. Profit: -2.49. Time: 2025-12-12T10:29:59
+[Con V2] 410. Reason: Sell deal closed with loss. Profit: -1.11. Time: 2025-12-12T11:04:59
+[Con V3] 295. Reason: Sell deal closed with profit. Profit: 0.64. Time: 2025-12-12T11:24:59
+[Rev V4] 174. Reason: Buy deal closed by stop loss. Profit: -3.38. Time: 2025-12-12T11:29:59
+[Con V2] 411. Reason: Sell deal closed by stop loss. Profit: -1.38. Time: 2025-12-12T11:44:59
+[Con V3] 296. Reason: Buy deal closed with loss. Profit: -3.10. Time: 2025-12-12T11:59:59
+[Con V2] 412. Reason: Buy deal closed by stop loss. Profit: -2.33. Time: 2025-12-12T12:19:59
+[Con V2] 413. Reason: Buy deal closed with profit. Profit: 5.27. Time: 2025-12-12T12:54:59
+[Con V3] 297. Reason: Buy deal closed with profit. Profit: 5.27. Time: 2025-12-12T12:54:59
+[Rev V4] 175. Reason: Sell deal closed by stop loss. Profit: -1.96. Time: 2025-12-12T12:59:59
+[Con V2] 414. Reason: Sell deal closed by stop loss. Profit: -1.15. Time: 2025-12-12T13:44:59
+[Con V3] 298. Reason: Sell deal closed with loss. Profit: -0.14. Time: 2025-12-12T14:09:59
+[Con V2] 415. Reason: Buy deal closed with profit. Profit: 0.74. Time: 2025-12-12T14:29:59
+[Con V2] 416. Reason: Sell deal closed with loss. Profit: -0.04. Time: 2025-12-12T15:09:59
+[Con V3] 299. Reason: Buy deal closed by stop loss. Profit: -1.98. Time: 2025-12-12T15:24:59
+[Rev V4] 176. Reason: Buy deal closed with profit. Profit: 4.36. Time: 2025-12-12T15:44:59
+[Con V2] 417. Reason: Sell deal closed by stop loss. Profit: -2.03. Time: 2025-12-12T15:44:59
+[Con V3] 300. Reason: Buy deal closed with loss. Profit: -3.18. Time: 2025-12-12T15:59:59
+[Con V2] 418. Reason: Buy deal closed with loss. Profit: -4.52. Time: 2025-12-12T16:19:59
+[Con V2] 419. Reason: Sell deal closed with loss. Profit: -0.09. Time: 2025-12-12T17:09:59
+[Con V2] 420. Reason: Buy deal closed by stop loss. Profit: -4.62. Time: 2025-12-12T17:44:59
+[Con V3] 301. Reason: Buy deal closed by stop loss. Profit: -4.62. Time: 2025-12-12T17:44:59
+[Rev V4] 177. Reason: Buy deal closed by stop loss. Profit: -0.76. Time: 2025-12-12T18:14:59
+[Con V2] 421. Reason: Sell deal closed with profit. Profit: 10.89. Time: 2025-12-12T18:19:59
+[Con V3] 302. Reason: Sell deal closed with profit. Profit: 10.89. Time: 2025-12-12T18:19:59
+[Con V2] 422. Reason: Sell deal closed with profit. Profit: 8.93. Time: 2025-12-12T18:59:59
+[Con V3] 303. Reason: Sell deal closed by stop loss. Profit: -13.13. Time: 2025-12-12T19:04:59
+[Con V2] 423. Reason: Sell deal closed with loss. Profit: -1.00. Time: 2025-12-12T19:39:59
+[Con V3] 304. Reason: Buy deal closed with profit. Profit: 3.05. Time: 2025-12-12T19:54:59
+[Rev V4] 178. Reason: Sell deal closed by stop loss. Profit: -5.84. Time: 2025-12-12T19:59:59
+[Con V2] 424. Reason: Buy deal closed with profit. Profit: 5.37. Time: 2025-12-12T20:14:59
+[Con V2] 425. Reason: Buy deal closed with profit. Profit: 1.46. Time: 2025-12-12T21:04:59
+[Con V3] 305. Reason: Buy deal closed with profit. Profit: 5.66. Time: 2025-12-12T21:09:59
+[Rev V4] 179. Reason: Sell deal closed by stop loss. Profit: -8.35. Time: 2025-12-12T21:14:59
+[Con V2] 426. Reason: Sell deal closed with profit. Profit: 5.19. Time: 2025-12-12T21:59:59
+[Con V3] 306. Reason: Sell deal closed with profit. Profit: 6.04. Time: 2025-12-12T22:04:59
+[Rev V4] 180. Reason: Buy deal closed with loss. Profit: -2.23. Time: 2025-12-12T22:09:59
+[Con V2] 427. Reason: Sell deal closed with loss. Profit: -1.82. Time: 2025-12-12T22:44:59
+[Con V2] 428. Reason: Sell deal closed with profit. Profit: 1.84. Time: 2025-12-12T23:29:59
+[Con V3] 307. Reason: Sell deal closed with profit. Profit: 0.10. Time: 2025-12-12T23:34:59
+[Rev V4] 181. Reason: Buy deal closed with profit. Profit: 7.66. Time: 2025-12-12T23:39:59
+[Con V2] 429. Reason: Buy deal closed with loss. Profit: -1.98. Time: 2025-12-13T00:09:59
+[Con V3] 308. Reason: Sell deal closed with loss. Profit: -3.12. Time: 2025-12-13T00:24:59
+[Rev V4] 182. Reason: Sell deal closed with loss. Profit: -0.80. Time: 2025-12-13T00:44:59
+[Con V2] 430. Reason: Buy deal closed with profit. Profit: 0.80. Time: 2025-12-13T00:44:59
+[Con V3] 309. Reason: Buy deal closed with loss. Profit: -0.89. Time: 2025-12-13T01:14:59
+[Con V2] 431. Reason: Sell deal closed with profit. Profit: 2.50. Time: 2025-12-13T01:44:59
+[Con V3] 310. Reason: Sell deal closed with loss. Profit: -0.16. Time: 2025-12-13T01:49:59
+[Con V2] 432. Reason: Buy deal closed by stop loss. Profit: -1.08. Time: 2025-12-13T02:39:59
+[Con V3] 311. Reason: Sell deal closed with profit. Profit: 0.44. Time: 2025-12-13T02:54:59
+[Rev V4] 183. Reason: Buy deal closed by stop loss. Profit: -1.73. Time: 2025-12-13T02:59:59
+[Con V2] 433. Reason: Sell deal closed with loss. Profit: -0.90. Time: 2025-12-13T03:14:59
+[Con V3] 312. Reason: Buy deal closed by stop loss. Profit: -0.96. Time: 2025-12-13T03:44:59
+[Rev V4] 184. Reason: Sell deal closed with profit. Profit: 0.40. Time: 2025-12-13T03:49:59
+[Con V2] 434. Reason: Buy deal closed with loss. Profit: -0.40. Time: 2025-12-13T03:49:59
+[Con V3] 313. Reason: Sell deal closed with loss. Profit: 0.00. Time: 2025-12-13T04:19:59
+[Con V2] 435. Reason: Sell deal closed with profit. Profit: 2.88. Time: 2025-12-13T04:39:59
+[Rev V4] 185. Reason: Buy deal closed with profit. Profit: 0.74. Time: 2025-12-13T04:49:59
+[Con V2] 436. Reason: Buy deal closed with loss. Profit: -0.24. Time: 2025-12-13T05:44:59
+[Con V3] 314. Reason: Sell deal closed with loss. Profit: -0.79. Time: 2025-12-13T05:59:59
+[Rev V4] 186. Reason: Sell deal closed with loss. Profit: -0.77. Time: 2025-12-13T06:19:59
+[Con V2] 437. Reason: Buy deal closed with profit. Profit: 0.77. Time: 2025-12-13T06:19:59
+[Con V3] 315. Reason: Buy deal closed with profit. Profit: 3.13. Time: 2025-12-13T06:34:59
+[Con V2] 438. Reason: Sell deal closed with profit. Profit: 0.32. Time: 2025-12-13T06:54:59
+[Rev V4] 187. Reason: Buy deal closed by stop loss. Profit: -0.44. Time: 2025-12-13T06:59:59
+[Con V3] 316. Reason: Sell deal closed with profit. Profit: 0.46. Time: 2025-12-13T07:09:59
+[Con V2] 439. Reason: Buy deal closed by stop loss. Profit: -0.85. Time: 2025-12-13T07:29:59
+[Con V2] 440. Reason: Sell deal closed with profit. Profit: 0.10. Time: 2025-12-13T08:04:59
+[Con V3] 317. Reason: Sell deal closed with profit. Profit: 0.10. Time: 2025-12-13T08:04:59
+[Rev V4] 188. Reason: Buy deal closed with profit. Profit: 0.32. Time: 2025-12-13T08:09:59
+[Con V2] 441. Reason: Sell deal closed with profit. Profit: 1.86. Time: 2025-12-13T08:39:59
+[Con V3] 318. Reason: Sell deal closed with profit. Profit: 1.86. Time: 2025-12-13T08:39:59
+[Rev V4] 189. Reason: Buy deal closed by stop loss. Profit: -0.32. Time: 2025-12-13T08:44:59
+[Con V2] 442. Reason: Sell deal closed by stop loss. Profit: -0.17. Time: 2025-12-13T09:34:59
+[Con V3] 319. Reason: Buy deal closed with profit. Profit: 1.22. Time: 2025-12-13T09:49:59
+[Rev V4] 190. Reason: Sell deal closed with profit. Profit: 0.52. Time: 2025-12-13T09:54:59
+[Con V2] 443. Reason: Buy deal closed with loss. Profit: -0.06. Time: 2025-12-13T10:24:59
+[Con V3] 320. Reason: Sell deal closed with loss. Profit: -0.22. Time: 2025-12-13T10:39:59
+[Con V2] 444. Reason: Sell deal closed by stop loss. Profit: -0.54. Time: 2025-12-13T10:59:59
+[Con V3] 321. Reason: Buy deal closed with profit. Profit: 1.50. Time: 2025-12-13T11:24:59
+[Rev V4] 191. Reason: Sell deal closed with profit. Profit: 1.69. Time: 2025-12-13T11:29:59
+[Con V2] 445. Reason: Sell deal closed with loss. Profit: -0.77. Time: 2025-12-13T11:59:59
+[Con V3] 322. Reason: Sell deal closed with profit. Profit: 0.88. Time: 2025-12-13T12:24:59
+[Rev V4] 192. Reason: Buy deal closed by stop loss. Profit: -0.09. Time: 2025-12-13T12:29:59
+[Con V2] 446. Reason: Sell deal closed by stop loss. Profit: -1.50. Time: 2025-12-13T12:34:59
+[Con V2] 447. Reason: Buy deal closed with loss. Profit: -0.07. Time: 2025-12-13T13:19:59
+[Con V3] 323. Reason: Buy deal closed with loss. Profit: -0.32. Time: 2025-12-13T13:39:59
+[Con V2] 448. Reason: Sell deal closed with loss. Profit: -1.84. Time: 2025-12-13T13:54:59
+[Con V3] 324. Reason: Sell deal closed with profit. Profit: 1.18. Time: 2025-12-13T14:19:59
+[Rev V4] 193. Reason: Buy deal closed by stop loss. Profit: -0.48. Time: 2025-12-13T14:24:59
+[Con V2] 449. Reason: Sell deal closed with profit. Profit: 1.44. Time: 2025-12-13T14:29:59
+[Con V2] 450. Reason: Buy deal closed with loss. Profit: -1.10. Time: 2025-12-13T15:09:59
+[Con V3] 325. Reason: Sell deal closed with profit. Profit: 1.96. Time: 2025-12-13T15:24:59
+[Rev V4] 194. Reason: Buy deal closed with profit. Profit: 2.85. Time: 2025-12-13T15:29:59
+[Con V2] 451. Reason: Sell deal closed with loss. Profit: -0.13. Time: 2025-12-13T15:44:59
+[Con V3] 326. Reason: Buy deal closed with profit. Profit: 1.43. Time: 2025-12-13T15:59:59
+[Rev V4] 195. Reason: Sell deal closed with profit. Profit: 0.60. Time: 2025-12-13T16:04:59
+[Con V2] 452. Reason: Sell deal closed with loss. Profit: -1.37. Time: 2025-12-13T16:29:59
+[Con V2] 453. Reason: Sell deal closed with profit. Profit: 7.16. Time: 2025-12-13T17:24:59
+[Con V3] 327. Reason: Sell deal closed with loss. Profit: -4.94. Time: 2025-12-13T17:29:59
+[Rev V4] 196. Reason: Buy deal closed by stop loss. Profit: -0.58. Time: 2025-12-13T17:59:59
+[Con V2] 454. Reason: Sell deal closed by stop loss. Profit: -2.96. Time: 2025-12-13T17:59:59
+[Con V3] 328. Reason: Sell deal closed with profit. Profit: 0.94. Time: 2025-12-13T18:19:59
+[Con V2] 455. Reason: Sell deal closed with loss. Profit: -2.25. Time: 2025-12-13T18:49:59
+[Con V3] 329. Reason: Buy deal closed with loss. Profit: -3.10. Time: 2025-12-13T19:04:59
+[Con V2] 456. Reason: Sell deal closed with profit. Profit: 0.73. Time: 2025-12-13T19:24:59
+[Con V2] 457. Reason: Sell deal closed with profit. Profit: 1.14. Time: 2025-12-13T20:04:59
+[Con V3] 330. Reason: Sell deal closed by stop loss. Profit: -1.36. Time: 2025-12-13T20:09:59
+[Con V2] 458. Reason: Buy deal closed with loss. Profit: -0.88. Time: 2025-12-13T20:44:59
+[Con V3] 331. Reason: Buy deal closed with profit. Profit: 1.66. Time: 2025-12-13T21:09:59
+[Rev V4] 197. Reason: Sell deal closed with profit. Profit: 2.20. Time: 2025-12-13T21:14:59
+[Con V2] 459. Reason: Sell deal closed by stop loss. Profit: -0.91. Time: 2025-12-13T21:34:59
+[Con V2] 460. Reason: Buy deal closed with loss. Profit: -0.89. Time: 2025-12-13T22:14:59
+[Con V3] 332. Reason: Buy deal closed by stop loss. Profit: -0.82. Time: 2025-12-13T22:44:59
+[Rev V4] 198. Reason: Sell deal closed with profit. Profit: 1.27. Time: 2025-12-13T22:49:59
+[Con V2] 461. Reason: Buy deal closed by stop loss. Profit: -1.32. Time: 2025-12-13T22:49:59
+[Con V3] 333. Reason: Sell deal closed with profit. Profit: 0.14. Time: 2025-12-13T23:19:59
+[Rev V4] 199. Reason: Buy deal closed with profit. Profit: 0.40. Time: 2025-12-13T23:24:59
+[Con V2] 462. Reason: Sell deal closed with loss. Profit: -0.40. Time: 2025-12-13T23:24:59
+[Con V2] 463. Reason: Sell deal closed with profit. Profit: 1.56. Time: 2025-12-13T23:59:59
+[Con V3] 334. Reason: Sell deal closed with profit. Profit: 1.16. Time: 2025-12-14T00:04:59
+[Rev V4] 200. Reason: Buy deal closed with loss. Profit: -1.00. Time: 2025-12-14T00:09:59
+[Con V2] 464. Reason: Buy deal closed with loss. Profit: -0.40. Time: 2025-12-14T00:39:59
+[Con V3] 335. Reason: Buy deal closed with loss. Profit: -1.82. Time: 2025-12-14T01:04:59
+[Con V2] 465. Reason: Sell deal closed with loss. Profit: -1.97. Time: 2025-12-14T01:14:59
+[Con V3] 336. Reason: Buy deal closed with loss. Profit: -0.38. Time: 2025-12-14T01:39:59
+[Con V2] 466. Reason: Sell deal closed by stop loss. Profit: -2.38. Time: 2025-12-14T01:49:59
+[Con V2] 467. Reason: Buy deal closed with loss. Profit: -0.58. Time: 2025-12-14T02:39:59
+[Con V2] 468. Reason: Buy deal closed with profit. Profit: 1.27. Time: 2025-12-14T03:14:59
+[Con V3] 337. Reason: Buy deal closed by stop loss. Profit: -2.42. Time: 2025-12-14T03:19:59
+[Con V2] 469. Reason: Sell deal closed by stop loss. Profit: -1.02. Time: 2025-12-14T03:54:59
+[Con V3] 338. Reason: Sell deal closed with profit. Profit: 1.73. Time: 2025-12-14T03:59:59
+[Rev V4] 201. Reason: Buy deal closed with profit. Profit: 1.40. Time: 2025-12-14T04:04:59
+[Con V2] 470. Reason: Buy deal closed with profit. Profit: 0.60. Time: 2025-12-14T04:54:59
+[Con V3] 339. Reason: Buy deal closed with profit. Profit: 1.91. Time: 2025-12-14T04:59:59
+[Rev V4] 202. Reason: Sell deal closed by stop loss. Profit: -0.19. Time: 2025-12-14T05:04:59
+[Con V2] 471. Reason: Sell deal closed with loss. Profit: -1.16. Time: 2025-12-14T05:54:59
+[Con V2] 472. Reason: Sell deal closed with loss. Profit: -0.20. Time: 2025-12-14T06:34:59
+[Con V3] 340. Reason: Buy deal closed with loss. Profit: -0.82. Time: 2025-12-14T07:04:59
+[Con V2] 473. Reason: Buy deal closed with profit. Profit: 1.18. Time: 2025-12-14T07:19:59
+[Con V2] 474. Reason: Buy deal closed with loss. Profit: -0.68. Time: 2025-12-14T07:54:59
+[Con V3] 341. Reason: Sell deal closed with loss. Profit: -0.47. Time: 2025-12-14T08:09:59
+[Con V2] 475. Reason: Sell deal closed by stop loss. Profit: -1.30. Time: 2025-12-14T08:34:59
+[Con V3] 342. Reason: Buy deal closed with loss. Profit: -0.74. Time: 2025-12-14T08:49:59
+[Con V2] 476. Reason: Sell deal closed with profit. Profit: 0.50. Time: 2025-12-14T09:24:59
+[Con V3] 343. Reason: Sell deal closed with profit. Profit: 0.22. Time: 2025-12-14T09:29:59
+[Rev V4] 203. Reason: Buy deal closed by stop loss. Profit: -0.02. Time: 2025-12-14T09:34:59
+[Con V2] 477. Reason: Buy deal closed by stop loss. Profit: -0.74. Time: 2025-12-14T10:04:59
+[Con V3] 344. Reason: Sell deal closed with profit. Profit: 0.54. Time: 2025-12-14T10:29:59
+[Rev V4] 204. Reason: Buy deal closed with profit. Profit: 1.66. Time: 2025-12-14T10:34:59
+[Con V2] 478. Reason: Buy deal closed with profit. Profit: 3.02. Time: 2025-12-14T10:44:59
+[Con V2] 479. Reason: Sell deal closed by stop loss. Profit: -1.14. Time: 2025-12-14T11:19:59
+[Con V3] 345. Reason: Sell deal closed by stop loss. Profit: -1.14. Time: 2025-12-14T11:19:59
+[Con V2] 480. Reason: Buy deal closed by stop loss. Profit: -0.18. Time: 2025-12-14T12:09:59
+[Con V3] 346. Reason: Sell deal closed with profit. Profit: 2.11. Time: 2025-12-14T12:34:59
+[Rev V4] 205. Reason: Buy deal closed with profit. Profit: 0.18. Time: 2025-12-14T12:39:59
+[Con V2] 481. Reason: Buy deal closed with profit. Profit: 0.80. Time: 2025-12-14T12:49:59
+[Con V3] 347. Reason: Sell deal closed with profit. Profit: 8.32. Time: 2025-12-14T13:09:59
+[Rev V4] 206. Reason: Buy deal closed with profit. Profit: 4.58. Time: 2025-12-14T13:14:59
+[Con V2] 482. Reason: Buy deal closed with loss. Profit: -5.65. Time: 2025-12-14T13:24:59
+[Con V2] 483. Reason: Buy deal closed by stop loss. Profit: -0.98. Time: 2025-12-14T13:59:59
+[Con V2] 484. Reason: Sell deal closed with profit. Profit: 5.17. Time: 2025-12-14T14:34:59
+[Con V3] 348. Reason: Sell deal closed with profit. Profit: 19.86. Time: 2025-12-14T14:39:59
+[Rev V4] 207. Reason: Buy deal closed with profit. Profit: 9.96. Time: 2025-12-14T14:44:59
+[Con V2] 485. Reason: Buy deal closed with profit. Profit: 9.27. Time: 2025-12-14T15:14:59
+[Con V3] 349. Reason: Buy deal closed with loss. Profit: -3.84. Time: 2025-12-14T15:19:59
+[Con V2] 486. Reason: Sell deal closed with profit. Profit: 3.20. Time: 2025-12-14T15:54:59
+[Con V3] 350. Reason: Sell deal closed with profit. Profit: 7.31. Time: 2025-12-14T15:59:59
+[Rev V4] 208. Reason: Buy deal closed by stop loss. Profit: -1.95. Time: 2025-12-14T16:04:59
+[Con V2] 487. Reason: Buy deal closed with profit. Profit: 2.12. Time: 2025-12-14T16:29:59
+[Con V3] 351. Reason: Buy deal closed by stop loss. Profit: -2.21. Time: 2025-12-14T16:34:59
+[Con V2] 488. Reason: Sell deal closed with profit. Profit: 3.18. Time: 2025-12-14T17:09:59
+[Con V3] 352. Reason: Sell deal closed with loss. Profit: -1.17. Time: 2025-12-14T17:14:59
+[Rev V4] 209. Reason: Buy deal closed by stop loss. Profit: -4.35. Time: 2025-12-14T17:39:59
+[Con V2] 489. Reason: Sell deal closed by stop loss. Profit: -3.25. Time: 2025-12-14T17:44:59
+[Con V2] 490. Reason: Buy deal closed with profit. Profit: 1.60. Time: 2025-12-14T18:19:59
+[Con V3] 353. Reason: Buy deal closed by stop loss. Profit: -4.16. Time: 2025-12-14T18:24:59
+[Con V2] 491. Reason: Buy deal closed by stop loss. Profit: -1.89. Time: 2025-12-14T18:59:59
+[Con V3] 354. Reason: Buy deal closed with loss. Profit: -2.46. Time: 2025-12-14T19:04:59
+[Rev V4] 210. Reason: Sell deal closed by stop loss. Profit: -1.06. Time: 2025-12-14T19:29:59
+[Con V2] 492. Reason: Sell deal closed with profit. Profit: 0.52. Time: 2025-12-14T19:49:59
+[Con V3] 355. Reason: Sell deal closed by stop loss. Profit: -3.01. Time: 2025-12-14T19:54:59
+[Con V2] 493. Reason: Buy deal closed by stop loss. Profit: -5.70. Time: 2025-12-14T20:24:59
+[Con V2] 494. Reason: Buy deal closed with loss. Profit: -0.00. Time: 2025-12-14T21:09:59
+[Con V2] 495. Reason: Buy deal closed with loss. Profit: -0.56. Time: 2025-12-14T21:54:59
+[Con V3] 356. Reason: Sell deal closed with profit. Profit: 1.51. Time: 2025-12-14T22:09:59
+[Rev V4] 211. Reason: Buy deal closed by stop loss. Profit: -4.29. Time: 2025-12-14T22:14:59
+[Con V2] 496. Reason: Sell deal closed with profit. Profit: 0.57. Time: 2025-12-14T22:39:59
+[Con V3] 357. Reason: Sell deal closed by stop loss. Profit: -1.61. Time: 2025-12-14T22:44:59
+[Con V2] 497. Reason: Sell deal closed with loss. Profit: -0.09. Time: 2025-12-14T23:24:59
+[Con V2] 498. Reason: Sell deal closed with profit. Profit: 0.78. Time: 2025-12-14T23:59:59
+[Con V3] 358. Reason: Sell deal closed with profit. Profit: 3.40. Time: 2025-12-15T00:04:59
+[Rev V4] 212. Reason: Buy deal closed with profit. Profit: 2.94. Time: 2025-12-15T00:09:59
+[Con V2] 499. Reason: Sell deal closed by stop loss. Profit: -0.17. Time: 2025-12-15T00:34:59
+[Con V3] 359. Reason: Sell deal closed by stop loss. Profit: -1.58. Time: 2025-12-15T00:39:59
+[Rev V4] 213. Reason: Buy deal closed by stop loss. Profit: -1.96. Time: 2025-12-15T00:44:59
+[Con V2] 500. Reason: Sell deal closed with profit. Profit: 5.90. Time: 2025-12-15T01:34:59
+[Con V3] 360. Reason: Sell deal closed with loss. Profit: -5.30. Time: 2025-12-15T01:39:59
+[Con V2] 501. Reason: Sell deal closed with profit. Profit: 5.67. Time: 2025-12-15T02:09:59
+[Con V3] 361. Reason: Sell deal closed by stop loss. Profit: -6.26. Time: 2025-12-15T02:14:59
+[Con V2] 502. Reason: Buy deal closed by stop loss. Profit: -1.60. Time: 2025-12-15T02:54:59
+[Con V2] 503. Reason: Sell deal closed with profit. Profit: 7.25. Time: 2025-12-15T03:34:59
+[Con V3] 362. Reason: Sell deal closed with profit. Profit: 0.73. Time: 2025-12-15T03:39:59
+[Rev V4] 214. Reason: Buy deal closed with profit. Profit: 2.62. Time: 2025-12-15T03:44:59
+[Con V2] 504. Reason: Buy deal closed with profit. Profit: 2.91. Time: 2025-12-15T04:09:59
+[Con V3] 363. Reason: Buy deal closed with profit. Profit: 0.31. Time: 2025-12-15T04:14:59
+[Rev V4] 215. Reason: Sell deal closed by stop loss. Profit: -0.03. Time: 2025-12-15T04:19:59
+[Con V2] 505. Reason: Buy deal closed by stop loss. Profit: -0.63. Time: 2025-12-15T04:54:59
+[Con V2] 506. Reason: Sell deal closed with profit. Profit: 0.73. Time: 2025-12-15T05:29:59
+[Con V3] 364. Reason: Sell deal closed with profit. Profit: 4.69. Time: 2025-12-15T05:34:59
+[Rev V4] 216. Reason: Buy deal closed by stop loss. Profit: -0.49. Time: 2025-12-15T05:39:59
+[Con V2] 507. Reason: Buy deal closed with profit. Profit: 0.37. Time: 2025-12-15T06:09:59
+[Con V3] 365. Reason: Buy deal closed with profit. Profit: 5.47. Time: 2025-12-15T06:14:59
+[Rev V4] 217. Reason: Sell deal closed with profit. Profit: 3.19. Time: 2025-12-15T06:19:59
+[Con V2] 508. Reason: Sell deal closed by stop loss. Profit: -0.74. Time: 2025-12-15T06:44:59
+[Con V2] 509. Reason: Sell deal closed with loss. Profit: -0.30. Time: 2025-12-15T07:24:59
+[Con V3] 366. Reason: Buy deal closed with profit. Profit: 4.00. Time: 2025-12-15T07:39:59
+[Rev V4] 218. Reason: Sell deal closed with profit. Profit: 1.28. Time: 2025-12-15T07:44:59
+[Con V2] 510. Reason: Sell deal closed with loss. Profit: -3.08. Time: 2025-12-15T08:04:59
+[Con V3] 367. Reason: Buy deal closed with profit. Profit: 1.07. Time: 2025-12-15T08:19:59
+[Rev V4] 219. Reason: Sell deal closed with profit. Profit: 1.97. Time: 2025-12-15T08:24:59
+[Con V2] 511. Reason: Sell deal closed with loss. Profit: -1.03. Time: 2025-12-15T08:49:59
+[Con V3] 368. Reason: Sell deal closed by stop loss. Profit: -2.03. Time: 2025-12-15T09:14:59
+[Con V2] 512. Reason: Buy deal closed with loss. Profit: -0.08. Time: 2025-12-15T09:24:59
+[Con V3] 369. Reason: Buy deal closed by stop loss. Profit: -0.74. Time: 2025-12-15T09:54:59
+[Con V2] 513. Reason: Sell deal closed with profit. Profit: 1.44. Time: 2025-12-15T10:04:59
+[Rev V4] 220. Reason: Buy deal closed with profit. Profit: 0.59. Time: 2025-12-15T10:14:59
+[Con V2] 514. Reason: Buy deal closed with profit. Profit: 1.26. Time: 2025-12-15T10:49:59
+[Con V3] 370. Reason: Buy deal closed with profit. Profit: 3.34. Time: 2025-12-15T10:54:59
+[Rev V4] 221. Reason: Sell deal closed with profit. Profit: 3.86. Time: 2025-12-15T10:59:59
+[Con V2] 515. Reason: Sell deal closed by stop loss. Profit: -3.01. Time: 2025-12-15T11:39:59
+[Con V3] 371. Reason: Sell deal closed by stop loss. Profit: -2.81. Time: 2025-12-15T11:59:59
+[Con V2] 516. Reason: Sell deal closed by stop loss. Profit: -0.43. Time: 2025-12-15T12:14:59
+[Con V2] 517. Reason: Sell deal closed by stop loss. Profit: -1.63. Time: 2025-12-15T12:49:59
+[Con V3] 372. Reason: Sell deal closed with profit. Profit: 0.19. Time: 2025-12-15T13:19:59
+[Rev V4] 222. Reason: Buy deal closed with profit. Profit: 3.95. Time: 2025-12-15T13:24:59
+[Con V2] 518. Reason: Sell deal closed by stop loss. Profit: -1.79. Time: 2025-12-15T13:24:59
+[Con V3] 373. Reason: Buy deal closed with loss. Profit: -0.92. Time: 2025-12-15T13:54:59
+[Con V2] 519. Reason: Sell deal closed by stop loss. Profit: -0.68. Time: 2025-12-15T14:04:59
+[Con V2] 520. Reason: Sell deal closed with loss. Profit: -2.46. Time: 2025-12-15T14:44:59
+[Con V3] 374. Reason: Sell deal closed with loss. Profit: -0.33. Time: 2025-12-15T15:09:59
+[Con V2] 521. Reason: Buy deal closed with profit. Profit: 3.30. Time: 2025-12-15T15:19:59
+[Con V2] 522. Reason: Sell deal closed with profit. Profit: 4.85. Time: 2025-12-15T16:04:59
+[Con V3] 375. Reason: Sell deal closed with loss. Profit: -3.50. Time: 2025-12-15T16:09:59
+[Con V2] 523. Reason: Sell deal closed by stop loss. Profit: -2.54. Time: 2025-12-15T16:39:59
+[Con V2] 524. Reason: Buy deal closed by stop loss. Profit: -1.82. Time: 2025-12-15T17:14:59
+[Con V3] 376. Reason: Buy deal closed by stop loss. Profit: -1.82. Time: 2025-12-15T17:14:59
+[Rev V4] 223. Reason: Sell deal closed with profit. Profit: 8.51. Time: 2025-12-15T17:19:59
+[Con V2] 525. Reason: Sell deal closed with profit. Profit: 18.20. Time: 2025-12-15T17:49:59
+[Con V3] 377. Reason: Sell deal closed with profit. Profit: 8.94. Time: 2025-12-15T17:54:59
+[Rev V4] 224. Reason: Buy deal closed by stop loss. Profit: -9.07. Time: 2025-12-15T17:59:59
+[Con V2] 526. Reason: Sell deal closed with loss. Profit: -6.94. Time: 2025-12-15T18:24:59
+[Con V2] 527. Reason: Sell deal closed with profit. Profit: 12.85. Time: 2025-12-15T19:29:59
+[Con V3] 378. Reason: Sell deal closed with profit. Profit: 9.28. Time: 2025-12-15T19:34:59
+[Rev V4] 225. Reason: Buy deal closed by stop loss. Profit: -2.53. Time: 2025-12-15T19:39:59
+[Con V2] 528. Reason: Sell deal closed with loss. Profit: -0.71. Time: 2025-12-15T20:04:59
+[Con V2] 529. Reason: Sell deal closed by stop loss. Profit: -9.78. Time: 2025-12-15T20:39:59
+[Con V3] 379. Reason: Sell deal closed by stop loss. Profit: -9.78. Time: 2025-12-15T20:39:59
+[Con V2] 530. Reason: Buy deal closed with loss. Profit: -2.69. Time: 2025-12-15T21:14:59
+[Con V3] 380. Reason: Sell deal closed with profit. Profit: 9.67. Time: 2025-12-15T21:29:59
+[Rev V4] 226. Reason: Buy deal closed by stop loss. Profit: -1.62. Time: 2025-12-15T21:34:59
+[Con V2] 531. Reason: Buy deal closed with profit. Profit: 3.50. Time: 2025-12-15T21:49:59
+[Con V3] 381. Reason: Buy deal closed with loss. Profit: -10.30. Time: 2025-12-15T22:04:59
+[Con V2] 532. Reason: Buy deal closed with loss. Profit: -10.13. Time: 2025-12-15T22:24:59
+[Con V3] 382. Reason: Sell deal closed by stop loss. Profit: -1.48. Time: 2025-12-15T22:49:59
+[Con V2] 533. Reason: Sell deal closed with profit. Profit: 0.28. Time: 2025-12-15T23:14:59
+[Con V2] 534. Reason: Sell deal closed with loss. Profit: -1.65. Time: 2025-12-15T23:49:59
+[Con V3] 383. Reason: Sell deal closed with loss. Profit: -2.06. Time: 2025-12-16T00:09:59
+[Con V2] 535. Reason: Buy deal closed with profit. Profit: 3.68. Time: 2025-12-16T00:24:59
+[Rev V4] 227. Reason: Sell deal closed with profit. Profit: 1.31. Time: 2025-12-16T00:29:59
+[Con V2] 536. Reason: Buy deal closed by stop loss. Profit: -3.62. Time: 2025-12-16T00:59:59
+[Con V3] 384. Reason: Buy deal closed by stop loss. Profit: -3.62. Time: 2025-12-16T00:59:59
+[Con V2] 537. Reason: Buy deal closed with loss. Profit: -0.52. Time: 2025-12-16T01:34:59
+[Con V3] 385. Reason: Sell deal closed by stop loss. Profit: -1.33. Time: 2025-12-16T01:49:59
+[Rev V4] 228. Reason: Sell deal closed by stop loss. Profit: -0.47. Time: 2025-12-16T02:09:59
+[Con V2] 538. Reason: Buy deal closed with profit. Profit: 0.25. Time: 2025-12-16T02:09:59
+[Con V3] 386. Reason: Buy deal closed with profit. Profit: 1.70. Time: 2025-12-16T02:39:59
+[Rev V4] 229. Reason: Sell deal closed with profit. Profit: 2.60. Time: 2025-12-16T02:44:59
+[Con V2] 539. Reason: Buy deal closed by stop loss. Profit: -2.06. Time: 2025-12-16T02:44:59
+[Con V2] 540. Reason: Sell deal closed by stop loss. Profit: -1.81. Time: 2025-12-16T03:19:59
+[Con V3] 387. Reason: Sell deal closed by stop loss. Profit: -1.81. Time: 2025-12-16T03:19:59
+[Rev V4] 230. Reason: Buy deal closed by stop loss. Profit: -1.23. Time: 2025-12-16T03:44:59
+[Con V2] 541. Reason: Sell deal closed with profit. Profit: 5.47. Time: 2025-12-16T03:54:59
+[Con V3] 388. Reason: Sell deal closed with profit. Profit: 5.47. Time: 2025-12-16T03:54:59
+[Con V2] 542. Reason: Sell deal closed with profit. Profit: 3.29. Time: 2025-12-16T04:34:59
+[Con V3] 389. Reason: Sell deal closed by stop loss. Profit: -3.29. Time: 2025-12-16T04:39:59
+[Con V2] 543. Reason: Buy deal closed with profit. Profit: 1.71. Time: 2025-12-16T05:09:59
+[Con V3] 390. Reason: Buy deal closed by stop loss. Profit: -2.08. Time: 2025-12-16T05:14:59
+[Con V2] 544. Reason: Buy deal closed by stop loss. Profit: -0.77. Time: 2025-12-16T05:49:59
+[Con V3] 391. Reason: Sell deal closed with profit. Profit: 0.35. Time: 2025-12-16T06:14:59
+[Rev V4] 231. Reason: Buy deal closed by stop loss. Profit: -0.96. Time: 2025-12-16T06:19:59
+[Con V2] 545. Reason: Sell deal closed with loss. Profit: -0.55. Time: 2025-12-16T06:24:59
+[Con V3] 392. Reason: Buy deal closed with profit. Profit: 0.56. Time: 2025-12-16T06:54:59
+[Rev V4] 232. Reason: Sell deal closed by stop loss. Profit: -0.06. Time: 2025-12-16T06:59:59
+[Con V2] 546. Reason: Buy deal closed by stop loss. Profit: -2.00. Time: 2025-12-16T06:59:59
+[Con V2] 547. Reason: Sell deal closed with profit. Profit: 1.25. Time: 2025-12-16T07:34:59
+[Con V3] 393. Reason: Sell deal closed with profit. Profit: 1.25. Time: 2025-12-16T07:34:59
+[Rev V4] 233. Reason: Buy deal closed with profit. Profit: 3.70. Time: 2025-12-16T07:39:59
+[Con V2] 548. Reason: Buy deal closed by stop loss. Profit: -1.80. Time: 2025-12-16T08:09:59
+[Con V3] 394. Reason: Buy deal closed by stop loss. Profit: -1.80. Time: 2025-12-16T08:09:59
+[Con V2] 549. Reason: Sell deal closed with loss. Profit: -1.03. Time: 2025-12-16T08:54:59
+[Con V3] 395. Reason: Buy deal closed with loss. Profit: -1.79. Time: 2025-12-16T09:09:59
+[Con V2] 550. Reason: Buy deal closed by stop loss. Profit: -2.02. Time: 2025-12-16T09:29:59
+[Con V2] 551. Reason: Sell deal closed with profit. Profit: 4.10. Time: 2025-12-16T10:14:59
+[Con V3] 396. Reason: Sell deal closed with profit. Profit: 2.37. Time: 2025-12-16T10:19:59
+[Rev V4] 234. Reason: Buy deal closed with profit. Profit: 2.15. Time: 2025-12-16T10:24:59
+[Con V2] 552. Reason: Sell deal closed with loss. Profit: -0.94. Time: 2025-12-16T10:59:59
+[Con V2] 553. Reason: Sell deal closed by stop loss. Profit: -7.22. Time: 2025-12-16T11:39:59
+[Con V2] 554. Reason: Sell deal closed by stop loss. Profit: -0.89. Time: 2025-12-16T12:29:59
+[Con V3] 397. Reason: Buy deal closed with loss. Profit: -1.70. Time: 2025-12-16T12:44:59
+[Con V2] 555. Reason: Buy deal closed with loss. Profit: -0.32. Time: 2025-12-16T13:04:59
+[Con V2] 556. Reason: Buy deal closed with profit. Profit: 15.34. Time: 2025-12-16T13:39:59
+[Con V3] 398. Reason: Buy deal closed with loss. Profit: -4.35. Time: 2025-12-16T13:44:59
+[Con V2] 557. Reason: Buy deal closed with profit. Profit: 2.13. Time: 2025-12-16T14:29:59
+[Con V3] 399. Reason: Buy deal closed by stop loss. Profit: -2.66. Time: 2025-12-16T14:34:59
+[Con V2] 558. Reason: Buy deal closed with loss. Profit: -2.36. Time: 2025-12-16T15:04:59
+[Con V2] 559. Reason: Buy deal closed by stop loss. Profit: -4.66. Time: 2025-12-16T15:49:59
+[Con V2] 560. Reason: Buy deal closed with loss. Profit: -0.34. Time: 2025-12-16T16:24:59
+[Con V3] 400. Reason: Buy deal closed with loss. Profit: -0.34. Time: 2025-12-16T16:24:59
+[Con V2] 561. Reason: Sell deal closed with loss. Profit: -0.95. Time: 2025-12-16T16:59:59
+[Con V3] 401. Reason: Buy deal closed with profit. Profit: 1.30. Time: 2025-12-16T17:14:59
+[Rev V4] 235. Reason: Sell deal closed by stop loss. Profit: -5.10. Time: 2025-12-16T17:19:59
+[Con V2] 562. Reason: Buy deal closed with profit. Profit: 6.08. Time: 2025-12-16T17:34:59
+[Con V2] 563. Reason: Buy deal closed by stop loss. Profit: -7.11. Time: 2025-12-16T18:14:59
+[Con V2] 564. Reason: Buy deal closed with profit. Profit: 12.59. Time: 2025-12-16T18:49:59
+[Con V3] 402. Reason: Buy deal closed with profit. Profit: 1.43. Time: 2025-12-16T18:54:59
+[Rev V4] 236. Reason: Sell deal closed with profit. Profit: 11.35. Time: 2025-12-16T18:59:59
+[Con V2] 565. Reason: Sell deal closed with profit. Profit: 4.51. Time: 2025-12-16T19:34:59
+[Con V3] 403. Reason: Sell deal closed with profit. Profit: 1.26. Time: 2025-12-16T19:39:59
+[Rev V4] 237. Reason: Buy deal closed with profit. Profit: 1.52. Time: 2025-12-16T19:44:59
+[Con V2] 566. Reason: Buy deal closed by stop loss. Profit: -2.09. Time: 2025-12-16T20:09:59
+[Con V3] 404. Reason: Buy deal closed with loss. Profit: -1.62. Time: 2025-12-16T20:14:59
+[Con V2] 567. Reason: Sell deal closed with profit. Profit: 0.76. Time: 2025-12-16T20:44:59
+[Con V3] 405. Reason: Sell deal closed with profit. Profit: 0.06. Time: 2025-12-16T20:49:59
+[Rev V4] 238. Reason: Buy deal closed by stop loss. Profit: -2.17. Time: 2025-12-16T20:54:59
+[Con V2] 568. Reason: Buy deal closed with profit. Profit: 4.60. Time: 2025-12-16T21:39:59
+[Con V3] 406. Reason: Buy deal closed by stop loss. Profit: -4.60. Time: 2025-12-16T21:44:59
+[Rev V4] 239. Reason: Buy deal closed by stop loss. Profit: -1.77. Time: 2025-12-16T22:04:59
+[Con V2] 569. Reason: Sell deal closed with profit. Profit: 1.56. Time: 2025-12-16T22:14:59
+[Con V3] 407. Reason: Sell deal closed by stop loss. Profit: -4.30. Time: 2025-12-16T22:19:59
+[Con V2] 570. Reason: Buy deal closed with profit. Profit: 1.53. Time: 2025-12-16T22:49:59
+[Con V3] 408. Reason: Buy deal closed by stop loss. Profit: -1.81. Time: 2025-12-16T22:54:59
+[Con V2] 571. Reason: Buy deal closed with profit. Profit: 2.46. Time: 2025-12-16T23:39:59
+[Con V3] 409. Reason: Buy deal closed by stop loss. Profit: -4.24. Time: 2025-12-16T23:44:59
+[Con V2] 572. Reason: Buy deal closed with profit. Profit: 1.72. Time: 2025-12-17T00:14:59
+[Rev V4] 240. Reason: Sell deal closed with profit. Profit: 0.26. Time: 2025-12-17T00:19:59
+[Con V3] 410. Reason: Buy deal closed by stop loss. Profit: -2.08. Time: 2025-12-17T00:19:59
+[Con V2] 573. Reason: Sell deal closed with profit. Profit: 0.56. Time: 2025-12-17T00:54:59
+[Con V3] 411. Reason: Sell deal closed by stop loss. Profit: -2.12. Time: 2025-12-17T00:59:59
+[Con V2] 574. Reason: Buy deal closed with loss. Profit: -2.05. Time: 2025-12-17T01:29:59
+[Con V3] 412. Reason: Sell deal closed with profit. Profit: 1.74. Time: 2025-12-17T01:59:59
+[Rev V4] 241. Reason: Buy deal closed by stop loss. Profit: -2.12. Time: 2025-12-17T02:04:59
+[Con V2] 575. Reason: Sell deal closed with loss. Profit: -0.07. Time: 2025-12-17T02:04:59
+[Con V2] 576. Reason: Buy deal closed with profit. Profit: 4.04. Time: 2025-12-17T02:39:59
+[Con V3] 413. Reason: Buy deal closed with loss. Profit: -2.41. Time: 2025-12-17T02:44:59
+[Con V2] 577. Reason: Sell deal closed with loss. Profit: -1.73. Time: 2025-12-17T03:19:59
+[Con V2] 578. Reason: Buy deal closed with profit. Profit: 1.00. Time: 2025-12-17T03:54:59
+[Con V3] 414. Reason: Buy deal closed with profit. Profit: 5.03. Time: 2025-12-17T03:59:59
+[Rev V4] 242. Reason: Sell deal closed by stop loss. Profit: -0.51. Time: 2025-12-17T04:04:59
+[Con V2] 579. Reason: Sell deal closed by stop loss. Profit: -3.40. Time: 2025-12-17T04:29:59
+[Con V3] 415. Reason: Sell deal closed with profit. Profit: 1.10. Time: 2025-12-17T04:34:59
+[Rev V4] 243. Reason: Buy deal closed by stop loss. Profit: -0.11. Time: 2025-12-17T04:39:59
+[Con V2] 580. Reason: Sell deal closed with profit. Profit: 4.53. Time: 2025-12-17T05:09:59
+[Con V3] 416. Reason: Sell deal closed with loss. Profit: -0.10. Time: 2025-12-17T05:14:59
+[Con V2] 581. Reason: Buy deal closed with profit. Profit: 3.61. Time: 2025-12-17T05:44:59
+[Con V3] 417. Reason: Buy deal closed with loss. Profit: -3.03. Time: 2025-12-17T05:49:59
+[Con V2] 582. Reason: Sell deal closed with profit. Profit: 2.38. Time: 2025-12-17T06:29:59
+[Con V3] 418. Reason: Sell deal closed with profit. Profit: 2.23. Time: 2025-12-17T06:34:59
+[Rev V4] 244. Reason: Buy deal closed with profit. Profit: 1.29. Time: 2025-12-17T06:39:59
+[Con V2] 583. Reason: Buy deal closed with profit. Profit: 0.12. Time: 2025-12-17T07:09:59
+[Con V3] 419. Reason: Buy deal closed by stop loss. Profit: -1.12. Time: 2025-12-17T07:14:59
+[Rev V4] 245. Reason: Buy deal closed by stop loss. Profit: -0.21. Time: 2025-12-17T07:34:59
+[Con V2] 584. Reason: Sell deal closed by stop loss. Profit: -2.10. Time: 2025-12-17T07:54:59
+[Con V3] 420. Reason: Sell deal closed with profit. Profit: 9.71. Time: 2025-12-17T07:59:59
+[Con V2] 585. Reason: Sell deal closed by stop loss. Profit: -1.31. Time: 2025-12-17T08:39:59
+[Con V2] 586. Reason: Buy deal closed by stop loss. Profit: -2.06. Time: 2025-12-17T09:14:59
+[Con V3] 421. Reason: Buy deal closed by stop loss. Profit: -2.06. Time: 2025-12-17T09:14:59
+[Rev V4] 246. Reason: Sell deal closed by stop loss. Profit: -1.57. Time: 2025-12-17T09:19:59
+[Con V2] 587. Reason: Sell deal closed with profit. Profit: 0.19. Time: 2025-12-17T09:49:59
+[Con V3] 422. Reason: Sell deal closed with profit. Profit: 0.19. Time: 2025-12-17T09:49:59
+[Rev V4] 247. Reason: Buy deal closed by stop loss. Profit: -1.09. Time: 2025-12-17T09:54:59
+[Con V2] 588. Reason: Buy deal closed with profit. Profit: 10.33. Time: 2025-12-17T10:29:59
+[Con V3] 423. Reason: Buy deal closed with profit. Profit: 2.34. Time: 2025-12-17T10:34:59
+[Rev V4] 248. Reason: Sell deal closed with profit. Profit: 1.64. Time: 2025-12-17T10:39:59
+[Con V2] 589. Reason: Sell deal closed with profit. Profit: 1.93. Time: 2025-12-17T11:09:59
+[Con V3] 424. Reason: Sell deal closed with profit. Profit: 1.11. Time: 2025-12-17T11:14:59
+[Rev V4] 249. Reason: Buy deal closed by stop loss. Profit: -0.76. Time: 2025-12-17T11:19:59
+[Con V2] 590. Reason: Buy deal closed by stop loss. Profit: -1.36. Time: 2025-12-17T11:44:59
+[Con V3] 425. Reason: Sell deal closed by stop loss. Profit: -0.56. Time: 2025-12-17T11:59:59
+[Con V2] 591. Reason: Sell deal closed with loss. Profit: -0.63. Time: 2025-12-17T12:29:59
+[Con V3] 426. Reason: Buy deal closed with profit. Profit: 1.37. Time: 2025-12-17T12:44:59
+[Rev V4] 250. Reason: Sell deal closed with profit. Profit: 1.33. Time: 2025-12-17T12:49:59
+[Con V2] 592. Reason: Sell deal closed by stop loss. Profit: -0.71. Time: 2025-12-17T13:04:59
+[Con V2] 593. Reason: Buy deal closed by stop loss. Profit: -3.04. Time: 2025-12-17T13:49:59
+[Con V2] 594. Reason: Buy deal closed with loss. Profit: -0.55. Time: 2025-12-17T14:39:59
+[Con V3] 427. Reason: Buy deal closed with loss. Profit: -1.62. Time: 2025-12-17T15:04:59
+[Con V2] 595. Reason: Sell deal closed with profit. Profit: 0.24. Time: 2025-12-17T15:34:59
+[Con V3] 428. Reason: Sell deal closed with profit. Profit: 8.25. Time: 2025-12-17T15:39:59
+[Rev V4] 251. Reason: Buy deal closed with profit. Profit: 2.54. Time: 2025-12-17T15:44:59
+[Con V2] 596. Reason: Sell deal closed with profit. Profit: 2.46. Time: 2025-12-17T16:14:59
+[Con V3] 429. Reason: Sell deal closed by stop loss. Profit: -4.75. Time: 2025-12-17T16:19:59
+[Con V2] 597. Reason: Buy deal closed by stop loss. Profit: -6.12. Time: 2025-12-17T16:49:59
+[Con V2] 598. Reason: Sell deal closed by stop loss. Profit: -3.32. Time: 2025-12-17T17:29:59
+[Con V3] 430. Reason: Sell deal closed with profit. Profit: 7.17. Time: 2025-12-17T17:34:59
+[Rev V4] 252. Reason: Buy deal closed with profit. Profit: 3.16. Time: 2025-12-17T17:39:59
+[Con V2] 599. Reason: Buy deal closed with loss. Profit: -11.12. Time: 2025-12-17T18:14:59
+[Con V3] 431. Reason: Sell deal closed with profit. Profit: 16.16. Time: 2025-12-17T18:44:59
+[Rev V4] 253. Reason: Buy deal closed by stop loss. Profit: -12.30. Time: 2025-12-17T18:49:59
+[Con V2] 600. Reason: Sell deal closed with profit. Profit: 26.42. Time: 2025-12-17T18:49:59
+[Con V3] 432. Reason: Sell deal closed with profit. Profit: 10.40. Time: 2025-12-17T19:19:59
+[Rev V4] 254. Reason: Buy deal closed with loss. Profit: -1.80. Time: 2025-12-17T19:24:59
+[Con V2] 601. Reason: Sell deal closed with profit. Profit: 1.80. Time: 2025-12-17T19:24:59
+[Con V3] 433. Reason: Buy deal closed with profit. Profit: 5.43. Time: 2025-12-17T19:54:59
+[Rev V4] 255. Reason: Sell deal closed with profit. Profit: 14.62. Time: 2025-12-17T19:59:59
+[Con V2] 602. Reason: Buy deal closed by stop loss. Profit: -11.30. Time: 2025-12-17T19:59:59
+[Con V2] 603. Reason: Sell deal closed with profit. Profit: 6.47. Time: 2025-12-17T20:34:59
+[Con V3] 434. Reason: Sell deal closed with profit. Profit: 9.43. Time: 2025-12-17T20:39:59
+[Rev V4] 256. Reason: Buy deal closed by stop loss. Profit: -0.94. Time: 2025-12-17T20:44:59
+[Con V2] 604. Reason: Buy deal closed by stop loss. Profit: -4.52. Time: 2025-12-17T21:09:59
+[Con V2] 605. Reason: Sell deal closed with profit. Profit: 5.41. Time: 2025-12-17T21:44:59
+[Con V3] 435. Reason: Sell deal closed by stop loss. Profit: -7.92. Time: 2025-12-17T21:49:59
+[Con V2] 606. Reason: Buy deal closed with profit. Profit: 3.77. Time: 2025-12-17T22:19:59
+[Con V3] 436. Reason: Buy deal closed by stop loss. Profit: -5.18. Time: 2025-12-17T22:24:59
+[Con V2] 607. Reason: Buy deal closed with loss. Profit: -5.03. Time: 2025-12-17T22:54:59
+[Con V3] 437. Reason: Sell deal closed with profit. Profit: 0.59. Time: 2025-12-17T23:09:59
+[Rev V4] 257. Reason: Buy deal closed with profit. Profit: 18.04. Time: 2025-12-17T23:14:59
+[Con V2] 608. Reason: Sell deal closed with profit. Profit: 4.80. Time: 2025-12-17T23:34:59
+[Con V2] 609. Reason: Sell deal closed with loss. Profit: -1.82. Time: 2025-12-18T00:24:59
+[Con V2] 610. Reason: Buy deal closed by stop loss. Profit: -1.20. Time: 2025-12-18T00:59:59
+[Con V3] 438. Reason: Buy deal closed by stop loss. Profit: -2.57. Time: 2025-12-18T01:04:59
+[Rev V4] 258. Reason: Sell deal closed by stop loss. Profit: -1.41. Time: 2025-12-18T01:09:59
+[Con V2] 611. Reason: Sell deal closed by stop loss. Profit: -1.80. Time: 2025-12-18T01:39:59
+[Con V3] 439. Reason: Sell deal closed with loss. Profit: -1.66. Time: 2025-12-18T01:44:59
+[Rev V4] 259. Reason: Buy deal closed with profit. Profit: 2.84. Time: 2025-12-18T02:14:59
+[Con V2] 612. Reason: Sell deal closed with loss. Profit: -2.84. Time: 2025-12-18T02:14:59
+[Con V2] 613. Reason: Sell deal closed with loss. Profit: 0.00. Time: 2025-12-18T03:09:59
+[Con V3] 440. Reason: Buy deal closed with loss. Profit: -1.16. Time: 2025-12-18T03:34:59
+[Con V2] 614. Reason: Sell deal closed with loss. Profit: -3.58. Time: 2025-12-18T03:44:59
+[Con V3] 441. Reason: Sell deal closed with loss. Profit: -2.10. Time: 2025-12-18T04:09:59
+[Con V2] 615. Reason: Buy deal closed by stop loss. Profit: -2.76. Time: 2025-12-18T04:49:59
+[Con V3] 442. Reason: Buy deal closed by stop loss. Profit: -5.68. Time: 2025-12-18T05:19:59
+[Con V2] 616. Reason: Buy deal closed with profit. Profit: 2.48. Time: 2025-12-18T05:34:59
+[Rev V4] 260. Reason: Sell deal closed by stop loss. Profit: -0.79. Time: 2025-12-18T05:44:59
+[Con V2] 617. Reason: Sell deal closed with profit. Profit: 4.11. Time: 2025-12-18T06:19:59
+[Con V3] 443. Reason: Sell deal closed with profit. Profit: 6.12. Time: 2025-12-18T06:24:59
+[Rev V4] 261. Reason: Buy deal closed by stop loss. Profit: -0.69. Time: 2025-12-18T06:29:59
+[Con V2] 618. Reason: Buy deal closed with profit. Profit: 8.80. Time: 2025-12-18T06:59:59
+[Con V3] 444. Reason: Buy deal closed with loss. Profit: -4.48. Time: 2025-12-18T07:04:59
+[Con V2] 619. Reason: Sell deal closed with profit. Profit: 1.36. Time: 2025-12-18T08:04:59
+[Con V3] 445. Reason: Sell deal closed with profit. Profit: 2.74. Time: 2025-12-18T08:09:59
+[Rev V4] 262. Reason: Buy deal closed by stop loss. Profit: -0.97. Time: 2025-12-18T08:14:59
+[Con V2] 620. Reason: Buy deal closed by stop loss. Profit: -3.05. Time: 2025-12-18T08:44:59
+[Con V3] 446. Reason: Buy deal closed with profit. Profit: 1.27. Time: 2025-12-18T09:09:59
+[Rev V4] 263. Reason: Sell deal closed by stop loss. Profit: -0.96. Time: 2025-12-18T09:14:59
+[Con V2] 621. Reason: Sell deal closed with loss. Profit: -0.90. Time: 2025-12-18T09:34:59
+[Con V3] 447. Reason: Buy deal closed with profit. Profit: 2.40. Time: 2025-12-18T09:49:59
+[Rev V4] 264. Reason: Sell deal closed by stop loss. Profit: -0.56. Time: 2025-12-18T09:54:59
+[Con V2] 622. Reason: Buy deal closed with profit. Profit: 0.20. Time: 2025-12-18T10:14:59
+[Con V3] 448. Reason: Buy deal closed with profit. Profit: 0.15. Time: 2025-12-18T10:24:59
+[Rev V4] 265. Reason: Sell deal closed by stop loss. Profit: -0.12. Time: 2025-12-18T10:29:59
+[Con V2] 623. Reason: Buy deal closed with loss. Profit: -1.32. Time: 2025-12-18T10:49:59
+[Con V3] 449. Reason: Buy deal closed with profit. Profit: 5.05. Time: 2025-12-18T11:19:59
+[Rev V4] 266. Reason: Sell deal closed by stop loss. Profit: -2.25. Time: 2025-12-18T11:24:59
+[Con V2] 624. Reason: Buy deal closed with loss. Profit: -1.13. Time: 2025-12-18T11:24:59
+[Con V2] 625. Reason: Sell deal closed with profit. Profit: 2.08. Time: 2025-12-18T12:09:59
+[Con V3] 450. Reason: Sell deal closed by stop loss. Profit: -3.14. Time: 2025-12-18T12:14:59
+[Con V2] 626. Reason: Sell deal closed with loss. Profit: -0.42. Time: 2025-12-18T12:54:59
+[Con V3] 451. Reason: Buy deal closed by stop loss. Profit: -2.58. Time: 2025-12-18T13:09:59
+[Con V2] 627. Reason: Sell deal closed by stop loss. Profit: -0.48. Time: 2025-12-18T13:44:59
+[Con V3] 452. Reason: Sell deal closed with profit. Profit: 0.26. Time: 2025-12-18T13:49:59
+[Rev V4] 267. Reason: Buy deal closed with profit. Profit: 3.10. Time: 2025-12-18T13:54:59
+[Con V2] 628. Reason: Buy deal closed by stop loss. Profit: -0.67. Time: 2025-12-18T14:24:59
+[Con V3] 453. Reason: Buy deal closed with loss. Profit: -0.10. Time: 2025-12-18T14:29:59
+[Rev V4] 268. Reason: Sell deal closed by stop loss. Profit: -0.29. Time: 2025-12-18T14:59:59
+[Con V2] 629. Reason: Buy deal closed with profit. Profit: 1.28. Time: 2025-12-18T14:59:59
+[Con V3] 454. Reason: Buy deal closed with loss. Profit: -1.87. Time: 2025-12-18T15:04:59
+[Con V2] 630. Reason: Buy deal closed with loss. Profit: -1.07. Time: 2025-12-18T15:39:59
+[Con V3] 455. Reason: Sell deal closed by stop loss. Profit: -2.57. Time: 2025-12-18T15:54:59
+[Rev V4] 269. Reason: Sell deal closed with profit. Profit: 7.94. Time: 2025-12-18T16:14:59
+[Con V2] 631. Reason: Buy deal closed with loss. Profit: -7.94. Time: 2025-12-18T16:14:59
+[Con V3] 456. Reason: Buy deal closed with profit. Profit: 20.22. Time: 2025-12-18T16:39:59
+[Rev V4] 270. Reason: Sell deal closed by stop loss. Profit: -2.85. Time: 2025-12-18T16:49:59
+[Con V2] 632. Reason: Buy deal closed with loss. Profit: -5.51. Time: 2025-12-18T16:49:59
+[Con V2] 633. Reason: Sell deal closed by stop loss. Profit: -1.49. Time: 2025-12-18T17:29:59
+[Con V3] 457. Reason: Sell deal closed with profit. Profit: 11.30. Time: 2025-12-18T17:34:59
+[Rev V4] 271. Reason: Buy deal closed by stop loss. Profit: -13.54. Time: 2025-12-18T17:39:59
+[Con V2] 634. Reason: Sell deal closed by stop loss. Profit: -10.62. Time: 2025-12-18T18:04:59
+[Con V3] 458. Reason: Buy deal closed with profit. Profit: 2.90. Time: 2025-12-18T18:29:59
+[Rev V4] 272. Reason: Sell deal closed by stop loss. Profit: -1.59. Time: 2025-12-18T18:34:59
+[Con V2] 635. Reason: Buy deal closed with loss. Profit: -10.17. Time: 2025-12-18T18:39:59
+[Con V3] 459. Reason: Sell deal closed with profit. Profit: 10.42. Time: 2025-12-18T19:09:59
+[Rev V4] 273. Reason: Buy deal closed by stop loss. Profit: -1.05. Time: 2025-12-18T19:14:59
+[Con V2] 636. Reason: Sell deal closed with profit. Profit: 2.56. Time: 2025-12-18T19:14:59
+[Con V2] 637. Reason: Sell deal closed with loss. Profit: -0.36. Time: 2025-12-18T19:49:59
+[Con V3] 460. Reason: Sell deal closed with profit. Profit: 8.90. Time: 2025-12-18T20:09:59
+[Rev V4] 274. Reason: Buy deal closed by stop loss. Profit: -5.35. Time: 2025-12-18T20:14:59
+[Con V2] 638. Reason: Sell deal closed with loss. Profit: -12.05. Time: 2025-12-18T20:24:59
+[Con V2] 639. Reason: Buy deal closed with loss. Profit: -7.91. Time: 2025-12-18T21:14:59
+[Con V3] 461. Reason: Sell deal closed by stop loss. Profit: -4.02. Time: 2025-12-18T21:29:59
+[Rev V4] 275. Reason: Buy deal closed with profit. Profit: 11.06. Time: 2025-12-18T21:34:59
+[Con V2] 640. Reason: Sell deal closed with profit. Profit: 16.51. Time: 2025-12-18T21:49:59
+[Con V2] 641. Reason: Buy deal closed by stop loss. Profit: -6.33. Time: 2025-12-18T22:29:59
+[Con V3] 462. Reason: Sell deal closed with loss. Profit: -2.67. Time: 2025-12-18T22:44:59
+[Con V2] 642. Reason: Sell deal closed by stop loss. Profit: -2.13. Time: 2025-12-18T23:34:59
+[Con V2] 643. Reason: Buy deal closed with loss. Profit: -2.10. Time: 2025-12-19T00:19:59
+[Con V2] 644. Reason: Buy deal closed with profit. Profit: 2.30. Time: 2025-12-19T00:54:59
+[Con V3] 463. Reason: Buy deal closed with loss. Profit: -0.02. Time: 2025-12-19T00:59:59
+[Con V2] 645. Reason: Buy deal closed with loss. Profit: -0.94. Time: 2025-12-19T01:34:59
+[Con V3] 464. Reason: Buy deal closed by stop loss. Profit: -5.17. Time: 2025-12-19T01:54:59
+[Con V2] 646. Reason: Buy deal closed with loss. Profit: -3.33. Time: 2025-12-19T02:14:59
+[Con V3] 465. Reason: Buy deal closed by stop loss. Profit: -1.69. Time: 2025-12-19T02:39:59
+[Con V2] 647. Reason: Sell deal closed by stop loss. Profit: -3.22. Time: 2025-12-19T02:49:59
+[Con V2] 648. Reason: Sell deal closed with profit. Profit: 1.69. Time: 2025-12-19T03:24:59
+[Con V3] 466. Reason: Sell deal closed with profit. Profit: 1.69. Time: 2025-12-19T03:24:59
+[Rev V4] 276. Reason: Buy deal closed by stop loss. Profit: -0.34. Time: 2025-12-19T03:29:59
+[Con V2] 649. Reason: Buy deal closed by stop loss. Profit: -3.70. Time: 2025-12-19T03:59:59
+[Con V3] 467. Reason: Buy deal closed by stop loss. Profit: -3.70. Time: 2025-12-19T03:59:59
+[Con V2] 650. Reason: Buy deal closed with loss. Profit: -1.27. Time: 2025-12-19T04:39:59
+[Con V3] 468. Reason: Sell deal closed by stop loss. Profit: -3.02. Time: 2025-12-19T05:09:59
+[Con V2] 651. Reason: Buy deal closed by stop loss. Profit: -1.60. Time: 2025-12-19T05:19:59
+[Rev V4] 277. Reason: Sell deal closed by stop loss. Profit: -1.77. Time: 2025-12-19T05:29:59
+[Con V2] 652. Reason: Buy deal closed by stop loss. Profit: -7.27. Time: 2025-12-19T05:54:59
+[Con V3] 469. Reason: Buy deal closed by stop loss. Profit: -7.27. Time: 2025-12-19T05:54:59
+[Con V2] 653. Reason: Buy deal closed with profit. Profit: 1.90. Time: 2025-12-19T06:29:59
+[Con V3] 470. Reason: Buy deal closed by stop loss. Profit: -2.58. Time: 2025-12-19T06:34:59
+[Con V2] 654. Reason: Buy deal closed with profit. Profit: 9.36. Time: 2025-12-19T07:09:59
+[Con V3] 471. Reason: Buy deal closed with loss. Profit: -2.95. Time: 2025-12-19T07:14:59
+[Con V2] 655. Reason: Sell deal closed by stop loss. Profit: -3.94. Time: 2025-12-19T07:44:59
+[Con V3] 472. Reason: Buy deal closed by stop loss. Profit: -2.23. Time: 2025-12-19T07:59:59
+[Con V2] 656. Reason: Sell deal closed by stop loss. Profit: -2.35. Time: 2025-12-19T08:24:59
+[Rev V4] 278. Reason: Buy deal closed with profit. Profit: 7.19. Time: 2025-12-19T08:34:59
+[Con V3] 473. Reason: Sell deal closed by stop loss. Profit: -4.19. Time: 2025-12-19T08:34:59
+[Con V2] 657. Reason: Buy deal closed by stop loss. Profit: -3.14. Time: 2025-12-19T08:59:59
+[Con V3] 474. Reason: Sell deal closed with loss. Profit: -4.30. Time: 2025-12-19T09:24:59
+[Con V2] 658. Reason: Buy deal closed with loss. Profit: -0.86. Time: 2025-12-19T09:44:59
+[Con V3] 475. Reason: Buy deal closed with profit. Profit: 11.08. Time: 2025-12-19T10:04:59
+[Rev V4] 279. Reason: Sell deal closed by stop loss. Profit: -1.52. Time: 2025-12-19T10:09:59
+[Con V2] 659. Reason: Sell deal closed with loss. Profit: -4.87. Time: 2025-12-19T10:24:59
+[Con V2] 660. Reason: Buy deal closed by stop loss. Profit: -1.64. Time: 2025-12-19T10:59:59
+[Con V3] 476. Reason: Buy deal closed by stop loss. Profit: -1.64. Time: 2025-12-19T10:59:59
+[Rev V4] 280. Reason: Buy deal closed with profit. Profit: 14.01. Time: 2025-12-19T11:29:59
+[Con V2] 661. Reason: Sell deal closed by stop loss. Profit: -4.02. Time: 2025-12-19T11:44:59
+[Con V2] 662. Reason: Buy deal closed with loss. Profit: -1.08. Time: 2025-12-19T12:44:59
+[Con V3] 477. Reason: Buy deal closed by stop loss. Profit: -8.70. Time: 2025-12-19T13:04:59
+[Con V2] 663. Reason: Sell deal closed with profit. Profit: 1.92. Time: 2025-12-19T13:24:59
+[Rev V4] 281. Reason: Buy deal closed with profit. Profit: 1.86. Time: 2025-12-19T13:34:59
+[Con V3] 478. Reason: Buy deal closed with profit. Profit: 3.47. Time: 2025-12-19T13:49:59
+[Con V2] 664. Reason: Sell deal closed with profit. Profit: 2.65. Time: 2025-12-19T14:04:59
+[Con V2] 665. Reason: Buy deal closed by stop loss. Profit: -0.79. Time: 2025-12-19T14:49:59
+[Con V3] 479. Reason: Sell deal closed with profit. Profit: 3.33. Time: 2025-12-19T15:04:59
+[Rev V4] 282. Reason: Buy deal closed with profit. Profit: 9.01. Time: 2025-12-19T15:09:59
+[Con V2] 666. Reason: Sell deal closed with loss. Profit: -0.18. Time: 2025-12-19T15:24:59
+[Con V2] 667. Reason: Sell deal closed by stop loss. Profit: -4.95. Time: 2025-12-19T15:59:59
+[Con V2] 668. Reason: Sell deal closed with profit. Profit: 0.91. Time: 2025-12-19T16:49:59
+[Con V3] 480. Reason: Sell deal closed with profit. Profit: 0.23. Time: 2025-12-19T16:54:59
+[Rev V4] 283. Reason: Buy deal closed with profit. Profit: 2.48. Time: 2025-12-19T16:59:59
+[Con V2] 669. Reason: Sell deal closed by stop loss. Profit: -3.48. Time: 2025-12-19T17:24:59
+[Con V2] 670. Reason: Buy deal closed with loss. Profit: -4.56. Time: 2025-12-19T18:14:59
+[Con V3] 481. Reason: Sell deal closed with loss. Profit: -1.32. Time: 2025-12-19T18:29:59
+[Con V2] 671. Reason: Sell deal closed with loss. Profit: -5.92. Time: 2025-12-19T18:49:59
+[Con V3] 482. Reason: Buy deal closed with profit. Profit: 2.22. Time: 2025-12-19T19:04:59
+[Rev V4] 284. Reason: Sell deal closed by stop loss. Profit: -5.69. Time: 2025-12-19T19:09:59
+[Con V2] 672. Reason: Buy deal closed with profit. Profit: 12.79. Time: 2025-12-19T19:29:59
+[Con V3] 483. Reason: Sell deal closed with profit. Profit: 2.44. Time: 2025-12-19T19:59:59
+[Rev V4] 285. Reason: Buy deal closed by stop loss. Profit: -1.39. Time: 2025-12-19T20:04:59
+[Con V2] 673. Reason: Sell deal closed by stop loss. Profit: -7.58. Time: 2025-12-19T20:04:59
+[Con V3] 484. Reason: Sell deal closed with loss. Profit: -10.60. Time: 2025-12-19T20:34:59
+[Con V2] 674. Reason: Buy deal closed by stop loss. Profit: -3.02. Time: 2025-12-19T20:54:59
+[Con V3] 485. Reason: Buy deal closed by stop loss. Profit: -3.80. Time: 2025-12-19T21:14:59
+[Rev V4] 286. Reason: Sell deal closed by stop loss. Profit: -2.64. Time: 2025-12-19T21:19:59
+[Con V2] 675. Reason: Sell deal closed with profit. Profit: 0.96. Time: 2025-12-19T21:39:59
+[Con V3] 486. Reason: Sell deal closed by stop loss. Profit: -2.82. Time: 2025-12-19T21:49:59
+[Con V2] 676. Reason: Buy deal closed with loss. Profit: -0.16. Time: 2025-12-19T22:24:59
+[Con V3] 487. Reason: Buy deal closed with profit. Profit: 2.55. Time: 2025-12-19T22:44:59
+[Rev V4] 287. Reason: Sell deal closed by stop loss. Profit: -0.32. Time: 2025-12-19T22:49:59
+[Con V2] 677. Reason: Sell deal closed by stop loss. Profit: -2.28. Time: 2025-12-19T22:59:59
+[Con V3] 488. Reason: Buy deal closed by stop loss. Profit: -6.93. Time: 2025-12-19T23:24:59
+[Con V2] 678. Reason: Buy deal closed with loss. Profit: -6.92. Time: 2025-12-19T23:49:59
+[Con V3] 489. Reason: Sell deal closed with profit. Profit: 0.90. Time: 2025-12-20T00:04:59
+[Rev V4] 288. Reason: Buy deal closed with loss. Profit: -1.10. Time: 2025-12-20T00:09:59
+[Con V2] 679. Reason: Buy deal closed with profit. Profit: 0.32. Time: 2025-12-20T00:24:59
+[Con V3] 490. Reason: Sell deal closed with profit. Profit: 0.40. Time: 2025-12-20T00:54:59
+[Rev V4] 289. Reason: Buy deal closed with profit. Profit: 8.77. Time: 2025-12-20T00:59:59
+[Con V2] 680. Reason: Sell deal closed by stop loss. Profit: -0.78. Time: 2025-12-20T00:59:59
+[Con V2] 681. Reason: Sell deal closed by stop loss. Profit: -2.33. Time: 2025-12-20T01:34:59
+[Con V2] 682. Reason: Buy deal closed with loss. Profit: -0.71. Time: 2025-12-20T02:24:59
+[Con V3] 491. Reason: Sell deal closed by stop loss. Profit: -2.94. Time: 2025-12-20T02:39:59
+[Con V2] 683. Reason: Sell deal closed by stop loss. Profit: -0.51. Time: 2025-12-20T02:59:59
+[Rev V4] 290. Reason: Buy deal closed by stop loss. Profit: -2.90. Time: 2025-12-20T03:04:59
+[Con V2] 684. Reason: Sell deal closed with profit. Profit: 2.63. Time: 2025-12-20T03:34:59
+[Con V3] 492. Reason: Sell deal closed with profit. Profit: 0.15. Time: 2025-12-20T03:39:59
+[Rev V4] 291. Reason: Buy deal closed by stop loss. Profit: -0.74. Time: 2025-12-20T03:44:59
+[Con V2] 685. Reason: Buy deal closed with profit. Profit: 0.48. Time: 2025-12-20T04:09:59
+[Con V3] 493. Reason: Buy deal closed with profit. Profit: 0.84. Time: 2025-12-20T04:14:59
+[Rev V4] 292. Reason: Sell deal closed with loss. Profit: -1.95. Time: 2025-12-20T04:19:59
+[Con V2] 686. Reason: Sell deal closed by stop loss. Profit: -2.30. Time: 2025-12-20T04:44:59
+[Con V3] 494. Reason: Sell deal closed with loss. Profit: -0.50. Time: 2025-12-20T05:04:59
+[Con V2] 687. Reason: Buy deal closed with loss. Profit: -0.22. Time: 2025-12-20T05:34:59
+[Con V3] 495. Reason: Buy deal closed with loss. Profit: -1.28. Time: 2025-12-20T06:04:59
+[Con V2] 688. Reason: Sell deal closed with loss. Profit: -1.34. Time: 2025-12-20T06:14:59
+[Rev V4] 293. Reason: Sell deal closed with profit. Profit: 1.06. Time: 2025-12-20T06:34:59
+[Con V2] 689. Reason: Sell deal closed with profit. Profit: 0.21. Time: 2025-12-20T06:49:59
+[Con V3] 496. Reason: Sell deal closed with profit. Profit: 0.21. Time: 2025-12-20T06:49:59
+[Con V2] 690. Reason: Buy deal closed with profit. Profit: 2.16. Time: 2025-12-20T07:24:59
+[Con V3] 497. Reason: Buy deal closed with profit. Profit: 2.16. Time: 2025-12-20T07:24:59
+[Rev V4] 294. Reason: Sell deal closed by stop loss. Profit: -0.91. Time: 2025-12-20T07:29:59
+[Con V2] 691. Reason: Buy deal closed by stop loss. Profit: -1.72. Time: 2025-12-20T08:04:59
+[Con V3] 498. Reason: Buy deal closed with loss. Profit: -0.76. Time: 2025-12-20T08:24:59
+[Con V2] 692. Reason: Buy deal closed with profit. Profit: 0.30. Time: 2025-12-20T08:39:59
+[Con V3] 499. Reason: Sell deal closed by stop loss. Profit: -1.31. Time: 2025-12-20T08:59:59
+[Con V2] 693. Reason: Buy deal closed with loss. Profit: -2.32. Time: 2025-12-20T09:14:59
+[Con V3] 500. Reason: Sell deal closed with loss. Profit: -0.00. Time: 2025-12-20T09:39:59
+[Con V2] 694. Reason: Sell deal closed by stop loss. Profit: -0.52. Time: 2025-12-20T09:59:59
+[Rev V4] 295. Reason: Buy deal closed by stop loss. Profit: -0.16. Time: 2025-12-20T10:09:59
+[Con V2] 695. Reason: Sell deal closed with loss. Profit: -0.29. Time: 2025-12-20T10:39:59
+[Con V3] 501. Reason: Buy deal closed with profit. Profit: 1.90. Time: 2025-12-20T10:54:59
+[Rev V4] 296. Reason: Sell deal closed by stop loss. Profit: -0.20. Time: 2025-12-20T10:59:59
+[Con V2] 696. Reason: Sell deal closed with loss. Profit: -0.30. Time: 2025-12-20T11:14:59
+[Con V2] 697. Reason: Sell deal closed by stop loss. Profit: -1.59. Time: 2025-12-20T11:59:59
+[Con V3] 502. Reason: Buy deal closed by stop loss. Profit: -1.06. Time: 2025-12-20T12:24:59
+[Con V2] 698. Reason: Sell deal closed with profit. Profit: 0.66. Time: 2025-12-20T12:34:59
+[Rev V4] 297. Reason: Buy deal closed by stop loss. Profit: -0.57. Time: 2025-12-20T12:44:59
+[Con V2] 699. Reason: Buy deal closed by stop loss. Profit: -1.99. Time: 2025-12-20T13:14:59
+[Con V2] 700. Reason: Buy deal closed by stop loss. Profit: -0.63. Time: 2025-12-20T13:59:59
+[Con V3] 503. Reason: Buy deal closed with loss. Profit: -1.56. Time: 2025-12-20T14:24:59
+[Con V2] 701. Reason: Buy deal closed with loss. Profit: -0.72. Time: 2025-12-20T14:39:59
+[Con V2] 702. Reason: Sell deal closed with profit. Profit: 0.48. Time: 2025-12-20T15:19:59
+[Con V3] 504. Reason: Sell deal closed by stop loss. Profit: -0.48. Time: 2025-12-20T15:24:59
+[Rev V4] 298. Reason: Buy deal closed by stop loss. Profit: -0.04. Time: 2025-12-20T15:29:59
+[Con V2] 703. Reason: Buy deal closed with profit. Profit: 0.93. Time: 2025-12-20T16:39:59
+[Con V3] 505. Reason: Buy deal closed with profit. Profit: 1.84. Time: 2025-12-20T16:44:59
+[Rev V4] 299. Reason: Sell deal closed by stop loss. Profit: -1.48. Time: 2025-12-20T16:49:59
+[Con V2] 704. Reason: Buy deal closed by stop loss. Profit: -0.87. Time: 2025-12-20T17:19:59
+[Con V3] 506. Reason: Buy deal closed with profit. Profit: 1.85. Time: 2025-12-20T17:49:59
+[Rev V4] 300. Reason: Sell deal closed with profit. Profit: 0.85. Time: 2025-12-20T17:54:59
+[Con V2] 705. Reason: Buy deal closed with loss. Profit: -0.85. Time: 2025-12-20T17:54:59
+[Con V2] 706. Reason: Buy deal closed with profit. Profit: 0.63. Time: 2025-12-20T18:29:59
+[Con V3] 507. Reason: Buy deal closed with loss. Profit: -0.69. Time: 2025-12-20T18:34:59
+[Con V2] 707. Reason: Buy deal closed with loss. Profit: -0.66. Time: 2025-12-20T19:09:59
+[Con V3] 508. Reason: Sell deal closed with loss. Profit: -0.78. Time: 2025-12-20T19:34:59
+[Con V2] 708. Reason: Buy deal closed with profit. Profit: 0.32. Time: 2025-12-20T19:54:59
+[Rev V4] 301. Reason: Sell deal closed by stop loss. Profit: -0.12. Time: 2025-12-20T20:04:59
+[Con V3] 509. Reason: Buy deal closed by stop loss. Profit: -0.29. Time: 2025-12-20T20:09:59
+[Con V2] 709. Reason: Buy deal closed by stop loss. Profit: -0.82. Time: 2025-12-20T20:29:59
+[Con V2] 710. Reason: Sell deal closed with loss. Profit: -0.52. Time: 2025-12-20T21:04:59
+[Con V3] 510. Reason: Sell deal closed with loss. Profit: -0.52. Time: 2025-12-20T21:04:59
+[Con V2] 711. Reason: Buy deal closed with profit. Profit: 2.34. Time: 2025-12-20T21:54:59
+[Con V3] 511. Reason: Buy deal closed by stop loss. Profit: -2.34. Time: 2025-12-20T21:59:59
+[Con V2] 712. Reason: Sell deal closed with profit. Profit: 0.07. Time: 2025-12-20T22:39:59
+[Con V3] 512. Reason: Sell deal closed with profit. Profit: 0.29. Time: 2025-12-20T22:44:59
+[Rev V4] 302. Reason: Buy deal closed by stop loss. Profit: -0.98. Time: 2025-12-20T22:49:59
+[Con V2] 713. Reason: Buy deal closed with profit. Profit: 0.44. Time: 2025-12-20T23:14:59
+[Con V3] 513. Reason: Buy deal closed by stop loss. Profit: -0.57. Time: 2025-12-20T23:19:59
+[Rev V4] 303. Reason: Sell deal closed by stop loss. Profit: -0.20. Time: 2025-12-20T23:24:59
+[Con V2] 714. Reason: Buy deal closed with profit. Profit: 0.57. Time: 2025-12-20T23:54:59
+[Con V3] 514. Reason: Buy deal closed with loss. Profit: -0.44. Time: 2025-12-20T23:59:59
+[Con V2] 715. Reason: Sell deal closed with loss. Profit: -0.22. Time: 2025-12-21T00:29:59
+[Con V3] 515. Reason: Sell deal closed with profit. Profit: 0.23. Time: 2025-12-21T00:49:59
+[Rev V4] 304. Reason: Buy deal closed by stop loss. Profit: -0.82. Time: 2025-12-21T00:54:59
+[Con V2] 716. Reason: Sell deal closed with profit. Profit: 0.60. Time: 2025-12-21T01:14:59
+[Con V3] 516. Reason: Sell deal closed by stop loss. Profit: -0.14. Time: 2025-12-21T01:24:59
+[Rev V4] 305. Reason: Sell deal closed by stop loss. Profit: -1.75. Time: 2025-12-21T01:44:59
+[Con V2] 717. Reason: Buy deal closed by stop loss. Profit: -0.54. Time: 2025-12-21T01:49:59
+[Con V3] 517. Reason: Buy deal closed with profit. Profit: 0.24. Time: 2025-12-21T02:14:59
+[Rev V4] 306. Reason: Sell deal closed by stop loss. Profit: -0.03. Time: 2025-12-21T02:19:59
+[Con V2] 718. Reason: Buy deal closed by stop loss. Profit: -0.09. Time: 2025-12-21T02:34:59
+[Con V3] 518. Reason: Buy deal closed with profit. Profit: 3.49. Time: 2025-12-21T02:49:59
+[Rev V4] 307. Reason: Sell deal closed by stop loss. Profit: -0.35. Time: 2025-12-21T02:54:59
+[Con V2] 719. Reason: Sell deal closed with loss. Profit: -0.38. Time: 2025-12-21T03:09:59
+[Con V3] 519. Reason: Buy deal closed with loss. Profit: -0.02. Time: 2025-12-21T03:24:59
+[Con V2] 720. Reason: Buy deal closed with loss. Profit: -1.28. Time: 2025-12-21T03:59:59
+[Con V3] 520. Reason: Sell deal closed with loss. Profit: -0.69. Time: 2025-12-21T04:14:59
+[Con V2] 721. Reason: Sell deal closed with profit. Profit: 3.10. Time: 2025-12-21T04:34:59
+[Rev V4] 308. Reason: Buy deal closed with loss. Profit: -0.75. Time: 2025-12-21T04:39:59
+[Con V2] 722. Reason: Sell deal closed with profit. Profit: 0.82. Time: 2025-12-21T05:14:59
+[Con V3] 521. Reason: Sell deal closed with profit. Profit: 2.72. Time: 2025-12-21T05:19:59
+[Rev V4] 309. Reason: Buy deal closed by stop loss. Profit: -0.86. Time: 2025-12-21T05:24:59
+[Con V2] 723. Reason: Buy deal closed with profit. Profit: 4.50. Time: 2025-12-21T05:59:59
+[Con V3] 522. Reason: Buy deal closed with loss. Profit: -0.39. Time: 2025-12-21T06:04:59
+[Con V2] 724. Reason: Sell deal closed by stop loss. Profit: -0.43. Time: 2025-12-21T06:44:59
+[Con V3] 523. Reason: Buy deal closed by stop loss. Profit: -1.28. Time: 2025-12-21T07:09:59
+[Con V2] 725. Reason: Buy deal closed with profit. Profit: 0.16. Time: 2025-12-21T07:24:59
+[Con V3] 524. Reason: Sell deal closed with profit. Profit: 1.32. Time: 2025-12-21T07:44:59
+[Rev V4] 310. Reason: Buy deal closed by stop loss. Profit: -0.13. Time: 2025-12-21T07:49:59
+[Con V2] 726. Reason: Sell deal closed by stop loss. Profit: -0.86. Time: 2025-12-21T08:04:59
+[Con V2] 727. Reason: Sell deal closed by stop loss. Profit: -0.90. Time: 2025-12-21T08:39:59
+[Con V3] 525. Reason: Sell deal closed with profit. Profit: 0.80. Time: 2025-12-21T08:44:59
+[Rev V4] 311. Reason: Buy deal closed with profit. Profit: 1.74. Time: 2025-12-21T08:49:59
+[Con V2] 728. Reason: Buy deal closed with profit. Profit: 0.16. Time: 2025-12-21T09:14:59
+[Con V3] 526. Reason: Buy deal closed by stop loss. Profit: -0.16. Time: 2025-12-21T09:19:59
+[Rev V4] 312. Reason: Buy deal closed by stop loss. Profit: -0.19. Time: 2025-12-21T09:39:59
+[Con V2] 729. Reason: Sell deal closed with loss. Profit: -0.95. Time: 2025-12-21T09:49:59
+[Con V2] 730. Reason: Sell deal closed with profit. Profit: 0.08. Time: 2025-12-21T10:29:59
+[Con V3] 527. Reason: Sell deal closed by stop loss. Profit: -0.20. Time: 2025-12-21T10:34:59
+[Rev V4] 313. Reason: Sell deal closed with profit. Profit: 1.58. Time: 2025-12-21T11:04:59
+[Con V2] 731. Reason: Buy deal closed by stop loss. Profit: -1.31. Time: 2025-12-21T11:04:59
+[Con V3] 528. Reason: Buy deal closed with profit. Profit: 1.01. Time: 2025-12-21T11:24:59
+[Rev V4] 314. Reason: Sell deal closed by stop loss. Profit: -0.22. Time: 2025-12-21T11:39:59
+[Con V2] 732. Reason: Buy deal closed with profit. Profit: 8.54. Time: 2025-12-21T11:39:59
+[Con V2] 733. Reason: Buy deal closed with profit. Profit: 5.37. Time: 2025-12-21T12:49:59
+[Con V3] 529. Reason: Buy deal closed by stop loss. Profit: -5.81. Time: 2025-12-21T12:54:59
+[Rev V4] 315. Reason: Buy deal closed by stop loss. Profit: -0.28. Time: 2025-12-21T13:24:59
+[Con V2] 734. Reason: Sell deal closed with profit. Profit: 0.49. Time: 2025-12-21T13:24:59
+[Con V3] 530. Reason: Sell deal closed with profit. Profit: 6.03. Time: 2025-12-21T13:29:59
+[Con V2] 735. Reason: Buy deal closed with profit. Profit: 1.75. Time: 2025-12-21T14:24:59
+[Con V3] 531. Reason: Buy deal closed by stop loss. Profit: -1.76. Time: 2025-12-21T14:29:59
+[Con V2] 736. Reason: Buy deal closed with profit. Profit: 2.28. Time: 2025-12-21T15:04:59
+[Con V3] 532. Reason: Buy deal closed with profit. Profit: 0.98. Time: 2025-12-21T15:09:59
+[Rev V4] 316. Reason: Sell deal closed by stop loss. Profit: -0.85. Time: 2025-12-21T15:14:59
+[Con V2] 737. Reason: Sell deal closed with profit. Profit: 7.86. Time: 2025-12-21T15:39:59
+[Con V3] 533. Reason: Sell deal closed with loss. Profit: -1.05. Time: 2025-12-21T15:44:59
+[Con V2] 738. Reason: Sell deal closed by stop loss. Profit: -2.40. Time: 2025-12-21T16:19:59
+[Con V3] 534. Reason: Sell deal closed with profit. Profit: 0.22. Time: 2025-12-21T16:39:59
+[Rev V4] 317. Reason: Buy deal closed by stop loss. Profit: -2.27. Time: 2025-12-21T16:44:59
+[Con V2] 739. Reason: Sell deal closed with profit. Profit: 1.59. Time: 2025-12-21T16:54:59
+[Con V2] 740. Reason: Sell deal closed by stop loss. Profit: -2.97. Time: 2025-12-21T17:29:59
+[Con V2] 741. Reason: Sell deal closed with loss. Profit: -1.07. Time: 2025-12-21T18:04:59
+[Con V3] 535. Reason: Buy deal closed with profit. Profit: 1.09. Time: 2025-12-21T18:34:59
+[Rev V4] 318. Reason: Sell deal closed with profit. Profit: 0.21. Time: 2025-12-21T18:39:59
+[Con V2] 742. Reason: Buy deal closed by stop loss. Profit: -1.46. Time: 2025-12-21T18:39:59
+[Con V2] 743. Reason: Buy deal closed with loss. Profit: -2.32. Time: 2025-12-21T19:24:59
+[Con V3] 536. Reason: Sell deal closed with profit. Profit: 0.48. Time: 2025-12-21T19:39:59
+[Rev V4] 319. Reason: Buy deal closed by stop loss. Profit: -0.37. Time: 2025-12-21T19:44:59
+[Con V2] 744. Reason: Buy deal closed with profit. Profit: 2.46. Time: 2025-12-21T19:59:59
+[Con V2] 745. Reason: Buy deal closed with profit. Profit: 1.02. Time: 2025-12-21T20:39:59
+[Con V3] 537. Reason: Buy deal closed by stop loss. Profit: -1.35. Time: 2025-12-21T20:44:59
+[Con V2] 746. Reason: Sell deal closed by stop loss. Profit: -4.25. Time: 2025-12-21T21:14:59
+[Con V3] 538. Reason: Buy deal closed with loss. Profit: -0.15. Time: 2025-12-21T21:39:59
+[Con V2] 747. Reason: Buy deal closed with profit. Profit: 4.18. Time: 2025-12-21T21:54:59
+[Con V3] 539. Reason: Sell deal closed with loss. Profit: -0.64. Time: 2025-12-21T22:14:59
+[Con V2] 748. Reason: Sell deal closed with profit. Profit: 4.00. Time: 2025-12-21T22:29:59
+[Con V2] 749. Reason: Sell deal closed with profit. Profit: 2.49. Time: 2025-12-21T23:04:59
+[Con V3] 540. Reason: Sell deal closed with profit. Profit: 2.77. Time: 2025-12-21T23:09:59
+[Rev V4] 320. Reason: Buy deal closed by stop loss. Profit: -0.76. Time: 2025-12-21T23:14:59
+[Con V2] 750. Reason: Sell deal closed with loss. Profit: -0.28. Time: 2025-12-21T23:39:59
+[Con V3] 541. Reason: Buy deal closed with loss. Profit: -0.18. Time: 2025-12-22T00:09:59
+[Con V2] 751. Reason: Sell deal closed by stop loss. Profit: -1.10. Time: 2025-12-22T00:29:59
+[Con V3] 542. Reason: Sell deal closed with loss. Profit: -0.21. Time: 2025-12-22T00:49:59
+[Con V2] 752. Reason: Buy deal closed with profit. Profit: 0.56. Time: 2025-12-22T01:04:59
+[Rev V4] 321. Reason: Sell deal closed by stop loss. Profit: -0.78. Time: 2025-12-22T01:09:59
+[Con V3] 543. Reason: Buy deal closed with profit. Profit: 0.04. Time: 2025-12-22T01:34:59
+[Con V2] 753. Reason: Buy deal closed by stop loss. Profit: -0.35. Time: 2025-12-22T01:39:59
+[Rev V4] 322. Reason: Sell deal closed with loss. Profit: -1.54. Time: 2025-12-22T01:44:59
+[Con V2] 754. Reason: Sell deal closed by stop loss. Profit: -4.40. Time: 2025-12-22T02:14:59
+[Con V2] 755. Reason: Buy deal closed with profit. Profit: 2.00. Time: 2025-12-22T02:54:59
+[Con V3] 544. Reason: Buy deal closed with profit. Profit: 3.83. Time: 2025-12-22T02:59:59
+[Rev V4] 323. Reason: Sell deal closed by stop loss. Profit: -2.74. Time: 2025-12-22T03:04:59
+[Con V2] 756. Reason: Sell deal closed with loss. Profit: -4.30. Time: 2025-12-22T03:59:59
+[Con V3] 545. Reason: Buy deal closed with loss. Profit: -0.72. Time: 2025-12-22T04:14:59
+[Con V2] 757. Reason: Buy deal closed with loss. Profit: -7.43. Time: 2025-12-22T04:39:59
+[Con V3] 546. Reason: Sell deal closed with loss. Profit: -0.87. Time: 2025-12-22T04:54:59
+[Con V2] 758. Reason: Sell deal closed with loss. Profit: -2.12. Time: 2025-12-22T05:14:59
+[Con V2] 759. Reason: Sell deal closed with profit. Profit: 3.00. Time: 2025-12-22T05:59:59
+[Con V3] 547. Reason: Sell deal closed by stop loss. Profit: -4.69. Time: 2025-12-22T06:04:59
+[Con V2] 760. Reason: Sell deal closed with profit. Profit: 2.36. Time: 2025-12-22T06:34:59
+[Con V3] 548. Reason: Sell deal closed with loss. Profit: -2.99. Time: 2025-12-22T06:39:59
+[Con V2] 761. Reason: Sell deal closed by stop loss. Profit: -1.03. Time: 2025-12-22T07:09:59
+[Con V3] 549. Reason: Buy deal closed by stop loss. Profit: -3.55. Time: 2025-12-22T07:24:59
+[Con V2] 762. Reason: Buy deal closed with profit. Profit: 0.02. Time: 2025-12-22T07:44:59
+[Con V3] 550. Reason: Sell deal closed by stop loss. Profit: -2.23. Time: 2025-12-22T08:04:59
+[Rev V4] 324. Reason: Buy deal closed by stop loss. Profit: -0.03. Time: 2025-12-22T08:09:59
+[Con V2] 763. Reason: Sell deal closed by stop loss. Profit: -1.28. Time: 2025-12-22T08:29:59
+[Con V2] 764. Reason: Sell deal closed by stop loss. Profit: -2.28. Time: 2025-12-22T09:14:59
+[Con V3] 551. Reason: Buy deal closed with loss. Profit: -1.82. Time: 2025-12-22T09:44:59
+[Con V2] 765. Reason: Buy deal closed with loss. Profit: -0.77. Time: 2025-12-22T10:09:59
+[Con V2] 766. Reason: Buy deal closed with profit. Profit: 2.30. Time: 2025-12-22T10:59:59
+[Con V3] 552. Reason: Buy deal closed by stop loss. Profit: -2.92. Time: 2025-12-22T11:04:59
+[Rev V4] 325. Reason: Sell deal closed with profit. Profit: 7.00. Time: 2025-12-22T11:29:59
+[Con V2] 767. Reason: Sell deal closed by stop loss. Profit: -1.44. Time: 2025-12-22T11:39:59
+[Con V3] 553. Reason: Sell deal closed by stop loss. Profit: -3.65. Time: 2025-12-22T11:59:59
+[Con V2] 768. Reason: Buy deal closed with profit. Profit: 1.62. Time: 2025-12-22T12:24:59
+[Rev V4] 326. Reason: Sell deal closed with profit. Profit: 2.55. Time: 2025-12-22T12:34:59
+[Con V3] 554. Reason: Buy deal closed with loss. Profit: -2.55. Time: 2025-12-22T12:34:59
+[Con V2] 769. Reason: Buy deal closed with profit. Profit: 2.19. Time: 2025-12-22T13:14:59
+[Con V3] 555. Reason: Buy deal closed with profit. Profit: 2.02. Time: 2025-12-22T13:19:59
+[Rev V4] 327. Reason: Sell deal closed by stop loss. Profit: -0.20. Time: 2025-12-22T13:24:59
+[Con V2] 770. Reason: Sell deal closed by stop loss. Profit: -0.94. Time: 2025-12-22T14:04:59
+[Con V3] 556. Reason: Buy deal closed by stop loss. Profit: -5.52. Time: 2025-12-22T14:34:59
+[Con V2] 771. Reason: Buy deal closed with loss. Profit: -1.43. Time: 2025-12-22T14:49:59
+[Con V3] 557. Reason: Buy deal closed with profit. Profit: 4.02. Time: 2025-12-22T15:14:59
+[Rev V4] 328. Reason: Sell deal closed by stop loss. Profit: -2.19. Time: 2025-12-22T15:19:59
+[Con V2] 772. Reason: Buy deal closed with profit. Profit: 4.52. Time: 2025-12-22T15:24:59
+[Con V3] 558. Reason: Sell deal closed with loss. Profit: -1.54. Time: 2025-12-22T15:49:59
+[Con V2] 773. Reason: Buy deal closed with profit. Profit: 2.87. Time: 2025-12-22T15:59:59
+[Con V2] 774. Reason: Sell deal closed with profit. Profit: 5.36. Time: 2025-12-22T16:39:59
+[Con V3] 559. Reason: Sell deal closed by stop loss. Profit: -5.55. Time: 2025-12-22T16:44:59
+[Con V2] 775. Reason: Buy deal closed by stop loss. Profit: -6.46. Time: 2025-12-22T17:19:59
+[Con V2] 776. Reason: Buy deal closed with loss. Profit: -5.36. Time: 2025-12-22T17:54:59
+[Con V3] 560. Reason: Buy deal closed with loss. Profit: -5.36. Time: 2025-12-22T17:54:59
+[Con V2] 777. Reason: Sell deal closed with loss. Profit: -4.35. Time: 2025-12-22T18:39:59
+[Con V3] 561. Reason: Buy deal closed with profit. Profit: 5.18. Time: 2025-12-22T18:54:59
+[Rev V4] 329. Reason: Sell deal closed by stop loss. Profit: -8.42. Time: 2025-12-22T18:59:59
+[Con V2] 778. Reason: Buy deal closed with profit. Profit: 0.58. Time: 2025-12-22T19:19:59
+[Con V3] 562. Reason: Buy deal closed by stop loss. Profit: -6.16. Time: 2025-12-22T19:29:59
+[Con V2] 779. Reason: Sell deal closed with profit. Profit: 7.93. Time: 2025-12-22T19:59:59
+[Con V3] 563. Reason: Sell deal closed with profit. Profit: 6.41. Time: 2025-12-22T20:04:59
+[Rev V4] 330. Reason: Buy deal closed by stop loss. Profit: -1.92. Time: 2025-12-22T20:09:59
+[Con V2] 780. Reason: Sell deal closed by stop loss. Profit: -3.78. Time: 2025-12-22T20:49:59
+[Con V3] 564. Reason: Buy deal closed by stop loss. Profit: -2.57. Time: 2025-12-22T21:04:59
+[Con V2] 781. Reason: Buy deal closed by stop loss. Profit: -3.60. Time: 2025-12-22T21:29:59
+[Con V2] 782. Reason: Sell deal closed with loss. Profit: -6.15. Time: 2025-12-22T22:04:59
+[Con V3] 565. Reason: Sell deal closed with loss. Profit: -6.15. Time: 2025-12-22T22:04:59
+[Con V2] 783. Reason: Sell deal closed with profit. Profit: 5.92. Time: 2025-12-22T22:49:59
+[Con V3] 566. Reason: Sell deal closed with profit. Profit: 2.92. Time: 2025-12-22T22:54:59
+[Rev V4] 331. Reason: Buy deal closed with profit. Profit: 4.89. Time: 2025-12-22T22:59:59
+[Con V2] 784. Reason: Sell deal closed with loss. Profit: -2.40. Time: 2025-12-22T23:24:59
+[Con V2] 785. Reason: Buy deal closed with loss. Profit: -0.92. Time: 2025-12-23T00:04:59
+[Con V3] 567. Reason: Buy deal closed with profit. Profit: 1.53. Time: 2025-12-23T00:29:59
+[Rev V4] 332. Reason: Sell deal closed by stop loss. Profit: -1.29. Time: 2025-12-23T00:34:59
+[Con V2] 786. Reason: Buy deal closed with loss. Profit: -0.51. Time: 2025-12-23T00:39:59
+[Con V2] 787. Reason: Buy deal closed with loss. Profit: -1.74. Time: 2025-12-23T01:19:59
+[Con V3] 568. Reason: Buy deal closed with profit. Profit: 7.28. Time: 2025-12-23T01:49:59
+[Rev V4] 333. Reason: Sell deal closed with profit. Profit: 1.82. Time: 2025-12-23T01:54:59
+[Con V2] 788. Reason: Buy deal closed with loss. Profit: -1.82. Time: 2025-12-23T01:54:59
+[Con V2] 789. Reason: Buy deal closed with loss. Profit: -2.79. Time: 2025-12-23T02:29:59
+[Con V2] 790. Reason: Buy deal closed with profit. Profit: 5.08. Time: 2025-12-23T03:34:59
+[Con V3] 569. Reason: Buy deal closed by stop loss. Profit: -5.23. Time: 2025-12-23T03:39:59
+[Con V2] 791. Reason: Sell deal closed with profit. Profit: 0.45. Time: 2025-12-23T04:14:59
+[Con V3] 570. Reason: Sell deal closed with profit. Profit: 0.28. Time: 2025-12-23T04:19:59
+[Rev V4] 334. Reason: Buy deal closed with loss. Profit: -0.54. Time: 2025-12-23T04:24:59
+[Con V2] 792. Reason: Buy deal closed by stop loss. Profit: -2.18. Time: 2025-12-23T04:49:59
+[Con V2] 793. Reason: Buy deal closed with loss. Profit: -1.48. Time: 2025-12-23T05:24:59
+[Con V3] 571. Reason: Sell deal closed with profit. Profit: 4.85. Time: 2025-12-23T05:39:59
+[Rev V4] 335. Reason: Buy deal closed by stop loss. Profit: -0.53. Time: 2025-12-23T05:44:59
+[Con V2] 794. Reason: Sell deal closed with profit. Profit: 6.37. Time: 2025-12-23T05:59:59
+[Con V2] 795. Reason: Buy deal closed with profit. Profit: 1.18. Time: 2025-12-23T06:34:59
+[Con V3] 572. Reason: Buy deal closed with profit. Profit: 1.36. Time: 2025-12-23T06:39:59
+[Rev V4] 336. Reason: Sell deal closed with profit. Profit: 4.39. Time: 2025-12-23T06:44:59
+[Con V2] 796. Reason: Buy deal closed with loss. Profit: -0.34. Time: 2025-12-23T07:14:59
+[Con V3] 573. Reason: Sell deal closed with loss. Profit: -0.31. Time: 2025-12-23T07:39:59
+[Con V2] 797. Reason: Sell deal closed with profit. Profit: 4.56. Time: 2025-12-23T07:54:59
+[Con V2] 798. Reason: Sell deal closed with loss. Profit: -5.42. Time: 2025-12-23T08:34:59
+[Con V2] 799. Reason: Sell deal closed with profit. Profit: 4.46. Time: 2025-12-23T09:19:59
+[Con V3] 574. Reason: Sell deal closed with loss. Profit: -2.36. Time: 2025-12-23T09:24:59
+[Con V2] 800. Reason: Buy deal closed with loss. Profit: -3.79. Time: 2025-12-23T09:54:59
+[Con V2] 801. Reason: Buy deal closed with profit. Profit: 0.40. Time: 2025-12-23T10:29:59
+[Con V3] 575. Reason: Buy deal closed with profit. Profit: 0.40. Time: 2025-12-23T10:29:59
+[Rev V4] 337. Reason: Sell deal closed with profit. Profit: 3.65. Time: 2025-12-23T10:34:59
+[Con V2] 802. Reason: Sell deal closed by stop loss. Profit: -2.15. Time: 2025-12-23T11:04:59
+[Con V2] 803. Reason: Buy deal closed by stop loss. Profit: -0.71. Time: 2025-12-23T11:39:59
+[Con V3] 576. Reason: Buy deal closed by stop loss. Profit: -0.71. Time: 2025-12-23T11:39:59
+[Con V2] 804. Reason: Sell deal closed with profit. Profit: 4.35. Time: 2025-12-23T12:19:59
+[Con V3] 577. Reason: Sell deal closed with loss. Profit: -1.65. Time: 2025-12-23T12:24:59
+[Con V2] 805. Reason: Buy deal closed with profit. Profit: 0.54. Time: 2025-12-23T12:54:59
+[Rev V4] 338. Reason: Sell deal closed by stop loss. Profit: -1.96. Time: 2025-12-23T12:59:59
+[Con V3] 578. Reason: Buy deal closed with profit. Profit: 3.27. Time: 2025-12-23T12:59:59
+[Con V2] 806. Reason: Buy deal closed by stop loss. Profit: -1.16. Time: 2025-12-23T13:29:59
+[Con V2] 807. Reason: Sell deal closed with profit. Profit: 0.50. Time: 2025-12-23T14:29:59
+[Con V3] 579. Reason: Sell deal closed with profit. Profit: 1.09. Time: 2025-12-23T14:34:59
+[Rev V4] 339. Reason: Buy deal closed with profit. Profit: 4.32. Time: 2025-12-23T14:39:59
+[Con V2] 808. Reason: Sell deal closed with loss. Profit: -1.98. Time: 2025-12-23T15:19:59
+[Con V3] 580. Reason: Buy deal closed with profit. Profit: 0.15. Time: 2025-12-23T15:44:59
+[Rev V4] 340. Reason: Sell deal closed with profit. Profit: 2.76. Time: 2025-12-23T15:49:59
+[Con V2] 809. Reason: Sell deal closed with loss. Profit: -0.11. Time: 2025-12-23T15:59:59
+[Con V2] 810. Reason: Buy deal closed by stop loss. Profit: -4.48. Time: 2025-12-23T16:34:59
+[Con V2] 811. Reason: Buy deal closed with loss. Profit: -1.16. Time: 2025-12-23T17:09:59
+[Con V2] 812. Reason: Sell deal closed with profit. Profit: 3.96. Time: 2025-12-23T17:54:59
+[Con V3] 581. Reason: Sell deal closed with loss. Profit: -2.32. Time: 2025-12-23T17:59:59
+[Con V2] 813. Reason: Buy deal closed by stop loss. Profit: -4.10. Time: 2025-12-23T18:34:59
+[Con V3] 582. Reason: Buy deal closed with loss. Profit: -2.58. Time: 2025-12-23T18:39:59
+[Con V2] 814. Reason: Sell deal closed by stop loss. Profit: -1.94. Time: 2025-12-23T19:14:59
+[Con V2] 815. Reason: Buy deal closed with profit. Profit: 5.43. Time: 2025-12-23T19:49:59
+[Con V3] 583. Reason: Buy deal closed with loss. Profit: -2.07. Time: 2025-12-23T19:54:59
+[Con V2] 816. Reason: Sell deal closed with loss. Profit: -0.52. Time: 2025-12-23T20:29:59
+[Con V3] 584. Reason: Buy deal closed by stop loss. Profit: -4.90. Time: 2025-12-23T20:44:59
+[Con V2] 817. Reason: Buy deal closed by stop loss. Profit: -4.39. Time: 2025-12-23T21:09:59
+[Rev V4] 341. Reason: Sell deal closed with profit. Profit: 0.14. Time: 2025-12-23T21:19:59
+[Con V3] 585. Reason: Buy deal closed with loss. Profit: -0.14. Time: 2025-12-23T21:19:59
+[Con V2] 818. Reason: Buy deal closed by stop loss. Profit: -3.60. Time: 2025-12-23T21:44:59
+[Con V2] 819. Reason: Buy deal closed by stop loss. Profit: -4.18. Time: 2025-12-23T22:19:59
+[Con V2] 820. Reason: Sell deal closed with profit. Profit: 3.89. Time: 2025-12-23T23:04:59
+[Con V3] 586. Reason: Sell deal closed with loss. Profit: -0.49. Time: 2025-12-23T23:09:59
+[Con V2] 821. Reason: Buy deal closed with loss. Profit: -1.82. Time: 2025-12-23T23:44:59
+[Con V3] 587. Reason: Sell deal closed with profit. Profit: 3.96. Time: 2025-12-23T23:59:59
+[Rev V4] 342. Reason: Buy deal closed by stop loss. Profit: -0.44. Time: 2025-12-24T00:04:59
+[Con V2] 822. Reason: Buy deal closed with profit. Profit: 1.10. Time: 2025-12-24T00:19:59
+[Con V3] 588. Reason: Sell deal closed with loss. Profit: -0.53. Time: 2025-12-24T00:39:59
+[Con V2] 823. Reason: Buy deal closed by stop loss. Profit: -1.15. Time: 2025-12-24T00:59:59
+[Con V2] 824. Reason: Sell deal closed by stop loss. Profit: -5.37. Time: 2025-12-24T01:34:59
+[Con V3] 589. Reason: Sell deal closed with profit. Profit: 1.88. Time: 2025-12-24T01:59:59
+[Rev V4] 343. Reason: Buy deal closed with loss. Profit: -1.74. Time: 2025-12-24T02:04:59
+[Con V2] 825. Reason: Sell deal closed with loss. Profit: -0.05. Time: 2025-12-24T02:09:59
+[Con V3] 590. Reason: Buy deal closed by stop loss. Profit: -1.20. Time: 2025-12-24T02:39:59
+[Rev V4] 344. Reason: Sell deal closed by stop loss. Profit: -1.12. Time: 2025-12-24T02:44:59
+[Con V2] 826. Reason: Buy deal closed with loss. Profit: -0.79. Time: 2025-12-24T02:44:59
+[Con V2] 827. Reason: Sell deal closed with loss. Profit: -1.51. Time: 2025-12-24T03:19:59
+[Con V3] 591. Reason: Sell deal closed with loss. Profit: -1.51. Time: 2025-12-24T03:19:59
+[Rev V4] 345. Reason: Sell deal closed with loss. Profit: -1.92. Time: 2025-12-24T03:49:59
+[Con V2] 828. Reason: Buy deal closed with profit. Profit: 1.99. Time: 2025-12-24T03:54:59
+[Con V3] 592. Reason: Buy deal closed with profit. Profit: 1.99. Time: 2025-12-24T03:54:59
+[Con V2] 829. Reason: Sell deal closed by stop loss. Profit: -0.67. Time: 2025-12-24T04:34:59
+[Con V3] 593. Reason: Sell deal closed with profit. Profit: 3.01. Time: 2025-12-24T04:39:59
+[Rev V4] 346. Reason: Buy deal closed with profit. Profit: 0.60. Time: 2025-12-24T04:44:59
+[Con V2] 830. Reason: Sell deal closed with loss. Profit: -1.21. Time: 2025-12-24T05:09:59
+[Con V2] 831. Reason: Sell deal closed with profit. Profit: 0.31. Time: 2025-12-24T05:44:59
+[Con V3] 594. Reason: Sell deal closed with profit. Profit: 0.31. Time: 2025-12-24T05:44:59
+[Rev V4] 347. Reason: Buy deal closed with profit. Profit: 3.68. Time: 2025-12-24T05:49:59
+[Con V2] 832. Reason: Buy deal closed with profit. Profit: 3.86. Time: 2025-12-24T06:19:59
+[Con V3] 595. Reason: Buy deal closed with profit. Profit: 3.86. Time: 2025-12-24T06:19:59
+[Rev V4] 348. Reason: Sell deal closed with profit. Profit: 0.02. Time: 2025-12-24T06:24:59
+[Con V2] 833. Reason: Buy deal closed with loss. Profit: -1.53. Time: 2025-12-24T06:54:59
+[Con V2] 834. Reason: Sell deal closed with loss. Profit: -2.86. Time: 2025-12-24T07:34:59
+[Con V3] 596. Reason: Sell deal closed with profit. Profit: 1.18. Time: 2025-12-24T07:54:59
+[Rev V4] 349. Reason: Buy deal closed with profit. Profit: 1.03. Time: 2025-12-24T07:59:59
+[Con V2] 835. Reason: Sell deal closed by stop loss. Profit: -0.82. Time: 2025-12-24T08:14:59
+[Con V3] 597. Reason: Sell deal closed with profit. Profit: 7.88. Time: 2025-12-24T08:39:59
+[Rev V4] 350. Reason: Buy deal closed by stop loss. Profit: -1.51. Time: 2025-12-24T08:44:59
+[Con V2] 836. Reason: Buy deal closed with loss. Profit: -0.58. Time: 2025-12-24T08:54:59
+[Con V3] 598. Reason: Sell deal closed with loss. Profit: -0.58. Time: 2025-12-24T09:14:59
+[Con V2] 837. Reason: Sell deal closed by stop loss. Profit: -1.79. Time: 2025-12-24T09:34:59
+[Con V2] 838. Reason: Buy deal closed with profit. Profit: 0.11. Time: 2025-12-24T10:09:59
+[Con V3] 599. Reason: Buy deal closed by stop loss. Profit: -0.52. Time: 2025-12-24T10:14:59
+[Rev V4] 351. Reason: Sell deal closed with loss. Profit: -0.98. Time: 2025-12-24T10:44:59
+[Con V2] 839. Reason: Buy deal closed by stop loss. Profit: -0.68. Time: 2025-12-24T10:44:59
+[Con V3] 600. Reason: Buy deal closed by stop loss. Profit: -1.96. Time: 2025-12-24T10:49:59
+[Con V2] 840. Reason: Buy deal closed with loss. Profit: -1.60. Time: 2025-12-24T11:44:59
+[Con V3] 601. Reason: Sell deal closed by stop loss. Profit: -2.38. Time: 2025-12-24T11:59:59
+[Con V2] 841. Reason: Buy deal closed with loss. Profit: 0.00. Time: 2025-12-24T12:29:59
+[Con V2] 842. Reason: Buy deal closed with profit. Profit: 3.27. Time: 2025-12-24T13:09:59
+[Con V3] 602. Reason: Buy deal closed with loss. Profit: -1.12. Time: 2025-12-24T13:14:59
+[Con V2] 843. Reason: Sell deal closed by stop loss. Profit: -1.03. Time: 2025-12-24T13:49:59
+[Con V2] 844. Reason: Sell deal closed with profit. Profit: 0.11. Time: 2025-12-24T14:29:59
+[Con V3] 603. Reason: Sell deal closed with profit. Profit: 0.10. Time: 2025-12-24T14:34:59
+[Rev V4] 352. Reason: Buy deal closed with profit. Profit: 0.78. Time: 2025-12-24T14:39:59
+[Con V2] 845. Reason: Sell deal closed by stop loss. Profit: -0.55. Time: 2025-12-24T15:04:59
+[Con V3] 604. Reason: Buy deal closed with profit. Profit: 0.28. Time: 2025-12-24T15:19:59
+[Rev V4] 353. Reason: Sell deal closed by stop loss. Profit: -0.96. Time: 2025-12-24T15:24:59
+[Con V2] 846. Reason: Buy deal closed with loss. Profit: -0.04. Time: 2025-12-24T15:39:59
+[Con V3] 605. Reason: Buy deal closed by stop loss. Profit: -1.29. Time: 2025-12-24T16:04:59
+[Con V2] 847. Reason: Sell deal closed with loss. Profit: -1.24. Time: 2025-12-24T16:14:59
+[Con V2] 848. Reason: Buy deal closed with loss. Profit: -0.61. Time: 2025-12-24T16:54:59
+[Con V3] 606. Reason: Buy deal closed by stop loss. Profit: -1.65. Time: 2025-12-24T17:14:59
+[Con V2] 849. Reason: Sell deal closed with profit. Profit: 5.80. Time: 2025-12-24T17:29:59
+[Rev V4] 354. Reason: Buy deal closed by stop loss. Profit: -5.05. Time: 2025-12-24T17:34:59
+[Con V2] 850. Reason: Sell deal closed with loss. Profit: -2.48. Time: 2025-12-24T18:14:59
+[Con V2] 851. Reason: Buy deal closed with profit. Profit: 6.64. Time: 2025-12-24T18:59:59
+[Con V3] 607. Reason: Buy deal closed with loss. Profit: -4.48. Time: 2025-12-24T19:04:59
+[Con V2] 852. Reason: Sell deal closed with loss. Profit: -0.90. Time: 2025-12-24T19:54:59
+[Con V2] 853. Reason: Buy deal closed with loss. Profit: -1.94. Time: 2025-12-24T20:34:59
+[Con V3] 608. Reason: Sell deal closed by stop loss. Profit: -4.30. Time: 2025-12-24T21:04:59
+[Con V2] 854. Reason: Buy deal closed with profit. Profit: 3.46. Time: 2025-12-24T21:14:59
+[Con V2] 855. Reason: Sell deal closed by stop loss. Profit: -0.78. Time: 2025-12-24T21:59:59
+[Con V2] 856. Reason: Buy deal closed with profit. Profit: 1.54. Time: 2025-12-24T22:44:59
+[Con V3] 609. Reason: Buy deal closed with loss. Profit: -0.51. Time: 2025-12-24T22:49:59
+[Rev V4] 355. Reason: Sell deal closed with loss. Profit: -1.11. Time: 2025-12-24T23:14:59
+[Con V2] 857. Reason: Buy deal closed with loss. Profit: -0.11. Time: 2025-12-24T23:19:59
+[Con V3] 610. Reason: Sell deal closed with loss. Profit: -1.99. Time: 2025-12-24T23:34:59
+[Con V2] 858. Reason: Sell deal closed with loss. Profit: -0.36. Time: 2025-12-24T23:54:59
+[Con V2] 859. Reason: Buy deal closed with profit. Profit: 0.27. Time: 2025-12-25T00:29:59
+[Con V3] 611. Reason: Buy deal closed with profit. Profit: 1.28. Time: 2025-12-25T00:34:59
+[Rev V4] 356. Reason: Sell deal closed with loss. Profit: -0.20. Time: 2025-12-25T00:39:59
+[Con V2] 860. Reason: Buy deal closed with loss. Profit: -1.24. Time: 2025-12-25T01:09:59
+[Con V3] 612. Reason: Sell deal closed by stop loss. Profit: -1.98. Time: 2025-12-25T01:24:59
+[Rev V4] 357. Reason: Sell deal closed with profit. Profit: 0.21. Time: 2025-12-25T01:44:59
+[Con V2] 861. Reason: Buy deal closed with loss. Profit: -0.21. Time: 2025-12-25T01:44:59
+[Con V3] 613. Reason: Sell deal closed with loss. Profit: -0.28. Time: 2025-12-25T02:09:59
+[Con V2] 862. Reason: Sell deal closed with profit. Profit: 2.78. Time: 2025-12-25T02:24:59
+[Con V2] 863. Reason: Sell deal closed by stop loss. Profit: -1.91. Time: 2025-12-25T03:04:59
+[Con V2] 864. Reason: Buy deal closed with loss. Profit: -2.10. Time: 2025-12-25T03:49:59
+[Con V3] 614. Reason: Buy deal closed by stop loss. Profit: -1.96. Time: 2025-12-25T04:14:59
+[Rev V4] 358. Reason: Sell deal closed by stop loss. Profit: -0.47. Time: 2025-12-25T04:19:59
+[Con V2] 865. Reason: Buy deal closed with profit. Profit: 0.67. Time: 2025-12-25T04:24:59
+[Con V2] 866. Reason: Buy deal closed with profit. Profit: 0.58. Time: 2025-12-25T05:14:59
+[Con V3] 615. Reason: Buy deal closed by stop loss. Profit: -0.98. Time: 2025-12-25T05:19:59
+[Rev V4] 359. Reason: Sell deal closed with profit. Profit: 1.40. Time: 2025-12-25T05:44:59
+[Con V2] 867. Reason: Buy deal closed by stop loss. Profit: -0.31. Time: 2025-12-25T05:59:59
+[Con V3] 616. Reason: Buy deal closed by stop loss. Profit: -0.84. Time: 2025-12-25T06:04:59
+[Con V2] 868. Reason: Sell deal closed with profit. Profit: 1.27. Time: 2025-12-25T06:34:59
+[Con V3] 617. Reason: Sell deal closed with loss. Profit: -1.32. Time: 2025-12-25T06:39:59
+[Con V2] 869. Reason: Buy deal closed with profit. Profit: 1.54. Time: 2025-12-25T07:14:59
+[Con V3] 618. Reason: Buy deal closed with loss. Profit: -0.49. Time: 2025-12-25T07:19:59
+[Con V2] 870. Reason: Buy deal closed with profit. Profit: 1.46. Time: 2025-12-25T07:49:59
+[Con V3] 619. Reason: Buy deal closed by stop loss. Profit: -1.46. Time: 2025-12-25T07:54:59
+[Con V2] 871. Reason: Buy deal closed with loss. Profit: -0.14. Time: 2025-12-25T08:34:59
+[Con V3] 620. Reason: Sell deal closed with profit. Profit: 1.62. Time: 2025-12-25T09:04:59
+[Rev V4] 360. Reason: Buy deal closed with profit. Profit: 0.66. Time: 2025-12-25T09:09:59
+[Con V2] 872. Reason: Sell deal closed with loss. Profit: -0.66. Time: 2025-12-25T09:09:59
+[Con V2] 873. Reason: Buy deal closed with profit. Profit: 0.12. Time: 2025-12-25T09:54:59
+[Con V3] 621. Reason: Buy deal closed by stop loss. Profit: -0.35. Time: 2025-12-25T09:59:59
+[Con V2] 874. Reason: Buy deal closed by stop loss. Profit: -0.01. Time: 2025-12-25T10:29:59
+[Con V3] 622. Reason: Sell deal closed by stop loss. Profit: -0.48. Time: 2025-12-25T10:44:59
+[Con V2] 875. Reason: Sell deal closed with profit. Profit: 9.46. Time: 2025-12-25T11:19:59
+[Con V3] 623. Reason: Sell deal closed with loss. Profit: -2.66. Time: 2025-12-25T11:24:59
+[Con V2] 876. Reason: Buy deal closed by stop loss. Profit: -1.58. Time: 2025-12-25T11:59:59
+[Con V3] 624. Reason: Sell deal closed by stop loss. Profit: -0.97. Time: 2025-12-25T12:14:59
+[Con V2] 877. Reason: Sell deal closed with profit. Profit: 2.97. Time: 2025-12-25T13:09:59
+[Con V3] 625. Reason: Sell deal closed with loss. Profit: -1.60. Time: 2025-12-25T13:14:59
+[Con V2] 878. Reason: Buy deal closed with profit. Profit: 0.26. Time: 2025-12-25T13:49:59
+[Con V3] 626. Reason: Buy deal closed by stop loss. Profit: -0.49. Time: 2025-12-25T13:54:59
+[Rev V4] 361. Reason: Sell deal closed by stop loss. Profit: -0.30. Time: 2025-12-25T13:59:59
+[Con V2] 879. Reason: Sell deal closed with loss. Profit: -2.06. Time: 2025-12-25T14:49:59
+[Con V2] 880. Reason: Buy deal closed by stop loss. Profit: -0.64. Time: 2025-12-25T15:24:59
+[Con V3] 627. Reason: Buy deal closed with profit. Profit: 0.99. Time: 2025-12-25T15:29:59
+[Rev V4] 362. Reason: Sell deal closed with profit. Profit: 2.28. Time: 2025-12-25T15:34:59
+[Con V2] 881. Reason: Buy deal closed by stop loss. Profit: -1.18. Time: 2025-12-25T15:59:59
+[Con V2] 882. Reason: Buy deal closed with loss. Profit: -0.28. Time: 2025-12-25T16:44:59
+[Con V3] 628. Reason: Buy deal closed by stop loss. Profit: -0.70. Time: 2025-12-25T17:14:59
+[Con V2] 883. Reason: Buy deal closed with loss. Profit: -0.82. Time: 2025-12-25T17:49:59
+[Con V3] 629. Reason: Buy deal closed with profit. Profit: 1.93. Time: 2025-12-25T18:09:59
+[Rev V4] 363. Reason: Sell deal closed by stop loss. Profit: -0.70. Time: 2025-12-25T18:14:59
+[Con V2] 884. Reason: Buy deal closed with profit. Profit: 9.42. Time: 2025-12-25T18:24:59
+[Con V2] 885. Reason: Sell deal closed by stop loss. Profit: -2.11. Time: 2025-12-25T18:59:59
+[Con V3] 630. Reason: Sell deal closed by stop loss. Profit: -2.11. Time: 2025-12-25T18:59:59
+[Rev V4] 364. Reason: Buy deal closed by stop loss. Profit: -1.55. Time: 2025-12-25T19:04:59
+[Con V2] 886. Reason: Sell deal closed with profit. Profit: 4.44. Time: 2025-12-25T19:34:59
+[Con V3] 631. Reason: Sell deal closed with loss. Profit: -3.68. Time: 2025-12-25T19:39:59
+[Rev V4] 365. Reason: Buy deal closed with profit. Profit: 3.18. Time: 2025-12-25T20:04:59
+[Con V2] 887. Reason: Buy deal closed by stop loss. Profit: -1.71. Time: 2025-12-25T20:24:59
+[Con V3] 632. Reason: Buy deal closed by stop loss. Profit: -1.50. Time: 2025-12-25T20:54:59
+[Con V2] 888. Reason: Buy deal closed with profit. Profit: 1.06. Time: 2025-12-25T21:09:59
+[Con V2] 889. Reason: Buy deal closed with profit. Profit: 0.84. Time: 2025-12-25T21:44:59
+[Con V3] 633. Reason: Buy deal closed by stop loss. Profit: -1.18. Time: 2025-12-25T21:49:59
+[Rev V4] 366. Reason: Buy deal closed with profit. Profit: 0.89. Time: 2025-12-25T22:09:59
+[Con V2] 890. Reason: Sell deal closed with loss. Profit: -0.64. Time: 2025-12-25T22:24:59
+[Con V2] 891. Reason: Sell deal closed with loss. Profit: -0.79. Time: 2025-12-25T23:04:59
+[Con V3] 634. Reason: Sell deal closed with profit. Profit: 10.29. Time: 2025-12-25T23:24:59
+[Rev V4] 367. Reason: Buy deal closed with profit. Profit: 1.04. Time: 2025-12-25T23:29:59
+[Con V2] 892. Reason: Buy deal closed with loss. Profit: -0.55. Time: 2025-12-25T23:39:59
+[Con V3] 635. Reason: Buy deal closed by stop loss. Profit: -1.41. Time: 2025-12-25T23:59:59
+
+=== Final Stats ===
+[Rev V4] Total trades: 367, Profit: 130.03 [Profit trades: 144 (39.24%) | Loss trades 26 (7.08%) | SL trades: 197 (53.68%)]
+[Con V2] Total trades: 892, Profit: 139.19 [Profit trades: 379 (42.49%) | Loss trades 245 (27.47%) | SL trades: 268 (30.04%)]
+[Con V3] Total trades: 635, Profit: -107.51 [Profit trades: 265 (41.73%) | Loss trades 176 (27.72%) | SL trades: 194 (30.55%)]
+

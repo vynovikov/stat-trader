@@ -1,0 +1,931 @@
+{
+    "annotations": {
+        "list": [
+            {
+                "builtIn": 1,
+                "datasource": {
+                    "type": "grafana",
+                    "uid": "-- Grafana --"
+                },
+                "enable": true,
+                "hide": true,
+                "iconColor": "rgba(0, 211, 255, 1)",
+                "name": "Annotations & Alerts",
+                "type": "dashboard"
+            }
+        ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "panels": [
+        {
+            "datasource": {
+                "type": "grafana-clickhouse-datasource",
+                "uid": "cfacnscusrzeof"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "fixedColor": "orange",
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "dark-purple",
+                                "value": null
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "Total Profit $"
+                        },
+                        "properties": [
+                            {
+                                "id": "thresholds",
+                                "value": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "red",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "green",
+                                            "value": 0
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "Average Profit $"
+                        },
+                        "properties": [
+                            {
+                                "id": "thresholds",
+                                "value": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "red",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "green",
+                                            "value": 0
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "Win Rate %"
+                        },
+                        "properties": [
+                            {
+                                "id": "thresholds",
+                                "value": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "red",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "yellow",
+                                            "value": 20
+                                        },
+                                        {
+                                            "color": "green",
+                                            "value": 40
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 0
+            },
+            "id": 3,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+            },
+            "pluginVersion": "11.0.0",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.12.0",
+                    "queryType": "table",
+                    "rawSql": "SELECT \n    round(sum(profit), 2) AS \"$\"\nFROM trades_historical\nWHERE engine_id = '${engine_id}'\n  AND open_time >= $__fromTime\n  AND open_time <= $__toTime",
+                    "refId": "Total Profit"
+                },
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "hide": false,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.12.0",
+                    "queryType": "table",
+                    "rawSql": "SELECT \n    round(avg(profit), 2) AS \"$\"\nFROM trades_historical\nWHERE engine_id = '${engine_id}'\n  AND open_time >= $__fromTime\n  AND open_time <= $__toTime",
+                    "refId": "Average Profit"
+                },
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "hide": false,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.12.0",
+                    "queryType": "table",
+                    "rawSql": "SELECT \n    round(countIf(profit > 0) * 100.0 / count(*), 2) AS \"%\"\nFROM trades_historical\nWHERE engine_id = '${engine_id}'\n  AND open_time >= $__fromTime\n  AND open_time <= $__toTime",
+                    "refId": "Win Rate"
+                },
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "hide": false,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.12.0",
+                    "queryType": "table",
+                    "rawSql": "SELECT \n    count(*) AS \" \"\nFROM trades_historical\nWHERE engine_id = '${engine_id}'\n  AND open_time >= $__fromTime\n  AND open_time <= $__toTime",
+                    "refId": "Total Trades"
+                },
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "hide": false,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.12.0",
+                    "queryType": "table",
+                    "rawSql": "SELECT \n    countIf(profit > 0) AS \" \"\nFROM trades_historical\nWHERE engine_id = '${engine_id}'\n  AND open_time >= $__fromTime\n  AND open_time <= $__toTime",
+                    "refId": "Profitable Trades"
+                },
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "hide": false,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.12.0",
+                    "queryType": "table",
+                    "rawSql": "WITH numbered AS (\n    SELECT \n        profit,\n        open_time,\n        row_number() OVER (ORDER BY open_time) AS rn\n    FROM trades_historical\n    WHERE engine_id = '${engine_id}'\n      AND open_time >= $__fromTime\n      AND open_time <= $__toTime\n),\ngroups AS (\n    SELECT \n        profit,\n        rn,\n        rn - row_number() OVER (PARTITION BY (profit < 0) ORDER BY rn) AS grp\n    FROM numbered\n),\nstreaks AS (\n    SELECT \n        count(*) AS streak_length\n    FROM groups\n    WHERE profit < 0\n    GROUP BY grp\n)\nSELECT \n    ifNull(max(streak_length), 0) AS \" \"\nFROM streaks",
+                    "refId": "Max Loss Streak"
+                }
+            ],
+            "title": "Statistics",
+            "type": "stat"
+        },
+        {
+            "datasource": {
+                "type": "grafana-clickhouse-datasource",
+                "uid": "cfacnscusrzeof"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "axisBorderShow": true,
+                        "axisCenteredZero": false,
+                        "axisColorMode": "text",
+                        "axisLabel": "Profit",
+                        "axisPlacement": "left",
+                        "fillOpacity": 52,
+                        "gradientMode": "none",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineWidth": 3,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "line"
+                        }
+                    },
+                    "fieldMinMax": false,
+                    "links": [
+                        {
+                            "title": "candles",
+                            "url": "/d/${__dashboard.uid}?viewPanel=2&var-engine_id=${__data.fields.engine_id}&var-trade_id=${__data.fields.id}&from=${__data.fields.time_from}&to=${__data.fields.time_to}"
+                        }
+                    ],
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "red",
+                                "value": null
+                            },
+                            {
+                                "color": "green",
+                                "value": 0
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 13,
+                "w": 24,
+                "x": 0,
+                "y": 8
+            },
+            "id": 1,
+            "options": {
+                "barRadius": 0.05,
+                "barWidth": 0.68,
+                "colorByField": "value",
+                "fullHighlight": false,
+                "groupWidth": 0.66,
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                },
+                "orientation": "auto",
+                "showValue": "auto",
+                "stacking": "none",
+                "text": {},
+                "tooltip": {
+                    "maxHeight": 600,
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "xField": "time",
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": 100
+            },
+            "targets": [
+                {
+                    "builderOptions": {
+                        "columns": [],
+                        "database": "default",
+                        "limit": 1000,
+                        "meta": {},
+                        "mode": "list",
+                        "queryType": "table",
+                        "table": "candles"
+                    },
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "default",
+                            "limit": 1000,
+                            "meta": {},
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": "candles"
+                        }
+                    },
+                    "pluginVersion": "4.13.0",
+                    "queryType": "table",
+                    "rawSql": "SELECT\n    open_time AS time,\n    profit    AS value,\n    id        AS id,\n    engine_id AS engine_id,\n    toUnixTimestamp(open_time - INTERVAL 75 MINUTE) * 1000 AS time_from,\n    toUnixTimestamp(open_time + INTERVAL 120 MINUTE) * 1000 AS time_to\nFROM trades_historical\nWHERE engine_id = '${engine_id}'\n  AND open_time >= $__fromTime\n  AND open_time <= $__toTime\nORDER BY open_time",
+                    "refId": "A"
+                }
+            ],
+            "title": "Trades",
+            "transformations": [
+                {
+                    "id": "organize",
+                    "options": {
+                        "excludeByName": {
+                            "trade_id": true,
+                            "value": false
+                        },
+                        "includeByName": {},
+                        "indexByName": {},
+                        "renameByName": {}
+                    }
+                }
+            ],
+            "type": "barchart"
+        },
+        {
+            "datasource": {
+                "type": "grafana-clickhouse-datasource",
+                "uid": "cfacnscusrzeof"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisBorderShow": false,
+                        "axisCenteredZero": false,
+                        "axisColorMode": "text",
+                        "axisLabel": "Price",
+                        "axisPlacement": "auto",
+                        "barAlignment": 0,
+                        "drawStyle": "line",
+                        "fillOpacity": 0,
+                        "gradientMode": "none",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "insertNulls": false,
+                        "lineInterpolation": "linear",
+                        "lineWidth": 1,
+                        "pointSize": 5,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "showPoints": "auto",
+                        "spanNulls": false,
+                        "stacking": {
+                            "group": "A",
+                            "mode": "none"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "entry entry_buy"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.lineWidth",
+                                "value": 3
+                            },
+                            {
+                                "id": "custom.drawStyle",
+                                "value": "line"
+                            },
+                            {
+                                "id": "custom.lineStyle",
+                                "value": {
+                                    "fill": "solid"
+                                }
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "green",
+                                    "mode": "fixed"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "entry_sell"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.drawStyle",
+                                "value": "line"
+                            },
+                            {
+                                "id": "custom.lineStyle"
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "red",
+                                    "mode": "fixed"
+                                }
+                            },
+                            {
+                                "id": "custom.lineWidth",
+                                "value": 3
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "sl value"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.drawStyle",
+                                "value": "line"
+                            },
+                            {
+                                "id": "custom.lineWidth",
+                                "value": 3
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "red",
+                                    "mode": "fixed"
+                                }
+                            },
+                            {
+                                "id": "custom.lineStyle",
+                                "value": {
+                                    "dash": [
+                                        0,
+                                        10
+                                    ],
+                                    "fill": "dot"
+                                }
+                            },
+                            {
+                                "id": "custom.transform",
+                                "value": "constant"
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "tp value"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.lineWidth",
+                                "value": 3
+                            },
+                            {
+                                "id": "custom.lineStyle",
+                                "value": {
+                                    "dash": [
+                                        0,
+                                        10
+                                    ],
+                                    "fill": "dot"
+                                }
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "green",
+                                    "mode": "fixed"
+                                }
+                            },
+                            {
+                                "id": "custom.drawStyle",
+                                "value": "line"
+                            },
+                            {
+                                "id": "custom.transform",
+                                "value": "constant"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 21
+            },
+            "id": 2,
+            "options": {
+                "candleStyle": "candles",
+                "colorStrategy": "open-close",
+                "colors": {
+                    "down": "red",
+                    "up": "green"
+                },
+                "fields": {
+                    "close": "candles close",
+                    "high": "candles high",
+                    "low": "candles low",
+                    "open": "candles open"
+                },
+                "includeAllFields": true,
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                },
+                "mode": "candles+volume"
+            },
+            "targets": [
+                {
+                    "builderOptions": {
+                        "aggregates": [],
+                        "columns": [
+                            {
+                                "name": "open"
+                            },
+                            {
+                                "name": "close"
+                            },
+                            {
+                                "name": "high"
+                            },
+                            {
+                                "name": "low"
+                            },
+                            {
+                                "name": "volume"
+                            },
+                            {
+                                "name": "trade_id"
+                            },
+                            {
+                                "name": "close_time"
+                            }
+                        ],
+                        "database": "default",
+                        "filters": [
+                            {
+                                "key": "trade_id",
+                                "operator": "=",
+                                "type": "string",
+                                "value": [
+                                    "${trade_id}"
+                                ]
+                            }
+                        ],
+                        "limit": 1000,
+                        "meta": {},
+                        "mode": "list",
+                        "queryType": "table",
+                        "table": "candles"
+                    },
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 0,
+                    "meta": {
+                        "builderOptions": {
+                            "aggregates": [],
+                            "columns": [
+                                {
+                                    "name": "open"
+                                },
+                                {
+                                    "name": "close"
+                                },
+                                {
+                                    "name": "high"
+                                },
+                                {
+                                    "name": "low"
+                                },
+                                {
+                                    "name": "volume"
+                                },
+                                {
+                                    "name": "trade_id"
+                                },
+                                {
+                                    "name": "close_time"
+                                }
+                            ],
+                            "database": "default",
+                            "filters": [
+                                {
+                                    "key": "trade_id",
+                                    "operator": "=",
+                                    "type": "string",
+                                    "value": [
+                                        "${trade_id}"
+                                    ]
+                                }
+                            ],
+                            "limit": 1000,
+                            "meta": {},
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": "candles"
+                        }
+                    },
+                    "pluginVersion": "4.13.0",
+                    "queryType": "timeseries",
+                    "rawSql": "SELECT \n    open_time AS time,\n    open,\n    high,\n    low,\n    close\nFROM candles_historical\nWHERE \n    trade_id = $trade_id AND (engine_id = '${engine_id}')\nORDER BY open_time",
+                    "refId": "candles"
+                },
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 0,
+                    "hide": false,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.13.0",
+                    "queryType": "timeseries",
+                    "rawSql": "WITH trade AS (\n  SELECT \n    t.entry_price, \n    t.candle_action,\n    t.open_time AS trade_time,\n    dateDiff('minute', c.open_time, c.close_time) AS timeframe_minutes\n  FROM trades_historical t\n  LEFT JOIN (\n    SELECT trade_id, open_time, close_time\n    FROM candles_historical\n    WHERE trade_id = ${trade_id}\n    LIMIT 1\n  ) c ON t.id = c.trade_id\n  WHERE (t.id = ${trade_id}) AND (t.engine_id = '${engine_id}')\n  LIMIT 1\n)\nSELECT\n  time,\n  if(candle_action = 'buy', entry_price, NULL) AS entry_buy,\n  if(candle_action = 'sell', entry_price, NULL) AS entry_sell\nFROM (\n  SELECT trade_time AS time, entry_price, candle_action FROM trade\n  UNION ALL\n  SELECT trade_time + INTERVAL ifNull(timeframe_minutes, 5) MINUTE AS time, entry_price, candle_action FROM trade\n) AS points\nORDER BY time",
+                    "refId": "entry"
+                },
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "hide": false,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.13.0",
+                    "queryType": "table",
+                    "rawSql": "SELECT\n  c.close_time AS time,\n  t.stop_loss  AS value\nFROM\n(\n  SELECT close_time\n  FROM candles_historical\n  WHERE trade_id = ${trade_id}  \n  ORDER BY close_time\n) c\nCROSS JOIN\n(\n  SELECT stop_loss\n  FROM trades_historical\n  WHERE (id = ${trade_id}) AND (engine_id = '${engine_id}')\n  LIMIT 1\n) t\nORDER BY time\n",
+                    "refId": "sl"
+                },
+                {
+                    "datasource": {
+                        "type": "grafana-clickhouse-datasource",
+                        "uid": "cfacnscusrzeof"
+                    },
+                    "editorType": "sql",
+                    "format": 1,
+                    "hide": false,
+                    "meta": {
+                        "builderOptions": {
+                            "columns": [],
+                            "database": "",
+                            "limit": 1000,
+                            "mode": "list",
+                            "queryType": "table",
+                            "table": ""
+                        }
+                    },
+                    "pluginVersion": "4.13.0",
+                    "queryType": "table",
+                    "rawSql": "SELECT\n  c.close_time AS time,\n  t.take_profit  AS value\nFROM\n(\n  SELECT close_time\n  FROM candles_historical\n  WHERE trade_id = ${trade_id}  \n  ORDER BY close_time\n) c\nCROSS JOIN\n(\n  SELECT take_profit\n  FROM trades_historical\n  WHERE (id = ${trade_id}) AND (engine_id = '${engine_id}')\n  LIMIT 1\n) t\nORDER BY time\n",
+                    "refId": "tp"
+                }
+            ],
+            "title": "Candles - ${reason}",
+            "type": "candlestick"
+        }
+    ],
+    "refresh": "",
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+        "list": [
+            {
+                "current": {
+                    "selected": false,
+                    "text": "rev_v5",
+                    "value": "rev_v5"
+                },
+                "datasource": {
+                    "type": "grafana-clickhouse-datasource",
+                    "uid": "cfacnscusrzeof"
+                },
+                "definition": "SELECT engine_id FROM trades_historical",
+                "hide": 0,
+                "includeAll": false,
+                "label": "engine_id",
+                "multi": false,
+                "name": "engine_id",
+                "options": [],
+                "query": "SELECT engine_id FROM trades_historical",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "type": "query"
+            },
+            {
+                "current": {
+                    "selected": false,
+                    "text": "5",
+                    "value": "5"
+                },
+                "datasource": {
+                    "type": "grafana-clickhouse-datasource",
+                    "uid": "cfacnscusrzeof"
+                },
+                "definition": "SELECT id FROM trades_historical",
+                "description": "",
+                "hide": 0,
+                "includeAll": false,
+                "label": "trade_id",
+                "multi": false,
+                "name": "trade_id",
+                "options": [],
+                "query": "SELECT id FROM trades_historical",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "type": "query"
+            },
+            {
+                "current": {
+                    "selected": false,
+                    "text": "Sell_TP",
+                    "value": "Sell_TP"
+                },
+                "datasource": {
+                    "type": "grafana-clickhouse-datasource",
+                    "uid": "cfacnscusrzeof"
+                },
+                "definition": "SELECT reason FROM trades_historical WHERE id = ${trade_id} LIMIT 1",
+                "hide": 0,
+                "includeAll": false,
+                "label": "reason",
+                "multi": false,
+                "name": "reason",
+                "options": [],
+                "query": "SELECT reason FROM trades_historical WHERE id = ${trade_id} LIMIT 1",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "type": "query"
+            }
+        ]
+    },
+    "time": {
+        "from": "2026-02-17T11:25:00.000Z",
+        "to": "2026-02-17T14:40:00.000Z"
+    },
+    "timeRangeUpdatedDuringEditOrView": false,
+    "timepicker": {
+        "refresh_intervals": [
+            "5s",
+            "10s",
+            "30s",
+            "1m",
+            "5m",
+            "15m",
+            "30m",
+            "1h",
+            "2h",
+            "1d"
+        ],
+        "time_options": [
+            "5m",
+            "15m",
+            "1h",
+            "6h",
+            "12h",
+            "24h",
+            "2d",
+            "7d",
+            "30d"
+        ]
+    },
+    "timezone": "browser",
+    "title": "Historical",
+    "uid": "efaa8c699isxsa",
+    "version": 4,
+    "weekStart": ""
+}

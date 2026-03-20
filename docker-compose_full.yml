@@ -1,0 +1,150 @@
+services:
+
+  # =========================
+  # Stock Interactor (Go service)
+  # =========================
+  stock-interactor:
+    image: ghcr.io/vynovikov/stock-interactor:1.3
+    container_name: stock_interactor
+    ports:
+      - "5000:5000"
+      - "6060:6060"
+      - "9091:9090"
+    env_file:
+      - .env.stock_interactor
+    networks:
+      - vector-trader-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "/bin/sh", "-c", "nc -z localhost 5000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  # =========================
+  # Trade Engine (Python service)
+  # =========================
+  trade-engine:
+    image: ghcr.io/vynovikov/trade-engine:1.3
+    container_name: trade_engine
+    depends_on:
+      stock-interactor:
+        condition: service_healthy
+    ports:
+      - "5010:5010"
+      - "5500:5500"
+    env_file:
+      - .env.trade_engine
+    volumes:
+      - ./trade-engine/data:/app/data
+      - ./trade-engine/models:/app/models
+    networks:
+      - vector-trader-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import grpc; channel = grpc.insecure_channel('localhost:5010'); channel.close()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # =========================
+  # ClickHouse (storage для свечей и сделок)
+  # =========================
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.3
+    container_name: clickhouse
+    ports:
+      - "8123:8123"  # HTTP
+      - "9000:9000"  # native
+    networks:
+      - vector-trader-net
+    volumes:
+      - ch-data:/var/lib/clickhouse
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "clickhouse-client --query 'SELECT 1'"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    environment:
+      CLICKHOUSE_USER: vt_user
+      CLICKHOUSE_PASSWORD: vt_pass
+      CLICKHOUSE_DB: default
+
+  # =========================
+  # ClickHouse init (создание таблиц из schema.sql)
+  # =========================
+  clickhouse-init:
+    image: clickhouse/clickhouse-server:24.3
+    container_name: clickhouse-init
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+    networks:
+      - vector-trader-net
+    volumes:
+      - ./clickhouse/schema.sql:/schema.sql:ro
+    environment:
+      CLICKHOUSE_USER: vt_user
+      CLICKHOUSE_PASSWORD: vt_pass
+      CLICKHOUSE_DB: default
+    entrypoint: >
+      bash -lc "
+        echo 'Running ClickHouse init script...';
+        clickhouse-client --host clickhouse --multiquery --queries-file=/schema.sql;
+        echo 'Schema init done.';
+      "
+    restart: "no"
+
+  # =========================
+  # Prometheus (метрики бэкенда)
+  # =========================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    networks:
+      - vector-trader-net
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    restart: unless-stopped
+
+  # =========================
+  # Grafana (визуализация: метрики + свечи/сделки)
+  # =========================
+  grafana:
+    image: grafana/grafana:11.0.0
+    container_name: grafana
+    networks:
+      - vector-trader-net
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD_CHANGE_REQUIRED: "false"
+      # Плагин ClickHouse datasource
+      GF_INSTALL_PLUGINS: "grafana-clickhouse-datasource"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+    restart: unless-stopped
+    depends_on:
+      - clickhouse
+      - prometheus
+
+networks:
+  vector-trader-net:
+    driver: bridge
+    name: vector-trader-network
+
+volumes:
+  ch-data:
+  grafana-data:
+  prometheus-data:
+
