@@ -238,7 +238,7 @@ class StrategyOperatorReversalV5(StrategyOperator):
 
     def action(self, current_state_id: str, last_state_id: str) -> MarketAction:
         match current_state_id:
-            case "off_market_uptrend" | "off_market_downtrend":
+            case "orders_uptrend" | "orders_downtrend":
                 return MarketAction.OPEN
 
             case "cooldown" if last_state_id in [

@@ -26,6 +26,8 @@ from services.strategy_operator.strategy_operator_reversal_v5 import (
 )
 from services.trade_engine.trade_engine_reversal_v5 import TradeEngineReversalV5
 from services.window_operator.window_operator import WindowOperatorImpl
+from services.metric_repository.mock_metric_repository import MockMetricRepository
+from services.log_operator.log_operator import LogOperatorImpl
 
 handle_test_cases: List[Dict[str, Any]] = [
     {
@@ -214,7 +216,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "3.0 Not_ready -> off_market_downtrend. 5 trend candles. Pattern [DOWN UP UP UP UP]. Background is FLAT_REV",
+        "name": "3.0 Not_ready -> orders_downtrend. 5 trend candles. Pattern [DOWN UP UP UP UP]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -285,7 +287,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_downtrend",
+            "orders_downtrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
@@ -342,7 +344,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "3.1. Not_ready -> off_market_downtrend. 5 trend candles. Pattern [UP DOWN UP UP UP]. Background is FLAT_REV",
+        "name": "3.1. Not_ready -> orders_downtrend. 5 trend candles. Pattern [UP DOWN UP UP UP]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -424,7 +426,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "3.2. Not_ready -> off_market_downtrend. 5 trend candles. Pattern [UP UP DOWN UP UP]. Background is FLAT_REV",
+        "name": "3.2. Not_ready -> orders_downtrend. 5 trend candles. Pattern [UP UP DOWN UP UP]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -495,7 +497,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_downtrend",
+            "orders_downtrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
@@ -552,7 +554,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "3.3. Not_ready -> off_market_downtrend. 5 trend candles. Pattern [UP UP UP DOWN UP]. Background is FLAT_REV",
+        "name": "3.3. Not_ready -> orders_downtrend. 5 trend candles. Pattern [UP UP UP DOWN UP]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -623,7 +625,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_downtrend",
+            "orders_downtrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
@@ -680,7 +682,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "4. Not_ready -> off_market_downtrend. 5 trend candles. Background is BUY_TREND",
+        "name": "4. Not_ready -> orders_downtrend. 5 trend candles. Background is BUY_TREND",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -762,7 +764,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "5. Not_ready -> off_market_downtrend -> off_market. Reversal candle",
+        "name": "5. Not_ready -> orders_downtrend -> off_market. Reversal candle",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -845,7 +847,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_downtrend",
+            "orders_downtrend",
             "on_market_downtrend",
         ],
         "expected_cooldown_counter": 0,
@@ -984,7 +986,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_downtrend",
+            "orders_downtrend",
             "on_market_downtrend",
         ],
         "expected_cooldown_counter": 0,
@@ -1123,7 +1125,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_downtrend",
+            "orders_downtrend",
             "cooldown",
         ],
         "expected_cooldown_counter": 3,
@@ -1270,7 +1272,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_downtrend",
+            "orders_downtrend",
             "on_market_downtrend",
         ],
         "expected_cooldown_counter": 0,
@@ -1421,7 +1423,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_downtrend",
+            "orders_downtrend",
             "on_market_downtrend",
             "cooldown",
         ],
@@ -1494,7 +1496,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         ),
     },
     {
-        "name": "10.0. Not_ready -> off_market_uptrend. 5 trend candles. Pattern [UP DOWN DOWN DOWN DOWN]. Background is FLAT_REV",
+        "name": "10.0. Not_ready -> orders_uptrend. 5 trend candles. Pattern [UP DOWN DOWN DOWN DOWN]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -1565,7 +1567,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
@@ -1622,7 +1624,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "10.1. Not_ready -> off_market_uptrend. 5 trend candles. Pattern [DOWN UP DOWN DOWN DOWN]. Background is FLAT_REV",
+        "name": "10.1. Not_ready -> orders_uptrend. 5 trend candles. Pattern [DOWN UP DOWN DOWN DOWN]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -1693,7 +1695,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
@@ -1752,7 +1754,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "10.2. Not_ready -> off_market_uptrend. 5 trend candles. Pattern [DOWN DOWN UP DOWN DOWN]. Background is FLAT_REV",
+        "name": "10.2. Not_ready -> orders_uptrend. 5 trend candles. Pattern [DOWN DOWN UP DOWN DOWN]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -1823,7 +1825,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
@@ -1880,7 +1882,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "10.3. Not_ready -> off_market_uptrend. 5 trend candles. Pattern [DOWN DOWN UP DOWN DOWN]. Background is FLAT_REV",
+        "name": "10.3. Not_ready -> orders_uptrend. 5 trend candles. Pattern [DOWN DOWN UP DOWN DOWN]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -1951,7 +1953,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
@@ -2008,7 +2010,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "10.4. Not_ready -> off_market_uptrend. 5 trend candles. Pattern [DOWN DOWN DOWN UP DOWN]. Background is FLAT_REV",
+        "name": "10.4. Not_ready -> orders_uptrend. 5 trend candles. Pattern [DOWN DOWN DOWN UP DOWN]. Background is FLAT_REV",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -2079,7 +2081,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
@@ -2136,7 +2138,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "11. Not_ready -> off_market_uptrend. 5 trend candles. Background is SELL_TREND",
+        "name": "11. Not_ready -> orders_uptrend. 5 trend candles. Background is SELL_TREND",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -2301,7 +2303,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
             "on_market_uptrend",
         ],
         "expected_cooldown_counter": 0,
@@ -2361,7 +2363,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report( ),
     },
     {
-        "name": "13. Not_ready -> off_market_uptrend -> cooldown. Entry and SL triggered",
+        "name": "13. Not_ready -> orders_uptrend -> cooldown. Entry and SL triggered",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -2444,7 +2446,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
             "on_market_uptrend",
         ],
         "expected_cooldown_counter": 0,
@@ -2504,7 +2506,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "14. Not_ready -> off_market_uptrend -> idle. Reversal candle",
+        "name": "14. Not_ready -> orders_uptrend -> idle. Reversal candle",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -2587,7 +2589,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
             "on_market_uptrend",
         ],
         "expected_cooldown_counter": 0,
@@ -2646,7 +2648,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "15. Not_ready -> off_market_uptrend -> on_market_uptrend. Candle continues uptrend. SL is not triggered",
+        "name": "15. Not_ready -> orders_uptrend -> on_market_uptrend. Candle continues uptrend. SL is not triggered",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -2741,7 +2743,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
             "on_market_uptrend",
         ],
         "expected_cooldown_counter": 0,
@@ -2811,7 +2813,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "16. Not_ready -> off_market_uptrend -> on_market_uptrend > cooldown. SL is triggered",
+        "name": "16. Not_ready -> orders_uptrend -> on_market_uptrend > cooldown. SL is triggered",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -2918,7 +2920,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
             "on_market_uptrend",
         ],
         "expected_cooldown_counter": 0,
@@ -2996,7 +2998,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "17. Not_ready -> off_market_uptrend -> on_market_uptrend > cooldown. TP is triggered",
+        "name": "17. Not_ready -> orders_uptrend -> on_market_uptrend > cooldown. TP is triggered",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -3103,7 +3105,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "off_market_uptrend",
+            "orders_uptrend",
             "on_market_uptrend",
         ],
         "expected_cooldown_counter": 0,
@@ -3205,7 +3207,12 @@ def test_trade_engine_reversal_v5(case):
         setup(repo)
 
     leveraged_bookkeeper = LeveragedBookkeeper(leverage=10)
-    reversal_strategy_operator = StrategyOperatorReversalV5(leveraged_bookkeeper)
+    reversal_strategy_operator = StrategyOperatorReversalV5(
+        bookkeeper=leveraged_bookkeeper,
+        metric_repository=MockMetricRepository(),
+        logger=logger,
+        )
+
     history_operator = HistoryOperatorImpl()
 
     window_operator = WindowOperatorImpl(maxlen_window=6)
@@ -3218,13 +3225,14 @@ def test_trade_engine_reversal_v5(case):
         prelude_len=4,
         window_len=6,
         risk_per_trade=0.005,
-        engine_id="rev_v5",
         min_price_delta=case["min_price_delta"],
         background=case["background"],
         power=case["power"],
         body_ratio=0.4,
         shadow_ratio=1,
     )
+
+    log_operator = LogOperatorImpl()
 
     trade_engine_v5 = TradeEngineReversalV5(
         repository=repo,
@@ -3233,7 +3241,9 @@ def test_trade_engine_reversal_v5(case):
         window_operator=window_operator,
         counter_operator=counter_operator,
         report_operator=report_operator,
+        log_operator=log_operator,
         parameters_store=parameters_store,
+        metric_repository=MockMetricRepository(),
         logger=logger,
     )
 
@@ -3254,7 +3264,7 @@ def test_trade_engine_reversal_v5(case):
             trade_engine_v5.parameters_store.clear_report()
             trade_engine_v5.parameters_store.order_reset()
 
-        add(states, trade_engine_v5.current_state.id)
+        add(states, cast(str,trade_engine_v5.current_state_value))
 
     output = trade_engine_v5.handle_first(case["trade_unit"])
     if len(output.report.candles) > 0:
@@ -3269,7 +3279,7 @@ def test_trade_engine_reversal_v5(case):
         trade_engine_v5.parameters_store.clear_report()
         trade_engine_v5.parameters_store.order_reset()
 
-    add(states, trade_engine_v5.current_state.id)
+    add(states, cast(str,trade_engine_v5.current_state_value))
 
     # Assertions
 
