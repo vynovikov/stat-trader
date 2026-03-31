@@ -276,8 +276,8 @@ if __name__ == "__main__":
     candles = get_candles(
         "BTCUSDT",
         "15m",
-        from_time=datetime(2026, 3, 6, 5, 0, 0),
-        to_time=datetime(2026, 3, 6, 20, 15, 0),
+        from_time=datetime(2026, 3, 21, 17, 0, 0),
+        to_time=datetime(2026, 3, 22, 4, 0, 0),
     )
 
     profit = 0

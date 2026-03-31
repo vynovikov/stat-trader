@@ -58,8 +58,8 @@ class TradeEngineReversalV5(StateMachine):
     not_ready = State(initial=True)
     idle = State()
 
-    off_market_uptrend = State()
-    off_market_downtrend = State()
+    orders_uptrend = State()
+    orders_downtrend = State()
 
     on_market_uptrend = State()
     on_market_downtrend = State()
@@ -71,23 +71,23 @@ class TradeEngineReversalV5(StateMachine):
 
     cooled_down = cooldown.to(idle)
 
-    orders_uptrend = idle.to(off_market_uptrend)
+    entrypoint_uptrend = idle.to(orders_uptrend)
 
-    orders_downtrend = idle.to(off_market_downtrend)
+    entrypoint_downtrend = idle.to(orders_downtrend)
 
-    orders_cancelled = off_market_uptrend.to(idle) | off_market_downtrend.to(idle)
+    orders_cancelled = orders_uptrend.to(idle) | orders_downtrend.to(idle)
 
-    entry_triggered = off_market_uptrend.to(
+    entry_triggered = orders_uptrend.to(
         on_market_uptrend
-    ) | off_market_downtrend.to(on_market_downtrend)
+    ) | orders_downtrend.to(on_market_downtrend)
 
     TP_triggered = on_market_downtrend.to(cooldown) | on_market_uptrend.to(cooldown)
     SL_triggered = on_market_downtrend.to(cooldown) | on_market_uptrend.to(cooldown)
 
     def on_enter_idle(self):
         if self.last_state_id in [
-            "off_market_uptrend",
-            "off_market_downtrend",
+            "orders_uptrend",
+            "orders_downtrend",
         ]:
             order = self.parameters_store.order()
 
@@ -105,7 +105,7 @@ class TradeEngineReversalV5(StateMachine):
             self.parameters_store.order_reset()
             self.history_operator.clear()
 
-    def on_enter_off_market_uptrend(self):
+    def on_enter_orders_uptrend(self):
         """
         Actions to perform when entering uptrend state.
         """
@@ -125,7 +125,7 @@ class TradeEngineReversalV5(StateMachine):
         )
         self.parameters_store.set_order(order=order)
 
-    def on_enter_off_market_downtrend(self):
+    def on_enter_orders_downtrend(self):
         """
         Actions to perform when entering downtrend state.
         """
@@ -204,8 +204,8 @@ class TradeEngineReversalV5(StateMachine):
             )
 
         if (
-                self.current_state_value == "off_market_uptrend"
-                or self.current_state_value == "off_market_downtrend"
+                self.current_state_value == "orders_uptrend"
+                or self.current_state_value == "orders_downtrend"
             ):
 
                 trade_id = self.parameters_store.trade_id()
@@ -280,12 +280,12 @@ class TradeEngineReversalV5(StateMachine):
                 match entrypoint:
                     case Entrypoint.BUY:
                         self.send(
-                            "orders_uptrend",
+                            "entrypoint_uptrend",
                         )
 
                     case Entrypoint.SELL:
                         self.send(
-                            "orders_downtrend",
+                            "entrypoint_downtrend",
                         )
 
             case "cooldown":
@@ -296,7 +296,7 @@ class TradeEngineReversalV5(StateMachine):
                     self.send("cooled_down")
 
 
-            case "off_market_uptrend" | "off_market_downtrend":
+            case "orders_uptrend" | "orders_downtrend":
                 self.last_state_id = self.current_state_value
                 self.history_operator.add(candle)
 
@@ -322,7 +322,7 @@ class TradeEngineReversalV5(StateMachine):
                             action=MarketAction.HOLD,
                             order=Order(),
                             report=Report(
-                                reason=Constants.BUY_CANCEL if self.last_state_id=="off_market_uptrend" else Constants.SELL_CANCEL
+                                reason=Constants.BUY_CANCEL if self.last_state_id=="orders_uptrend" else Constants.SELL_CANCEL
                             ),
                         )
 
@@ -362,8 +362,8 @@ class TradeEngineReversalV5(StateMachine):
         match self.current_state_value:
             case "idle" if self.last_state_id not in [
                 "idle",
-                "off_market_uptrend",
-                "off_market_downtrend",
+                "orders_uptrend",
+                "orders_downtrend",
             ]:
                 self.last_state_id = self.current_state_value
                 last_five_candles = self.window_operator.last_n_candles(n=5)
@@ -380,12 +380,12 @@ class TradeEngineReversalV5(StateMachine):
                 match entrypoint:
                     case Entrypoint.BUY:
                         self.send(
-                            "orders_uptrend",
+                            "entrypoint_uptrend",
                         )
 
                     case Entrypoint.SELL:
                         self.send(
-                            "orders_downtrend",
+                            "entrypoint_downtrend",
                         )
 
             case "on_market_uptrend" | "on_market_downtrend":
