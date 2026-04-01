@@ -3219,6 +3219,7 @@ def test_trade_engine_reversal_v5(case):
         setup(repo)
 
     leveraged_bookkeeper = LeveragedBookkeeper(leverage=10)
+
     reversal_strategy_operator = StrategyOperatorReversalV5(
         bookkeeper=leveraged_bookkeeper,
         metric_repository=MockMetricRepository(),

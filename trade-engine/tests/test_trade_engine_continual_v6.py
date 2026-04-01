@@ -26,6 +26,8 @@ from services.strategy_operator.strategy_operator_continual_v6 import (
 )
 from services.trade_engine.trade_engine_continual_v6 import TradeEngineContinualV6
 from services.window_operator.window_operator import WindowOperatorImpl
+from services.metric_repository.mock_metric_repository import MockMetricRepository
+from services.log_operator.log_operator import LogOperatorImpl
 
 handle_test_cases: List[Dict[str, Any]] = [
     {
@@ -1143,18 +1145,18 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_order": Order(
             action=CandleAction.BUY,
             entry=101.2,
-            sl=101.04,
-            tp=101.52,
-            volume=27.777,
+            sl=100.49,
+            tp=102.62,
+            volume=6.85,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.OPEN,
         "expected_desicion_order": Order(
             action=CandleAction.BUY,
             entry=101.2,
-            sl=101.04,
-            tp=101.52,
-            volume=27.777,
+            sl=100.49,
+            tp=102.62,
+            volume=6.85,
         ),
         "expected_desicion_report": Report(),
     },
@@ -1353,9 +1355,9 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_order": Order(
             action=CandleAction.BUY,
             entry=101.2,
-            sl=101.04,
-            tp=101.52,
-            volume=27.777,
+            sl=100.49,
+            tp=102.62,
+            volume=6.85,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
@@ -1467,7 +1469,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "trade_unit": Trade_unit(
             candle=Candle(
                 high=101.37,
-                low=101.04,
+                low=100.49,
                 open=101.22,
                 close=101.35,
                 volume=1006,
@@ -1489,7 +1491,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_cooldown_counter": 3,
         "expected_history": [],
         "expected_order": Order(),
-        "expected_deposit": 995.56,
+        "expected_deposit": 995.14,
         "expected_desicion_action": MarketAction.CLOSE,
         "expected_desicion_order": Order(),
         "expected_desicion_report": Report(
@@ -1553,7 +1555,7 @@ handle_test_cases: List[Dict[str, Any]] = [
                 ),
                 Candle(
                     high=101.37,
-                    low=101.04,
+                    low=100.49,
                     open=101.22,
                     close=101.35,
                     volume=1006,
@@ -1563,11 +1565,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             order=Order(
                 action=CandleAction.BUY,
                 entry=101.2,
-                sl=101.04,
-                tp=101.52,
-                volume=27.777,
+                sl=100.49,
+                tp=102.62,
+                volume=6.85,
             ),
-            profit=-4.44,
+            profit=-4.86,
             reason="Buy_SL",
         ),
     },
@@ -1764,12 +1766,12 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
         ],
         "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=101.2,
-            sl=101.04,
-            tp=101.52,
-            volume=27.78,
-        ),
+                action=CandleAction.BUY,
+                entry=101.2,
+                sl=100.49,
+                tp=102.62,
+                volume=6.85,
+            ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
@@ -1892,7 +1894,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "trade_unit": Trade_unit(
             candle=Candle(
                 high=101.2,
-                low=101,
+                low=100.49,
                 open=101.15,
                 close=101.05,
                 volume=1006,
@@ -1915,7 +1917,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_cooldown_counter": 3,
         "expected_history": [],
         "expected_order": Order(),
-        "expected_deposit": 995.56,
+        "expected_deposit": 995.14,
         "expected_desicion_action": MarketAction.CLOSE,
         "expected_desicion_order": Order(),
         "expected_desicion_report": Report(
@@ -1987,7 +1989,7 @@ handle_test_cases: List[Dict[str, Any]] = [
                 ),
                 Candle(
                     high=101.2,
-                    low=101,
+                    low=100.49,
                     open=101.15,
                     close=101.05,
                     volume=1006,
@@ -1997,11 +1999,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             order=Order(
                 action=CandleAction.BUY,
                 entry=101.2,
-                sl=101.04,
-                tp=101.52,
-                volume=27.78,
+                sl=100.49,
+                tp=102.62,
+                volume=6.85,
             ),
-            profit=-4.44,
+            profit=-4.86,
             reason="Buy_SL",
         ),
     },
@@ -2198,12 +2200,12 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
         ],
         "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=101.2,
-            sl=101.04,
-            tp=101.52,
-            volume=27.78,
-        ),
+                action=CandleAction.BUY,
+                entry=101.2,
+                sl=100.49,
+                tp=102.62,
+                volume=6.85,
+            ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
@@ -2325,7 +2327,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=101.53,
+                high=102.63,
                 low=101.05,
                 open=101.35,
                 close=101.5,
@@ -2349,7 +2351,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_cooldown_counter": 3,
         "expected_history": [],
         "expected_order": Order(),
-        "expected_deposit": 1008.89,
+        "expected_deposit": 1009.73,
         "expected_desicion_action": MarketAction.CLOSE,
         "expected_desicion_order": Order(),
         "expected_desicion_report": Report(
@@ -2420,22 +2422,22 @@ handle_test_cases: List[Dict[str, Any]] = [
                     close_time=datetime(2025, 1, 1, 0, 35),
                 ),
                 Candle(
-                    high=101.53,
-                    low=101.05,
-                    open=101.35,
-                    close=101.5,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 40),
-                ),
+                high=102.63,
+                low=101.05,
+                open=101.35,
+                close=101.5,
+                volume=1006,
+                close_time=datetime(2025, 1, 1, 0, 40),
+            ),
             ],
             order=Order(
                 action=CandleAction.BUY,
                 entry=101.2,
-                sl=101.04,
-                tp=101.52,
-                volume=27.78,
+                sl=100.49,
+                tp=102.62,
+                volume=6.85,
             ),
-            profit=8.89,
+            profit=9.73,
             reason="Buy_TP",
         ),
     },
@@ -3485,18 +3487,18 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_order": Order(
             action=CandleAction.SELL,
             entry=100.17,
-            sl=100.3,
-            tp=99.91,
-            volume=33.33,
+            sl=100.76,
+            tp=98.99,
+            volume=8.2,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.OPEN,
         "expected_desicion_order": Order(
             action=CandleAction.SELL,
             entry=100.17,
-            sl=100.3,
-            tp=99.91,
-            volume=33.33,
+            sl=100.76,
+            tp=98.99,
+            volume=8.2,
         ),
         "expected_desicion_report": Report(),
     },
@@ -3695,9 +3697,9 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_order": Order(
             action=CandleAction.SELL,
             entry=100.17,
-            sl=100.3,
-            tp=99.91,
-            volume=33.33,
+            sl=100.76,
+            tp=98.99,
+            volume=8.2,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
@@ -3808,7 +3810,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=100.31,
+                high=100.76,
                 low=100,
                 open=100.15,
                 close=100.05,
@@ -3831,7 +3833,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_cooldown_counter": 3,
         "expected_history": [],
         "expected_order": Order(),
-        "expected_deposit": 995.67,
+        "expected_deposit": 995.16,
         "expected_desicion_action": MarketAction.CLOSE,
         "expected_desicion_order": Order(),
         "expected_desicion_report": Report(
@@ -3894,7 +3896,7 @@ handle_test_cases: List[Dict[str, Any]] = [
                     close_time=datetime(2025, 1, 1, 0, 25),
                 ),
                 Candle(
-                    high=100.31,
+                    high=100.76,
                     low=100,
                     open=100.15,
                     close=100.05,
@@ -3905,11 +3907,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             order=Order(
                 action=CandleAction.SELL,
                 entry=100.17,
-                sl=100.3,
-                tp=99.91,
-                volume=33.33,
+                sl=100.76,
+                tp=98.99,
+                volume=8.2,
             ),
-            profit=-4.33,
+            profit=-4.84,
             reason="Sell_SL",
         ),
     },
@@ -4126,12 +4128,12 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
         ],
         "expected_order": Order(
-            action=CandleAction.SELL,
-            entry=100.17,
-            sl=100.3,
-            tp=99.91,
-            volume=33.33,
-        ),
+                action=CandleAction.SELL,
+                entry=100.17,
+                sl=100.76,
+                tp=98.99,
+                volume=8.2,
+            ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
@@ -4253,7 +4255,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=100.31,
+                high=100.76,
                 low=100,
                 open=100.05,
                 close=100.25,
@@ -4277,7 +4279,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_cooldown_counter": 3,
         "expected_history": [],
         "expected_order": Order(),
-        "expected_deposit": 995.67,
+        "expected_deposit": 995.16,
         "expected_desicion_action": MarketAction.CLOSE,
         "expected_desicion_order": Order(),
         "expected_desicion_report": Report(
@@ -4348,7 +4350,7 @@ handle_test_cases: List[Dict[str, Any]] = [
                     close_time=datetime(2025, 1, 1, 0, 30),
                 ),
                 Candle(
-                    high=100.31,
+                    high=100.76,
                     low=100,
                     open=100.05,
                     close=100.25,
@@ -4359,11 +4361,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             order=Order(
                 action=CandleAction.SELL,
                 entry=100.17,
-                sl=100.3,
-                tp=99.91,
-                volume=33.33,
+                sl=100.76,
+                tp=98.99,
+                volume=8.2,
             ),
-            profit=-4.33,
+            profit=-4.84,
             reason="Sell_SL",
         ),
     },
@@ -4580,12 +4582,12 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
         ],
         "expected_order": Order(
-            action=CandleAction.SELL,
-            entry=100.17,
-            sl=100.3,
-            tp=99.91,
-            volume=33.33,
-        ),
+                action=CandleAction.SELL,
+                entry=100.17,
+                sl=100.76,
+                tp=98.99,
+                volume=8.2,
+            ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
@@ -4720,7 +4722,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "trade_unit": Trade_unit(
             candle=Candle(
                 high=100.1,
-                low=99.90,
+                low=98.90,
                 open=100.03,
                 close=99.95,
                 volume=1005,
@@ -4743,7 +4745,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_cooldown_counter": 3,
         "expected_history": [],
         "expected_order": Order(),
-        "expected_deposit": 1008.67,
+        "expected_deposit": 1009.67,
         "expected_desicion_action": MarketAction.CLOSE,
         "expected_desicion_order": Order(),
         "expected_desicion_report": Report(
@@ -4823,7 +4825,7 @@ handle_test_cases: List[Dict[str, Any]] = [
                 ),
                 Candle(
                     high=100.1,
-                    low=99.90,
+                    low=98.90,
                     open=100.03,
                     close=99.95,
                     volume=1005,
@@ -4833,11 +4835,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             order=Order(
                 action=CandleAction.SELL,
                 entry=100.17,
-                sl=100.3,
-                tp=99.91,
-                volume=33.33,
+                sl=100.76,
+                tp=98.99,
+                volume=8.2,
             ),
-            profit=8.67,
+            profit=9.67,
             reason="Sell_TP",
         ),
     },
@@ -4865,8 +4867,14 @@ def test_trade_engine_continual_v6(case):
     for setup in case.get("expectations", []):
         setup(repo)
 
+    metric_repository=MockMetricRepository()
+
     leveraged_bookkeeper = LeveragedBookkeeper(leverage=10)
-    reversal_strategy_operator = StrategyOperatorContinualV6(leveraged_bookkeeper)
+    reversal_strategy_operator = StrategyOperatorContinualV6(
+        bookkeeper=leveraged_bookkeeper,
+        metric_repository=metric_repository,
+        logger=logger,
+    )
     history_operator = HistoryOperatorImpl()
 
     window_operator = WindowOperatorImpl(maxlen_window=6)
@@ -4879,7 +4887,6 @@ def test_trade_engine_continual_v6(case):
         prelude_len=4,
         window_len=6,
         risk_per_trade=0.005,
-        engine_id="rev_v5",
         min_price_delta=case["min_price_delta"],
         background=case["background"],
         power=case["power"],
@@ -4887,7 +4894,9 @@ def test_trade_engine_continual_v6(case):
         shadow_ratio=1,
     )
 
-    trade_engine_v5 = TradeEngineContinualV6(
+    log_operator = LogOperatorImpl()
+
+    trade_engine_v6 = TradeEngineContinualV6(
         repository=repo,
         strategy_operator=reversal_strategy_operator,
         history_operator=history_operator,
@@ -4895,13 +4904,15 @@ def test_trade_engine_continual_v6(case):
         counter_operator=counter_operator,
         report_operator=report_operator,
         parameters_store=parameters_store,
+        log_operator=log_operator,
+        metric_repository=metric_repository,
         logger=logger,
     )
 
     states = []
     num = 0
     for trade_unit in case["initial_trade_units"]:
-        output = trade_engine_v5.handle_first(trade_unit)
+        output = trade_engine_v6.handle_first(trade_unit)
         if len(output.report.candles) > 0:
             # plotter.plot_full(
             #    candles=output.report.candles,
@@ -4912,12 +4923,12 @@ def test_trade_engine_continual_v6(case):
             #    reason=output.report.reason,
             # )
             num += 1
-            trade_engine_v5.parameters_store.clear_report()
-            trade_engine_v5.parameters_store.order_reset()
+            trade_engine_v6.parameters_store.clear_report()
+            trade_engine_v6.parameters_store.order_reset()
 
-        add(states, trade_engine_v5.current_state.id)
+        add(states, cast(str,trade_engine_v6.current_state_value))
 
-    output = trade_engine_v5.handle_first(case["trade_unit"])
+    output = trade_engine_v6.handle_first(case["trade_unit"])
     if len(output.report.candles) > 0:
         # plotter.plot_full(
         #    candles=output.report.candles,
@@ -4927,42 +4938,42 @@ def test_trade_engine_continual_v6(case):
         #    file_name=str(num),
         #    reason=output.report.reason,
         # )
-        trade_engine_v5.parameters_store.clear_report()
-        trade_engine_v5.parameters_store.order_reset()
+        trade_engine_v6.parameters_store.clear_report()
+        trade_engine_v6.parameters_store.order_reset()
 
-    add(states, trade_engine_v5.current_state.id)
+    add(states, cast(str,trade_engine_v6.current_state_value))
 
     # Assertions
 
     assert states == case["expected_states"]
 
     assert (
-        trade_engine_v5.counter_operator.cooldown_counter()
+        trade_engine_v6.counter_operator.cooldown_counter()
         == case["expected_cooldown_counter"]
     )
 
-    assert trade_engine_v5.history_operator.get() == case["expected_history"]
+    assert trade_engine_v6.history_operator.get() == case["expected_history"]
 
     assert (
-        trade_engine_v5.parameters_store.order().action == case["expected_order"].action
+        trade_engine_v6.parameters_store.order().action == case["expected_order"].action
     )
 
-    assert round(trade_engine_v5.parameters_store.order().entry, 2) == round(
+    assert round(trade_engine_v6.parameters_store.order().entry, 2) == round(
         case["expected_order"].entry, 2
     )
-    assert round(trade_engine_v5.parameters_store.order().sl, 2) == round(
+    assert round(trade_engine_v6.parameters_store.order().sl, 2) == round(
         case["expected_order"].sl, 2
     )
-    assert round(trade_engine_v5.parameters_store.order().tp, 2) == round(
+    assert round(trade_engine_v6.parameters_store.order().tp, 2) == round(
         case["expected_order"].tp, 2
     )
-    assert round(trade_engine_v5.parameters_store.order().volume, 2) == round(
+    assert round(trade_engine_v6.parameters_store.order().volume, 2) == round(
         case["expected_order"].volume, 2
     )
 
-    assert round(trade_engine_v5.parameters_store.deposit(), 2) == round(
+    assert round(trade_engine_v6.parameters_store.deposit(), 2) == round(
         case["expected_deposit"], 2
-    ), f"Expected deposit: {case['expected_deposit']}, but got: {trade_engine_v5.parameters_store.deposit()}"
+    ), f"Expected deposit: {case['expected_deposit']}, but got: {trade_engine_v6.parameters_store.deposit()}"
 
     assert output.action == case["expected_desicion_action"]
 
