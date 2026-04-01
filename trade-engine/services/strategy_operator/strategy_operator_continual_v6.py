@@ -88,7 +88,7 @@ class StrategyOperatorContinualV6(StrategyOperator):
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        calculated_sl = self._highest_high(history_candles,candle) - spread
+        calculated_sl = self._highest_high(history_candles,candle) + spread
         calculated_sl_delta = calculated_sl - calculated_entry
 
         canculated_tp = calculated_entry - power.value * calculated_sl_delta
