@@ -43,17 +43,19 @@ class StrategyOperatorReversalV5(StrategyOperator):
     ) -> Order:
         candle_body = abs(candle.close - candle.open)
 
-        low_shadow = min(candle.open, candle.close) - candle.low
-
         calculated_entry = candle.close - min(
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        calculated_sl = calculated_entry - candle_body - low_shadow - spread
+        highest_high=self._highest_high(history_candles,candle)
 
-        calculated_sl_delta = calculated_entry - calculated_sl
+        lowest_low=self._lowest_low(history_candles,candle)
 
-        canculated_tp = calculated_entry + power.value * calculated_sl_delta
+        sl_delta=(highest_high-lowest_low)/2
+
+        calculated_sl = calculated_entry - sl_delta - spread
+
+        canculated_tp = calculated_entry + power.value * sl_delta
 
         order = Order(
             action=CandleAction.BUY,
@@ -87,17 +89,19 @@ class StrategyOperatorReversalV5(StrategyOperator):
     ) -> Order:
         candle_body = abs(candle.close - candle.open)
 
-        high_shadow = candle.high - max(candle.open, candle.close)
-
         calculated_entry = candle.close + min(
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        calculated_sl = calculated_entry + candle_body + high_shadow + spread
+        highest_high=self._highest_high(history_candles,candle)
 
-        calculated_sl_delta = calculated_sl - calculated_entry
+        lowest_low=self._lowest_low(history_candles,candle)
 
-        canculated_tp = calculated_entry - power.value * calculated_sl_delta
+        sl_delta=(highest_high-lowest_low)/2
+
+        calculated_sl = calculated_entry + sl_delta + spread
+
+        canculated_tp = calculated_entry - power.value * sl_delta
 
         order = Order(
             action=CandleAction.SELL,
@@ -537,3 +541,43 @@ class StrategyOperatorReversalV5(StrategyOperator):
             history_candles.append(candle)
 
         return history_candles
+
+    def _highest_high(self, history_candles: List[Candle], candle: Candle) -> float:
+        if len(history_candles)<1 or history_candles[0].high<=0 or candle.high<=0:
+            return -1
+
+        highest_high=history_candles[0].high
+
+        for history_candle in history_candles[1:]:
+
+            if history_candle.high<=0:
+                return -1
+
+            if history_candle.high>highest_high:
+                highest_high=history_candle.high
+
+        if candle.high>highest_high:
+            highest_high=candle.high
+
+
+        return highest_high
+
+    def _lowest_low(self, history_candles: List[Candle], candle: Candle) -> float:
+        if len(history_candles)<1 or history_candles[0].low<=0 or candle.low<=0:
+            return -1
+
+        lowest_low=history_candles[0].low
+
+        for history_candle in history_candles[1:]:
+
+            if history_candle.low<=0:
+                return -1
+
+            if history_candle.low<lowest_low:
+                lowest_low=history_candle.low
+
+        if candle.low<lowest_low:
+            lowest_low=candle.low
+
+
+        return lowest_low
