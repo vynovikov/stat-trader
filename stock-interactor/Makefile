@@ -9,4 +9,4 @@ image_push:
 	docker buildx build \
 		--platform linux/amd64,linux/arm64 \
 		--push \
-		-t ghcr.io/vynovikov/stock-interactor:1.3 .
+		-t ghcr.io/vynovikov/stock-interactor:1.4 .
