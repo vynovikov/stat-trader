@@ -8,16 +8,16 @@ from domain.types.candle import Candle
 from domain.types.candle_action import CandleAction
 from domain.types.direction import Direction
 from domain.types.market_action import MarketAction
-from domain.types.background import Background
 from domain.types.power import Power
+from domain.types.background import Background
 from domain.types.entrypoint import Entrypoint
 from services.bookkeeper.interface import Bookkeeper
-from services.strategy_operator.interface import StrategyOperator
+from services.strategy_operator.interface_trend import StrategyOperatorTrend
 from services.metric_repository.interface import MetricRepository
-from utils.time import utc_to_msk_string, utc_to_msk_datetime
+from utils.time import utc_to_msk_string,utc_to_msk_datetime
 
 
-class StrategyOperatorContinualV6(StrategyOperator):
+class StrategyOperatorReversalV5(StrategyOperatorTrend):
     def __init__(
             self,
             bookkeeper: Bookkeeper,
@@ -47,10 +47,15 @@ class StrategyOperatorContinualV6(StrategyOperator):
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        calculated_sl = self._lowest_low(history_candles,candle) - spread
-        calculated_sl_delta = calculated_entry - calculated_sl
+        highest_high=self._highest_high(history_candles,candle)
 
-        canculated_tp = calculated_entry + power.value * calculated_sl_delta
+        lowest_low=self._lowest_low(history_candles,candle)
+
+        sl_delta=(highest_high-lowest_low)/2
+
+        calculated_sl = calculated_entry - sl_delta - spread
+
+        canculated_tp = calculated_entry + power.value * sl_delta
 
         order = Order(
             action=CandleAction.BUY,
@@ -88,10 +93,15 @@ class StrategyOperatorContinualV6(StrategyOperator):
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        calculated_sl = self._highest_high(history_candles,candle) + spread
-        calculated_sl_delta = calculated_sl - calculated_entry
+        highest_high=self._highest_high(history_candles,candle)
 
-        canculated_tp = calculated_entry - power.value * calculated_sl_delta
+        lowest_low=self._lowest_low(history_candles,candle)
+
+        sl_delta=(highest_high-lowest_low)/2
+
+        calculated_sl = calculated_entry + sl_delta + spread
+
+        canculated_tp = calculated_entry - power.value * sl_delta
 
         order = Order(
             action=CandleAction.SELL,
@@ -340,6 +350,73 @@ class StrategyOperatorContinualV6(StrategyOperator):
         shadow_ratio: float,
     ) -> bool:
         """
+        Check if an uptrend has started based on the last four candles.
+        """
+        if len(candles) < 5:
+            return False
+
+        patterns: List[bool] = []
+
+        pattern0 = (
+            candles[0].is_UP()
+            and candles[1].is_DOWN()
+            and candles[2].is_DOWN()
+            and candles[3].is_DOWN()
+            and candles[4].is_DOWN()
+        )
+
+        pattern1 = (
+            candles[0].is_DOWN()
+            and candles[1].is_UP()
+            and (
+                candles[2].is_DOWN()
+                and candles[2].engulfs(candles[1], body_ratio, shadow_ratio)
+            )
+            and candles[3].is_DOWN()
+            and candles[4].is_DOWN()
+        )
+
+        pattern2 = (
+            candles[0].is_DOWN()
+            and candles[1].is_DOWN()
+            and candles[2].is_UP()
+            and (
+                candles[3].is_DOWN()
+                and candles[3].engulfs(candles[2], body_ratio, shadow_ratio)
+            )
+            and candles[4].is_DOWN()
+        )
+
+        pattern3 = (
+            candles[0].is_DOWN()
+            and candles[1].is_DOWN()
+            and candles[2].is_DOWN()
+            and candles[3].is_UP()
+            and (
+                candles[4].is_DOWN()
+                and candles[4].engulfs(candles[3], body_ratio, shadow_ratio)
+            )
+        )
+
+        pattern4=(
+            candles[0].is_DOWN()
+            and candles[1].is_DOWN()
+            and candles[2].is_DOWN()
+            and candles[3].is_DOWN()
+            and candles[4].is_DOWN()
+        )
+
+        patterns.extend([pattern0, pattern1, pattern2, pattern3,pattern4])
+
+        return True in patterns
+
+    def _is_sell_entrypoint(
+        self,
+        candles: List[Candle],
+        body_ratio: float,
+        shadow_ratio: float,
+    ) -> bool:
+        """
         Check if a downtrend has started based on the last four candles.
         """
         if len(candles) < 5:
@@ -400,86 +477,28 @@ class StrategyOperatorContinualV6(StrategyOperator):
 
         return True in patterns
 
-    def _is_sell_entrypoint(
-        self,
-        candles: List[Candle],
-        body_ratio: float,
-        shadow_ratio: float,
-    ) -> bool:
-        """
-        Check if an uptrend has started based on the last four candles.
-        """
-        if len(candles) < 5:
-            return False
-
-        patterns: List[bool] = []
-
-        pattern0 = (
-            candles[0].is_UP()
-            and candles[1].is_DOWN()
-            and candles[2].is_DOWN()
-            and candles[3].is_DOWN()
-            and candles[4].is_DOWN()
-        )
-
-        pattern1 = (
-            candles[0].is_DOWN()
-            and candles[1].is_UP()
-            and (
-                candles[2].is_DOWN()
-                and candles[2].engulfs(candles[1], body_ratio, shadow_ratio)
-            )
-            and candles[3].is_DOWN()
-            and candles[4].is_DOWN()
-        )
-
-        pattern2 = (
-            candles[0].is_DOWN()
-            and candles[1].is_DOWN()
-            and candles[2].is_UP()
-            and (
-                candles[3].is_DOWN()
-                and candles[3].engulfs(candles[2], body_ratio, shadow_ratio)
-            )
-            and candles[4].is_DOWN()
-        )
-
-        pattern3 = (
-            candles[0].is_DOWN()
-            and candles[1].is_DOWN()
-            and candles[2].is_DOWN()
-            and candles[3].is_UP()
-            and (
-                candles[4].is_DOWN()
-                and candles[4].engulfs(candles[3], body_ratio, shadow_ratio)
-            )
-        )
-
-        pattern4 = (
-            candles[0].is_DOWN()
-            and candles[1].is_DOWN()
-            and candles[2].is_DOWN()
-            and candles[3].is_DOWN()
-            and candles[4].is_DOWN()
-        )
-
-        patterns.extend([pattern0, pattern1, pattern2, pattern3, pattern4])
-
-        return True in patterns
-
     def _is_buy_allowed(
             self,
             background: Background,
             ) ->bool:
 
-        return background in [Background.BULLISH_CON,Background.BULLISH_CON_REV]
+        return background in [
+            Background.FLAT_REV,
+            Background.BULLISH_REV,
+            Background.BULLISH_CON_REV,
+            ]
 
     def _is_sell_allowed(
             self,
             background: Background,
             ) ->bool:
 
-        return background in [Background.BEARISH_CON, Background.BEARISH_CON_REV]
+        return background in [
+            Background.FLAT_REV,
+            Background.BEARISH_REV,
+            Background.BEARISH_CON_REV,
+            ]
+
 
     def is_entry_triggered(self, order: Order, candle: Candle) -> bool:
         is_triggered = False
@@ -500,6 +519,28 @@ class StrategyOperatorContinualV6(StrategyOperator):
             is_reversal = True
 
         return is_reversal
+
+    def history_candles_uptrend(self, candles: List[Candle]) -> List[Candle]:
+        history_candles:List[Candle] =[]
+
+        if candles[0].is_DOWN:
+            history_candles.append((candles[0]))
+
+        for candle in candles[1:]:
+            history_candles.append(candle)
+
+        return history_candles
+
+    def history_candles_downtrend(self, candles: List[Candle]) -> List[Candle]:
+        history_candles:List[Candle] =[]
+
+        if candles[0].is_UP:
+            history_candles.append((candles[0]))
+
+        for candle in candles[1:]:
+            history_candles.append(candle)
+
+        return history_candles
 
     def _highest_high(self, history_candles: List[Candle], candle: Candle) -> float:
         if len(history_candles)<1 or history_candles[0].high<=0 or candle.high<=0:
@@ -540,25 +581,3 @@ class StrategyOperatorContinualV6(StrategyOperator):
 
 
         return lowest_low
-
-    def history_candles_uptrend(self, candles: List[Candle]) -> List[Candle]:
-        history_candles:List[Candle] =[]
-
-        if candles[0].is_UP:
-            history_candles.append((candles[0]))
-
-        for candle in candles[1:]:
-            history_candles.append(candle)
-
-        return history_candles
-
-    def history_candles_downtrend(self, candles: List[Candle]) -> List[Candle]:
-        history_candles:List[Candle] =[]
-
-        if candles[0].is_DOWN:
-            history_candles.append((candles[0]))
-
-        for candle in candles[1:]:
-            history_candles.append(candle)
-
-        return history_candles

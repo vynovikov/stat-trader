@@ -9,6 +9,7 @@ class Bookkeeper(ABC):
         sl: float,
         deposit: float,
         risk_per_trade: float,
+        partial_trade_multiplier: float,
         min_volume: float,
         safe_factor: float,
     ) -> float: ...

@@ -13,8 +13,9 @@ class LeveragedBookkeeper(Bookkeeper):
         sl: float,
         deposit: float,
         risk_per_trade: float,
-        safe_factor: float = 0.02,
-        min_volume: float = 0.02,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
     ) -> float:
         """
         Calculate volume based on entry price, stop loss and deposit.
@@ -26,7 +27,7 @@ class LeveragedBookkeeper(Bookkeeper):
             / 1000
         )
 
-        volume_raw = deposit * risk_per_trade / sl_price_change
+        volume_raw = deposit * risk_per_trade*partial_trade_multiplier / sl_price_change
 
         volume = math.floor(volume_raw * 1000) / 1000
 

@@ -8,7 +8,9 @@ class UnleveragedBookkeeper(Bookkeeper):
         sl: float,
         deposit: float,
         risk_per_trade: float,
-        min_volume: float = 0.02,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
     ) -> float:
         """
         Calculate volume based on entry price, stop loss and deposit.

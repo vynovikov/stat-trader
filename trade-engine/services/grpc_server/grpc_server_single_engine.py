@@ -33,7 +33,7 @@ from services.parameters_store.parameters_store import ParametersStoreImpl
 from services.history_operator.history_operator import HistoryOperatorImpl
 from services.report_operator.report_operator import ReportOperatorImpl
 from services.repository.mock_repository import MockRepository
-from services.strategy_operator.strategy_operator_reversal_v5 import (
+from services.strategy_operator.strategy_operator_reversal_v5_trend import (
     StrategyOperatorReversalV5,
 )
 from services.priority_operator.priority_operator import PriorityOperator

@@ -21,10 +21,10 @@ from services.parameters_store.parameters_store import ParametersStoreImpl
 from services.plotter.plotter import Plotter
 from services.report_operator.report_operator import ReportOperatorImpl
 from services.repository.interface import Repository
-from services.strategy_operator.strategy_operator_reversal_v5_trend import (
-    StrategyOperatorReversalV5,
+from services.strategy_operator.strategy_operator_flat import (
+    StrategyOperatorFlatImpl,
 )
-from services.trade_engine.trade_engine_reversal_v5 import TradeEngineReversalV5
+from services.trade_engine.trade_engine_flat import TradeEngineFlat
 from services.window_operator.window_operator import WindowOperatorImpl
 from services.metric_repository.mock_metric_repository import MockMetricRepository
 from services.log_operator.log_operator import LogOperatorImpl
@@ -62,6 +62,8 @@ handle_test_cases: List[Dict[str, Any]] = [
         "min_price_delta": 0.01,
         "background": Background.FLAT_REV,
         "power": Power.WEAK,
+        "higher_edge": 100,
+        "lower_edge": 99,
         "expectations": [],
         "expected_states": ["not_ready"],
         "expected_cooldown_counter": 0,
@@ -75,7 +77,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "1. Not_ready -> idle",
+        "name": "1. Not_ready -> idle_inside",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -123,10 +125,12 @@ handle_test_cases: List[Dict[str, Any]] = [
         "min_price_delta": 0.01,
         "background": Background.FLAT_REV,
         "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100,
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "idle",
+            "idle_inside",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [],
@@ -139,7 +143,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "2. Not_ready -> off_market. 4 trend candles",
+        "name": "2. Not_ready -> off_market. No entrypoint",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -202,10 +206,12 @@ handle_test_cases: List[Dict[str, Any]] = [
         "min_price_delta": 0.01,
         "background": Background.FLAT_REV,
         "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.4,
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "idle",
+            "idle_inside",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [],
@@ -216,7 +222,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "3.0 Not_ready -> orders_downtrend. 5 trend candles. Pattern [DOWN UP UP UP UP]. Background is FLAT_REV",
+        "name": "3.0 Not_ready -> initial_upper_breakthrough. Sell entrypoint. Pattern [UP]. Candle.high > higher_edge",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
@@ -284,38 +290,15 @@ handle_test_cases: List[Dict[str, Any]] = [
         "min_price_delta": 0.01,
         "background": Background.FLAT_REV,
         "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.4,
         "expectations": [],
         "expected_states": [
             "not_ready",
-            "orders_downtrend",
+            "initial_upper_breakthrough",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
-            Candle(high=100.7, low=100.5, open=100.78, close=100.68, volume=1003),
-            Candle(
-                high=100.8,
-                low=100.6,
-                open=100.68,
-                close=100.78,
-                volume=1004,
-                close_time=datetime(2025, 1, 1, 0, 0),
-            ),
-            Candle(
-                high=100.9,
-                low=100.7,
-                open=100.78,
-                close=100.85,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 5),
-            ),
-            Candle(
-                high=101,
-                low=100.8,
-                open=100.85,
-                close=100.95,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 10),
-            ),
             Candle(
                 high=101.2,
                 low=100.9,
@@ -328,18 +311,18 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_order": Order(
             action=CandleAction.SELL,
             entry=101.12,
-            sl=101.48,
-            tp=100.42,
-            volume=13.16,
+            sl=101.49,
+            tp=100.39,
+            volume=6.33,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.OPEN,
         "expected_desicion_order": Order(
             action=CandleAction.SELL,
             entry=101.12,
-            sl=101.48,
-            tp=100.42,
-            volume=13.16,
+            sl=101.49,
+            tp=100.39,
+            volume=6.33,
         ),
         "expected_desicion_report": Report(),
     },
@@ -3200,7 +3183,7 @@ handle_test_cases: List[Dict[str, Any]] = [
 @pytest.mark.parametrize(
     "case", handle_test_cases, ids=[c["name"] for c in handle_test_cases]
 )
-def test_trade_engine_reversal_v5(case):
+def test_trade_engine_flat(case):
     repo = cast(Repository, flexmock())
     plotter = Plotter("data/candles/BTCUSDT/output")
 
@@ -3220,7 +3203,7 @@ def test_trade_engine_reversal_v5(case):
 
     leveraged_bookkeeper = LeveragedBookkeeper(leverage=10)
 
-    reversal_strategy_operator = StrategyOperatorReversalV5(
+    strategy_operator_flat = StrategyOperatorFlatImpl(
         bookkeeper=leveraged_bookkeeper,
         metric_repository=MockMetricRepository(),
         logger=logger,
@@ -3244,13 +3227,15 @@ def test_trade_engine_reversal_v5(case):
         power=case["power"],
         body_ratio=0.4,
         shadow_ratio=1,
+        higher_edge=case["higher_edge"],
+        lower_edge=case["lower_edge"],
     )
 
     log_operator = LogOperatorImpl()
 
-    trade_engine_v5 = TradeEngineReversalV5(
+    trade_engine_flat = TradeEngineFlat(
         repository=repo,
-        strategy_operator=reversal_strategy_operator,
+        strategy_operator=strategy_operator_flat,
         history_operator=history_operator,
         window_operator=window_operator,
         counter_operator=counter_operator,
@@ -3264,7 +3249,7 @@ def test_trade_engine_reversal_v5(case):
     states = []
     num = 0
     for trade_unit in case["initial_trade_units"]:
-        output = trade_engine_v5.handle_first(trade_unit)
+        output = trade_engine_flat.handle_first(trade_unit)
         if len(output.report.candles) > 0:
             # plotter.plot_full(
             #    candles=output.report.candles,
@@ -3275,12 +3260,12 @@ def test_trade_engine_reversal_v5(case):
             #    reason=output.report.reason,
             # )
             num += 1
-            trade_engine_v5.parameters_store.clear_report()
-            trade_engine_v5.parameters_store.order_reset()
+            trade_engine_flat.parameters_store.clear_report()
+            trade_engine_flat.parameters_store.order_reset()
 
-        add(states, cast(str,trade_engine_v5.current_state_value))
+        add(states, cast(str,trade_engine_flat.current_state_value))
 
-    output = trade_engine_v5.handle_first(case["trade_unit"])
+    output = trade_engine_flat.handle_first(case["trade_unit"])
     if len(output.report.candles) > 0:
         # plotter.plot_full(
         #    candles=output.report.candles,
@@ -3290,42 +3275,42 @@ def test_trade_engine_reversal_v5(case):
         #    file_name=str(num),
         #    reason=output.report.reason,
         # )
-        trade_engine_v5.parameters_store.clear_report()
-        trade_engine_v5.parameters_store.order_reset()
+        trade_engine_flat.parameters_store.clear_report()
+        trade_engine_flat.parameters_store.order_reset()
 
-    add(states, cast(str,trade_engine_v5.current_state_value))
+    add(states, cast(str,trade_engine_flat.current_state_value))
 
     # Assertions
 
     assert states == case["expected_states"]
 
     assert (
-        trade_engine_v5.counter_operator.cooldown_counter()
+        trade_engine_flat.counter_operator.cooldown_counter()
         == case["expected_cooldown_counter"]
     )
 
-    assert trade_engine_v5.history_operator.get() == case["expected_history"]
+    assert trade_engine_flat.history_operator.get() == case["expected_history"]
 
     assert (
-        trade_engine_v5.parameters_store.order().action == case["expected_order"].action
+        trade_engine_flat.parameters_store.order().action == case["expected_order"].action
     )
 
-    assert round(trade_engine_v5.parameters_store.order().entry, 2) == round(
+    assert round(trade_engine_flat.parameters_store.order().entry, 2) == round(
         case["expected_order"].entry, 2
     )
-    assert round(trade_engine_v5.parameters_store.order().sl, 2) == round(
+    assert round(trade_engine_flat.parameters_store.order().sl, 2) == round(
         case["expected_order"].sl, 2
     )
-    assert round(trade_engine_v5.parameters_store.order().tp, 2) == round(
+    assert round(trade_engine_flat.parameters_store.order().tp, 2) == round(
         case["expected_order"].tp, 2
     )
-    assert round(trade_engine_v5.parameters_store.order().volume, 2) == round(
+    assert round(trade_engine_flat.parameters_store.order().volume, 2) == round(
         case["expected_order"].volume, 2
     )
 
-    assert round(trade_engine_v5.parameters_store.deposit(), 2) == round(
+    assert round(trade_engine_flat.parameters_store.deposit(), 2) == round(
         case["expected_deposit"], 2
-    ), f"Expected deposit: {case['expected_deposit']}, but got: {trade_engine_v5.parameters_store.deposit()}"
+    ), f"Expected deposit: {case['expected_deposit']}, but got: {trade_engine_flat.parameters_store.deposit()}"
 
     assert output.action == case["expected_desicion_action"]
 

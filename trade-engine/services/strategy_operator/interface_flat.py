@@ -10,33 +10,35 @@ from domain.types.entrypoint import Entrypoint
 from domain.types.power import Power
 
 
-class StrategyOperator(ABC):
+class StrategyOperatorFlat(ABC):
     @abstractmethod
     def uptrend_order(
         self,
         candle: Candle,
-        history_candles: List[Candle],
         spread: float,
         deposit: float,
         risk_per_trade: float,
+        partial_trade_multiplier: float,
         min_volume: float,
         safe_factor: float,
         min_price_delta: float,
-        power: Power,
+        higher_edge:float,
+        lower_edge:float,
     ) -> Order: ...
 
     @abstractmethod
     def downtrend_order(
         self,
         candle: Candle,
-        history_candles: List[Candle],
         spread: float,
         deposit: float,
         risk_per_trade: float,
+        partial_trade_multiplier: float,
         min_volume: float,
         safe_factor: float,
         min_price_delta: float,
-        power: Power,
+        higher_edge:float,
+        lower_edge:float,
     ) -> Order: ...
 
     @abstractmethod
@@ -45,6 +47,8 @@ class StrategyOperator(ABC):
         candles: List[Candle],
         body_ratio: float,
         shadow_ratio: float,
+        higher_edge: float,
+        lower_edge: float,
         background: Background,
         service_name: str,
     ) -> Entrypoint: ...

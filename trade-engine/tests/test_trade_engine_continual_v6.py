@@ -21,7 +21,7 @@ from services.parameters_store.parameters_store import ParametersStoreImpl
 from services.plotter.plotter import Plotter
 from services.report_operator.report_operator import ReportOperatorImpl
 from services.repository.interface import Repository
-from services.strategy_operator.strategy_operator_continual_v6 import (
+from services.strategy_operator.strategy_operator_continual_v6_trend import (
     StrategyOperatorContinualV6,
 )
 from services.trade_engine.trade_engine_continual_v6 import TradeEngineContinualV6
@@ -4886,7 +4886,8 @@ def test_trade_engine_continual_v6(case):
     parameters_store = ParametersStoreImpl(
         prelude_len=4,
         window_len=6,
-        risk_per_trade=0.005,
+        risk_per_full_trade=0.005,
+        partial_trade_multiplier=0.5,
         min_price_delta=case["min_price_delta"],
         background=case["background"],
         power=case["power"],
