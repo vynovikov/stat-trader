@@ -10,7 +10,7 @@ from domain.types.entrypoint import Entrypoint
 
 from services.bookkeeper.leveraged_bookkeeper import LeveragedBookkeeper
 from services.metric_repository.mock_metric_repository import MockMetricRepository
-from services.strategy_operator.strategy_operator_continual_v6 import (
+from services.strategy_operator.strategy_operator_continual_v6_trend import (
     StrategyOperatorContinualV6,
 )
 

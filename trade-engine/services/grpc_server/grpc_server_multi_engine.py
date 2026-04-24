@@ -38,10 +38,10 @@ from services.history_operator.history_operator import HistoryOperatorImpl
 from services.report_operator.report_operator import ReportOperatorImpl
 from services.log_operator.log_operator import LogOperatorImpl
 from services.repository.mock_repository import MockRepository
-from services.strategy_operator.strategy_operator_reversal_v5 import (
+from services.strategy_operator.strategy_operator_reversal_v5_trend import (
     StrategyOperatorReversalV5,
 )
-from services.strategy_operator.strategy_operator_continual_v6 import (
+from services.strategy_operator.strategy_operator_continual_v6_trend import (
     StrategyOperatorContinualV6,
 )
 from services.trade_engine.interface import TradeEngine

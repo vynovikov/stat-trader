@@ -18,7 +18,7 @@ from services.parameters_store.interface import ParametersStore
 from services.history_operator.interface import HistoryOperator
 from services.report_operator.interface import ReportOperator
 from services.repository.interface import Repository
-from services.strategy_operator.interface import StrategyOperator
+from services.strategy_operator.interface_trend import StrategyOperatorTrend
 from services.window_operator.interface import WindowOperator
 from services.trade_engine.interface import TradeEngine
 from services.log_operator.interface import LogOperator
@@ -30,7 +30,7 @@ class TradeEngineReversalV5(StateMachine):
     def __init__(
         self,
         repository: Repository,
-        strategy_operator: StrategyOperator,
+        strategy_operator: StrategyOperatorTrend,
         history_operator: HistoryOperator,
         window_operator: WindowOperator,
         counter_operator: CounterOperator,
@@ -117,7 +117,7 @@ class TradeEngineReversalV5(StateMachine):
             history_candles=last_five_candles,
             spread=self.parameters_store.spread(),
             deposit=self.parameters_store.deposit(),
-            risk_per_trade=self.parameters_store.risk_per_trade(),
+            risk_per_trade=self.parameters_store.risk_per_full_trade(),
             min_volume=self.parameters_store.min_volume(),
             safe_factor=self.parameters_store.safe_factor(),
             min_price_delta=self.parameters_store.min_price_delta(),
@@ -137,7 +137,7 @@ class TradeEngineReversalV5(StateMachine):
             history_candles=last_five_candles,
             spread=self.parameters_store.spread(),
             deposit=self.parameters_store.deposit(),
-            risk_per_trade=self.parameters_store.risk_per_trade(),
+            risk_per_trade=self.parameters_store.risk_per_full_trade(),
             min_volume=self.parameters_store.min_volume(),
             safe_factor=self.parameters_store.safe_factor(),
             min_price_delta=self.parameters_store.min_price_delta(),

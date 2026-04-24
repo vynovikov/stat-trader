@@ -12,12 +12,12 @@ from domain.types.power import Power
 from domain.types.background import Background
 from domain.types.entrypoint import Entrypoint
 from services.bookkeeper.interface import Bookkeeper
-from services.strategy_operator.interface import StrategyOperator
+from services.strategy_operator.interface_flat import StrategyOperatorFlat
 from services.metric_repository.interface import MetricRepository
 from utils.time import utc_to_msk_string,utc_to_msk_datetime
 
 
-class StrategyOperatorReversalV5(StrategyOperator):
+class StrategyOperatorFlatImpl(StrategyOperatorFlat):
     def __init__(
             self,
             bookkeeper: Bookkeeper,
@@ -32,42 +32,39 @@ class StrategyOperatorReversalV5(StrategyOperator):
     def uptrend_order(
         self,
         candle: Candle,
-        history_candles: List[Candle],
         spread: float,
         deposit: float,
         risk_per_trade: float,
+        partial_trade_multiplier: float,
         min_volume: float,
         safe_factor: float,
         min_price_delta: float,
-        power: Power,
+        higher_edge:float,
+        lower_edge:float,
     ) -> Order:
+
         candle_body = abs(candle.close - candle.open)
 
-        calculated_entry = candle.close - min(
+        calculated_entry = candle.close + min(
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        highest_high=self._highest_high(history_candles,candle)
+        calculated_tp = lower_edge- spread
 
-        lowest_low=self._lowest_low(history_candles,candle)
-
-        sl_delta=(highest_high-lowest_low)/2
-
-        calculated_sl = calculated_entry - sl_delta - spread
-
-        canculated_tp = calculated_entry + power.value * sl_delta
+        calculated_sl = calculated_entry + (calculated_entry-calculated_tp)/2+spread
 
         order = Order(
-            action=CandleAction.BUY,
+            action=CandleAction.SELL,
             time=candle.close_time - timedelta(minutes=5),
             entry=calculated_entry,
             sl=calculated_sl,
-            tp=canculated_tp,
+            tp=calculated_tp,
             volume=self.bookkeeper.calculate_volume(
                 entry_price=candle.close,
                 sl=calculated_sl,
                 deposit=deposit,
                 risk_per_trade=risk_per_trade,
+                partial_trade_multiplier=partial_trade_multiplier,
                 min_volume=min_volume,
                 safe_factor=safe_factor,
             ),
@@ -78,14 +75,15 @@ class StrategyOperatorReversalV5(StrategyOperator):
     def downtrend_order(
         self,
         candle: Candle,
-        history_candles: List[Candle],
         spread: float,
         deposit: float,
         risk_per_trade: float,
+        partial_trade_multiplier: float,
         min_volume: float,
         safe_factor: float,
         min_price_delta: float,
-        power: Power,
+        higher_edge:float,
+        lower_edge:float,
     ) -> Order:
         candle_body = abs(candle.close - candle.open)
 
@@ -93,27 +91,22 @@ class StrategyOperatorReversalV5(StrategyOperator):
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        highest_high=self._highest_high(history_candles,candle)
+        calculated_tp = lower_edge- spread
 
-        lowest_low=self._lowest_low(history_candles,candle)
-
-        sl_delta=(highest_high-lowest_low)/2
-
-        calculated_sl = calculated_entry + sl_delta + spread
-
-        canculated_tp = calculated_entry - power.value * sl_delta
+        calculated_sl = calculated_entry + (calculated_entry-calculated_tp)/2+spread
 
         order = Order(
             action=CandleAction.SELL,
             time=candle.close_time - timedelta(minutes=5),
             entry=calculated_entry,
             sl=calculated_sl,
-            tp=canculated_tp,
+            tp=calculated_tp,
             volume=self.bookkeeper.calculate_volume(
                 entry_price=candle.close,
                 sl=calculated_sl,
                 deposit=deposit,
                 risk_per_trade=risk_per_trade,
+                partial_trade_multiplier=partial_trade_multiplier,
                 min_volume=min_volume,
                 safe_factor=safe_factor,
             ),
@@ -240,25 +233,31 @@ class StrategyOperatorReversalV5(StrategyOperator):
             case _:
                 return "Reason is not set"
 
-    def action(self, current_state_id: str, last_state_id: str) -> MarketAction:
-        match current_state_id:
-            case "orders_uptrend" | "orders_downtrend":
-                return MarketAction.OPEN
+    def action(
+            self,
+            current_state_id: str,
+            last_state_id: str,
+            ) -> MarketAction:
+            match current_state_id:
+                case "initial_upper_breakthrough" | "initial_lower_breakthrough":
+                    return MarketAction.OPEN
 
-            case "cooldown" if last_state_id in [
-                "on_market_uptrend",
-                "on_market_downtrend",
-            ]:
-                return MarketAction.CLOSE
+                case "cooldown" if last_state_id in [
+                    "on_market_uptrend",
+                    "on_market_downtrend",
+                ]:
+                    return MarketAction.CLOSE
 
-            case _:
-                return MarketAction.HOLD
+                case _:
+                    return MarketAction.HOLD
 
     def entrypoint(
         self,
         candles: List[Candle],
         body_ratio: float,
         shadow_ratio: float,
+        higher_edge: float,
+        lower_edge: float,
         background: Background,
         service_name: str,
     ) -> Entrypoint:
@@ -271,12 +270,16 @@ class StrategyOperatorReversalV5(StrategyOperator):
 
         is_buy_entrypoint=self._is_buy_entrypoint(
                 candles=candles,
+                higher_edge=higher_edge,
+                lower_edge=lower_edge,
                 body_ratio=body_ratio,
                 shadow_ratio=shadow_ratio,
             )
 
         is_sell_entrypoint=self._is_sell_entrypoint(
                 candles=candles,
+                higher_edge=higher_edge,
+                lower_edge=lower_edge,
                 body_ratio=body_ratio,
                 shadow_ratio=shadow_ratio,
             )
@@ -346,136 +349,67 @@ class StrategyOperatorReversalV5(StrategyOperator):
     def _is_buy_entrypoint(
         self,
         candles: List[Candle],
+        higher_edge: float,
+        lower_edge: float,
         body_ratio: float,
         shadow_ratio: float,
     ) -> bool:
         """
         Check if an uptrend has started based on the last four candles.
         """
-        if len(candles) < 5:
+        if len(candles) < 2:
             return False
 
-        patterns: List[bool] = []
-
         pattern0 = (
-            candles[0].is_UP()
-            and candles[1].is_DOWN()
-            and candles[2].is_DOWN()
-            and candles[3].is_DOWN()
-            and candles[4].is_DOWN()
+            candles[1].is_DOWN()
+            and candles[1].high<higher_edge
+            and candles[1].low<lower_edge
         )
 
         pattern1 = (
-            candles[0].is_DOWN()
-            and candles[1].is_UP()
+            candles[1].is_UP()
+            and candles[1].high<higher_edge
+            and candles[1].low<lower_edge
             and (
-                candles[2].is_DOWN()
-                and candles[2].engulfs(candles[1], body_ratio, shadow_ratio)
-            )
-            and candles[3].is_DOWN()
-            and candles[4].is_DOWN()
-        )
-
-        pattern2 = (
-            candles[0].is_DOWN()
-            and candles[1].is_DOWN()
-            and candles[2].is_UP()
-            and (
-                candles[3].is_DOWN()
-                and candles[3].engulfs(candles[2], body_ratio, shadow_ratio)
-            )
-            and candles[4].is_DOWN()
-        )
-
-        pattern3 = (
-            candles[0].is_DOWN()
-            and candles[1].is_DOWN()
-            and candles[2].is_DOWN()
-            and candles[3].is_UP()
-            and (
-                candles[4].is_DOWN()
-                and candles[4].engulfs(candles[3], body_ratio, shadow_ratio)
+                candles[0].is_UP()
+                and candles[0].engulfs(candles[1], body_ratio, shadow_ratio)
             )
         )
 
-        pattern4=(
-            candles[0].is_DOWN()
-            and candles[1].is_DOWN()
-            and candles[2].is_DOWN()
-            and candles[3].is_DOWN()
-            and candles[4].is_DOWN()
-        )
-
-        patterns.extend([pattern0, pattern1, pattern2, pattern3,pattern4])
-
-        return True in patterns
+        return True in [pattern0,pattern1]
 
     def _is_sell_entrypoint(
         self,
         candles: List[Candle],
+        higher_edge: float,
+        lower_edge: float,
         body_ratio: float,
         shadow_ratio: float,
     ) -> bool:
         """
         Check if a downtrend has started based on the last four candles.
         """
-        if len(candles) < 5:
+        if len(candles) < 2:
             return False
 
-        patterns: List[bool] = []
-
         pattern0 = (
-            candles[0].is_DOWN()
-            and candles[1].is_UP()
-            and candles[2].is_UP()
-            and candles[3].is_UP()
-            and candles[4].is_UP()
+            candles[1].is_UP()
+            and candles[1].high>higher_edge
+            and candles[1].low>lower_edge
         )
 
         pattern1 = (
-            candles[0].is_UP()
-            and candles[1].is_DOWN()
+            candles[1].is_DOWN()
+            and candles[1].high>higher_edge
+            and candles[1].low>lower_edge
             and (
-                candles[2].is_UP()
-                and candles[2].engulfs(candles[1], body_ratio, shadow_ratio)
-            )
-            and candles[3].is_UP()
-            and candles[4].is_UP()
-        )
-
-        pattern2 = (
-            candles[0].is_UP()
-            and candles[1].is_UP()
-            and candles[2].is_DOWN()
-            and (
-                candles[3].is_UP()
-                and candles[3].engulfs(candles[2], body_ratio, shadow_ratio)
-            )
-            and candles[4].is_UP()
-        )
-
-        pattern3 = (
-            candles[0].is_UP()
-            and candles[1].is_UP()
-            and candles[2].is_UP()
-            and candles[3].is_DOWN()
-            and (
-                candles[4].is_UP()
-                and candles[4].engulfs(candles[3], body_ratio, shadow_ratio)
+                candles[0].is_UP()
+                and candles[0].engulfs(candles[1], body_ratio, shadow_ratio)
             )
         )
 
-        pattern4 = (
-            candles[0].is_UP()
-            and candles[1].is_UP()
-            and candles[2].is_UP()
-            and candles[3].is_UP()
-            and candles[4].is_UP()
-        )
 
-        patterns.extend([pattern0, pattern1, pattern2, pattern3, pattern4])
-
-        return True in patterns
+        return True in [pattern0,pattern1]
 
     def _is_buy_allowed(
             self,
@@ -541,43 +475,3 @@ class StrategyOperatorReversalV5(StrategyOperator):
             history_candles.append(candle)
 
         return history_candles
-
-    def _highest_high(self, history_candles: List[Candle], candle: Candle) -> float:
-        if len(history_candles)<1 or history_candles[0].high<=0 or candle.high<=0:
-            return -1
-
-        highest_high=history_candles[0].high
-
-        for history_candle in history_candles[1:]:
-
-            if history_candle.high<=0:
-                return -1
-
-            if history_candle.high>highest_high:
-                highest_high=history_candle.high
-
-        if candle.high>highest_high:
-            highest_high=candle.high
-
-
-        return highest_high
-
-    def _lowest_low(self, history_candles: List[Candle], candle: Candle) -> float:
-        if len(history_candles)<1 or history_candles[0].low<=0 or candle.low<=0:
-            return -1
-
-        lowest_low=history_candles[0].low
-
-        for history_candle in history_candles[1:]:
-
-            if history_candle.low<=0:
-                return -1
-
-            if history_candle.low<lowest_low:
-                lowest_low=history_candle.low
-
-        if candle.low<lowest_low:
-            lowest_low=candle.low
-
-
-        return lowest_low

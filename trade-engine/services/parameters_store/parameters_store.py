@@ -12,7 +12,8 @@ class ParametersStoreImpl(ParametersStore):
         self,
         prelude_len: int,
         window_len: int,
-        risk_per_trade: float,
+        risk_per_full_trade: float,
+        partial_trade_multiplier: float,
         body_ratio: float,
         shadow_ratio: float,
         deposit: float = 0.0,
@@ -23,10 +24,13 @@ class ParametersStoreImpl(ParametersStore):
         min_price_delta: float = 1,
         background: Background = Background.FLAT_REV,
         power: Power = Power.WEAK,
+        higher_edge: float = 70000,
+        lower_edge: float = 69000,
     ) -> None:
         self.prelude_len = prelude_len
         self.window_len = window_len
-        self.risk_per_trade_value = risk_per_trade
+        self.risk_per_full_trade_value = risk_per_full_trade
+        self.partial_trade_multiplier_value = partial_trade_multiplier
         self.min_volume_value = min_volume
         self.safe_factor_value = safe_factor
         self.deposit_value = deposit
@@ -37,6 +41,8 @@ class ParametersStoreImpl(ParametersStore):
         self.body_ratio_value = body_ratio
         self.shadow_ratio_value = shadow_ratio
         self.power_value=power
+        self.hightr_edge_value = higher_edge
+        self.lower_edge_value = lower_edge
 
         self.order_value = Order()
         self.report_value = Report()
@@ -84,8 +90,11 @@ class ParametersStoreImpl(ParametersStore):
     def set_spread(self, spread: float) -> None:
         self.spread_value = spread
 
-    def risk_per_trade(self) -> float:
-        return self.risk_per_trade_value
+    def risk_per_full_trade(self) -> float:
+        return self.risk_per_full_trade_value
+
+    def partial_trade_multiplier(self) -> float:
+        return self.partial_trade_multiplier_value
 
     def min_volume(self) -> float:
         return self.min_volume_value
@@ -137,3 +146,9 @@ class ParametersStoreImpl(ParametersStore):
 
     def set_trade_id(self, trade_id: int) -> None:
         self.trade_id_value = trade_id
+
+    def higher_edge(self) -> float:
+        return self.hightr_edge_value
+
+    def lower_edge(self) -> float:
+        return self.lower_edge_value

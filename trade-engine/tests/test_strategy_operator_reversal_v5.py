@@ -9,7 +9,7 @@ from domain.types.background import Background
 from domain.types.entrypoint import Entrypoint
 
 from services.bookkeeper.leveraged_bookkeeper import LeveragedBookkeeper
-from services.strategy_operator.strategy_operator_reversal_v5 import (
+from services.strategy_operator.strategy_operator_reversal_v5_trend import (
     StrategyOperatorReversalV5,
 )
 
