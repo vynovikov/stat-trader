@@ -26,6 +26,7 @@ class ParametersStoreImpl(ParametersStore):
         power: Power = Power.WEAK,
         higher_edge: float = 70000,
         lower_edge: float = 69000,
+        margin:float = 0.05,
     ) -> None:
         self.prelude_len = prelude_len
         self.window_len = window_len
@@ -41,8 +42,9 @@ class ParametersStoreImpl(ParametersStore):
         self.body_ratio_value = body_ratio
         self.shadow_ratio_value = shadow_ratio
         self.power_value=power
-        self.hightr_edge_value = higher_edge
+        self.higher_edge_value = higher_edge
         self.lower_edge_value = lower_edge
+        self.margin_value = margin
 
         self.order_value = Order()
         self.report_value = Report()
@@ -148,7 +150,17 @@ class ParametersStoreImpl(ParametersStore):
         self.trade_id_value = trade_id
 
     def higher_edge(self) -> float:
-        return self.hightr_edge_value
+        return self.higher_edge_value
+
+    def set_higher_edge(self, higher_edge:float) -> None:
+        self.higher_edge_value=higher_edge
 
     def lower_edge(self) -> float:
         return self.lower_edge_value
+
+    def set_lower_edge(self, lower_edge:float) -> None:
+        self.lower_edge_value=lower_edge
+
+    def margin(self) -> float:
+        return self.margin_value
+

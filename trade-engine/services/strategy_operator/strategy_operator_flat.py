@@ -114,35 +114,48 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
 
         return order
 
-    def is_sl_triggered(self, order: Order, candle: Candle) -> bool:
-        is_triggered = False
+    def is_sl_triggered_uptrend(
+        self,
+        SL: float,
+        candle: Candle,
+        ) -> bool:
 
-        if (order.action == CandleAction.BUY and candle.low <= order.sl) or (
-            order.action == CandleAction.SELL and candle.high >= order.sl
-        ):
-            is_triggered = True
+        return candle.low<=SL
 
-        return is_triggered
+    def is_tp_triggered_uptrend(
+        self,
+        TP: float,
+        candle: Candle,
+        ) -> bool:
 
-    def is_tp_triggered(self, order: Order, candle: Candle) -> bool:
-        is_triggered = False
+        return candle.high>TP
 
-        if (order.action == CandleAction.BUY and candle.high > order.tp) or (
-            order.action == CandleAction.SELL and candle.low < order.tp
-        ):
-            is_triggered = True
 
-        return is_triggered
+    def is_sl_triggered_downtrend(
+        self,
+        SL: float,
+        candle: Candle,
+        ) -> bool:
+
+        return candle.high>=SL
+
+    def is_tp_triggered_downtrend(
+        self,
+        TP: float,
+        candle: Candle,
+        ) -> bool:
+
+        return candle.low<TP
 
     def price_difference(self, order: Order, candle: Candle, spread: float) -> float:
         match order.action:
-            case CandleAction.BUY if self.is_sl_triggered(order, candle):
+            case CandleAction.BUY if self.is_sl_triggered_uptrend(order.sl, candle):
                 price_difference = order.sl - order.entry
-            case CandleAction.BUY if self.is_tp_triggered(order, candle):
+            case CandleAction.BUY if self.is_tp_triggered_uptrend(order.tp, candle):
                 price_difference = order.tp - order.entry
-            case CandleAction.SELL if self.is_sl_triggered(order, candle):
+            case CandleAction.SELL if self.is_sl_triggered_downtrend(order.sl, candle):
                 price_difference = order.entry - order.sl
-            case CandleAction.SELL if self.is_tp_triggered(order, candle):
+            case CandleAction.SELL if self.is_tp_triggered_downtrend(order.tp, candle):
                 price_difference = order.entry - order.tp
             case _:
                 price_difference = 0.0
@@ -253,185 +266,102 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
 
     def entrypoint(
         self,
-        candles: List[Candle],
-        body_ratio: float,
-        shadow_ratio: float,
+        candle: Candle,
         higher_edge: float,
         lower_edge: float,
-        background: Background,
+        margin:float,
         service_name: str,
     ) -> Entrypoint:
         last_open_time = (
-                candles[-1].open_time
+                candle.open_time
             ).replace(
                 second=0,
                 microsecond=0,
             )
 
         is_buy_entrypoint=self._is_buy_entrypoint(
-                candles=candles,
+                candle=candle,
                 higher_edge=higher_edge,
                 lower_edge=lower_edge,
-                body_ratio=body_ratio,
-                shadow_ratio=shadow_ratio,
+                margin=margin,
             )
 
         is_sell_entrypoint=self._is_sell_entrypoint(
-                candles=candles,
+                candle=candle,
                 higher_edge=higher_edge,
                 lower_edge=lower_edge,
-                body_ratio=body_ratio,
-                shadow_ratio=shadow_ratio,
+                margin=margin,
             )
 
         match True:
             case _ if is_buy_entrypoint:
                 self.logger.info(
-                    "%s | entrypoint.BUY, background: %s",
+                    "%s | entrypoint.BUY",
                     utc_to_msk_string(last_open_time),
-                    background.name,
                 )
 
                 self.metric_repository.insert_log(
                     created_at=utc_to_msk_datetime(last_open_time),
                     log_level="info",
                     service_name=service_name,
-                    log_string=f"entrypoint.BUY, background: {background}",
+                    log_string=f"entrypoint.BUY",
                 )
 
-                if self._is_buy_allowed(background):
-                    self.logger.info(
-                        "%s | entrypoint.BUY allowed",
-                        utc_to_msk_string(last_open_time),
-                    )
-
-                    self.metric_repository.insert_log(
-                        created_at=utc_to_msk_datetime(last_open_time),
-                        log_level="warning",
-                        service_name=service_name,
-                        log_string=f"entrypoint.BUY allowed",
-                    )
-
-                    return Entrypoint.BUY
+                return Entrypoint.BUY
 
             case _ if is_sell_entrypoint:
                 self.logger.info(
-                    "%s | entrypoint.SELL, background: %s",
+                    "%s | entrypoint.SELL",
                     utc_to_msk_string(last_open_time),
-                    background.name,
                 )
 
                 self.metric_repository.insert_log(
                     created_at=utc_to_msk_datetime(last_open_time),
                     log_level="info",
                     service_name=service_name,
-                    log_string=f"entrypoint.SELL, background: {background}",
+                    log_string=f"entrypoint.SELL",
                 )
 
-                if self._is_sell_allowed(background):
-                    self.logger.info(
-                        "%s | entrypoint.SELL allowed",
-                        utc_to_msk_string(last_open_time),
-                    )
-
-                    self.metric_repository.insert_log(
-                        created_at=utc_to_msk_datetime(last_open_time),
-                        log_level="warning",
-                        service_name=service_name,
-                        log_string=f"entrypoint.SELL allowed",
-                    )
-
-                    return Entrypoint.SELL
+                return Entrypoint.SELL
 
 
         return Entrypoint.UNKNOWN
 
     def _is_buy_entrypoint(
         self,
-        candles: List[Candle],
+        candle: Candle,
         higher_edge: float,
         lower_edge: float,
-        body_ratio: float,
-        shadow_ratio: float,
+        margin: float,
     ) -> bool:
         """
-        Check if an uptrend has started based on the last four candles.
+        Check if price below lower margin
         """
-        if len(candles) < 2:
-            return False
+        lower_margin=lower_edge+(higher_edge-lower_edge)*margin
 
-        pattern0 = (
-            candles[1].is_DOWN()
-            and candles[1].high<higher_edge
-            and candles[1].low<lower_edge
+
+        return (
+            candle.low<lower_edge
+            and candle.close<lower_margin
         )
-
-        pattern1 = (
-            candles[1].is_UP()
-            and candles[1].high<higher_edge
-            and candles[1].low<lower_edge
-            and (
-                candles[0].is_UP()
-                and candles[0].engulfs(candles[1], body_ratio, shadow_ratio)
-            )
-        )
-
-        return True in [pattern0,pattern1]
 
     def _is_sell_entrypoint(
         self,
-        candles: List[Candle],
+        candle: Candle,
         higher_edge: float,
         lower_edge: float,
-        body_ratio: float,
-        shadow_ratio: float,
+        margin: float,
     ) -> bool:
         """
-        Check if a downtrend has started based on the last four candles.
+        Check if price above higher margin
         """
-        if len(candles) < 2:
-            return False
+        higher_margin=higher_edge-(higher_edge-lower_edge)*margin
 
-        pattern0 = (
-            candles[1].is_UP()
-            and candles[1].high>higher_edge
-            and candles[1].low>lower_edge
+
+        return (
+            candle.high>higher_edge
+            and candle.close>higher_margin
         )
-
-        pattern1 = (
-            candles[1].is_DOWN()
-            and candles[1].high>higher_edge
-            and candles[1].low>lower_edge
-            and (
-                candles[0].is_UP()
-                and candles[0].engulfs(candles[1], body_ratio, shadow_ratio)
-            )
-        )
-
-
-        return True in [pattern0,pattern1]
-
-    def _is_buy_allowed(
-            self,
-            background: Background,
-            ) ->bool:
-
-        return background in [
-            Background.FLAT_REV,
-            Background.BULLISH_REV,
-            Background.BULLISH_CON_REV,
-            ]
-
-    def _is_sell_allowed(
-            self,
-            background: Background,
-            ) ->bool:
-
-        return background in [
-            Background.FLAT_REV,
-            Background.BEARISH_REV,
-            Background.BEARISH_CON_REV,
-            ]
 
 
     def is_entry_triggered(self, order: Order, candle: Candle) -> bool:
@@ -475,3 +405,27 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
             history_candles.append(candle)
 
         return history_candles
+
+
+
+    def is_moved_back_uptrend(
+        self,
+        candle: Candle,
+        lower_edge:float,
+        ) -> bool:
+
+        return (
+            candle.is_UP() and
+            candle.close>lower_edge
+        )
+
+    def is_moved_back_downtrend(
+        self,
+        candle: Candle,
+        higher_edge:float,
+        ) -> bool:
+
+        return (
+            candle.is_DOWN() and
+            candle.close<higher_edge
+        )

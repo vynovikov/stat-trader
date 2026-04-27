@@ -44,12 +44,10 @@ class StrategyOperatorFlat(ABC):
     @abstractmethod
     def entrypoint(
         self,
-        candles: List[Candle],
-        body_ratio: float,
-        shadow_ratio: float,
+        candle: Candle,
         higher_edge: float,
         lower_edge: float,
-        background: Background,
+        margin:float,
         service_name: str,
     ) -> Entrypoint: ...
 
@@ -80,10 +78,32 @@ class StrategyOperatorFlat(ABC):
     def is_entry_triggered(self, order: Order, candle: Candle) -> bool: ...
 
     @abstractmethod
-    def is_sl_triggered(self, order: Order, candle: Candle) -> bool: ...
+    def is_sl_triggered_uptrend(
+        self,
+        SL: float,
+        candle: Candle,
+        ) -> bool: ...
 
     @abstractmethod
-    def is_tp_triggered(self, order: Order, candle: Candle) -> bool: ...
+    def is_tp_triggered_uptrend(
+        self,
+        TP: float,
+        candle: Candle,
+        ) -> bool: ...
+
+    @abstractmethod
+    def is_sl_triggered_downtrend(
+        self,
+        SL: float,
+        candle: Candle,
+        ) -> bool: ...
+
+    @abstractmethod
+    def is_tp_triggered_downtrend(
+        self,
+        TP: float,
+        candle: Candle,
+        ) -> bool: ...
 
     @abstractmethod
     def is_reversal_candle(self, order: Order, candle: Candle) -> bool: ...
@@ -93,3 +113,17 @@ class StrategyOperatorFlat(ABC):
 
     @abstractmethod
     def history_candles_downtrend(self, candles:List[Candle]) -> List[Candle]: ...
+
+    @abstractmethod
+    def is_moved_back_uptrend(
+        self,
+        candle: Candle,
+        lower_edge:float,
+        ) -> bool: ...
+
+    @abstractmethod
+    def is_moved_back_downtrend(
+        self,
+        candle: Candle,
+        higher_edge:float,
+        ) -> bool: ...
