@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 from domain.models.order import Order
+from domain.models.TPSL import TPSL
 from domain.models.report import Report
 from domain.types.background import Background
 from domain.types.entrypoint import Entrypoint
@@ -115,3 +116,12 @@ class ParametersStore(ABC):
 
     @abstractmethod
     def margin(self) -> float: ...
+
+    @abstractmethod
+    def tpsl(self) -> TPSL:...
+
+    @abstractmethod
+    def set_tpsl(self, tpsl: TPSL) -> None:...
+
+    @abstractmethod
+    def tpsl_reset(self) -> None:...

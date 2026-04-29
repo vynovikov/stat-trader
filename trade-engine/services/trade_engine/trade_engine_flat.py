@@ -9,6 +9,8 @@ from domain.models.decision import Decision
 from domain.models.order import Order
 from domain.models.report import Report
 from domain.models.trade_unit import Trade_unit
+from domain.models.TPSL import TPSL
+from domain.types.candle_action import CandleAction
 from domain.types.candle import Candle
 from domain.types.market_action import MarketAction
 from domain.types.entrypoint import Entrypoint
@@ -18,6 +20,7 @@ from services.parameters_store.interface import ParametersStore
 from services.history_operator.interface import HistoryOperator
 from services.report_operator.interface import ReportOperator
 from services.repository.interface import Repository
+from services.bookkeeper.interface import Bookkeeper
 from services.strategy_operator.interface_flat import StrategyOperatorFlat
 from services.window_operator.interface import WindowOperator
 from services.trade_engine.interface import TradeEngine
@@ -30,6 +33,7 @@ class TradeEngineFlat(StateMachine):
     def __init__(
         self,
         repository: Repository,
+        bookkeeper: Bookkeeper,
         strategy_operator: StrategyOperatorFlat,
         history_operator: HistoryOperator,
         window_operator: WindowOperator,
@@ -41,6 +45,7 @@ class TradeEngineFlat(StateMachine):
         logger: LoggerAdapter,
     ):
         self.strategy_operator = strategy_operator
+        self.bookkeeper = bookkeeper
         self.repository = repository
         self.window_operator = window_operator
         self.counter_operator = counter_operator
@@ -61,11 +66,14 @@ class TradeEngineFlat(StateMachine):
     initial_lower_breakthrough = State()
     initial_upper_breakthrough = State()
 
+    subsequent_lower_breakthrough = State()
+    subsequent_upper_breakthrough = State()
+
     initial_on_full_off_uptrend = State()
     initial_on_full_off_downtrend = State()
 
-    full_on_uptrend = State()
-    full_on_downtrend = State()
+    initial_on_full_on_uptrend = State()
+    initial_on_full_on_downtrend = State()
 
     cooldown = State()
 
@@ -74,34 +82,40 @@ class TradeEngineFlat(StateMachine):
 
     cooled_down = cooldown.to(idle_inside)
 
-    entrypoint_uptrend_initial = idle_inside.to(initial_lower_breakthrough)
-    entrypoint_downtrend_initial = idle_inside.to(initial_upper_breakthrough)
+    initial_lower_breakthrough_ts = idle_inside.to(initial_lower_breakthrough)
+    initial_upper_breakthrough_ts = idle_inside.to(initial_upper_breakthrough)
+
+    subsequent_lowper_breakthrough_ts = initial_on_full_off_uptrend.to(subsequent_lower_breakthrough)
+    subsequent_upper_breakthrough_ts = initial_on_full_off_downtrend.to(subsequent_upper_breakthrough)
 
     entrypoint_uptrend_full = initial_lower_breakthrough.to(initial_on_full_off_uptrend)
     entrypoint_downtrend_full = initial_upper_breakthrough.to(initial_on_full_off_downtrend)
 
     orders_cancelled = initial_lower_breakthrough.to(idle_inside) | initial_upper_breakthrough.to(idle_inside)
 
-    back_inside_uptrend = initial_lower_breakthrough.to(initial_on_full_off_uptrend)
-    back_inside_downtrend = initial_upper_breakthrough.to(initial_on_full_off_downtrend)
+    back_inside_uptrend_initial = initial_lower_breakthrough.to(initial_on_full_off_uptrend)
+    back_inside_downtrend_initial = initial_upper_breakthrough.to(initial_on_full_off_downtrend)
+
+    back_inside_uptrend_subsequent = subsequent_lower_breakthrough.to(initial_on_full_on_uptrend)
+    back_inside_downtrend_subsequent = subsequent_upper_breakthrough.to(initial_on_full_on_downtrend)
 
     consolidate = (
-        initial_lower_breakthrough.to(full_on_uptrend) |
-        initial_upper_breakthrough.to(full_on_downtrend)
+        subsequent_lower_breakthrough.to(initial_on_full_on_uptrend) |
+        subsequent_upper_breakthrough.to(initial_on_full_on_downtrend)
     )
 
     TP_triggered = (
         initial_on_full_off_uptrend.to(cooldown) |
         initial_on_full_off_downtrend.to(cooldown) |
-        full_on_uptrend.to(cooldown) |
-        full_on_downtrend.to(cooldown)
+        initial_on_full_on_uptrend.to(cooldown) |
+        initial_on_full_on_downtrend.to(cooldown)
     )
 
     SL_triggered = (
         initial_on_full_off_uptrend.to(cooldown) |
         initial_on_full_off_downtrend.to(cooldown) |
-        full_on_uptrend.to(cooldown) |
-        full_on_downtrend.to(cooldown)
+        initial_on_full_on_uptrend.to(cooldown) |
+        initial_on_full_on_downtrend.to(cooldown)
     )
 
     def on_enter_idle_inside(self):
@@ -132,7 +146,7 @@ class TradeEngineFlat(StateMachine):
         last_five_candles = self.window_operator.last_n_candles(n=5)
         self.history_operator.set(last_five_candles)
 
-        order = self.strategy_operator.uptrend_order(
+        order = self.strategy_operator.initial_uptrend_order(
             candle=last_five_candles[-1],
             spread=self.parameters_store.spread(),
             deposit=self.parameters_store.deposit(),
@@ -151,19 +165,36 @@ class TradeEngineFlat(StateMachine):
         Actions to perform when upper edge breakthrough.
         """
 
-        order = self.strategy_operator.downtrend_order(
-            candle=self.window_operator.last_n_candles(n=1)[0],
+        last_candle=self.window_operator.last_n_candles(1)[-1]
+
+        self.history_operator.add(last_candle)
+
+        volume,sl,tp=self.strategy_operator.initial_params_downtrend(
+            candle=last_candle,
             spread=self.parameters_store.spread(),
             deposit=self.parameters_store.deposit(),
             risk_per_trade=self.parameters_store.risk_per_full_trade(),
             partial_trade_multiplier=self.parameters_store.partial_trade_multiplier(),
             min_volume=self.parameters_store.min_volume(),
             safe_factor=self.parameters_store.safe_factor(),
-            min_price_delta=self.parameters_store.min_price_delta(),
-            higher_edge=self.parameters_store.higher_edge(),
             lower_edge=self.parameters_store.lower_edge(),
         )
+
+        order = Order(
+            action=CandleAction.SELL,
+            time=last_candle.close_time - timedelta(minutes=5),
+            entry=last_candle.close,
+            volume=volume
+        )
+
+        tpsl=TPSL(
+            volume=volume,
+            sl=sl,
+            tp=tp,
+        )
+
         self.parameters_store.set_order(order=order)
+        self.parameters_store.set_tpsl(tpsl=tpsl)
 
     def on_enter_initial_on_full_off_downtrend(self):
         last_two_candles=self.window_operator.last_n_candles(2)
@@ -175,6 +206,25 @@ class TradeEngineFlat(StateMachine):
         ):
             new_high=last_two_candles[0].close
             self.parameters_store.set_higher_edge(new_high)
+
+    def on_enter_initial_on_full_on_downtrend(self):
+        last_candle=self.window_operator.last_n_candles(1)[-1]
+
+        self.history_operator.add(last_candle)
+
+        order = self.strategy_operator.additional_downtrend_order(
+            candle=last_candle,
+            spread=self.parameters_store.spread(),
+            deposit=self.parameters_store.deposit(),
+            risk_per_trade=self.parameters_store.risk_per_full_trade(),
+            partial_trade_multiplier=self.parameters_store.partial_trade_multiplier(),
+            min_volume=self.parameters_store.min_volume(),
+            safe_factor=self.parameters_store.safe_factor(),
+            min_price_delta=self.parameters_store.min_price_delta(),
+            higher_edge=self.parameters_store.higher_edge(),
+            lower_edge=self.parameters_store.lower_edge(),
+        )
+        self.parameters_store.set_order(order=order)
 
     def on_enter_cooldown(self):
         """
@@ -211,6 +261,7 @@ class TradeEngineFlat(StateMachine):
         self.history_operator.clear()
         self.counter_operator.cooldown_set()
         self.parameters_store.order_reset()
+        self.parameters_store.tpsl_reset()
 
     def window_is_full(self) -> bool:
         """
@@ -343,10 +394,13 @@ class TradeEngineFlat(StateMachine):
                 match True:
 
                     case _ if is_moved_back_uptrend:
-                        self.send("back_inside_uptrend")
+                        self.send("back_inside_uptrend_initial")
 
                     case _ if is_moved_back_downtrend:
-                        self.send("back_inside_downtrend")
+                        self.send("back_inside_downtrend_initial")
+
+                    case _ if is_moved_back_downtrend:
+                        self.send("back_inside_downtrend_initial")
 
             case "initial_on_full_off_downtrend":
                 self.last_state_id = self.current_state_value
@@ -362,13 +416,33 @@ class TradeEngineFlat(StateMachine):
                     candle=candle,
                 )
 
+                is_higher_breakthrough = self.strategy_operator.is_higher_breakthrough(
+                    candle=candle,
+                    higher_edge=self.parameters_store.higher_edge(),
+                )
+
 
                 match True:
+                    case _ if is_higher_breakthrough:
+                        self.send("subsequent_upper_breakthrough_ts")
+
                     case _ if is_sl_triggered_downtrend:
                         self.send("SL_triggered")
 
                     case _ if is_tp_triggered_downtrend:
                         self.send("TP_triggered")
+
+            case "subsequent_lower_breakthrough" | "subsequent_upper_breakthrough":
+                self.last_state_id = self.current_state_value
+
+                is_breakthrough_consolidated=self.strategy_operator.is_breakthrough_consolidated(
+                    order = self.parameters_store.order(),
+                    candle = candle,
+                )
+
+                match True:
+                    case _ if is_breakthrough_consolidated:
+                        self.send("consolidate")
 
         return self.handle_second(candle)
 
@@ -389,25 +463,23 @@ class TradeEngineFlat(StateMachine):
             ]:
                 self.last_state_id = self.current_state_value
 
-                entrypoint = self.strategy_operator.entrypoint(
+                is_higher_breakthrough=self.strategy_operator.is_higher_breakthrough(
                     candle=candle,
                     higher_edge=self.parameters_store.higher_edge(),
-                    lower_edge=self.parameters_store.lower_edge(),
-                    margin=self.parameters_store.margin(),
-                    service_name=self.parameters_store.strategy_operator_service_name(),
                 )
 
-                match entrypoint:
-                    case Entrypoint.BUY:
-                        self.send(
-                            "entrypoint_uptrend",
-                        )
+                is_lower_breakthrough=self.strategy_operator.is_lower_breakthrough(
+                    candle=candle,
+                    lower_edge=self.parameters_store.lower_edge(),
+                )
 
-                    case Entrypoint.SELL:
-                        self.history_operator.add(candle=candle)
-                        self.send(
-                            "entrypoint_downtrend_initial",
-                        )
+                match True:
+                    case _ if is_higher_breakthrough:
+                        self.send("initial_upper_breakthrough_ts")
+
+                    case _ if is_lower_breakthrough:
+                        self.send("initial_lower_breakthrough_ts")
+
 
         action = self.strategy_operator.action(
             cast(str,self.current_state_value), self.last_state_id
@@ -415,12 +487,16 @@ class TradeEngineFlat(StateMachine):
         order = (
             self.parameters_store.order() if action != MarketAction.HOLD else Order()
         )
+        tpsl = (
+            self.parameters_store.tpsl() if action != MarketAction.HOLD else TPSL()
+        )
         report = self.parameters_store.report()
 
         return Decision(
             engine_id=self.parameters_store.engine_service_name(),
-            action=action,
             order=order,
+            tpsl=tpsl,
+            action=action,
             report=report,
         )
 

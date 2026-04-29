@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from typing import List, Tuple
 
 from domain.models.order import Order
+from domain.models.TPSL import TPSL
 from domain.types.candle import Candle
 from domain.types.direction import Direction
 from domain.types.market_action import MarketAction
@@ -12,7 +13,7 @@ from domain.types.power import Power
 
 class StrategyOperatorFlat(ABC):
     @abstractmethod
-    def uptrend_order(
+    def initial_uptrend_order(
         self,
         candle: Candle,
         spread: float,
@@ -27,7 +28,22 @@ class StrategyOperatorFlat(ABC):
     ) -> Order: ...
 
     @abstractmethod
-    def downtrend_order(
+    def additional_uptrend_order(
+        self,
+        candle: Candle,
+        spread: float,
+        deposit: float,
+        risk_per_trade: float,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
+        min_price_delta: float,
+        higher_edge:float,
+        lower_edge:float,
+    ) -> Order: ...
+
+    @abstractmethod
+    def additional_downtrend_order(
         self,
         candle: Candle,
         spread: float,
@@ -127,3 +143,40 @@ class StrategyOperatorFlat(ABC):
         candle: Candle,
         higher_edge:float,
         ) -> bool: ...
+
+    @abstractmethod
+    def is_higher_breakthrough(
+        self,
+        candle: Candle,
+        higher_edge:float,
+        ) -> bool: ...
+
+    @abstractmethod
+    def is_lower_breakthrough(
+        self,
+        candle: Candle,
+        lower_edge:float,
+        ) -> bool: ...
+
+    @abstractmethod
+    def is_breakthrough_consolidated(
+        self,
+        order: Order,
+        candle: Candle,
+        ) -> bool: ...
+
+    @abstractmethod
+    def initial_params_downtrend(
+        self,
+        candle: Candle,
+        spread: float,
+        deposit: float,
+        risk_per_trade: float,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
+        lower_edge:float,
+    ) -> Tuple[float,float,float]: ...
+
+
+

@@ -4,6 +4,7 @@ import pytest
 from domain.models.decision import Decision
 from domain.models.order import Order
 from domain.models.report import Report
+from domain.models.TPSL import TPSL
 from domain.types.market_action import MarketAction
 
 from services.usecases.usecases_multi_engine import UsecasesMultiEngine
@@ -17,12 +18,14 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
             engine_id="rev_v5",
             order=Order(),
+            tpsl=TPSL(),
             action=MarketAction.HOLD,
             report=Report(),
         ),
         Decision(
             engine_id="con_v6",
             order=Order(),
+            tpsl=TPSL(),
             action=MarketAction.HOLD,
             report=Report(),
         ),
@@ -31,6 +34,7 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
                 engine_id="",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.HOLD,
                 report=Report(),
             ),
@@ -43,12 +47,14 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
                 engine_id="rev_v5",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.OPEN,
                 report=Report(),
             ),
             Decision(
                 engine_id="con_v6",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.HOLD,
                 report=Report(),
             ),
@@ -57,6 +63,7 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
                 engine_id="rev_v5",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.OPEN,
                 report=Report(),
             ),
@@ -69,12 +76,14 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
             engine_id="rev_v5",
             order=Order(),
+            tpsl=TPSL(),
             action=MarketAction.OPEN,
             report=Report(),
         ),
         Decision(
             engine_id="con_v6",
             order=Order(),
+            tpsl=TPSL(),
             action=MarketAction.HOLD,
             report=Report(),
         ),
@@ -83,6 +92,7 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
                 engine_id="",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.HOLD,
                 report=Report(),
             ),
@@ -95,12 +105,14 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
                 engine_id="rev_v5",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.CLOSE,
                 report=Report(),
             ),
             Decision(
                 engine_id="con_v6",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.HOLD,
                 report=Report(),
             ),
@@ -109,6 +121,7 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
                 engine_id="rev_v5",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.CLOSE,
                 report=Report(),
             ),
@@ -121,12 +134,14 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
                 engine_id="rev_v5",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.CLOSE,
                 report=Report(),
             ),
             Decision(
                 engine_id="con_v6",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.HOLD,
                 report=Report(),
             ),
@@ -135,6 +150,7 @@ _get_decision_test_cases: List[Dict[str, Any]] = [
             Decision(
                 engine_id="",
                 order=Order(),
+                tpsl=TPSL(),
                 action=MarketAction.HOLD,
                 report=Report(),
             ),

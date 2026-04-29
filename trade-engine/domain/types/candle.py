@@ -20,6 +20,12 @@ class Candle(NamedTuple):
     def is_DOWN(self) -> bool:
         return self.close < self.open
 
+    def body_len(self) -> float:
+        return abs(self.open - self.close)
+
+    def shadow_len(self) -> float:
+        return self.high - self.low
+
     def is_less_than(
         self,
         other: "Candle",

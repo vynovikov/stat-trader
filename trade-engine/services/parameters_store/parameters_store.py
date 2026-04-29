@@ -1,4 +1,5 @@
 from domain.models.order import Order
+from domain.models.TPSL import TPSL
 from domain.models.report import Report
 from domain.types.payload import Payload
 from domain.types.entrypoint import Entrypoint
@@ -48,6 +49,7 @@ class ParametersStoreImpl(ParametersStore):
 
         self.order_value = Order()
         self.report_value = Report()
+        self.TPSL_value = TPSL()
         self.spread_value: float = 0.0
         self.last_ptofit_value: float = 0.0
         self.entrypoint_value: Entrypoint
@@ -163,4 +165,13 @@ class ParametersStoreImpl(ParametersStore):
 
     def margin(self) -> float:
         return self.margin_value
+
+    def tpsl(self) -> TPSL:
+        return self.TPSL_value
+
+    def set_tpsl(self, tpsl: TPSL) -> None:
+        self.TPSL_value=tpsl
+
+    def tpsl_reset(self) -> None:
+        self.TPSL_value=TPSL()
 

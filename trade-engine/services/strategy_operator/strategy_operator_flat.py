@@ -29,7 +29,7 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
         self.metric_repository = metric_repository
         self.logger = logger
 
-    def uptrend_order(
+    def initial_uptrend_order(
         self,
         candle: Candle,
         spread: float,
@@ -49,16 +49,14 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        calculated_tp = lower_edge- spread
+        calculated_tp = higher_edge - spread
 
-        calculated_sl = calculated_entry + (calculated_entry-calculated_tp)/2+spread
+        calculated_sl = calculated_entry + (calculated_entry-calculated_tp)+spread
 
         order = Order(
             action=CandleAction.SELL,
             time=candle.close_time - timedelta(minutes=5),
             entry=calculated_entry,
-            sl=calculated_sl,
-            tp=calculated_tp,
             volume=self.bookkeeper.calculate_volume(
                 entry_price=candle.close,
                 sl=calculated_sl,
@@ -72,7 +70,25 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
 
         return order
 
-    def downtrend_order(
+    def additional_uptrend_order(
+        self,
+        candle: Candle,
+        spread: float,
+        deposit: float,
+        risk_per_trade: float,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
+        min_price_delta: float,
+        higher_edge:float,
+        lower_edge:float,
+    ) -> Order:
+
+        calculated_tp = higher_edge - spread
+
+        return Order()
+
+    def additional_downtrend_order(
         self,
         candle: Candle,
         spread: float,
@@ -91,7 +107,7 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
             candle.close + candle_body / 10, 2 * min_price_delta
         )
 
-        calculated_tp = lower_edge- spread
+        calculated_tp = lower_edge - spread
 
         calculated_sl = calculated_entry + (calculated_entry-calculated_tp)/2+spread
 
@@ -429,3 +445,76 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
             candle.is_DOWN() and
             candle.close<higher_edge
         )
+
+    def is_higher_breakthrough(
+        self,
+        candle: Candle,
+        higher_edge:float,
+        ) -> bool:
+
+        return (
+            candle.is_UP() and
+            candle.close>=higher_edge
+        )
+
+
+    def is_lower_breakthrough(
+        self,
+        candle: Candle,
+        lower_edge:float,
+        ) -> bool:
+
+        return (
+            candle.is_DOWN() and
+            candle.close<=lower_edge
+        )
+
+    def is_breakthrough_consolidated(
+        self,
+        order: Order,
+        candle: Candle,
+        ) -> bool:
+
+        match True:
+            case _ if (
+                order.action==CandleAction.SELL and
+                candle.is_UP() and
+                candle.open>order.entry
+            ):
+                return True
+
+            case _ if (
+                order.action==CandleAction.BUY and
+                candle.is_DOWN() and
+                candle.open<order.entry
+            ):
+                return True
+
+        return False
+
+    def initial_params_downtrend(
+        self,
+        candle: Candle,
+        spread: float,
+        deposit: float,
+        risk_per_trade: float,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
+        lower_edge:float,
+    ) -> Tuple[float,float,float]:
+        calculated_tp = lower_edge + spread
+
+        calculated_sl = candle.close + (candle.close-calculated_tp) - spread
+
+        volume= self.bookkeeper.calculate_volume(
+            entry_price=candle.close,
+            sl=calculated_sl,
+            deposit=deposit,
+            risk_per_trade=risk_per_trade,
+            partial_trade_multiplier=partial_trade_multiplier,
+            min_volume=min_volume,
+            safe_factor=safe_factor,
+        )
+
+        return volume,calculated_sl,calculated_tp
