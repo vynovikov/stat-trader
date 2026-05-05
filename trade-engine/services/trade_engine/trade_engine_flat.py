@@ -66,6 +66,9 @@ class TradeEngineFlat(StateMachine):
     initial_lower_breakthrough = State()
     initial_upper_breakthrough = State()
 
+    upper_consolidation = State()
+    lower_consolidation = State()
+
     subsequent_lower_breakthrough = State()
     subsequent_upper_breakthrough = State()
 
@@ -85,7 +88,14 @@ class TradeEngineFlat(StateMachine):
     initial_lower_breakthrough_ts = idle_inside.to(initial_lower_breakthrough)
     initial_upper_breakthrough_ts = idle_inside.to(initial_upper_breakthrough)
 
-    subsequent_lowper_breakthrough_ts = initial_on_full_off_uptrend.to(subsequent_lower_breakthrough)
+    secondary_order_triggered = (
+        upper_consolidation.to(initial_on_full_on_downtrend) |
+        lower_consolidation.to(initial_on_full_on_uptrend)
+    )
+
+    #secondary_lower_order_triggered = lower_consolidation.to(initial_on_full_on_uptrend)
+
+    subsequent_lower_breakthrough_ts = initial_on_full_off_uptrend.to(subsequent_lower_breakthrough)
     subsequent_upper_breakthrough_ts = initial_on_full_off_downtrend.to(subsequent_upper_breakthrough)
 
     entrypoint_uptrend_full = initial_lower_breakthrough.to(initial_on_full_off_uptrend)
@@ -100,9 +110,12 @@ class TradeEngineFlat(StateMachine):
     back_inside_downtrend_subsequent = subsequent_upper_breakthrough.to(initial_on_full_on_downtrend)
 
     consolidate = (
-        subsequent_lower_breakthrough.to(initial_on_full_on_uptrend) |
-        subsequent_upper_breakthrough.to(initial_on_full_on_downtrend)
+        initial_upper_breakthrough.to(upper_consolidation) |
+        initial_lower_breakthrough.to(lower_consolidation) |
+        subsequent_lower_breakthrough.to(upper_consolidation) |
+        subsequent_upper_breakthrough.to(lower_consolidation)
     )
+
 
     TP_triggered = (
         initial_on_full_off_uptrend.to(cooldown) |
@@ -118,47 +131,40 @@ class TradeEngineFlat(StateMachine):
         initial_on_full_on_downtrend.to(cooldown)
     )
 
-    def on_enter_idle_inside(self):
-        if self.last_state_id in [
-            "initial_lower_breakthrough",
-            "initial_upper_breakthrough",
-        ]:
-            order = self.parameters_store.order()
-
-            report = self.report_operator.report(
-                candles=self.history_operator.get(),
-                order=order,
-                reason=self.strategy_operator.reason(
-                    order=order,
-                    price_change=0,
-                    is_cancelled=True,
-                ),
-                profit=0,
-            )
-            self.parameters_store.set_report(report=report)
-            self.parameters_store.order_reset()
-            self.history_operator.clear()
-
     def on_enter_initial_lower_breakthrough(self):
         """
         Actions to perform when entering uptrend state.
         """
-        last_five_candles = self.window_operator.last_n_candles(n=5)
-        self.history_operator.set(last_five_candles)
+        last_candle=self.window_operator.last_n_candles(1)[-1]
 
-        order = self.strategy_operator.initial_uptrend_order(
-            candle=last_five_candles[-1],
+        self.history_operator.add(last_candle)
+
+        volume,sl,tp=self.strategy_operator.initial_params_uptrend(
+            candle=last_candle,
             spread=self.parameters_store.spread(),
             deposit=self.parameters_store.deposit(),
             risk_per_trade=self.parameters_store.risk_per_full_trade(),
             partial_trade_multiplier=self.parameters_store.partial_trade_multiplier(),
             min_volume=self.parameters_store.min_volume(),
             safe_factor=self.parameters_store.safe_factor(),
-            min_price_delta=self.parameters_store.min_price_delta(),
             higher_edge=self.parameters_store.higher_edge(),
-            lower_edge=self.parameters_store.lower_edge(),
         )
-        self.parameters_store.set_order(order=order)
+
+        order = Order(
+            action=CandleAction.BUY,
+            time=last_candle.close_time - timedelta(minutes=5),
+            entry=last_candle.close,
+            volume=volume
+        )
+
+        tpsl=TPSL(
+            volume=volume,
+            sl=sl,
+            tp=tp,
+        )
+
+        self.parameters_store.add_order(order=order)
+        self.parameters_store.set_tpsl(tpsl=tpsl)
 
     def on_enter_initial_upper_breakthrough(self):
         """
@@ -193,7 +199,7 @@ class TradeEngineFlat(StateMachine):
             tp=tp,
         )
 
-        self.parameters_store.set_order(order=order)
+        self.parameters_store.add_order(order=order)
         self.parameters_store.set_tpsl(tpsl=tpsl)
 
     def on_enter_initial_on_full_off_downtrend(self):
@@ -207,12 +213,23 @@ class TradeEngineFlat(StateMachine):
             new_high=last_two_candles[0].close
             self.parameters_store.set_higher_edge(new_high)
 
-    def on_enter_initial_on_full_on_downtrend(self):
+    def on_enter_initial_on_full_off_uptrend(self):
+        last_two_candles=self.window_operator.last_n_candles(2)
+
+        if (
+            last_two_candles[0].is_DOWN() and
+            last_two_candles[1].is_UP()  and
+            last_two_candles[0].close < self.parameters_store.lower_edge()
+        ):
+            new_low=last_two_candles[0].close
+            self.parameters_store.set_lower_edge(new_low)
+
+    def on_enter_upper_consolidation(self):
         last_candle=self.window_operator.last_n_candles(1)[-1]
 
         self.history_operator.add(last_candle)
 
-        order = self.strategy_operator.additional_downtrend_order(
+        volume,sl,tp=self.strategy_operator.subsequent_params_downtrend(
             candle=last_candle,
             spread=self.parameters_store.spread(),
             deposit=self.parameters_store.deposit(),
@@ -220,47 +237,70 @@ class TradeEngineFlat(StateMachine):
             partial_trade_multiplier=self.parameters_store.partial_trade_multiplier(),
             min_volume=self.parameters_store.min_volume(),
             safe_factor=self.parameters_store.safe_factor(),
-            min_price_delta=self.parameters_store.min_price_delta(),
-            higher_edge=self.parameters_store.higher_edge(),
             lower_edge=self.parameters_store.lower_edge(),
         )
-        self.parameters_store.set_order(order=order)
+
+        order = Order(
+            action=CandleAction.SELL,
+            time=last_candle.close_time - timedelta(minutes=5),
+            entry=last_candle.close,
+            volume=volume
+        )
+
+        self.parameters_store.add_order(order=order)
+
+        total_volume = 0
+
+        for order in self.parameters_store.orders():
+            total_volume+=order.volume
+
+        tpsl=TPSL(
+            volume=total_volume,
+            sl=sl,
+            tp=tp,
+        )
+
+        self.parameters_store.set_tpsl(tpsl=tpsl)
 
     def on_enter_cooldown(self):
         """
         Actions to perform when entering off_market cooldown state.
         """
 
-        order = self.parameters_store.order()
+        orders = self.parameters_store.orders()
         last_candle = self.window_operator.last_n_candles(n=1)
         history_candles = self.history_operator.get()
 
         old_deposit = self.parameters_store.deposit()
-        price_change, deposit_change = self.strategy_operator.on_market_profit(
-            order=order,
-            candle=last_candle[0],
-            spread=self.parameters_store.spread(),
-        )
+        for order in orders:
+            price_change, deposit_change = self.strategy_operator.on_market_profit(
+                candle=last_candle[0],
+                order=order,
+                tpsl=self.parameters_store.tpsl()
+            )
+
+            self.parameters_store.set_deposit(deposit=old_deposit + deposit_change)
 
         reason = self.strategy_operator.reason(
-            order=order,
+            order=orders[-1],
+            tpsl=self.parameters_store.tpsl(),
             price_change=price_change,
             is_cancelled=False,
         )
 
         report = self.report_operator.report(
             candles=history_candles,
-            order=order,
+            orders=orders,
+            tpsl=self.parameters_store.tpsl(),
             reason=reason,
             profit=deposit_change,
         )
 
         self.parameters_store.set_report(report=report)
-        self.parameters_store.set_deposit(deposit=old_deposit + deposit_change)
 
         self.history_operator.clear()
         self.counter_operator.cooldown_set()
-        self.parameters_store.order_reset()
+        self.parameters_store.orders_reset()
         self.parameters_store.tpsl_reset()
 
     def window_is_full(self) -> bool:
@@ -391,28 +431,57 @@ class TradeEngineFlat(StateMachine):
                     higher_edge=self.parameters_store.higher_edge(),
                 )
 
-                match True:
+                is_consolidated_higher = self.strategy_operator.is_consolidated_higher(
+                    candle=candle,
+                    lower_edge=self.parameters_store.lower_edge(),
+                    higher_edge=self.parameters_store.higher_edge(),
+                    margin=self.parameters_store.margin(),
+                )
 
+                is_consolidated_lower = self.strategy_operator.is_consolidated_lower(
+                    candle=candle,
+                    lower_edge=self.parameters_store.lower_edge(),
+                    higher_edge=self.parameters_store.higher_edge(),
+                    margin=self.parameters_store.margin(),
+                )
+
+                match True:
                     case _ if is_moved_back_uptrend:
                         self.send("back_inside_uptrend_initial")
 
                     case _ if is_moved_back_downtrend:
                         self.send("back_inside_downtrend_initial")
 
-                    case _ if is_moved_back_downtrend:
-                        self.send("back_inside_downtrend_initial")
+                    case _ if is_consolidated_higher or is_consolidated_lower:
+                        self.send("consolidate")
 
-            case "initial_on_full_off_downtrend":
+            case (
+             "upper_consolidation" |
+             "lower_consolidation"
+            ):
+                is_second_order_triggered=self.strategy_operator.is_order_triggered(
+                    order=self.parameters_store.orders()[-1],
+                    candle=candle,
+                )
+
+                match True:
+                    case _ if is_second_order_triggered:
+                        self.send("secondary_order_triggered")
+
+            case (
+                "initial_on_full_off_downtrend" |
+                "initial_on_full_on_downtrend"
+            ):
                 self.last_state_id = self.current_state_value
                 self.history_operator.add(candle)
 
                 is_sl_triggered_downtrend = self.strategy_operator.is_sl_triggered_downtrend(
-                    SL=self.parameters_store.order().sl,
+                    SL=self.parameters_store.tpsl().sl,
                     candle=candle,
                 )
 
                 is_tp_triggered_downtrend = self.strategy_operator.is_tp_triggered_downtrend(
-                    TP=self.parameters_store.order().tp,
+                    TP=self.parameters_store.tpsl().tp,
                     candle=candle,
                 )
 
@@ -420,7 +489,6 @@ class TradeEngineFlat(StateMachine):
                     candle=candle,
                     higher_edge=self.parameters_store.higher_edge(),
                 )
-
 
                 match True:
                     case _ if is_higher_breakthrough:
@@ -436,7 +504,7 @@ class TradeEngineFlat(StateMachine):
                 self.last_state_id = self.current_state_value
 
                 is_breakthrough_consolidated=self.strategy_operator.is_breakthrough_consolidated(
-                    order = self.parameters_store.order(),
+                    order = self.parameters_store.orders()[-1],
                     candle = candle,
                 )
 
@@ -450,14 +518,9 @@ class TradeEngineFlat(StateMachine):
         """
         Handle a new candle and make decisions based on the current state.
         """
-        close_time = (candle.close_time + timedelta(hours=3, seconds=1)).replace(
-            second=0,
-            microsecond=0,
-        )
 
         match self.current_state_value:
             case "idle_inside" if self.last_state_id not in [
-                #"idle_inside",
                 "initial_lower_breakthrough",
                 "initial_upper_breakthrough",
             ]:
@@ -485,7 +548,7 @@ class TradeEngineFlat(StateMachine):
             cast(str,self.current_state_value), self.last_state_id
         )
         order = (
-            self.parameters_store.order() if action != MarketAction.HOLD else Order()
+            self.parameters_store.orders()[-1] if action != MarketAction.HOLD else Order()
         )
         tpsl = (
             self.parameters_store.tpsl() if action != MarketAction.HOLD else TPSL()

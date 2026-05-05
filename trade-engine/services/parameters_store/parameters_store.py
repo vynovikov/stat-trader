@@ -1,3 +1,5 @@
+from typing import List
+
 from domain.models.order import Order
 from domain.models.TPSL import TPSL
 from domain.models.report import Report
@@ -47,7 +49,7 @@ class ParametersStoreImpl(ParametersStore):
         self.lower_edge_value = lower_edge
         self.margin_value = margin
 
-        self.order_value = Order()
+        self.orders_value: List[Order] = []
         self.report_value = Report()
         self.TPSL_value = TPSL()
         self.spread_value: float = 0.0
@@ -58,14 +60,14 @@ class ParametersStoreImpl(ParametersStore):
     def set_payload(self, payload: Payload) -> None:
         self.payload_value = payload
 
-    def set_order(self, order: Order) -> None:
-        self.order_value = order
+    def add_order(self, order: Order) -> None:
+        self.orders_value.append(order)
 
-    def order(self) -> Order:
-        return self.order_value
+    def orders(self) -> List[Order]:
+        return self.orders_value
 
-    def order_reset(self) -> None:
-        self.order_value = Order()
+    def orders_reset(self) -> None:
+        self.orders_value = []
 
     def set_report(self, report: Report) -> None:
         self.report_value = report

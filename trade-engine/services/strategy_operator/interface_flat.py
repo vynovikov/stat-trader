@@ -4,6 +4,7 @@ from typing import List, Tuple
 from domain.models.order import Order
 from domain.models.TPSL import TPSL
 from domain.types.candle import Candle
+from domain.types.candle_action import CandleAction
 from domain.types.direction import Direction
 from domain.types.market_action import MarketAction
 from domain.types.background import Background
@@ -69,7 +70,10 @@ class StrategyOperatorFlat(ABC):
 
     @abstractmethod
     def on_market_profit(
-        self, order: Order, candle: Candle, spread: float
+        self,
+        candle: Candle,
+        order: Order,
+        tpsl: TPSL,
     ) -> Tuple[float, float]: ...
 
     @abstractmethod
@@ -85,7 +89,13 @@ class StrategyOperatorFlat(ABC):
     def check_sl(self, order: Order, candle: Candle, spread: float) -> bool: ...
 
     @abstractmethod
-    def reason(self, order: Order, price_change: float, is_cancelled: bool) -> str: ...
+    def reason(
+        self,
+        order: Order,
+        tpsl: TPSL,
+        price_change: float,
+        is_cancelled: bool,
+        ) -> str: ...
 
     @abstractmethod
     def action(self, current_state_id: str, last_state_id: str) -> MarketAction: ...
@@ -166,6 +176,24 @@ class StrategyOperatorFlat(ABC):
         ) -> bool: ...
 
     @abstractmethod
+    def is_consolidated_lower(
+        self,
+        candle: Candle,
+        lower_edge:float,
+        higher_edge:float,
+        margin: float,
+        ) -> bool: ...
+
+    @abstractmethod
+    def is_consolidated_higher(
+        self,
+        candle: Candle,
+        lower_edge:float,
+        higher_edge:float,
+        margin: float,
+        ) -> bool: ...
+
+    @abstractmethod
     def initial_params_downtrend(
         self,
         candle: Candle,
@@ -178,5 +206,49 @@ class StrategyOperatorFlat(ABC):
         lower_edge:float,
     ) -> Tuple[float,float,float]: ...
 
+    @abstractmethod
+    def subsequent_params_downtrend(
+        self,
+        candle: Candle,
+        spread: float,
+        deposit: float,
+        risk_per_trade: float,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
+        lower_edge:float,
+    ) -> Tuple[float,float,float]: ...
+
+    @abstractmethod
+    def initial_params_uptrend(
+        self,
+        candle: Candle,
+        spread: float,
+        deposit: float,
+        risk_per_trade: float,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
+        higher_edge:float,
+    ) -> Tuple[float,float,float]: ...
+
+    @abstractmethod
+    def subsequent_params_uptrend(
+        self,
+        candle: Candle,
+        spread: float,
+        deposit: float,
+        risk_per_trade: float,
+        partial_trade_multiplier: float,
+        min_volume: float,
+        safe_factor: float,
+        lower_edge:float,
+    ) -> Tuple[float,float,float]: ...
 
 
+    @abstractmethod
+    def is_order_triggered(
+        self,
+        order: Order,
+        candle: Candle,
+    ) -> bool: ...

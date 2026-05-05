@@ -72,7 +72,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_states": ["not_ready"],
         "expected_cooldown_counter": 0,
         "expected_history": [],
-        "expected_order": Order(),
+        "expected_orders": [],
         "expected_TPSL": TPSL(),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
@@ -140,9 +140,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [],
-        "expected_order": Order(
-            action=CandleAction.NONE, entry=0, sl=0, tp=0, volume=0
-        ),
+        "expected_orders": [],
         "expected_TPSL": TPSL(),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
@@ -225,7 +223,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [],
-        "expected_order": Order(),
+        "expected_orders": [],
         "expected_TPSL": TPSL(),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
@@ -322,11 +320,318 @@ handle_test_cases: List[Dict[str, Any]] = [
                 close_time=datetime(2025, 1, 1, 0, 15),
             ),
         ],
-        "expected_order": Order(
+        "expected_orders": [
+            Order(
+                action=CandleAction.SELL,
+                entry=101.1,
+                volume=3.68,
+            ),
+        ],
+        "expected_TPSL": TPSL(
+            volume=3.676,
+            sl=101.78,
+            tp=100.41,
+        ),
+        "expected_deposit": 1000,
+        "expected_desicion_action": MarketAction.OPEN,
+        "expected_desicion_order": Order(
             action=CandleAction.SELL,
             entry=101.1,
             volume=3.676,
         ),
+        "expected_decision_TPSL": TPSL(
+            volume=3.68,
+            sl=101.78,
+            tp=100.41,
+        ),
+        "expected_desicion_report": Report(),
+    },
+    {
+        "name": "4. Not_ready -> initial_upper_breakthrough -> upper_consolidation",
+        "initial_trade_units": [
+            Trade_unit(
+                candle=Candle(
+                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.8,
+                    low=100.6,
+                    open=100.68,
+                    close=100.78,
+                    volume=1004,
+                    close_time=datetime(2025, 1, 1, 0, 0),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.9,
+                    low=100.7,
+                    open=100.78,
+                    close=100.85,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 5),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101,
+                    low=100.8,
+                    open=100.85,
+                    close=100.95,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 10),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.1,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 15),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+        ],
+        "trade_unit": Trade_unit(
+            candle=Candle(
+                high=101.25,
+                low=101.05,
+                open=101.1,
+                close=101.2,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 20),
+            ),
+            spread=0.01,
+            deposit=1000,
+        ),
+        "min_price_delta": 0.01,
+        "background": Background.FLAT_REV,
+        "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.4,
+        "margin":0.05,
+        "expectations": [],
+        "expected_higher_edge": 101,
+        "expected_lower_edge": 100.4,
+        "expected_states": [
+            "not_ready",
+            "initial_upper_breakthrough",
+            "upper_consolidation",
+        ],
+        "expected_cooldown_counter": 0,
+        "expected_history": [
+            Candle(
+                high=101.2,
+                low=100.9,
+                open=100.95,
+                close=101.1,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 15),
+            ),
+            Candle(
+                high=101.25,
+                low=101.05,
+                open=101.1,
+                close=101.2,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 20),
+            ),
+        ],
+        "expected_orders": [
+            Order(
+                action=CandleAction.SELL,
+                entry=101.1,
+                volume=3.68,
+            ),
+            Order(
+                action=CandleAction.SELL,
+                entry=101.25,
+                volume=3.68,
+            ),
+        ],
+        "expected_TPSL": TPSL(
+            volume=3.676,
+            sl=101.78,
+            tp=100.41,
+        ),
+        "expected_deposit": 1000,
+        "expected_desicion_action": MarketAction.OPEN,
+        "expected_desicion_order": Order(
+            action=CandleAction.SELL,
+            entry=101.1,
+            volume=3.676,
+        ),
+        "expected_decision_TPSL": TPSL(
+            volume=3.68,
+            sl=101.78,
+            tp=100.41,
+        ),
+        "expected_desicion_report": Report(),
+    },
+    {
+        "name": "5. Not_ready -> initial_upper_breakthrough -> upper_consolidation -> initial_on_full_on_downtrend. Limit order triggered",
+        "initial_trade_units": [
+            Trade_unit(
+                candle=Candle(
+                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.8,
+                    low=100.6,
+                    open=100.68,
+                    close=100.78,
+                    volume=1004,
+                    close_time=datetime(2025, 1, 1, 0, 0),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.9,
+                    low=100.7,
+                    open=100.78,
+                    close=100.85,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 5),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101,
+                    low=100.8,
+                    open=100.85,
+                    close=100.95,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 10),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.1,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 15),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.25,
+                    low=101.05,
+                    open=101.1,
+                    close=101.2,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 20),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+        ],
+        "trade_unit": Trade_unit(
+            candle=Candle(
+                high=101.3,
+                low=101.05,
+                open=101.2,
+                close=101.1,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 25),
+            ),
+            spread=0.01,
+            deposit=1000,
+        ),
+        "min_price_delta": 0.01,
+        "background": Background.FLAT_REV,
+        "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.4,
+        "margin":0.05,
+        "expectations": [],
+        "expected_higher_edge": 101,
+        "expected_lower_edge": 100.4,
+        "expected_states": [
+            "not_ready",
+            "initial_upper_breakthrough",
+            "upper_consolidation",
+            "initial_on_full_on_downtrend",
+        ],
+        "expected_cooldown_counter": 0,
+        "expected_history": [
+            Candle(
+                high=101.2,
+                low=100.9,
+                open=100.95,
+                close=101.1,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 15),
+            ),
+            Candle(
+                high=101.25,
+                low=101.05,
+                open=101.1,
+                close=101.2,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 20),
+            ),
+            Candle(
+                high=101.3,
+                low=101.05,
+                open=101.2,
+                close=101.1,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 25),
+            ),
+        ],
+        "expected_orders": [
+            Order(
+                action=CandleAction.SELL,
+                entry=101.1,
+                volume=3.68,
+            ),
+            Order(
+                action=CandleAction.SELL,
+                entry=101.25,
+                volume=3.68,
+            ),
+        ],
         "expected_TPSL": TPSL(
             volume=3.676,
             sl=101.78,
@@ -457,11 +762,13 @@ handle_test_cases: List[Dict[str, Any]] = [
                 close_time=datetime(2025, 1, 1, 0, 20),
             ),
         ],
-        "expected_order": Order(
-            action=CandleAction.SELL,
-            entry=101,
-            volume=4.31,
-        ),
+        "expected_orders": [
+                Order(
+                action=CandleAction.SELL,
+                entry=101,
+                volume=4.31,
+            ),
+        ],
         "expected_TPSL": TPSL(
             volume=4.31,
             sl=101.58,
@@ -583,11 +890,13 @@ handle_test_cases: List[Dict[str, Any]] = [
                 close_time=datetime(2025, 1, 1, 0, 20),
             ),
         ],
-        "expected_order": Order(
-            action=CandleAction.SELL,
-            entry=101.1,
-            volume=3.68,
-        ),
+        "expected_orders": [
+                Order(
+                    action=CandleAction.SELL,
+                    entry=101.1,
+                    volume=3.68,
+                ),
+        ],
         "expected_TPSL": TPSL(
             volume=3.68,
             sl=101.78,
@@ -678,7 +987,7 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=101.5,
+                high=101.8,
                 low=100.8,
                 open=100.95,
                 close=100.85,
@@ -704,47 +1013,51 @@ handle_test_cases: List[Dict[str, Any]] = [
             "cooldown",
         ],
         "expected_cooldown_counter": 4,
-        "expected_history": [ ],
-        "expected_order": Order(),
+        "expected_history": [],
+        "expected_orders": [],
         "expected_TPSL": TPSL(),
-        "expected_deposit": 997.63,
+        "expected_deposit": 997.5,
         "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
         "expected_desicion_report": Report(
             candles=[
+                    Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.1,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 15),
+                ),
                 Candle(
-                high=101.2,
-                low=100.9,
-                open=100.95,
-                close=101.1,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-            Candle(
-                high=101.2,
-                low=100.9,
-                open=101.1,
-                close=100.95,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 20),
-            ),
-            Candle(
-                high=101.5,
-                low=100.8,
-                open=100.95,
-                close=100.85,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 25),
-            ),
+                    high=101.2,
+                    low=100.9,
+                    open=101.1,
+                    close=100.95,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 20),
+                ),
+                Candle(
+                    high=101.8,
+                    low=100.8,
+                    open=100.95,
+                    close=100.85,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 25),
+                ),
             ],
-            order=Order(
-                action=CandleAction.SELL,
-                entry=101.12,
-                sl=101.49,
-                tp=100.39,
-                volume=6.33,
+            orders=[
+                Order(
+                    action=CandleAction.SELL,
+                    entry=101.1,
+                    volume=3.68,
+                ),
+            ],
+            tpsl=TPSL(
+                    volume=3.68,
+                    sl=101.78,
+                    tp=100.41,
             ),
-            #tpsl=TPSL(),
             reason="Sell_SL",
         ),
     },
@@ -880,12 +1193,17 @@ handle_test_cases: List[Dict[str, Any]] = [
                 close_time=datetime(2025, 1, 1, 0, 25),
             ),
         ],
-        "expected_order": Order(
-            action=CandleAction.SELL,
-            entry=101.12,
-            sl=101.49,
-            tp=100.39,
-            volume=6.33,
+        "expected_orders": [
+            Order(
+                action=CandleAction.SELL,
+                entry=101.1,
+                volume=3.68,
+            ),
+        ],
+        "expected_TPSL": TPSL(
+                volume=3.68,
+                sl=101.78,
+                tp=100.41,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
@@ -984,12 +1302,199 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=101.3,
+                high=101.8,
                 low=101.05,
                 open=101.15,
                 close=101.25,
                 volume=1005,
                 close_time=datetime(2025, 1, 1, 0, 30),
+            ),
+            spread=0.01,
+            deposit=1000,
+        ),
+        "min_price_delta": 0.01,
+        "background": Background.FLAT_REV,
+        "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.4,
+        "margin":0.05,
+        "expectations": [],
+        "expected_higher_edge": 101.1,
+        "expected_lower_edge": 100.4,
+        "expected_states": [
+            "not_ready",
+            "initial_upper_breakthrough",
+            "initial_on_full_off_downtrend",
+            "subsequent_upper_breakthrough",
+            "initial_on_full_on_downtrend",
+        ],
+        "expected_cooldown_counter": 0,
+        "expected_history": [
+            Candle(
+                high=101.2,
+                low=100.9,
+                open=100.95,
+                close=101.1,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 15),
+            ),
+            Candle(
+                high=101.2,
+                low=100.9,
+                open=101.1,
+                close=100.95,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 20),
+            ),
+            Candle(
+                high=101.2,
+                low=100.9,
+                open=100.95,
+                close=101.15,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 25),
+            ),
+            Candle(
+                high=101.8,
+                low=101.05,
+                open=101.15,
+                close=101.25,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 30),
+            ),
+        ],
+        "expected_orders": [
+            Order(
+                action=CandleAction.SELL,
+                entry=101.1,
+                volume=3.68,
+            ),
+            Order(
+                action=CandleAction.SELL,
+                entry=101.25,
+                volume=3.01,
+            ),
+        ],
+        "expected_TPSL": TPSL(
+                volume=6.69,
+                sl=102.08,
+                tp=100.41,
+        ),
+        "expected_deposit": 1000,
+        "expected_desicion_action": MarketAction.HOLD,
+        "expected_desicion_order": Order(),
+        "expected_desicion_report": Report(),
+    },
+    {
+        "name": "9. Not_ready -> initial_upper_breakthrough -> initial_on_full_off_downtrend -> subsequent_upper_breakthrough -> initial_on_full_on_downtrend. Downtrend candle",
+        "initial_trade_units": [
+            Trade_unit(
+                candle=Candle(
+                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.8,
+                    low=100.6,
+                    open=100.68,
+                    close=100.78,
+                    volume=1004,
+                    close_time=datetime(2025, 1, 1, 0, 0),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.9,
+                    low=100.7,
+                    open=100.78,
+                    close=100.85,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 5),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101,
+                    low=100.8,
+                    open=100.85,
+                    close=100.95,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 10),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.1,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 15),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=101.1,
+                    close=100.95,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 20),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.15,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 25),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.15,
+                    close=101.25,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 30),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+        ],
+        "trade_unit": Trade_unit(
+            candle=Candle(
+                high=101.3,
+                low=101.05,
+                open=101.25,
+                close=101.13,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 35),
             ),
             spread=0.01,
             deposit=1000,
@@ -1044,156 +1549,31 @@ handle_test_cases: List[Dict[str, Any]] = [
                 volume=1005,
                 close_time=datetime(2025, 1, 1, 0, 30),
             ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.SELL,
-            entry=101.12,
-            sl=101.49,
-            tp=100.39,
-            volume=6.33,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.HOLD,
-        "expected_desicion_order": Order(),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "8. Not_ready -> on_market_downtrend. Candles continue uptrend. SL is not triggered",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.8, low=100.5, open=100.55, close=100.7, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.6, open=100.7, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.8,
-                    low=100.6,
-                    open=100.68,
-                    close=100.78,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.9,
-                    low=100.7,
-                    open=100.78,
-                    close=100.85,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=101,
-                    low=100.8,
-                    open=100.85,
-                    close=100.95,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=101.2,
-                    low=100.9,
-                    open=100.95,
-                    close=101.1,
-                    volume=1007,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=101.27,
+            Candle(
+                high=101.3,
                 low=101.05,
-                open=101.1,
-                close=101.23,
-                volume=1007,
-                close_time=datetime(2025, 1, 1, 0, 20),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_downtrend",
-            "on_market_downtrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(high=100.7, low=100.6, open=100.7, close=100.68, volume=1003),
-            Candle(
-                high=100.8,
-                low=100.6,
-                open=100.68,
-                close=100.78,
-                volume=1004,
-                close_time=datetime(2025, 1, 1, 0, 0),
-            ),
-            Candle(
-                high=100.9,
-                low=100.7,
-                open=100.78,
-                close=100.85,
+                open=101.25,
+                close=101.13,
                 volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 5),
-            ),
-            Candle(
-                high=101,
-                low=100.8,
-                open=100.85,
-                close=100.95,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 10),
-            ),
-            Candle(
-                high=101.2,
-                low=100.9,
-                open=100.95,
-                close=101.1,
-                volume=1007,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-            Candle(
-                high=101.27,
-                low=101.05,
-                open=101.1,
-                close=101.23,
-                volume=1007,
-                close_time=datetime(2025, 1, 1, 0, 20),
+                close_time=datetime(2025, 1, 1, 0, 35),
             ),
         ],
-        "expected_order": Order(
-            action=CandleAction.SELL,
-            entry=101.12,
-            sl=101.43,
-            tp=100.52,
-            volume=15.15,
+        "expected_orders": [
+            Order(
+                action=CandleAction.SELL,
+                entry=101.1,
+                volume=3.68,
+            ),
+            Order(
+                action=CandleAction.SELL,
+                entry=101.25,
+                volume=3.01,
+            ),
+        ],
+        "expected_TPSL": TPSL(
+                volume=6.69,
+                sl=102.08,
+                tp=100.41,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
@@ -1201,18 +1581,18 @@ handle_test_cases: List[Dict[str, Any]] = [
         "expected_desicion_report": Report(),
     },
     {
-        "name": "9. Not_ready -> orders_downtrend -> on_market_downtrend -> cooldown. Candle triggers SL",
+        "name": "10. Not_ready -> initial_upper_breakthrough -> initial_on_full_off_downtrend -> subsequent_upper_breakthrough -> initial_on_full_on_downtrend -> cooldown. SL triggered",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
-                    high=100.8, low=100.5, open=100.55, close=100.7, volume=1002
+                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
                 ),
                 spread=0.01,
                 deposit=1000,
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.7, low=100.6, open=100.7, close=100.68, volume=1003
+                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
                 ),
                 spread=0.01,
                 deposit=1000,
@@ -1247,7 +1627,7 @@ handle_test_cases: List[Dict[str, Any]] = [
                     low=100.8,
                     open=100.85,
                     close=100.95,
-                    volume=1006,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 10),
                 ),
                 spread=0.01,
@@ -1259,7 +1639,7 @@ handle_test_cases: List[Dict[str, Any]] = [
                     low=100.9,
                     open=100.95,
                     close=101.1,
-                    volume=1007,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 15),
                 ),
                 spread=0.01,
@@ -1267,25 +1647,61 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
             Trade_unit(
                 candle=Candle(
-                    high=101.27,
-                    low=101.05,
+                    high=101.2,
+                    low=100.9,
                     open=101.1,
-                    close=101.23,
-                    volume=1008,
+                    close=100.95,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 20),
                 ),
                 spread=0.01,
                 deposit=1000,
             ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.15,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 25),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.15,
+                    close=101.25,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 30),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.25,
+                    close=101.13,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 35),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=101.43,
-                low=101.18,
-                open=101.23,
-                close=101.32,
-                volume=1009,
-                close_time=datetime(2025, 1, 1, 0, 25),
+                high=102.08,
+                low=100.9,
+                open=101.13,
+                close=101.1,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 40),
             ),
             spread=0.01,
             deposit=1000,
@@ -1293,105 +1709,122 @@ handle_test_cases: List[Dict[str, Any]] = [
         "min_price_delta": 0.01,
         "background": Background.FLAT_REV,
         "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.4,
+        "margin":0.05,
         "expectations": [],
+        "expected_higher_edge": 101.1,
+        "expected_lower_edge": 100.4,
         "expected_states": [
             "not_ready",
-            "orders_downtrend",
-            "on_market_downtrend",
+            "initial_upper_breakthrough",
+            "initial_on_full_off_downtrend",
+            "subsequent_upper_breakthrough",
+            "initial_on_full_on_downtrend",
             "cooldown",
         ],
-        "expected_cooldown_counter": 3,
+        "expected_cooldown_counter": 4,
         "expected_history": [],
-        "expected_order": Order(),
-        "expected_deposit": 995.3,
-        "expected_desicion_action": MarketAction.CLOSE,
+        "expected_orders": [],
+        "expected_TPSL": TPSL(),
+        "expected_deposit": 997.5,
+        "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
         "expected_desicion_report": Report(
             candles=[
-                Candle(high=100.7, low=100.6, open=100.7, close=100.68, volume=1003),
-                Candle(
-                    high=100.8,
-                    low=100.6,
-                    open=100.68,
-                    close=100.78,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                Candle(
-                    high=100.9,
-                    low=100.7,
-                    open=100.78,
-                    close=100.85,
+                    Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.1,
                     volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 5),
+                    close_time=datetime(2025, 1, 1, 0, 15),
                 ),
                 Candle(
-                    high=101,
-                    low=100.8,
-                    open=100.85,
+                    high=101.2,
+                    low=100.9,
+                    open=101.1,
                     close=100.95,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 10),
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 20),
                 ),
                 Candle(
                     high=101.2,
                     low=100.9,
                     open=100.95,
-                    close=101.1,
-                    volume=1007,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                Candle(
-                    high=101.27,
-                    low=101.05,
-                    open=101.1,
-                    close=101.23,
-                    volume=1008,
-                    close_time=datetime(2025, 1, 1, 0, 20),
-                ),
-                Candle(
-                    high=101.43,
-                    low=101.18,
-                    open=101.23,
-                    close=101.32,
-                    volume=1009,
+                    close=101.15,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 25),
                 ),
+                Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.15,
+                    close=101.25,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 30),
+                ),
+                Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.25,
+                    close=101.13,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 35),
+                ),
+                Candle(
+                    high=102.08,
+                    low=100.9,
+                    open=101.13,
+                    close=101.1,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 40),
+                ),
             ],
-            order=Order(
-                action=CandleAction.SELL,
-                entry=101.12,
-                sl=101.43,
-                tp=100.52,
-                volume=15.15,
+            orders=[
+                Order(
+                    action=CandleAction.SELL,
+                    entry=101.1,
+                    volume=3.68,
+                ),
+                Order(
+                    action=CandleAction.SELL,
+                    entry=101.25,
+                    volume=3.01,
+                ),
+            ],
+            tpsl=TPSL(
+                volume=6.69,
+                sl=102.08,
+                tp=100.41,
             ),
             reason="Sell_SL",
         ),
     },
     {
-        "name": "10.0. Not_ready -> orders_uptrend. 5 trend candles. Pattern [UP DOWN DOWN DOWN DOWN]. Background is FLAT_REV",
+        "name": "11. Not_ready -> initial_upper_breakthrough -> initial_on_full_off_downtrend -> subsequent_upper_breakthrough -> initial_on_full_on_downtrend -> cooldown. TP triggered",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.58, volume=1002
+                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
                 ),
                 spread=0.01,
                 deposit=1000,
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
+                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
                 ),
                 spread=0.01,
-                deposit=1001,
+                deposit=1000,
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.75,
-                    low=100.5,
+                    high=100.8,
+                    low=100.6,
                     open=100.68,
-                    close=100.58,
-                    volume=1002,
+                    close=100.78,
+                    volume=1004,
                     close_time=datetime(2025, 1, 1, 0, 0),
                 ),
                 spread=0.01,
@@ -1399,11 +1832,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
+                    high=100.9,
+                    low=100.7,
+                    open=100.78,
+                    close=100.85,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 5),
                 ),
                 spread=0.01,
@@ -1411,12 +1844,72 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
+                    high=101,
+                    low=100.8,
+                    open=100.85,
+                    close=100.95,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 10),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.1,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 15),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=101.1,
+                    close=100.95,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 20),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.15,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 25),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.15,
+                    close=101.25,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 30),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.25,
+                    close=101.13,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 35),
                 ),
                 spread=0.01,
                 deposit=1000,
@@ -1424,140 +1917,12 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_uptrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(high=100.7, low=100.5, open=100.58, close=100.68, volume=1003),
-            Candle(
-                high=100.75,
-                low=100.5,
-                open=100.68,
-                close=100.58,
-                volume=1002,
-                close_time=datetime(2025, 1, 1, 0, 0),
-            ),
-            Candle(
-                high=100.65,
+                high=101.2,
                 low=100.4,
-                open=100.58,
-                close=100.48,
-                volume=1003,
-                close_time=datetime(2025, 1, 1, 0, 5),
-            ),
-            Candle(
-                high=100.55,
-                low=100.3,
-                open=100.48,
-                close=100.38,
-                volume=1004,
-                close_time=datetime(2025, 1, 1, 0, 10),
-            ),
-            Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
+                open=101.13,
+                close=101.1,
                 volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.OPEN,
-        "expected_desicion_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "10.1. Not_ready -> orders_uptrend. 5 trend candles. Pattern [DOWN UP DOWN DOWN DOWN]. Background is FLAT_REV",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.71,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.4,
-                    open=100.71,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
+                close_time=datetime(2025, 1, 1, 0, 40),
             ),
             spread=0.01,
             deposit=1000,
@@ -1565,700 +1930,122 @@ handle_test_cases: List[Dict[str, Any]] = [
         "min_price_delta": 0.01,
         "background": Background.FLAT_REV,
         "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.4,
+        "margin":0.05,
         "expectations": [],
+        "expected_higher_edge": 101.1,
+        "expected_lower_edge": 100.4,
         "expected_states": [
             "not_ready",
-            "orders_uptrend",
+            "initial_upper_breakthrough",
+            "initial_on_full_off_downtrend",
+            "subsequent_upper_breakthrough",
+            "initial_on_full_on_downtrend",
+            "cooldown",
         ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(
-                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
-                ),
-            Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.71,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-            Candle(
-                    high=100.75,
-                    low=100.4,
-                    open=100.71,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-            Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-            Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.OPEN,
-        "expected_desicion_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "10.2. Not_ready -> orders_uptrend. 5 trend candles. Pattern [DOWN DOWN UP DOWN DOWN]. Background is FLAT_REV",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.55,
-                    open=100.58,
-                    close=100.61,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.3,
-                    open=100.61,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_uptrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(high=100.7, low=100.5, open=100.78, close=100.68, volume=1003),
-            Candle(
-                high=100.75,
-                low=100.5,
-                open=100.68,
-                close=100.58,
-                volume=1002,
-                close_time=datetime(2025, 1, 1, 0, 0),
-            ),
-            Candle(
-                high=100.65,
-                low=100.55,
-                open=100.58,
-                close=100.61,
-                volume=1003,
-                close_time=datetime(2025, 1, 1, 0, 5),
-            ),
-            Candle(
-                high=100.65,
-                low=100.3,
-                open=100.61,
-                close=100.38,
-                volume=1004,
-                close_time=datetime(2025, 1, 1, 0, 10),
-            ),
-            Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.OPEN,
-        "expected_desicion_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "10.3. Not_ready -> orders_uptrend. 5 trend candles. Pattern [DOWN DOWN UP DOWN DOWN]. Background is FLAT_REV",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.55,
-                    open=100.58,
-                    close=100.61,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.3,
-                    open=100.61,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_uptrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(high=100.7, low=100.5, open=100.78, close=100.68, volume=1003),
-            Candle(
-                high=100.75,
-                low=100.5,
-                open=100.68,
-                close=100.58,
-                volume=1002,
-                close_time=datetime(2025, 1, 1, 0, 0),
-            ),
-            Candle(
-                high=100.65,
-                low=100.55,
-                open=100.58,
-                close=100.61,
-                volume=1003,
-                close_time=datetime(2025, 1, 1, 0, 5),
-            ),
-            Candle(
-                high=100.65,
-                low=100.3,
-                open=100.61,
-                close=100.38,
-                volume=1004,
-                close_time=datetime(2025, 1, 1, 0, 10),
-            ),
-            Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.OPEN,
-        "expected_desicion_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "10.4. Not_ready -> orders_uptrend. 5 trend candles. Pattern [DOWN DOWN DOWN UP DOWN]. Background is FLAT_REV",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.55,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.55,
-                    low=100.45,
-                    open=100.48,
-                    close=100.51,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.45,
-                low=100.2,
-                open=100.51,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_uptrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(high=100.7, low=100.5, open=100.78, close=100.68, volume=1003),
-            Candle(
-                high=100.75,
-                low=100.5,
-                open=100.68,
-                close=100.58,
-                volume=1002,
-                close_time=datetime(2025, 1, 1, 0, 0),
-            ),
-            Candle(
-                high=100.65,
-                low=100.55,
-                open=100.58,
-                close=100.48,
-                volume=1003,
-                close_time=datetime(2025, 1, 1, 0, 5),
-            ),
-            Candle(
-                high=100.55,
-                low=100.45,
-                open=100.48,
-                close=100.51,
-                volume=1004,
-                close_time=datetime(2025, 1, 1, 0, 10),
-            ),
-            Candle(
-                high=100.45,
-                low=100.2,
-                open=100.51,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.OPEN,
-        "expected_desicion_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "11. Not_ready -> orders_uptrend. 5 trend candles. Background is SELL_TREND",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.45,
-                low=100.2,
-                open=100.38,
-                close=100.28,
-                volume=1005,
-                close_time=datetime(2025, 1, 1, 0, 15),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.BEARISH_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "idle",
-        ],
-        "expected_cooldown_counter": 0,
+        "expected_cooldown_counter": 4,
         "expected_history": [],
-        "expected_order": Order(),
-        "expected_deposit": 1000,
+        "expected_orders": [],
+        "expected_TPSL": TPSL(),
+        "expected_deposit": 1002.53,
         "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "12. Not_ready -> on_market_uptrend. Entry triggered",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.65, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.65, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.33,
-                low=100.19,
-                open=100.28,
-                close=100.21,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 20),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_uptrend",
-            "on_market_uptrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(high=100.7, low=100.5, open=100.65, close=100.68, volume=1003),
-                Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
+        "expected_desicion_report": Report(
+            candles=[
+                    Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.1,
                     volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 15),
                 ),
                 Candle(
-                    high=100.33,
-                    low=100.19,
-                    open=100.28,
-                    close=100.21,
-                    volume=1006,
+                    high=101.2,
+                    low=100.9,
+                    open=101.1,
+                    close=100.95,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 20),
                 ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
+                Candle(
+                    high=101.2,
+                    low=100.9,
+                    open=100.95,
+                    close=101.15,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 25),
+                ),
+                Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.15,
+                    close=101.25,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 30),
+                ),
+                Candle(
+                    high=101.3,
+                    low=101.05,
+                    open=101.25,
+                    close=101.13,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 35),
+                ),
+                Candle(
+                    high=101.2,
+                    low=100.4,
+                    open=101.13,
+                    close=101.1,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 40),
+                ),
+            ],
+            orders=[
+                Order(
+                    action=CandleAction.SELL,
+                    entry=101.1,
+                    volume=3.68,
+                ),
+                Order(
+                    action=CandleAction.SELL,
+                    entry=101.25,
+                    volume=3.01,
+                ),
+            ],
+            tpsl=TPSL(
+                volume=6.69,
+                sl=102.08,
+                tp=100.41,
+            ),
+            reason="Sell_TP",
         ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.HOLD,
-        "expected_desicion_order": Order(),
-        "expected_desicion_report": Report( ),
     },
     {
-        "name": "13. Not_ready -> orders_uptrend -> cooldown. Entry and SL triggered",
+        "name": "12. Not_ready -> initial_lower_breakthrough",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.58, volume=1002
+                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
                 ),
                 spread=0.01,
                 deposit=1000,
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
+                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
                 ),
                 spread=0.01,
-                deposit=1001,
+                deposit=1000,
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.75,
+                    high=100.7,
                     low=100.5,
                     open=100.68,
                     close=100.58,
-                    volume=1002,
+                    volume=1004,
                     close_time=datetime(2025, 1, 1, 0, 0),
                 ),
                 spread=0.01,
@@ -2266,11 +2053,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.65,
+                    high=100.6,
                     low=100.4,
                     open=100.58,
-                    close=100.48,
-                    volume=1003,
+                    close=100.45,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 5),
                 ),
                 spread=0.01,
@@ -2278,321 +2065,12 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.55,
+                    high=100.5,
                     low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.35,
-                low=100.09,
-                open=100.28,
-                close=100.11,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 20),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_uptrend",
-            "on_market_uptrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(high=100.7, low=100.5, open=100.58, close=100.68, volume=1003),
-                Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                Candle(
-                    high=100.35,
-                    low=100.09,
-                    open=100.28,
-                    close=100.11,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 20),
-                ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.HOLD,
-        "expected_desicion_order": Order(),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "14. Not_ready -> orders_uptrend -> idle. Reversal candle",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.58, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.4,
-                low=100.21,
-                open=100.28,
-                close=100.35,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 20),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_uptrend",
-            "on_market_uptrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-                Candle(high=100.7, low=100.5, open=100.58, close=100.68, volume=1003),
-                Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                Candle(
-                    high=100.4,
-                    low=100.21,
-                    open=100.28,
+                    open=100.45,
                     close=100.35,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 20),
-                ),],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.HOLD,
-        "expected_desicion_order": Order(),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "15. Not_ready -> orders_uptrend -> on_market_uptrend. Candle continues uptrend. SL is not triggered",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.58, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
                     volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.35,
-                    low=100.19,
-                    open=100.28,
-                    close=100.21,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 20),
+                    close_time=datetime(2025, 1, 1, 0, 10),
                 ),
                 spread=0.01,
                 deposit=1000,
@@ -2600,11 +2078,139 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=100.35,
-                low=100.25,
-                open=100.21,
-                close=100.31,
-                volume=1006,
+                high=101.4,
+                low=100.2,
+                open=100.35,
+                close=100.25,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 15),
+            ),
+            spread=0.01,
+            deposit=1000,
+        ),
+        "min_price_delta": 0.01,
+        "background": Background.FLAT_REV,
+        "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.3,
+        "margin":0.05,
+        "expectations": [],
+        "expected_higher_edge": 101,
+        "expected_lower_edge": 100.3,
+        "expected_states": [
+            "not_ready",
+            "initial_lower_breakthrough",
+        ],
+        "expected_cooldown_counter": 0,
+        "expected_history": [
+            Candle(
+                high=101.4,
+                low=100.2,
+                open=100.35,
+                close=100.25,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 15),
+            ),
+        ],
+        "expected_orders": [
+            Order(
+                action=CandleAction.BUY,
+                entry=100.25,
+                volume=3.42,
+            ),
+        ],
+        "expected_TPSL": TPSL(
+            volume=3.42,
+            sl=99.52,
+            tp=100.99,
+        ),
+        "expected_deposit": 1000,
+        "expected_desicion_action": MarketAction.OPEN,
+        "expected_desicion_order": Order(
+                action=CandleAction.BUY,
+                entry=100.25,
+                volume=3.42,
+            ),
+        "expected_decision_TPSL": TPSL(
+            volume=3.42,
+            sl=99.52,
+            tp=100.99,
+        ),
+        "expected_desicion_report": Report(),
+    },
+    {
+        "name": "13. Not_ready -> initial_lower_breakthrough -> initial_on_full_off_uptrend. No lower_edge expansion",
+        "initial_trade_units": [
+            Trade_unit(
+                candle=Candle(
+                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.7,
+                    low=100.5,
+                    open=100.68,
+                    close=100.58,
+                    volume=1004,
+                    close_time=datetime(2025, 1, 1, 0, 0),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.6,
+                    low=100.4,
+                    open=100.58,
+                    close=100.45,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 5),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=100.5,
+                    low=100.3,
+                    open=100.45,
+                    close=100.35,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 10),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+            Trade_unit(
+                candle=Candle(
+                    high=101.4,
+                    low=100.2,
+                    open=100.35,
+                    close=100.3,
+                    volume=1005,
+                    close_time=datetime(2025, 1, 1, 0, 15),
+                ),
+                spread=0.01,
+                deposit=1000,
+            ),
+        ],
+        "trade_unit": Trade_unit(
+            candle=Candle(
+                high=101.4,
+                low=100.2,
+                open=100.3,
+                close=100.35,
+                volume=1005,
                 close_time=datetime(2025, 1, 1, 0, 25),
             ),
             spread=0.01,
@@ -2613,102 +2219,78 @@ handle_test_cases: List[Dict[str, Any]] = [
         "min_price_delta": 0.01,
         "background": Background.FLAT_REV,
         "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.3,
+        "margin":0.05,
         "expectations": [],
+        "expected_higher_edge": 101,
+        "expected_lower_edge": 100.3,
         "expected_states": [
             "not_ready",
-            "orders_uptrend",
-            "on_market_uptrend",
+            "initial_lower_breakthrough",
+            "initial_on_full_off_uptrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
             Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
-                ),
+                high=101.4,
+                low=100.2,
+                open=100.35,
+                close=100.3,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 15),
+            ),
             Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-            Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-            Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-            Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-            Candle(
-                    high=100.35,
-                    low=100.19,
-                    open=100.28,
-                    close=100.21,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 20),
-                ),
-            Candle(
-                high=100.35,
-                low=100.25,
-                open=100.21,
-                close=100.31,
-                volume=1006,
+                high=101.4,
+                low=100.2,
+                open=100.3,
+                close=100.35,
+                volume=1005,
                 close_time=datetime(2025, 1, 1, 0, 25),
             ),
         ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
+        "expected_orders": [
+            Order(
+                action=CandleAction.BUY,
+                entry=100.3,
+                volume=3.68,
+            ),
+        ],
+        "expected_TPSL": TPSL(
+            volume=3.68,
+            sl=99.62,
+            tp=100.99,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
+        "expected_decision_TPSL": TPSL(),
         "expected_desicion_report": Report(),
     },
     {
-        "name": "16. Not_ready -> orders_uptrend -> on_market_uptrend > cooldown. SL is triggered",
+        "name": "14. Not_ready -> initial_lower_breakthrough -> initial_on_full_off_uptrend. Lower_edge expansion",
         "initial_trade_units": [
             Trade_unit(
                 candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.58, volume=1002
+                    high=100.6, low=100.5, open=100.55, close=100.78, volume=1002
                 ),
                 spread=0.01,
                 deposit=1000,
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
+                    high=100.7, low=100.5, open=100.78, close=100.68, volume=1003
                 ),
                 spread=0.01,
-                deposit=1001,
+                deposit=1000,
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.75,
+                    high=100.7,
                     low=100.5,
                     open=100.68,
                     close=100.58,
-                    volume=1002,
+                    volume=1004,
                     close_time=datetime(2025, 1, 1, 0, 0),
                 ),
                 spread=0.01,
@@ -2716,11 +2298,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.65,
+                    high=100.6,
                     low=100.4,
                     open=100.58,
-                    close=100.48,
-                    volume=1003,
+                    close=100.45,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 5),
                 ),
                 spread=0.01,
@@ -2728,11 +2310,11 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.55,
+                    high=100.5,
                     low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
+                    open=100.45,
+                    close=100.35,
+                    volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 10),
                 ),
                 spread=0.01,
@@ -2740,36 +2322,12 @@ handle_test_cases: List[Dict[str, Any]] = [
             ),
             Trade_unit(
                 candle=Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
+                    high=101.4,
+                    low=100.1,
+                    open=100.35,
+                    close=100.2,
                     volume=1005,
                     close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.35,
-                    low=100.19,
-                    open=100.28,
-                    close=100.21,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 20),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.35,
-                    low=100.25,
-                    open=100.21,
-                    close=100.31,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 25),
                 ),
                 spread=0.01,
                 deposit=1000,
@@ -2777,12 +2335,12 @@ handle_test_cases: List[Dict[str, Any]] = [
         ],
         "trade_unit": Trade_unit(
             candle=Candle(
-                high=100.35,
-                low=100.09,
-                open=100.31,
-                close=100.32,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 30),
+                high=101.4,
+                low=100.1,
+                open=100.2,
+                close=100.35,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 25),
             ),
             spread=0.01,
             deposit=1000,
@@ -2790,269 +2348,52 @@ handle_test_cases: List[Dict[str, Any]] = [
         "min_price_delta": 0.01,
         "background": Background.FLAT_REV,
         "power": Power.WEAK,
+        "higher_edge": 101,
+        "lower_edge": 100.3,
+        "margin":0.05,
         "expectations": [],
+        "expected_higher_edge": 101,
+        "expected_lower_edge": 100.2,
         "expected_states": [
             "not_ready",
-            "orders_uptrend",
-            "on_market_uptrend",
+            "initial_lower_breakthrough",
+            "initial_on_full_off_uptrend",
         ],
         "expected_cooldown_counter": 0,
         "expected_history": [
             Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
-                ),
+                high=101.4,
+                low=100.1,
+                open=100.35,
+                close=100.2,
+                volume=1005,
+                close_time=datetime(2025, 1, 1, 0, 15),
+            ),
             Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-            Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-            Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-            Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-            Candle(
-                    high=100.35,
-                    low=100.19,
-                    open=100.28,
-                    close=100.21,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 20),
-                ),
-            Candle(
-                high=100.35,
-                low=100.25,
-                open=100.21,
-                close=100.31,
-                volume=1006,
+                high=101.4,
+                low=100.1,
+                open=100.2,
+                close=100.35,
+                volume=1005,
                 close_time=datetime(2025, 1, 1, 0, 25),
             ),
-            Candle(
-                high=100.35,
-                low=100.09,
-                open=100.31,
-                close=100.32,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 30),
+        ],
+        "expected_orders": [
+            Order(
+                action=CandleAction.BUY,
+                entry=100.2,
+                volume=3.21,
             ),
         ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
+        "expected_TPSL": TPSL(
+            volume=3.21,
+            sl=99.42,
+            tp=100.99,
         ),
         "expected_deposit": 1000,
         "expected_desicion_action": MarketAction.HOLD,
         "expected_desicion_order": Order(),
-        "expected_desicion_report": Report(),
-    },
-    {
-        "name": "17. Not_ready -> orders_uptrend -> on_market_uptrend > cooldown. TP is triggered",
-        "initial_trade_units": [
-            Trade_unit(
-                candle=Candle(
-                    high=100.6, low=100.5, open=100.55, close=100.58, volume=1002
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
-                ),
-                spread=0.01,
-                deposit=1001,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.35,
-                    low=100.19,
-                    open=100.28,
-                    close=100.21,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 20),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-            Trade_unit(
-                candle=Candle(
-                    high=100.35,
-                    low=100.25,
-                    open=100.21,
-                    close=100.31,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 25),
-                ),
-                spread=0.01,
-                deposit=1000,
-            ),
-        ],
-        "trade_unit": Trade_unit(
-            candle=Candle(
-                high=100.45,
-                low=100.25,
-                open=100.31,
-                close=100.37,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 30),
-            ),
-            spread=0.01,
-            deposit=1000,
-        ),
-        "min_price_delta": 0.01,
-        "background": Background.FLAT_REV,
-        "power": Power.WEAK,
-        "expectations": [],
-        "expected_states": [
-            "not_ready",
-            "orders_uptrend",
-            "on_market_uptrend",
-        ],
-        "expected_cooldown_counter": 0,
-        "expected_history": [
-            Candle(
-                    high=100.7, low=100.5, open=100.58, close=100.68, volume=1003
-                ),
-            Candle(
-                    high=100.75,
-                    low=100.5,
-                    open=100.68,
-                    close=100.58,
-                    volume=1002,
-                    close_time=datetime(2025, 1, 1, 0, 0),
-                ),
-            Candle(
-                    high=100.65,
-                    low=100.4,
-                    open=100.58,
-                    close=100.48,
-                    volume=1003,
-                    close_time=datetime(2025, 1, 1, 0, 5),
-                ),
-            Candle(
-                    high=100.55,
-                    low=100.3,
-                    open=100.48,
-                    close=100.38,
-                    volume=1004,
-                    close_time=datetime(2025, 1, 1, 0, 10),
-                ),
-            Candle(
-                    high=100.45,
-                    low=100.2,
-                    open=100.38,
-                    close=100.28,
-                    volume=1005,
-                    close_time=datetime(2025, 1, 1, 0, 15),
-                ),
-            Candle(
-                    high=100.35,
-                    low=100.19,
-                    open=100.28,
-                    close=100.21,
-                    volume=1006,
-                    close_time=datetime(2025, 1, 1, 0, 20),
-                ),
-            Candle(
-                high=100.35,
-                low=100.25,
-                open=100.21,
-                close=100.31,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 25),
-            ),
-            Candle(
-                high=100.45,
-                low=100.25,
-                open=100.31,
-                close=100.37,
-                volume=1006,
-                close_time=datetime(2025, 1, 1, 0, 30),
-            ),
-        ],
-        "expected_order": Order(
-            action=CandleAction.BUY,
-            entry=100.26,
-            sl=99.98,
-            tp=100.81,
-            volume=16.39,
-        ),
-        "expected_deposit": 1000,
-        "expected_desicion_action": MarketAction.HOLD,
-        "expected_desicion_order": Order(),
+        "expected_decision_TPSL": TPSL(),
         "expected_desicion_report": Report(),
     },
 ]
@@ -3141,7 +2482,7 @@ def test_trade_engine_flat(case):
             # )
             num += 1
             trade_engine_flat.parameters_store.clear_report()
-            trade_engine_flat.parameters_store.order_reset()
+            trade_engine_flat.parameters_store.orders_reset()
 
         add(states, cast(str,trade_engine_flat.current_state_value))
 
@@ -3156,7 +2497,7 @@ def test_trade_engine_flat(case):
         #    reason=output.report.reason,
         # )
         trade_engine_flat.parameters_store.clear_report()
-        trade_engine_flat.parameters_store.order_reset()
+        trade_engine_flat.parameters_store.orders_reset()
 
     add(states, cast(str,trade_engine_flat.current_state_value))
 
@@ -3171,16 +2512,11 @@ def test_trade_engine_flat(case):
 
     assert trade_engine_flat.history_operator.get() == case["expected_history"]
 
-    assert (
-        trade_engine_flat.parameters_store.order().action == case["expected_order"].action
-    )
+    for idx,order in enumerate(trade_engine_flat.parameters_store.orders()):
+        assert order.action == case["expected_orders"][idx].action
+        assert round(order.volume,2) == round(case["expected_orders"][idx].volume,2)
+        assert round(order.entry,2) == round(case["expected_orders"][idx].entry,2)
 
-    assert round(trade_engine_flat.parameters_store.order().entry, 2) == round(
-        case["expected_order"].entry, 2
-    )
-    assert round(trade_engine_flat.parameters_store.order().volume, 2) == round(
-        case["expected_order"].volume, 2
-    )
 
     assert round(trade_engine_flat.parameters_store.tpsl().volume, 2) == round(
         case["expected_TPSL"].volume, 2
@@ -3216,18 +2552,23 @@ def test_trade_engine_flat(case):
     )
 
     assert output.report.candles == case["expected_desicion_report"].candles
-    assert output.report.order.action == case["expected_desicion_report"].order.action
-    assert round(output.report.order.entry, 2) == round(
-        case["expected_desicion_report"].order.entry, 2
+
+    for idx,order in enumerate(output.report.orders):
+        assert order.action == case["expected_desicion_report"].orders[idx].action
+        assert round(order.entry, 2) == round(
+            case["expected_desicion_report"].orders[idx].entry, 2
+        )
+        assert round(order.volume, 2) == round(
+            case["expected_desicion_report"].orders[idx].volume, 2
+        )
+    assert round(output.report.tpsl.volume, 2) == round(
+        case["expected_desicion_report"].tpsl.volume, 2
     )
-    assert round(output.report.order.sl, 2) == round(
-        case["expected_desicion_report"].order.sl, 2
+    assert round(output.report.tpsl.sl, 2) == round(
+        case["expected_desicion_report"].tpsl.sl, 2
     )
-    assert round(output.report.order.tp, 2) == round(
-        case["expected_desicion_report"].order.tp, 2
-    )
-    assert round(output.report.order.volume, 2) == round(
-        case["expected_desicion_report"].order.volume, 2
+    assert round(output.report.tpsl.tp, 2) == round(
+        case["expected_desicion_report"].tpsl.tp, 2
     )
     assert output.report.reason == case["expected_desicion_report"].reason
 
