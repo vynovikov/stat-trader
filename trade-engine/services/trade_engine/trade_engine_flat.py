@@ -106,16 +106,20 @@ class TradeEngineFlat(StateMachine):
     back_inside_uptrend_initial = initial_lower_breakthrough.to(initial_on_full_off_uptrend)
     back_inside_downtrend_initial = initial_upper_breakthrough.to(initial_on_full_off_downtrend)
 
+    back_inside_idle = (
+        initial_lower_breakthrough.to(idle_inside) |
+        initial_upper_breakthrough.to(idle_inside)
+    )
+
     back_inside_uptrend_subsequent = subsequent_lower_breakthrough.to(initial_on_full_on_uptrend)
     back_inside_downtrend_subsequent = subsequent_upper_breakthrough.to(initial_on_full_on_downtrend)
 
     consolidate = (
         initial_upper_breakthrough.to(upper_consolidation) |
         initial_lower_breakthrough.to(lower_consolidation) |
-        subsequent_lower_breakthrough.to(upper_consolidation) |
-        subsequent_upper_breakthrough.to(lower_consolidation)
+        subsequent_upper_breakthrough.to(upper_consolidation) |
+        subsequent_lower_breakthrough.to(lower_consolidation)
     )
-
 
     TP_triggered = (
         initial_on_full_off_uptrend.to(cooldown) |
@@ -135,6 +139,10 @@ class TradeEngineFlat(StateMachine):
         """
         Actions to perform when entering uptrend state.
         """
+
+        if self.parameters_store.background()<0:
+            return
+
         last_candle=self.window_operator.last_n_candles(1)[-1]
 
         self.history_operator.add(last_candle)
@@ -170,6 +178,8 @@ class TradeEngineFlat(StateMachine):
         """
         Actions to perform when upper edge breakthrough.
         """
+        if self.parameters_store.background()>0:
+            return
 
         last_candle=self.window_operator.last_n_candles(1)[-1]
 
@@ -225,6 +235,9 @@ class TradeEngineFlat(StateMachine):
             self.parameters_store.set_lower_edge(new_low)
 
     def on_enter_upper_consolidation(self):
+        if self.parameters_store.background()>0:
+            return
+
         last_candle=self.window_operator.last_n_candles(1)[-1]
 
         self.history_operator.add(last_candle)
@@ -243,7 +256,7 @@ class TradeEngineFlat(StateMachine):
         order = Order(
             action=CandleAction.SELL,
             time=last_candle.close_time - timedelta(minutes=5),
-            entry=last_candle.close,
+            entry=last_candle.high+self.parameters_store.spread(),
             volume=volume
         )
 
@@ -419,7 +432,14 @@ class TradeEngineFlat(StateMachine):
 
             case "initial_lower_breakthrough" | "initial_upper_breakthrough":
                 self.last_state_id = self.current_state_value
-                self.history_operator.add(candle)
+
+                is_codirectional=self.strategy_operator.is_codirectional(
+                    state=str(self.current_state_value),
+                    background=self.parameters_store.background()
+                )
+
+                #if is_codirectional:
+                #    self.history_operator.add(candle)
 
                 is_moved_back_uptrend = self.strategy_operator.is_moved_back_uptrend(
                     candle=candle,
@@ -446,11 +466,14 @@ class TradeEngineFlat(StateMachine):
                 )
 
                 match True:
-                    case _ if is_moved_back_uptrend:
+                    case _ if is_moved_back_uptrend and is_codirectional:
                         self.send("back_inside_uptrend_initial")
 
-                    case _ if is_moved_back_downtrend:
+                    case _ if is_moved_back_downtrend and is_codirectional:
                         self.send("back_inside_downtrend_initial")
+
+                    case _ if is_moved_back_uptrend or is_moved_back_downtrend:
+                        self.send("back_inside_idle")
 
                     case _ if is_consolidated_higher or is_consolidated_lower:
                         self.send("consolidate")
@@ -459,6 +482,14 @@ class TradeEngineFlat(StateMachine):
              "upper_consolidation" |
              "lower_consolidation"
             ):
+                is_codirectional=self.strategy_operator.is_codirectional(
+                    state=str(self.current_state_value),
+                    background=self.parameters_store.background()
+                )
+
+                if is_codirectional:
+                    self.history_operator.add(candle)
+
                 is_second_order_triggered=self.strategy_operator.is_order_triggered(
                     order=self.parameters_store.orders()[-1],
                     candle=candle,
@@ -543,9 +574,17 @@ class TradeEngineFlat(StateMachine):
                     case _ if is_lower_breakthrough:
                         self.send("initial_lower_breakthrough_ts")
 
+            case (
+                "initial_on_full_off_downtrend" |
+                "initial_on_full_off_uptrend"
+            ):
+                self.history_operator.add(candle=candle)
+
 
         action = self.strategy_operator.action(
-            cast(str,self.current_state_value), self.last_state_id
+            current_state_id=str(self.current_state_value),
+            last_state_id=self.last_state_id,
+            background=self.parameters_store.background(),
         )
         order = (
             self.parameters_store.orders()[-1] if action != MarketAction.HOLD else Order()

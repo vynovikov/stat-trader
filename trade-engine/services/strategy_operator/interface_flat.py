@@ -98,7 +98,12 @@ class StrategyOperatorFlat(ABC):
         ) -> str: ...
 
     @abstractmethod
-    def action(self, current_state_id: str, last_state_id: str) -> MarketAction: ...
+    def action(
+        self,
+        current_state_id: str,
+        last_state_id: str,
+        background: Background,
+        ) -> MarketAction: ...
 
     @abstractmethod
     def is_entry_triggered(self, order: Order, candle: Candle) -> bool: ...
@@ -245,10 +250,16 @@ class StrategyOperatorFlat(ABC):
         lower_edge:float,
     ) -> Tuple[float,float,float]: ...
 
-
     @abstractmethod
     def is_order_triggered(
         self,
         order: Order,
         candle: Candle,
+    ) -> bool: ...
+
+    @abstractmethod
+    def is_codirectional(
+        self,
+        state: str,
+        background: Background,
     ) -> bool: ...

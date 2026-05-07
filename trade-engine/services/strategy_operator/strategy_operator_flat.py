@@ -322,17 +322,16 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
             self,
             current_state_id: str,
             last_state_id: str,
+            background: Background,
             ) -> MarketAction:
-            match current_state_id:
-                case (
-                    "initial_upper_breakthrough" |
-                    "initial_lower_breakthrough" |
-                    "upper_consolidation" |
-                    "lower_consolidation"
-                ):
+            match (current_state_id,background):
+                case ("initial_upper_breakthrough" | "upper_consolidation" ,b) if b<=0:
                     return MarketAction.OPEN
 
-                case "cooldown" if last_state_id in [
+                case ("initial_lower_breakthrough" | "lower_consolidation",b) if b>=0:
+                    return MarketAction.OPEN
+
+                case ("cooldown",_) if last_state_id in [
                     "on_market_uptrend",
                     "on_market_downtrend",
                 ]:
@@ -708,3 +707,16 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
         )
 
         return volume,calculated_sl,calculated_tp
+
+    def is_codirectional(
+        self,
+        state: str,
+        background: Background,
+    ) -> bool:
+
+        return (
+          (state == "initial_upper_breakthrough" and background<=0) or
+          (state == "initial_lower_breakthrough" and background>=0) or
+          (state == "upper_consolidation" and background<=0) or
+          (state == "initial_lower_breakthrough" and background>=0)
+        )
