@@ -640,10 +640,10 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
     ) -> Tuple[float,float,float]:
         calculated_tp = lower_edge + spread
 
-        calculated_sl = candle.close + (candle.close-calculated_tp) - spread
+        calculated_sl = candle.high + (candle.high-calculated_tp)/2 - spread
 
         volume= self.bookkeeper.calculate_volume(
-            entry_price=candle.close,
+            entry_price=candle.high,
             sl=calculated_sl,
             deposit=deposit,
             risk_per_trade=risk_per_trade,
@@ -690,14 +690,14 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
         partial_trade_multiplier: float,
         min_volume: float,
         safe_factor: float,
-        lower_edge:float,
+        higher_edge:float,
     ) -> Tuple[float,float,float]:
-        calculated_tp = lower_edge + spread
+        calculated_tp = higher_edge - spread
 
-        calculated_sl = candle.close + (candle.close-calculated_tp) - spread
+        calculated_sl = candle.low - (calculated_tp-candle.low)/2 - spread
 
         volume= self.bookkeeper.calculate_volume(
-            entry_price=candle.close,
+            entry_price=candle.low,
             sl=calculated_sl,
             deposit=deposit,
             risk_per_trade=risk_per_trade,

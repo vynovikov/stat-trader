@@ -275,6 +275,47 @@ class TradeEngineFlat(StateMachine):
 
         self.parameters_store.set_tpsl(tpsl=tpsl)
 
+    def on_enter_lower_consolidation(self):
+        if self.parameters_store.background()>0:
+            return
+
+        last_candle=self.window_operator.last_n_candles(1)[-1]
+
+        self.history_operator.add(last_candle)
+
+        volume,sl,tp=self.strategy_operator.subsequent_params_uptrend(
+            candle=last_candle,
+            spread=self.parameters_store.spread(),
+            deposit=self.parameters_store.deposit(),
+            risk_per_trade=self.parameters_store.risk_per_full_trade(),
+            partial_trade_multiplier=self.parameters_store.partial_trade_multiplier(),
+            min_volume=self.parameters_store.min_volume(),
+            safe_factor=self.parameters_store.safe_factor(),
+            higher_edge=self.parameters_store.higher_edge(),
+        )
+
+        order = Order(
+            action=CandleAction.BUY,
+            time=last_candle.close_time - timedelta(minutes=5),
+            entry=last_candle.low-self.parameters_store.spread(),
+            volume=volume
+        )
+
+        self.parameters_store.add_order(order=order)
+
+        total_volume = 0
+
+        for order in self.parameters_store.orders():
+            total_volume+=order.volume
+
+        tpsl=TPSL(
+            volume=total_volume,
+            sl=sl,
+            tp=tp,
+        )
+
+        self.parameters_store.set_tpsl(tpsl=tpsl)
+
     def on_enter_cooldown(self):
         """
         Actions to perform when entering off_market cooldown state.

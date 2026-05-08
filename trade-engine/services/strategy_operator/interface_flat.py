@@ -247,7 +247,7 @@ class StrategyOperatorFlat(ABC):
         partial_trade_multiplier: float,
         min_volume: float,
         safe_factor: float,
-        lower_edge:float,
+        higher_edge:float,
     ) -> Tuple[float,float,float]: ...
 
     @abstractmethod
