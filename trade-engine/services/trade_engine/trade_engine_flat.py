@@ -479,9 +479,6 @@ class TradeEngineFlat(StateMachine):
                     background=self.parameters_store.background()
                 )
 
-                #if is_codirectional:
-                #    self.history_operator.add(candle)
-
                 is_moved_back_uptrend = self.strategy_operator.is_moved_back_uptrend(
                     candle=candle,
                     lower_edge=self.parameters_store.lower_edge(),
@@ -542,17 +539,21 @@ class TradeEngineFlat(StateMachine):
 
             case (
                 "initial_on_full_off_downtrend" |
-                "initial_on_full_on_downtrend"
+                "initial_on_full_on_downtrend" |
+                "initial_on_full_off_uptrend" |
+                "initial_on_full_on_uptrend"
             ):
                 self.last_state_id = self.current_state_value
                 self.history_operator.add(candle)
 
-                is_sl_triggered_downtrend = self.strategy_operator.is_sl_triggered_downtrend(
+                is_sl_triggered = self.strategy_operator.is_sl_triggered(
+                    candle_action=self.parameters_store.orders()[-1].action,
                     SL=self.parameters_store.tpsl().sl,
                     candle=candle,
                 )
 
-                is_tp_triggered_downtrend = self.strategy_operator.is_tp_triggered_downtrend(
+                is_tp_triggered = self.strategy_operator.is_tp_triggered(
+                    candle_action=self.parameters_store.orders()[-1].action,
                     TP=self.parameters_store.tpsl().tp,
                     candle=candle,
                 )
@@ -562,14 +563,22 @@ class TradeEngineFlat(StateMachine):
                     higher_edge=self.parameters_store.higher_edge(),
                 )
 
+                is_lower_breakthrough = self.strategy_operator.is_lower_breakthrough(
+                    candle=candle,
+                    lower_edge=self.parameters_store.lower_edge(),
+                )
+
                 match True:
                     case _ if is_higher_breakthrough:
                         self.send("subsequent_upper_breakthrough_ts")
 
-                    case _ if is_sl_triggered_downtrend:
+                    case _ if is_lower_breakthrough:
+                        self.send("subsequent_lower_breakthrough_ts")
+
+                    case _ if is_sl_triggered:
                         self.send("SL_triggered")
 
-                    case _ if is_tp_triggered_downtrend:
+                    case _ if is_tp_triggered:
                         self.send("TP_triggered")
 
             case "subsequent_lower_breakthrough" | "subsequent_upper_breakthrough":
@@ -618,7 +627,10 @@ class TradeEngineFlat(StateMachine):
             case (
                 "initial_on_full_off_downtrend" |
                 "initial_on_full_off_uptrend"
-            ):
+            ) if self.last_state_id not in [
+                "initial_on_full_off_downtrend",
+                "initial_on_full_off_uptrend"
+            ]:
                 self.history_operator.add(candle=candle)
 
 

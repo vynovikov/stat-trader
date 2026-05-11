@@ -30,195 +30,38 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
         self.metric_repository = metric_repository
         self.logger = logger
 
-    def initial_uptrend_order(
+    def is_sl_triggered(
         self,
-        candle: Candle,
-        spread: float,
-        deposit: float,
-        risk_per_trade: float,
-        partial_trade_multiplier: float,
-        min_volume: float,
-        safe_factor: float,
-        min_price_delta: float,
-        higher_edge:float,
-        lower_edge:float,
-    ) -> Order:
-
-        candle_body = abs(candle.close - candle.open)
-
-        calculated_entry = candle.close + min(
-            candle.close + candle_body / 10, 2 * min_price_delta
-        )
-
-        calculated_tp = higher_edge - spread
-
-        calculated_sl = calculated_entry + (calculated_entry-calculated_tp)+spread
-
-        order = Order(
-            action=CandleAction.SELL,
-            time=candle.close_time - timedelta(minutes=5),
-            entry=calculated_entry,
-            volume=self.bookkeeper.calculate_volume(
-                entry_price=candle.close,
-                sl=calculated_sl,
-                deposit=deposit,
-                risk_per_trade=risk_per_trade,
-                partial_trade_multiplier=partial_trade_multiplier,
-                min_volume=min_volume,
-                safe_factor=safe_factor,
-            ),
-        )
-
-        return order
-
-    def subsequent_uptrend_order(
-        self,
-        candle: Candle,
-        spread: float,
-        deposit: float,
-        risk_per_trade: float,
-        partial_trade_multiplier: float,
-        min_volume: float,
-        safe_factor: float,
-        min_price_delta: float,
-        higher_edge:float,
-        lower_edge:float,
-    ) -> Order:
-
-        candle_body = abs(candle.close - candle.open)
-
-        calculated_entry = candle.close + min(
-            candle.close + candle_body / 10, 2 * min_price_delta
-        )
-
-        calculated_tp = higher_edge - spread
-
-        calculated_sl = calculated_entry + (calculated_entry-calculated_tp)+spread
-
-        order = Order(
-            action=CandleAction.SELL,
-            time=candle.close_time - timedelta(minutes=5),
-            entry=calculated_entry,
-            volume=self.bookkeeper.calculate_volume(
-                entry_price=candle.close,
-                sl=calculated_sl,
-                deposit=deposit,
-                risk_per_trade=risk_per_trade,
-                partial_trade_multiplier=partial_trade_multiplier,
-                min_volume=min_volume,
-                safe_factor=safe_factor,
-            ),
-        )
-
-        return order
-
-    def additional_uptrend_order(
-        self,
-        candle: Candle,
-        spread: float,
-        deposit: float,
-        risk_per_trade: float,
-        partial_trade_multiplier: float,
-        min_volume: float,
-        safe_factor: float,
-        min_price_delta: float,
-        higher_edge:float,
-        lower_edge:float,
-    ) -> Order:
-
-        calculated_tp = higher_edge - spread
-
-        return Order()
-
-    def additional_downtrend_order(
-        self,
-        candle: Candle,
-        spread: float,
-        deposit: float,
-        risk_per_trade: float,
-        partial_trade_multiplier: float,
-        min_volume: float,
-        safe_factor: float,
-        min_price_delta: float,
-        higher_edge:float,
-        lower_edge:float,
-    ) -> Order:
-        candle_body = abs(candle.close - candle.open)
-
-        calculated_entry = candle.close + min(
-            candle.close + candle_body / 10, 2 * min_price_delta
-        )
-
-        calculated_tp = lower_edge - spread
-
-        calculated_sl = calculated_entry + (calculated_entry-calculated_tp)/2+spread
-
-        order = Order(
-            action=CandleAction.SELL,
-            time=candle.close_time - timedelta(minutes=5),
-            entry=calculated_entry,
-            sl=calculated_sl,
-            tp=calculated_tp,
-            volume=self.bookkeeper.calculate_volume(
-                entry_price=candle.close,
-                sl=calculated_sl,
-                deposit=deposit,
-                risk_per_trade=risk_per_trade,
-                partial_trade_multiplier=partial_trade_multiplier,
-                min_volume=min_volume,
-                safe_factor=safe_factor,
-            ),
-        )
-
-        return order
-
-    def is_sl_triggered_uptrend(
-        self,
+        candle_action: CandleAction,
         SL: float,
         candle: Candle,
         ) -> bool:
 
-        return candle.low<=SL
+        return candle.low<=SL if candle_action == CandleAction.BUY else candle.high >= SL
 
-    def is_tp_triggered_uptrend(
+    def is_tp_triggered(
         self,
+        candle_action: CandleAction,
         TP: float,
         candle: Candle,
         ) -> bool:
 
-        return candle.high>TP
-
-
-    def is_sl_triggered_downtrend(
-        self,
-        SL: float,
-        candle: Candle,
-        ) -> bool:
-
-        return candle.high>=SL
-
-    def is_tp_triggered_downtrend(
-        self,
-        TP: float,
-        candle: Candle,
-        ) -> bool:
-
-        return candle.low<TP
+        return candle.high>TP if candle_action == CandleAction.BUY else candle.low < TP
 
     def price_difference(
             self,
             candle: Candle,
-            order: Order,
+            order:Order,
             tpsl: TPSL,
             ) -> float:
         match order.action:
-            case CandleAction.BUY if self.is_sl_triggered_uptrend(order.sl, candle):
-                price_difference = order.sl - order.entry
-            case CandleAction.BUY if self.is_tp_triggered_uptrend(order.tp, candle):
-                price_difference = order.tp - order.entry
-            case CandleAction.SELL if self.is_sl_triggered_downtrend(tpsl.sl, candle):
+            case CandleAction.BUY if self.is_sl_triggered(order.action, tpsl.sl, candle):
+                price_difference = tpsl.sl - order.entry
+            case CandleAction.BUY if self.is_tp_triggered(order.action,tpsl.tp, candle):
+                price_difference = tpsl.tp - order.entry
+            case CandleAction.SELL if self.is_sl_triggered(order.action,tpsl.sl, candle):
                 price_difference = order.entry - tpsl.sl
-            case CandleAction.SELL if self.is_tp_triggered_downtrend(tpsl.tp, candle):
+            case CandleAction.SELL if self.is_tp_triggered(order.action,tpsl.tp, candle):
                 price_difference = order.entry - tpsl.tp
             case _:
                 price_difference = 0.0
@@ -482,8 +325,6 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
 
         return history_candles
 
-
-
     def is_moved_back_uptrend(
         self,
         candle: Candle,
@@ -518,7 +359,6 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
             candle.is_UP() and
             candle.close>=higher_edge
         )
-
 
     def is_lower_breakthrough(
         self,

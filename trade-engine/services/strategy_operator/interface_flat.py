@@ -13,50 +13,6 @@ from domain.types.power import Power
 
 
 class StrategyOperatorFlat(ABC):
-    @abstractmethod
-    def initial_uptrend_order(
-        self,
-        candle: Candle,
-        spread: float,
-        deposit: float,
-        risk_per_trade: float,
-        partial_trade_multiplier: float,
-        min_volume: float,
-        safe_factor: float,
-        min_price_delta: float,
-        higher_edge:float,
-        lower_edge:float,
-    ) -> Order: ...
-
-    @abstractmethod
-    def additional_uptrend_order(
-        self,
-        candle: Candle,
-        spread: float,
-        deposit: float,
-        risk_per_trade: float,
-        partial_trade_multiplier: float,
-        min_volume: float,
-        safe_factor: float,
-        min_price_delta: float,
-        higher_edge:float,
-        lower_edge:float,
-    ) -> Order: ...
-
-    @abstractmethod
-    def additional_downtrend_order(
-        self,
-        candle: Candle,
-        spread: float,
-        deposit: float,
-        risk_per_trade: float,
-        partial_trade_multiplier: float,
-        min_volume: float,
-        safe_factor: float,
-        min_price_delta: float,
-        higher_edge:float,
-        lower_edge:float,
-    ) -> Order: ...
 
     @abstractmethod
     def entrypoint(
@@ -109,29 +65,17 @@ class StrategyOperatorFlat(ABC):
     def is_entry_triggered(self, order: Order, candle: Candle) -> bool: ...
 
     @abstractmethod
-    def is_sl_triggered_uptrend(
+    def is_sl_triggered(
         self,
+        candle_action: CandleAction,
         SL: float,
         candle: Candle,
         ) -> bool: ...
 
     @abstractmethod
-    def is_tp_triggered_uptrend(
+    def is_tp_triggered(
         self,
-        TP: float,
-        candle: Candle,
-        ) -> bool: ...
-
-    @abstractmethod
-    def is_sl_triggered_downtrend(
-        self,
-        SL: float,
-        candle: Candle,
-        ) -> bool: ...
-
-    @abstractmethod
-    def is_tp_triggered_downtrend(
-        self,
+        candle_action: CandleAction,
         TP: float,
         candle: Candle,
         ) -> bool: ...
