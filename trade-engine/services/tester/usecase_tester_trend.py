@@ -94,7 +94,8 @@ def get_reversal_v5(
     parameters_store = ParametersStoreImpl(
         prelude_len=4,
         window_len=6,
-        risk_per_trade=cfg.RISK_PER_TRADE,
+        risk_per_full_trade=cfg.RISK_PER_TRADE,
+        partial_trade_multiplier=0,
         deposit=initial_deposit,
         engine_service_name=cfg.ENGINE_LABEL_REV,
         strategy_operator_service_name=cfg.STRATEGY_OPERATOR_LABEL_REV,
@@ -146,7 +147,8 @@ def get_continual_v6(
     parameters_store = ParametersStoreImpl(
         prelude_len=4,
         window_len=6,
-        risk_per_trade=cfg.RISK_PER_TRADE*2,
+        risk_per_full_trade=cfg.RISK_PER_TRADE*2,
+        partial_trade_multiplier=0,
         deposit=initial_deposit,
         engine_service_name=cfg.ENGINE_LABEL_CON,
         strategy_operator_service_name=cfg.STRATEGY_OPERATOR_LABEL_CON,
@@ -276,8 +278,8 @@ if __name__ == "__main__":
     candles = get_candles(
         "BTCUSDT",
         "15m",
-        from_time=datetime(2026, 3, 21, 17, 0, 0),
-        to_time=datetime(2026, 3, 22, 4, 0, 0),
+        from_time=datetime(2026, 5, 7, 21, 0, 0),
+        to_time=datetime(2026, 5, 8, 20, 30, 0),
     )
 
     profit = 0
@@ -321,14 +323,14 @@ if __name__ == "__main__":
                 metric_repository.insert_trade_historical(
                     id=total_trades,
                     symbol="BTCUSDT",
-                    open_time=decision.report.order.time,
+                    open_time=decision.report.orders[-1].time,
                     engine_id=decision.engine_id,
-                    candle_action=decision.report.order.action,
+                    candle_action=decision.report.orders[-1].action,
                     reason=decision.report.reason,
-                    entry_price=decision.report.order.entry,
-                    stop_loss=decision.report.order.sl,
-                    take_profit=decision.report.order.tp,
-                    volume=decision.report.order.volume,
+                    entry_price=decision.report.orders[-1].entry,
+                    stop_loss=decision.report.tpsl.sl,
+                    take_profit=decision.report.tpsl.tp,
+                    volume=decision.report.orders[-1].volume,
                     profit=decision.report.profit,
                 )
 

@@ -558,5 +558,5 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
           (state == "initial_upper_breakthrough" and background<=0) or
           (state == "initial_lower_breakthrough" and background>=0) or
           (state == "upper_consolidation" and background<=0) or
-          (state == "initial_lower_breakthrough" and background>=0)
+          (state == "lower_consolidation" and background>=0)
         )

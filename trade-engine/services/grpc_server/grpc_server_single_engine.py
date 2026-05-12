@@ -44,7 +44,7 @@ from services.metric_repository.clickhouse_metric_repository import (
     ClickhouseMetricRepository,
 )
 from services.usecases.interface import Usecases
-from services.usecases.single_engine_usecases import SingleEngineUsecases
+from services.usecases.usecases_single_engine import SingleEngineUsecases
 from services.trade_engine.trade_engine_adapter import (
     TradeEngineAdapter,
 )

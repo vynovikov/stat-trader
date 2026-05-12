@@ -10,7 +10,7 @@ from services.trade_engine.interface import TradeEngine
 from services.metric_repository.interface import MetricRepository
 
 
-class SingleEngineUsecases(Usecases):
+class UsecasesSingleEngine(Usecases):
     def __init__(
         self,
         trade_engine: TradeEngine,
@@ -37,26 +37,24 @@ class SingleEngineUsecases(Usecases):
     ) -> Decision:
         decision = self.trade_engine.handle_first(trade_unit)
 
-        self.metric_repository.insert_candles_real(
+        self.metric_repository.insert_candles_all(
             symbol="BTCUSDT",
             timeframe="5m",
             candles=[trade_unit.candle],
-            engine_id=decision.engine_id,
-            trade_id=0,
         )
 
         if decision.action == MarketAction.CLOSE:
             self.metric_repository.insert_trade_real(
                 id=self.trade_id,
                 symbol="BTCUSDT",
-                open_time=decision.report.order.time,
+                open_time=decision.report.orders[-1].time,
                 engine_id=decision.engine_id,
-                candle_action=decision.report.order.action,
+                candle_action=decision.report.orders[-1].action,
                 reason=decision.report.reason,
-                entry_price=decision.report.order.entry,
-                stop_loss=decision.report.order.sl,
-                take_profit=decision.report.order.tp,
-                volume=decision.report.order.volume,
+                entry_price=decision.report.orders[-1].entry,
+                stop_loss=decision.report.tpsl.sl,
+                take_profit=decision.report.tpsl.tp,
+                volume=decision.report.orders[-1].volume,
                 profit=decision.report.profit,
             )
 
@@ -75,3 +73,6 @@ class SingleEngineUsecases(Usecases):
             self.trade_engine.report_reset()
 
         return decision
+
+    def reports_reset(self):
+        self.trade_engine.report_reset()
