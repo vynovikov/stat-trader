@@ -175,13 +175,17 @@ class StrategyOperatorFlatImpl(StrategyOperatorFlat):
                     return MarketAction.OPEN
 
                 case ("cooldown",_) if last_state_id in [
-                    "on_market_uptrend",
-                    "on_market_downtrend",
+                    "initial_on_full_off_downtrend",
+                    "initial_on_full_on_downtrend",
+                    "initial_on_full_off_uptrend",
+                    "initial_on_full_on_uptrend"
                 ]:
                     return MarketAction.CLOSE
 
                 case _:
                     return MarketAction.HOLD
+
+
 
     def entrypoint(
         self,

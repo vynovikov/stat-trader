@@ -70,8 +70,8 @@ def get_flat(
     metric_repository: MetricRepository,
     cfg: Config,
 ) -> TradeEngine:
-    engine_logger = get_logger(str({cfg.ENGINE_LABEL_REV}))
-    strategy_logger = get_logger(str({cfg.STRATEGY_OPERATOR_LABEL_REV}))
+    engine_logger = get_logger(str({cfg.ENGINE_LABEL_FLAT}))
+    strategy_logger = get_logger(str({cfg.STRATEGY_OPERATOR_LABEL_FLAT}))
 
     repository = MockRepository()
     leveraged_bookkeeper = LeveragedBookkeeper(leverage=10)
@@ -90,19 +90,22 @@ def get_flat(
     parameters_store = ParametersStoreImpl(
         prelude_len=4,
         window_len=6,
-        risk_per_full_trade=cfg.RISK_PER_TRADE,
-        partial_trade_multiplier=0,
+        risk_per_full_trade=cfg.RISK_PER_FULL_TRADE,
+        partial_trade_multiplier=cfg.PARTIAL_TRADE_MULTIPLIER,
         deposit=initial_deposit,
-        engine_service_name=cfg.ENGINE_LABEL_REV,
-        strategy_operator_service_name=cfg.STRATEGY_OPERATOR_LABEL_REV,
+        engine_service_name=cfg.ENGINE_LABEL_FLAT,
+        strategy_operator_service_name=cfg.STRATEGY_OPERATOR_LABEL_FLAT,
         background=Background(cfg.BACKGROUND),
         power=Power(cfg.POWER),
         min_price_delta=cfg.MIN_PRICE_DELTA,
         body_ratio=cfg.BODY_RATIO,
         shadow_ratio=cfg.SHADOW_RATIO,
+        higher_edge=cfg.HIGHER_EDGE,
+        lower_edge=cfg.LOWER_EDGE,
+        margin=cfg.MARGIN,
     )
 
-    trade_engine_reversal_v5 = TradeEngineFlat(
+    trade_engine_flat = TradeEngineFlat(
         repository=repository,
         bookkeeper=leveraged_bookkeeper,
         strategy_operator=strategy_operator,
@@ -116,7 +119,7 @@ def get_flat(
         logger=engine_logger,
     )
 
-    return TradeEngineAdapter(trade_engine_reversal_v5)
+    return TradeEngineAdapter(trade_engine_flat)
 
 
 def get_candles(
@@ -217,7 +220,7 @@ if __name__ == "__main__":
     candles = get_candles(
         "BTCUSDT",
         "15m",
-        from_time=datetime(2026, 5, 7, 21, 0, 0),
+        from_time=datetime(2026, 5, 7, 20, 0, 0),
         to_time=datetime(2026, 5, 8, 20, 30, 0),
     )
 
